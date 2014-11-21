@@ -15,3 +15,8 @@ angular.module('sraAngularApp')
       'Karma'
     ];
   });
+
+angular.module('sraAngularApp')
+  .controller('regionsCtrl', ["$scope", function ($scope) {
+    $scope.name;
+  }]);
