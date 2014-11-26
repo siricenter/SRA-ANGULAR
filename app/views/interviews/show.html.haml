@@ -1,0 +1,66 @@
+%p#notice
+	= notice
+
+%h1
+	= "#{@household.name}'s"
+	Nutrition
+
+.row
+	= link_to 'Edit Interview', edit_interview_path(@interview), class: [:btn, "btn-large", "btn-success", "col-sm-2", :right]
+
+- unless @household.people.count == 0
+	= nutrient_row "Calories", @interview.calories, 2000, @household.people.count
+	= nutrient_row "Grams of Sugar", @interview.sugars_grams, 37.5, @household.people.count
+	= nutrient_row "Grams of Protein", @interview.protein_grams, 50, @household.people.count
+	= nutrient_row "Milligrams of Sodium", @interview.sodium_grams, 2000, @household.people.count
+	= nutrient_row "Milligrams of Cholesterol", @interview.cholesterol_grams, 300, @household.people.count
+	= nutrient_row "% Daily Value of Vitamin A", @interview.vitamin_a_dv, 100, @household.people.count
+	= nutrient_row "% Daily Value of Vitamin C", @interview.vitamin_c_dv, 100, @household.people.count
+- else
+	.row
+		%p
+			Can't figure out nutritional info without people in the household
+            
+%h2
+	Vegetables for More Sugar
+
+- vegetables = ['Beets', 'Carrots', 'Corn', 'Parsnips', 'Peas', 'Plantains', 'Potatoes']
+%ul
+	- vegetables.each do |vegetable|
+		%li 
+			= vegetable
+			
+%h2
+	Vegetables for More Protein
+
+- vegetables = ['Peas', 'Spinach', 'Potato', 'Broccoli', 'Brussel Sprouts', 'Corn']
+%ul
+	- vegetables.each do |vegetable|
+		%li 
+			= vegetable
+%h2
+	Vegetables for More Sodium
+
+- vegetables = ['Beets', 'Celery', 'Carrots', 'Spinach', 'Chard']
+%ul
+	- vegetables.each do |vegetable|
+		%li 
+			= vegetable
+			
+%h2
+	Vegetables for More Vitamin A
+	
+- vegetables = ['Sweet Potatoes', 'Carrots', 'Kale', 'Squash', 'Spinach', 'Chard']
+%ul
+	- vegetables.each do |vegetable|
+		%li 
+			= vegetable
+%h2
+	Vegetables for More Vitamin C
+	
+- vegetables = ['Sweet Peppers (any color)', 'Chives', 'Green Hot Chili Peppers', 'Parsley', 'Kale']
+%ul
+	- vegetables.each do |vegetable|
+		%li 
+			= vegetable
+	

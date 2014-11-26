@@ -1,0 +1,49 @@
+$nav-height: 60px;
+nav
+{
+	background: #FFFFFF;
+	font-size: large;
+	line-height: 40px;
+	top: 0;
+	width: 100%;
+	min-height: $nav-height;
+	z-index: 1;
+
+	a
+	{
+		border-radius: 0px;
+		color: #555454;
+		text-decoration: none;
+		cursor: pointer;
+		outline: none;
+	}
+
+	a:link {
+		font-weight: 700;
+		font-size: larger;
+		color: #555454;
+	}
+
+	li
+	{
+		color: #2D2D2D;
+		display: inline;
+	}
+
+	a.active, a.active:hover{
+		line-height: 63px;
+		color: #fff;
+	}
+
+	.navbar-brand > img
+	{
+		height: $nav-height;
+		margin-top: -18px;
+	}
+}
+
+.navbar .nav > li > a:hover{
+	color: #FFFFFF;
+	background-color: #B4B4B4;
+	text-decoration: none;
+}

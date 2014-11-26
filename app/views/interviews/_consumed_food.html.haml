@@ -1,0 +1,13 @@
+= fields_for consumed_food do |form|
+  .row{id: :"food_div_#{consumed_food.n_id}"}
+    = form.hidden_field "consumed_foods_#{consumed_food.n_id}[n_id]", value: consumed_food.n_id, name: "consumed_foods[consumed_food_#{consumed_food.n_id}[n_id]]"
+    = label_tag :name, "Name:", class: "col-sm-1"
+    = text_field_tag :name, consumed_food.name, class: [:textfield, "col-sm-5", "col-md-6"], disabled: true
+
+    = form.label :servings, "Servings:", class: "col-sm-2"
+    = form.select :servings, [1,2,3,4,5,6,7,8,9,10], {}, class: ["col-sm-1"], name: "consumed_foods[consumed_food_#{consumed_food.n_id}[servings]]"
+
+    = form.select :frequency, ['daily', 'weekly', 'monthly'], {}, class: 'col-sm-1', name: "consumed_foods[consumed_food_#{consumed_food.n_id}[frequency]]"
+   
+    %button.button.col-sm-1{id: :"remove_consumed_foods_#{consumed_food.n_id}",  onclick: :"removeFood('food_div_#{consumed_food.n_id}')"}
+      Remove

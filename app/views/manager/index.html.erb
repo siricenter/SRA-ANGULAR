@@ -1,0 +1,14 @@
+%h1 
+  Households
+  
+.row
+  
+  = link_to 'New Household', new_household_path, class: [:btn, "btn-large", "btn-success", :right], id: :top
+%br
+
+= render 'managers_list'
+
+.row
+  
+  = link_to 'New Household', new_household_path, class: [:btn, "btn-large", "btn-success", :right], id: :bottom
+

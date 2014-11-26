@@ -1,0 +1,30 @@
+<div class="row">
+  <% @areas.each do |area| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <%= area.name %>
+          </h3>
+        </div>
+        <div class="panel-body index">
+          <% @field_workers.each do |person| %>
+            <ul>
+              <li>
+                <%= person.email %>
+                <ul>
+                  <li>
+                    <% if person.households.empty? %>
+                      <%= "No households" %>
+                    <% else person.households.name %>
+                    <% end %>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,7 @@
+= form_for([@user, @role]) do |form|
+  .row
+    = form.label :name, class: ["col-sm-3", "col-md-2"]
+    = form.text_field :name, class: [:textfield, "col-sm-9", "col-md-10"]
+
+  .row
+    = form.submit :submit, class: [:btn, "btn-success", "btn-large", "col-sm-3"]

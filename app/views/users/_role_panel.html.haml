@@ -1,0 +1,10 @@
+.col-sm-6.col-md-4
+  .panel.panel-primary
+    .panel-heading
+      %h3.panel-title
+        = role.name
+    .panel-body.index
+      - if assign
+        = link_to 'Assign', new_user_role_path(@user.id, role.id), class: ['btn', 'btn-success', 'btn-lg', 'col-sm-12'], id: "#{role.id}_assign", method: :post
+      - else
+        = link_to 'Unassign', destroy_user_role_path(@user.id, role.id), class: ['btn', 'btn-success', 'btn-lg', 'col-sm-12'], id: "#{role.id}_unassign", method: :delete

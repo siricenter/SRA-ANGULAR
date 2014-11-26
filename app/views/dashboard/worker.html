@@ -1,0 +1,17 @@
+<h1>
+  Dashboard
+</h1>
+<div class="row">
+  <div class="btn-toolbar">
+    <%= link_to 'New Household', new_household_path, class: [:btn, "btn-large", "btn-success", :right], id: :top  %>
+    <%= link_to 'New Meeting', new_event_path, class: [:btn, "btn-large", "btn-success", :right], id: :top  %>
+  </div>
+</div>
+<div class="row">
+  <%= render 'manager_partial' %>
+</div>
+<div class="row">
+  <%= render 'dashboard_list' %>
+  <%= render 'meetings_list' %>
+</div>
+

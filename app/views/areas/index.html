@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= "Areas" %>
+        </h3>
+      </div>
+      <div class="panel-body index">
+        <% @areas.each do |area| %>
+          <ul>
+            <li>
+              <%= area.name %>
+              <ul>
+                <li>
+                  <%= link_to 'View', area %>
+                </li>
+                <li>
+                  <%= link_to 'Edit', edit_area_path(area) %>
+                </li>
+                <li>
+                  <%= link_to 'Delete', area, method: :delete, data: {confirm: 'Are you sure'} %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row"></div>
+<%= link_to 'New Area', new_area_path %>

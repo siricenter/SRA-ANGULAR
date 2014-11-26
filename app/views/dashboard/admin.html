@@ -1,0 +1,15 @@
+<h1>
+  Admin Dashboard
+</h1>
+<div class="row btn-toolbar">
+  <%= link_to 'Users', users_path, class: [:'toolbar-button'], id: :top %>
+  <%= link_to 'Roles', roles_path, class: [:'toolbar-button'], id: :top %>
+  <%= link_to 'Areas', areas_path, class: [:'toolbar-button'], id: :top %>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2"></div>
+    <%= render 'dashboard/create_user' %>
+  </div>
+</div>
+

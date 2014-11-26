@@ -1,0 +1,33 @@
+<%= form_for(@path) do |form|  %>
+  <div class="row">
+    <%= form.label :given_name, class: ["col-sm-4", "col-md-3"] %>
+    <%= form.text_field :given_name, class: [:textfield, "col-sm-8", "col-md-9"] %>
+  </div>
+  <div class="row">
+    <%= form.label :family_name, class: ["col-sm-4", "col-md-3"] %>
+    <%= form.text_field :family_name, class: [:textfield, "col-sm-8", "col-md-9"] %>
+  </div>
+  <div class="row">
+    <%= form.label :family_relationship, class: ["col-sm-4", "col-md-3"] %>
+    <%= form.select :family_relationship, @relationships %>
+  </div>
+  <div class="row">
+    <%= form.label :birthday, class: ["col-sm-4" , "col-md-3"] %>
+    <%= form.date_select :birthday, start_year: 1900, end_year: Time.now.year, class: "Hello" %>
+  </div>
+  <div class="row">
+    <%= form.label :education_level, class: ["col-sm-4" , "col-md-3"] %>
+    <%= form.select :education_level, ['None', 'Some Elementary', 'Elementary', 'Some Secondary', 'Secondary', 'Some College', 'College']   %>
+  </div>
+  <div class="row">
+    <%= form.label :gender, class: ["col-sm-4" , "col-md-3"] %>
+    <%= form.select :gender, ['Male', 'Female', 'Other']   %>
+  </div>
+  <div class="row">
+    <%= form.label :in_school, class: ["col-sm-4" , "col-md-3"] %>
+    <%= form.check_box :in_school   %>
+  </div>
+  <div class="row">
+    <%= form.submit :Submit, class: [:btn, "btn-success", "btn-large", "col-sm-3"] %>
+  </div>
+<% end %>

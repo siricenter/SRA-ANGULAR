@@ -1,0 +1,39 @@
+<%= flash[:alert] if flash[:alert] %>
+<%= form_for(@path) do |f| %>
+  <h2>
+    Foods Eaten
+  </h2>
+  <div class="row" id="add_food_eaten">
+    <%= render partial: 'consumed_food', collection: @interview.consumed_foods %>
+    <div id="consumed_foods">
+      <h4>
+        1.) Search for the food item(s) you&apos;d like to add. (Don&apos;t push enter to search - it will cause problems)
+      </h4>
+      <input class="<%= ['textfield', "col-sm-5"] %>" id="consumed_food_search" placeholder="Search for food" type="search"></input>
+      <input class="<%= [:btn, "btn-large", "btn-success", "col-sm-2"] %>" type="button" value="Search!"></input>
+    </div>
+  </div>
+  <div class="row">
+    <div id="display"></div>
+  </div>
+  <% if false %>
+    <h2>
+      Foods Stored
+    </h2>
+    <div class="row" id="add_food_stored">
+      <input type="button" value="Add New Food Stored"></input>
+    </div>
+    <h2>
+      Foods Purchased
+    </h2>
+    <div class="row" id="add_food_purchase">
+      <input type="button" value="Add Food Purchased"></input>
+    </div>
+  <% end %>
+  <div class="row">
+    <h4>
+      2.) When you have finished adding all the food items to the interview submit the form.
+    </h4>
+    <%= f.submit %>
+  </div>
+<% end %>

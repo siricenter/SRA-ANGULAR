@@ -1,0 +1,19 @@
+= form_for(@path) do |form|
+  .row
+    = form.label :title, class: ["col-sm-3", "col-md-2"]
+    = form.text_field :title, class: [:textfield, "col-sm-8", "col-md-9"]
+
+  .row
+    = form.label :occupation, class: ["col-sm-3", "col-md-2"]
+    = form.select :occupation, @occupations, class: [:textfield, "col-sm-8", "col-md-9"]
+
+  .row
+    = form.label :description, class: ["col-sm-3", "col-md-2"]
+    = form.text_field :description, class: [:textfield, "col-sm-8", "col-md-9"]
+
+  .row
+    = form.label :seasonal, class: ["col-sm-3", "col-md-2"]
+    = form.check_box :seasonal, class: [:textfield, "col-sm-8", "col-md-9"]
+
+  .row
+    = form.submit

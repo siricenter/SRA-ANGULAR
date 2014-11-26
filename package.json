@@ -1,9 +1,11 @@
 {
   "name": "sraangular",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-karma": "^0.9.0"
+  },
   "devDependencies": {
-    "grunt": "^0.4.1",
+    "grunt": "^0.4.5",
     "grunt-autoprefixer": "^0.7.3",
     "grunt-concurrent": "^0.5.0",
     "grunt-contrib-clean": "^0.5.0",
@@ -24,6 +26,7 @@
     "grunt-svgmin": "^0.4.0",
     "grunt-usemin": "^2.1.1",
     "grunt-wiredep": "^1.7.0",
+    "imagemin-svgo": "^4.0.0",
     "jshint-stylish": "^0.2.0",
     "load-grunt-tasks": "^0.4.0",
     "time-grunt": "^0.3.1"
