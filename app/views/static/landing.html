@@ -5,11 +5,7 @@
       Self Reliance + Sustainable Farming + Lasting impact
     </h2>
     <p>&nbsp;</p>
-    <% if session.include?(:token) %>
-      <%= link_to 'Login', new_user_session_path, class: :button %>
-    <% else %>
-      <%= link_to 'Dashboard', dashboard_path, class: :button %>
-    <% end %>
+      <a href = '#/login' class = btn-btn-default>Login</a>
   </header>
 </div>
 <div class="main">
