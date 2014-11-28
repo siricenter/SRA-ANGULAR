@@ -34,8 +34,8 @@ controllers.StaticController = function($scope, $firebase){
 controllers.LoginController = function($scope, $firbaseAuth){
 
 	$scope.Login = function(){
-	var email = $scope.email
-	var password = $scope.password
+	var email = $scope.user.email
+	var password = $scope.user.password
 	var ref = new Firebase("https://sweltering-heat-9359.firebaseio.com");
     $scope.authObj = $firebaseAuth(ref);
 	$scope.authObj.$authWithPassword({
@@ -57,14 +57,6 @@ controllers.AreaController = function($scope, $firebase){
 		$scope.areas = sync.$asArray();
 
 	}
-	$scope.newArea = function(){
-		 area{
-		 	name: $scope.name;
-
-		}
-		var sync = $firebase(area)
-	}
-}
 
 controllers.RegionsController = function($scope, $firebase){
 	$scope.getAreas = function(){
@@ -73,14 +65,9 @@ controllers.RegionsController = function($scope, $firebase){
 		$scope.regions = sync.$asArray();
 
 	}
-	$scope.newRegion = function(){
-		 region{
-		 	name: $scope.name;
-
-		}
-		var sync = $firebase(region)
-	}
+	
 }
 
 
 SRA_App.controller(controllers);
+}
