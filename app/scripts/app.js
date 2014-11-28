@@ -22,11 +22,11 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/static/landing.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
+      .when('/login', {
+        templateUrl: 'views/sessions/new.html',
         controller: 'AboutCtrl'
       })
       .when('/region', {
