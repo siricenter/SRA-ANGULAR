@@ -9,11 +9,9 @@
       </th>
     </thead>
     <tbody>
-      <% @user.events.each do |meeting| %>
-        <tr>
-          <td></td>
+        <tr ng-repeat = "events in meeting">
+          <td>{{meeting.title}} - {{meeting.time}}</td>
         </tr>
-      <% end %>
     </tbody>
   </table>
 </div>

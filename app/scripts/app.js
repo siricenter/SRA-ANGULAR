@@ -27,10 +27,14 @@ angular
       })
       .when('/login', {
         templateUrl: 'views/sessions/new.html',
-        controller: 'AboutCtrl'
+        controller: 'LoginController'
       })
       .when('/region', {
         templateUrl: 'views/regions.html',
+        controller: 'regionsCtrl'
+      })
+      .when('/dashboard', {
+        templateUrl: 'views/dashboard/worker.html',
         controller: 'regionsCtrl'
       })
       .otherwise({

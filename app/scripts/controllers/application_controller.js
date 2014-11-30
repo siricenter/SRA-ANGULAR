@@ -5,6 +5,9 @@
 * Time: 05:44 PM
 * To change this template use Tools | Templates.
 */
+
+'use strict';
+
 var controllers = {};
 
 
@@ -32,7 +35,6 @@ controllers.StaticController = function($scope, $firebase){
 }
 
 controllers.LoginController = function($scope, $firbaseAuth){
-
 	$scope.Login = function(){
 	var email = $scope.user.email
 	var password = $scope.user.password
@@ -41,11 +43,12 @@ controllers.LoginController = function($scope, $firbaseAuth){
 	$scope.authObj.$authWithPassword({
  	email: email,
   	password: password
-}).then(function(authData) {
-  console.log("Logged in as:", authData.uid);
-}).catch(function(error) {
-  console.error("Authentication failed:", error);
-});
+	}).then(function(authData) {
+  	console.log("Logged in as:", authData.uid);
+  	scope.$apply(function() { $location.path("#/dashboard"); });
+	}).catch(function(error) {
+    console.error("Authentication failed:", error);
+	});
 
 }
 }
@@ -112,9 +115,6 @@ controllers.RegionsController = function($scope, $firebase){
 
 	}
 
-	
-}
-
 controllers.UsersController = function($scope, $firebase){
 	var users_ref = new Firebase("https://sweltering-heat-9359.firebaseio.com/users");
 	var users_sync = $firebase(users_ref)
@@ -161,7 +161,6 @@ controllers.RolesController = function($scope, $firebase){
 	$scope.createRole = function(){
 		var name = $scope.role.name;
 		var permissions = $scope.role.permissions
-
 		var role = {name: name, permissions: permissions}
 		roles_sync.push(role).then(function(ref) {
   			ref.key();   // key for the new ly created record
@@ -176,9 +175,41 @@ controllers.RolesController = function($scope, $firebase){
 
 
 	}
+
+controllers.DashboardController = function($scope,$firebase){
+	var areas_ref = 
+}
+
 	
-}
 
+angular
+  .module('sraAngularApp', [
+    'ngAnimate',
+    'ngAria',
+    'ngCookies',
+    'ngMessages',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch'
+  ])
+  .config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/static/landing.html',
+        controller: 'MainCtrl'
+      })
+      .when('/login', {
+        templateUrl: 'views/sessions/new.html',
+        controller: 'LoginController'
+      })
+      .when('/region', {
+        templateUrl: 'views/regions.html',
+        controller: 'regionsCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+  });
 
-SRA_App.controller(controllers);
-}
+sraAngularApp.controller(controllers);

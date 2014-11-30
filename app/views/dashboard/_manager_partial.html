@@ -1,17 +1,15 @@
-<div class="row">
-  <% @areas.each do |area| %>
+<div ng-repeat = "area in areas" class="row">
     <div class="col-sm-6 col-md-4">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
-            <%= area.name %>
+            {{area.name}} 
           </h3>
         </div>
         <div class="panel-body index">
-          <% @field_workers.each do |person| %>
             <ul>
-              <li>
-                <%= person.email %>
+              <li ng-repeat = "person in fieldworkers">
+                {{ person.email }}
                 <ul>
                   <li>
                     <% if person.households.empty? %>
@@ -22,9 +20,7 @@
                 </ul>
               </li>
             </ul>
-          <% end %>
         </div>
       </div>
     </div>
-  <% end %>
 </div>
