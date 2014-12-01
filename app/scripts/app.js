@@ -33,6 +33,10 @@ angular
         templateUrl: 'views/regions/index.html',
         controller: 'regionsCtrl'
       })
+      .when('/region/show/:id', {
+        templateUrl: 'views/regions/show.html',
+        controller: 'regionsCtrl'
+      })
       .when('/dashboard', {
         templateUrl: 'views/dashboard/worker.html',
         controller: 'regionsCtrl'

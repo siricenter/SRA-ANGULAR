@@ -54,6 +54,7 @@ angular.module('sraAngularApp')
 
     // variables
     $scope.regions;
+    $scope.region;
     var regionsURL;
 
     /**
@@ -87,6 +88,11 @@ angular.module('sraAngularApp')
         $scope.regions = data;
       });
     };
+
+    $scope.show = function(regionName) {
+      $scope.region = regionName;
+    }
+
     $scope.init();
   }]);
 
