@@ -15,9 +15,9 @@
     </thead>
     <tbody>
       <% @households.reverse.each do |household| %>
-        <tr>
+        <tr ng-view = "household in households">
           <td>
-            <%= link_to household.name, household#, class: ['btn', 'btn-primary'] %>
+            <a href = "#/households/"+{{houshold.id}}
           </td>
           <% household.people.each_with_index do |person, index| %>
             <tr>

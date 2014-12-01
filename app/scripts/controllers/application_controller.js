@@ -57,10 +57,9 @@ controllers.LoginController = function($scope, $firbaseAuth){
 controllers.AreaController = function($scope, $firebase){
 	var areas_ref = new Firebase("https://sweltering-heat-9359.firebaseio.com/areas");
 	var areas_sync = $firebase(areas_ref);
-	$scope.getAreas = function(){
-		$scope.areas = areas_sync.$asArray();
+	$scope.areas = areas_sync.$asArray();
 
-	}
+	
 	$scope.getArea = function(){
 		var id = $scope.area_id
 		var area_ref = new Firebase("https://sweltering-heat-9359.firebaseio.com/areas/"+id)
@@ -88,10 +87,8 @@ controllers.AreaController = function($scope, $firebase){
 controllers.RegionsController = function($scope, $firebase){
 	var regions_ref = new Firebase("https://sweltering-heat-9359.firebaseio.com/regions");
 	var regions_sync = $firebase(regions_ref)
-
-	$scope.getRegions = function(){
-		$scope.regions = regions_sync.$asArray();
-	}
+	$scope.regions = regions_sync.$asArray();
+	
 	$scope.getRegion = function(){
 		var id = $scope.region.id
 		var region_ref = new Firebase("https://sweltering-heat-9359.firebaseio.com/regions/"+id)
@@ -118,10 +115,8 @@ controllers.RegionsController = function($scope, $firebase){
 controllers.UsersController = function($scope, $firebase){
 	var users_ref = new Firebase("https://sweltering-heat-9359.firebaseio.com/users");
 	var users_sync = $firebase(users_ref)
-
-	$scope.getUsers = function(){
-		$scope.regions = users_sync.$asArray();
-	}
+	$scope.regions = users_sync.$asArray();
+	
 	$scope.getUser = function(){
 		var id = $scope.user.id
 		var user_ref = new Firebase("https://sweltering-heat-9359.firebaseio.com/users/"+id)
@@ -148,10 +143,8 @@ controllers.UsersController = function($scope, $firebase){
 controllers.RolesController = function($scope, $firebase){
 	var roles_ref = new Firebase("https://sweltering-heat-9359.firebaseio.com/roles");
 	var roles_sync = $firebase(roles_ref)
-
-	$scope.getRoles = function(){
-		$scope.roles = roles_sync.$asArray();
-	}
+	$scope.roles = roles_sync.$asArray();
+	
 	$scope.getRole = function(){
 		var id = $scope.role.id
 		var role_ref = new Firebase("https://sweltering-heat-9359.firebaseio.com/roles/"+id)
@@ -176,40 +169,35 @@ controllers.RolesController = function($scope, $firebase){
 
 	}
 
+controllers.HouseholdController = function($scope, $firebase){
+	var house_ref = new Firebase("https://sweltering-heat-9359.firebaseio.com/households")
+	var house_sync = $firebase(house_ref);
+	$scope.households = house_sync.$asArray();
+	
+
+	$scope.createHousehold = function(){
+		var family_name = $scope.family_name
+		var household = {family_name: family_name};
+		house_sync.push(role).then(function(ref){
+			ref.key();
+		},function(error){
+			console.log("Error", error);
+		})
+	}
+
+
+}
+
 controllers.DashboardController = function($scope,$firebase){
-	var areas_ref = 
+	var areas_ref = new Firebase("https://sweltering-heat-9359.firebaseio.com/users/"+ id+"/areas")
+	var areas_sync = $firebase(areas_ref);
+	var areas = areas_sync.$asArray();
+
 }
 
 	
 
-angular
-  .module('sraAngularApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/static/landing.html',
-        controller: 'MainCtrl'
-      })
-      .when('/login', {
-        templateUrl: 'views/sessions/new.html',
-        controller: 'LoginController'
-      })
-      .when('/region', {
-        templateUrl: 'views/regions.html',
-        controller: 'regionsCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+
+ var sraAngularApp = angular.module( "sraAngularApp", [] );
 
 sraAngularApp.controller(controllers);
