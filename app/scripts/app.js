@@ -29,8 +29,8 @@ angular
         templateUrl: 'views/sessions/new.html',
         controller: 'LoginController'
       })
-      .when('/region', {
-        templateUrl: 'views/regions.html',
+      .when('/regions', {
+        templateUrl: 'views/regions/index.html',
         controller: 'regionsCtrl'
       })
       .when('/dashboard', {
