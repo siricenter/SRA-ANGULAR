@@ -72,7 +72,7 @@ angular.module('sraAngularApp')
     };
 
     $scope.encode = function(url) {
-      return url.replace(/ /gi, "%20");
+      return url.replace(/ /gi, '%20');
     };
 
     $scope.init();
@@ -84,7 +84,7 @@ angular.module('sraAngularApp')
   .controller('regionShowCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', function ($scope, $http, firebaseURL, $routeParams) {
 
     // variables
-    $scope.regions = '';
+    $scope.region = '';
     var regionURL = '';
 
     /**
@@ -92,15 +92,17 @@ angular.module('sraAngularApp')
     */
     $scope.init = function() {
       regionURL = firebaseURL + 'Organizations/Organization/Regions/' + $routeParams.name;
-      $scope.getRegion();
-    };
-
-    $scope.getRegions = function() {
-      $http.get(regionURL + '.json').success(function(data, status, headers, config) {
-        console.dir(data);
-        $scope.region = data;
-      });
+      console.log($routeParams.name);
+      $scope.region = $routeParams.name;
     };
 
     $scope.init();
+  }]);
+
+
+  angular.module('sraAngularApp')
+  .controller('LoginCtrl', ['$scope', '$http', 'firebaseURL', function ($scope, $http, firebaseURL) {
+
+
+  
   }]);

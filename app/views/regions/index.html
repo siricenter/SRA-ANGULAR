@@ -10,7 +10,7 @@
 
   <tr ng-repeat="x in regions">
     <td>{{x.Name}}<!--<%= region.name %>--></td>
-    <td><a ng-href="#/showRegion/{{ encode(x.Name) }}"> Show</a><!--<%= link_to 'Show', region %>--></td>
+    <td><a ng-href="#/region/show/{{ encode(x.Name) }}"> Show</a><!--<%= link_to 'Show', region %>--></td>
     <td><!--<%= link_to 'Edit', edit_region_path(region) %>--></td>
     <td><!--<%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %>--></td>
   </tr>
