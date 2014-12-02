@@ -35,7 +35,7 @@ angular
       })
       .when('/region/show/:name', {
         templateUrl: 'views/regions/show.html',
-        controller: 'regionsShowCtrl'
+        controller: 'regionShowCtrl'
       })
       .when('/dashboard', {
         templateUrl: 'views/dashboard/worker.html',

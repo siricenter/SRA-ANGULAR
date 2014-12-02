@@ -71,13 +71,17 @@ angular.module('sraAngularApp')
       });
     };
 
+    $scope.encode = function(url) {
+      return url.replace(/ /gi, "%20");
+    };
+
     $scope.init();
   }]);
 
 
 
 angular.module('sraAngularApp')
-  .controller('regionsShowCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', function ($scope, $http, firebaseURL, $routeParams) {
+  .controller('regionShowCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', function ($scope, $http, firebaseURL, $routeParams) {
 
     // variables
     $scope.regions = '';
