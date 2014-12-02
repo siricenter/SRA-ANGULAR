@@ -16,7 +16,7 @@ angular.module('sraAngularApp')
     ];
   });
 
-angular.module('myApp', [])
+angular.module('sraAngularApp')
   .service('sharedData', function () {
       var region;
       var area;
@@ -47,85 +47,54 @@ angular.module('myApp', [])
 
 
 /*Constants*/
-angular.module('sraAngularApp').constant("firebaseURL", "https://intense-inferno-7741.firebaseio.com/" /*"https://torid-inferno-2841.firebaseio.com/"*/);
+angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/' /*'https://torid-inferno-2841.firebaseio.com/'*/);
 
 angular.module('sraAngularApp')
-  .controller('regionsCtrl', ["$scope", "$http", "firebaseURL", function ($scope, $http, firebaseURL) {
+  .controller('regionsIndexCtrl', ['$scope', '$http', 'firebaseURL', function ($scope, $http, firebaseURL) {
 
     // variables
-    $scope.regions;
-    $scope.region;
-    var regionsURL;
+    $scope.regions = '';
+    var regionsURL = '';
 
     /**
     * init() acts as a constructor for the controller.
     */
     $scope.init = function() {
-      regionsURL = firebaseURL + "Organizations/Organization/Regions";
+      regionsURL = firebaseURL + 'Organizations/Organization/Regions';
       $scope.getRegions();
     };
 
-    $scope.createRegion = function() {
-      if(typeof($scope.name) != "undefined" && $scope.name != null ) {
-         $http.post(regionsURL, $scope.name).success( function(data, status, headers, config) {
-           $scope.region = data;
-         });
-      } else {
-        alert("Please enter a name");
-      }
-    };
-
-    $scope.getRegion = function(regionName) {
-      $http.get(regionsURL + "/" + regionName + ".json").success(function(data, status, headers, config) {
-        console.dir(data);
-        $scope.areas = data.Areas;
-      });
-    };
-
     $scope.getRegions = function() {
-      $http.get(regionsURL + ".json").success(function(data, status, headers, config) {
+      $http.get(regionsURL + '.json').success(function(data, status, headers, config) {
         console.dir(data);
         $scope.regions = data;
       });
     };
 
-    $scope.show = function(regionName) {
-      $scope.region = regionName;
-    }
-
     $scope.init();
   }]);
 
+
+
 angular.module('sraAngularApp')
-  .controller('areasCtrl', ["$scope", "$http", "firebaseURL", function ($scope, $http, firebaseURL) {
+  .controller('regionsShowCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', function ($scope, $http, firebaseURL, $routeParams) {
 
     // variables
-    $scope.areas;
-    var areasURL;
+    $scope.regions = '';
+    var regionURL = '';
 
     /**
     * init() acts as a constructor for the controller.
     */
     $scope.init = function() {
-      areasURL = firebaseURL + "Organizations/Organization/Regions";
-      $scope.getAreas(sharedData.getRegion());
-      $scope.getAreas();
+      regionURL = firebaseURL + 'Organizations/Organization/Regions/' + $routeParams.name;
+      $scope.getRegion();
     };
 
-    $scope.createRegion = function() {
-      if(typeof($scope.name) != "undefined" && $scope.name != null ) {
-         $http.post(regionsURL, $scope.name).success( function(data, status, headers, config) {
-           $scope.region = data;
-         });
-      } else {
-        alert("Please enter a name");
-      }
-    };
-
-    $scope.getAreas = function(regionName) {
-      $http.get(areasURL + "/" + regionName + ".json").success(function(data, status, headers, config) {
+    $scope.getRegions = function() {
+      $http.get(regionURL + '.json').success(function(data, status, headers, config) {
         console.dir(data);
-        $scope.areas = data.Areas;
+        $scope.region = data;
       });
     };
 

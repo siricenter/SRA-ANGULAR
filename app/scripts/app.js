@@ -31,15 +31,15 @@ angular
       })
       .when('/regions', {
         templateUrl: 'views/regions/index.html',
-        controller: 'regionsCtrl'
+        controller: 'regionsIndexCtrl'
       })
-      .when('/region/show/:id', {
+      .when('/region/show/:name', {
         templateUrl: 'views/regions/show.html',
-        controller: 'regionsCtrl'
+        controller: 'regionsShowCtrl'
       })
       .when('/dashboard', {
         templateUrl: 'views/dashboard/worker.html',
-        controller: 'regionsCtrl'
+        controller: 'regionsIndexCtrl'
       })
       .otherwise({
         redirectTo: '/'

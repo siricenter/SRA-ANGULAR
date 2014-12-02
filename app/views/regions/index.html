@@ -10,11 +10,11 @@
 
   <tr ng-repeat="x in regions">
     <td>{{x.Name}}<!--<%= region.name %>--></td>
-    <td><button ng-click="show(x.Name)">Show</button><!--<%= link_to 'Show', region %>--></td>
+    <td><a ng-href="#/showRegion/{{x.Name}}"> Show</a><!--<%= link_to 'Show', region %>--></td>
     <td><!--<%= link_to 'Edit', edit_region_path(region) %>--></td>
     <td><!--<%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %>--></td>
   </tr>
 </table>
-{{region}}
+
 <br />
 
