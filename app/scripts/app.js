@@ -37,6 +37,10 @@ angular
         templateUrl: 'views/regions/show.html',
         controller: 'regionShowCtrl'
       })
+      .when('/region/new', {
+        templateUrl: 'views/regions/new.html',
+        controller: 'regionNewCtrl'
+      })
       .when('/dashboard', {
         templateUrl: 'views/dashboard/worker.html',
         controller: 'regionsIndexCtrl'
