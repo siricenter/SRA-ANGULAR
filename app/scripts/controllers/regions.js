@@ -73,3 +73,32 @@ angular.module('sraAngularApp')
 
     $scope.init();
   }]);
+
+  angular.module('sraAngularApp')
+  .controller('regionEditCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', function ($scope, $http, firebaseURL, $routeParams) {
+
+
+    // variables
+    $scope.region = '';
+    var regionURL = '';
+    $scope.name = '';
+    $scope.errors = [];
+
+    /**
+    * for validating and submitting html forms
+    */
+    $scope.submit = function() {
+      
+    }
+
+    /**
+    * init() acts as a constructor for the controller.
+    */
+    $scope.init = function() {
+      regionURL = firebaseURL + 'Organizations/Organization/Regions/' + $routeParams.name;
+      console.log($routeParams.name);
+      $scope.region = $routeParams.name;
+    };
+
+    $scope.init();
+  }]);
