@@ -5,7 +5,7 @@
 * Time: 05:44 PM
 * To change this template use Tools | Templates.
 */
-
+/*
 'use strict';
 
 var controllers = {};
@@ -18,7 +18,7 @@ controllers.StaticController = function($scope, $firebase){
 
     $scope.users = sync.$asArray();
 
- 	console.log($scope.users)
+ 	console.log($scope.users);
 	
 	$scope.people = [];
 
@@ -198,6 +198,7 @@ controllers.DashboardController = function($scope,$firebase){
 	
 
 
- var sraAngularApp = angular.module( "sraAngularApp", [] );
+var sraAngularApp = angular.module( "sraAngularApp", [] );
 
 sraAngularApp.controller(controllers);
+*/

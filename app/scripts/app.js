@@ -28,7 +28,7 @@ angular
       })
       .when('/login', {
         templateUrl: 'views/sessions/new.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginController'
       })
       .when('/regions', {
         templateUrl: 'views/regions/index.html',
@@ -48,15 +48,15 @@ angular
       })
       .when('/dashboard', {
         templateUrl: 'views/dashboard/worker.html',
-<<<<<<< HEAD
         controller: 'DashboardController'
       })
-      .when('/areas', {
+      .when('/areas/', {
         templateUrl: 'views/areas/index.html',
-        controller: 'DashboardController'
-=======
-        controller: 'regionsIndexCtrl'
->>>>>>> c0021d2723765c36c090658b069ee5815870a3e6
+        controller: 'AreasController'
+      })
+      .when('/areas/:id', {
+        templateUrl: 'views/areas/show.html',
+        controller: 'AreasController'
       })
       .otherwise({
         redirectTo: '/'

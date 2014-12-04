@@ -9,12 +9,7 @@
       <div class="panel-body index">
           <ul ng-repeat = "area in areas">
             <li>
-              {{area.name}}
-              <ul>
-                <li>
-                  <a href = "#/areas/area/{{area.id}}">Show Households</a>
-                </li>
-              </ul>
+              {{area.Name}} - {{area.$id}}
             </li>
           </ul>
       </div>
