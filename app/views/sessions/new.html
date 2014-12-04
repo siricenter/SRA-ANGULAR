@@ -1,4 +1,4 @@
-<div ng-controller = "LoginController" class="row">
+<div class="row">
   <div class="col-sm-12">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -10,18 +10,23 @@
           <div class="row form-group">
             Email: <br/>
             <div class="col-sm-9">
-              <input type = "text" data-ng-model = "user.email" />
+              <input type = "text" ng-model="user.email" />
             </div>
           </div>
           <div class="row form-group">
             Password:<br/>
             <div class="col-sm-9">
-            <input type = "text" data-ng-model = "user.password" />
+            <input type = "text" ng-model="user.password" />
             </div>
+            {{user.password}}
+            {{user.email}}
           </div>
           <div class="row">
-           <button class = "btn-success" data-ng-click = "Login()">Login</button>
+           <button class = "btn-success" ng-click = "Login()">Login</button>
           </div>
+          <li ng-repeat = "user in users">
+           {{user.Email | uppercase}}
+          </li>
       </div>
     </div>
   </div>
@@ -30,4 +35,4 @@
 
 
 
-<script>
+

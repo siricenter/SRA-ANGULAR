@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 /**
  * @ngdoc function
  * @name sraAngularApp.controller:MainCtrl
@@ -7,6 +9,9 @@
  * # MainCtrl
  * Controller of the sraAngularApp
  */
+
+
+
 angular.module('sraAngularApp')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
@@ -125,3 +130,39 @@ angular.module('sraAngularApp')
 
     $scope.init();
   }]);
+
+  angular.module('sraAngularApp')
+  .controller('LoginController', function ($scope,$firebaseAuth,$location,$firebase,$rootScope){
+
+    $scope.Login = function(){
+    var email = $scope.user.email
+    var password = $scope.user.password
+    var ref = new Firebase("https://intense-inferno-7741.firebaseio.com");
+    $scope.authObj = $firebaseAuth(ref);
+    $scope.authObj.$authWithPassword({
+    email: email,
+    password: password
+  }).then(function(authData) {
+    console.log("Logged in as:", authData.password.email);
+    $rootScope.current_user = email;
+    $location.path('/dashboard');
+    $scope.$apply();
+  }).catch(function(error) {
+    console.error("Authentication Failed:", error);
+  });
+
+}
+});
+
+ angular.module('sraAngularApp')
+  .controller('DashboardController', function ($scope,$location,$firebase,$rootScope){
+  console.log($rootScope.current_user)
+});
+
+angular.module('sraAngularApp')
+.controller('AreasController', function ($scope,$location,$firebase,$http){
+  var ref = new Firease("https://intense-inferno-7741.firebaseio.com/Users/1/Organizations/Organization/Regions/Areas")
+  var areas = $firebase(ref).$asArray();
+
+});
+
