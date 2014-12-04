@@ -21,7 +21,7 @@ angular.module('sraAngularApp')
     ];
   });
 
-angular.module('myApp', [])
+angular.module('sraAngularApp')
   .service('sharedData', function () {
       var region;
       var area;
@@ -52,6 +52,7 @@ angular.module('myApp', [])
 
 
 /*Constants*/
+
 angular.module('sraAngularApp').constant("firebaseURL", "https://intense-inferno-7741.firebaseio.com/" /*"https://torid-inferno-2841.firebaseio.com/"*/);
 
 angular.module('sraAngularApp')
@@ -165,4 +166,7 @@ angular.module('sraAngularApp')
   var areas = $firebase(ref).$asArray();
 
 });
+
+
+angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/');
 
