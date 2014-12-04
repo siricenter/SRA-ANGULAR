@@ -17,13 +17,14 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'firebase'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/static/landing.html',
-        controller: 'MainCtrl'
+        controller: ''
       })
       .when('/login', {
         templateUrl: 'views/sessions/new.html',
@@ -47,7 +48,15 @@ angular
       })
       .when('/dashboard', {
         templateUrl: 'views/dashboard/worker.html',
+<<<<<<< HEAD
+        controller: 'DashboardController'
+      })
+      .when('/areas', {
+        templateUrl: 'views/areas/index.html',
+        controller: 'DashboardController'
+=======
         controller: 'regionsIndexCtrl'
+>>>>>>> c0021d2723765c36c090658b069ee5815870a3e6
       })
       .otherwise({
         redirectTo: '/'

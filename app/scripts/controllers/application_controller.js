@@ -28,13 +28,13 @@ controllers.StaticController = function($scope, $firebase){
 			{
 				given_name: $scope.person.given_name,
 				family_name: $scope.person.family_name
-
 			}
 		)
 	}
 }
 
-controllers.LoginController = function($scope, $firbaseAuth){
+angular.module('sraAngularApp')
+  .controller('LoginController', function ($scope, $firebase){
 	$scope.Login = function(){
 	var email = $scope.user.email
 	var password = $scope.user.password

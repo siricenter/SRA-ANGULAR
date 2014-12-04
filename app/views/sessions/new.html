@@ -1,2 +1,43 @@
+<<<<<<< HEAD
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Sign in
+        </h3>
+      </div>
+      <div class="panel-body">
+          <div class="row form-group">
+            Email: <br/>
+            <div class="col-sm-9">
+              <input type = "text" ng-model="user.email" />
+            </div>
+          </div>
+          <div class="row form-group">
+            Password:<br/>
+            <div class="col-sm-9">
+            <input type = "text" ng-model="user.password" />
+            </div>
+            {{user.password}}
+            {{user.email}}
+          </div>
+          <div class="row">
+           <button class = "btn-success" ng-click = "Login()">Login</button>
+          </div>
+          <li ng-repeat = "user in users">
+           {{user.Email | uppercase}}
+          </li>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+=======
 <input type = "text" ng-model="email" />
 {{ email }}
+>>>>>>> c0021d2723765c36c090658b069ee5815870a3e6
