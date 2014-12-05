@@ -19,7 +19,9 @@ angular
     'ngSanitize',
     'ngTouch',
     'firebase'
-  ])
+  ]).run(function($rootScope) {
+    $rootScope.current_user = {};
+})
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
