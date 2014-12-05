@@ -90,7 +90,3 @@ angular.module('sraAngularApp')
   $scope.areas = $firebase(ref).$asArray();
   console.log($scope.areas)
 });
-
-
-angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/');
-

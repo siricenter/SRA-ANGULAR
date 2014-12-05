@@ -1,16 +1,19 @@
 angular.module('sraAngularApp')
-  .controller('regionsIndexCtrl', ['$scope', '$http', 'firebaseURL', function ($scope, $http, firebaseURL) {
+  .controller('regionsIndexCtrl', ['$window', '$scope', '$http', 'firebaseURL', '$firebase', 
+    function ($window, $scope, $http, firebaseURL, $firebase) {
+    'use strict';
 
-    // variables
-    $scope.regions = '';
+    // private variables
     var regionsURL = '';
+    var firebaseRef = '';
 
     /**
     * init() acts as a constructor for the controller.
     */
     $scope.init = function() {
-      regionsURL = firebaseURL + 'Organizations/Organization/Regions';
-      $scope.getRegions();
+      firebaseRef = new $window.Firebase(firebaseURL + 'Organizations/SRA/Regions');
+      console.log(firebaseURL + 'Organizations/SRA/Regions');
+      $scope.regions  = $firebase(firebaseRef).$asArray();
     };
 
     $scope.getRegions = function() {
@@ -31,7 +34,7 @@ angular.module('sraAngularApp')
 
 angular.module('sraAngularApp')
   .controller('regionShowCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', function ($scope, $http, firebaseURL, $routeParams) {
-
+    'use strict';
     // variables
     $scope.region = '';
     var regionURL = '';
@@ -50,7 +53,7 @@ angular.module('sraAngularApp')
 
   angular.module('sraAngularApp')
   .controller('regionNewCtrl', ['$scope', '$http', 'firebaseURL', function ($scope, $http, firebaseURL) {
-
+    'use strict';
     // variables
     $scope.region = '';
     var regionURL = '';
@@ -62,7 +65,7 @@ angular.module('sraAngularApp')
     */
     $scope.submit = function() {
       
-    }
+    };
 
     /**
     * init() acts as a constructor for the controller.
@@ -76,7 +79,7 @@ angular.module('sraAngularApp')
 
   angular.module('sraAngularApp')
   .controller('regionEditCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', function ($scope, $http, firebaseURL, $routeParams) {
-
+    'use strict';
 
     // variables
     $scope.region = '';
@@ -89,7 +92,7 @@ angular.module('sraAngularApp')
     */
     $scope.submit = function() {
       
-    }
+    };
 
     /**
     * init() acts as a constructor for the controller.
