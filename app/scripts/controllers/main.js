@@ -57,7 +57,7 @@ angular.module('sraAngularApp').constant("firebaseURL", "https://intense-inferno
 
 
   angular.module('sraAngularApp')
-  .controller('LoginController', function ($scope,$firebaseAuth,$location,$firebase,$rootScope){
+  .controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope){
 
     $scope.Login = function(){
     var email = $scope.user.email
@@ -80,12 +80,12 @@ angular.module('sraAngularApp').constant("firebaseURL", "https://intense-inferno
 });
 
  angular.module('sraAngularApp')
-  .controller('DashboardController', function ($scope,$location,$firebase,$rootScope){
+  .controller('DashboardController', function ($scope, $location, $firebase, $rootScope){
   console.log($rootScope.current_user)
 });
 
 angular.module('sraAngularApp')
-.controller('AreasController', function ($scope,$location,$firebase,$routeParams){
+.controller('AreasController', function ($scope, $location, $firebase, $routeParams){
   var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Users/User%201/Organizations/Organization/Region/Region0/Areas")
   $scope.areas = $firebase(ref).$asArray();
   console.log($scope.areas)

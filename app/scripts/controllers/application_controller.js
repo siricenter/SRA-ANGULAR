@@ -5,7 +5,7 @@
 * Time: 05:44 PM
 * To change this template use Tools | Templates.
 */
-/*
+
 'use strict';
 
 var controllers = {};
@@ -201,4 +201,3 @@ controllers.DashboardController = function($scope,$firebase){
 var sraAngularApp = angular.module( "sraAngularApp", [] );
 
 sraAngularApp.controller(controllers);
-*/
