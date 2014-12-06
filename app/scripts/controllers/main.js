@@ -50,15 +50,13 @@ angular.module('sraAngularApp')
       };
   });
 
-
 /*Constants*/
 
 angular.module('sraAngularApp').constant("firebaseURL", "https://intense-inferno-7741.firebaseio.com/" /*"https://torid-inferno-2841.firebaseio.com/"*/);
 
 
    angular.module('sraAngularApp')
-  .controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope){
-
+  .controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope,$cookieStore){
     $scope.Login = function(){
     var email = $scope.user.email
     var password = $scope.user.password
@@ -68,11 +66,15 @@ angular.module('sraAngularApp').constant("firebaseURL", "https://intense-inferno
     email: email,
     password: password
   }).then(function(authData) {
+
     console.log("Logged in as:", authData.password.email);
     var node = email.split('@');
     var user_ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Users/" + node[0])
-    var current_user = $firebase(user_ref).$asObject();
-    $rootScope.current_user = current_user;
+    var userObj = $firebase(user_ref).$asObject();
+    $rootScope.current_user = userObj;
+    $cookieStore.put('current_user', $rootScope.current_user)
+    var stored_user = $cookieStore.get('current_user')
+    console.log(stored_user);
     $location.path('/dashboard');
     $scope.$apply();
   }).catch(function(error) {

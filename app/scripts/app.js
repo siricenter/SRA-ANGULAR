@@ -21,6 +21,7 @@ angular
     'firebase'
   ]).run(function($rootScope) {
     $rootScope.current_user = {};
+    $rootScope.firebaseSession = localStorage['firebase:session::intense-inferno-7741']
 })
   .config(function ($routeProvider) {
     $routeProvider
