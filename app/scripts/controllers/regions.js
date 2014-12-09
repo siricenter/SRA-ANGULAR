@@ -11,17 +11,12 @@ angular.module('sraAngularApp')
     * init() acts as a constructor for the controller.
     */
     $scope.init = function() {
-      firebaseRef = new $window.Firebase(firebaseURL + 'Organizations/SRA/Regions');
-      console.log(firebaseURL + 'Organizations/SRA/Regions');
+      regionsURL = firebaseURL + 'Organizations/SRA/Regions';
+      firebaseRef = new $window.Firebase(regionsURL);
+      console.log(regionsURL);
       $scope.regions  = $firebase(firebaseRef).$asArray();
     };
 
-    $scope.getRegions = function() {
-      $http.get(regionsURL + '.json').success(function(data, status, headers, config) {
-        console.dir(data);
-        $scope.regions = data;
-      });
-    };
 
     $scope.encode = function(url) {
       return url.replace(/ /gi, '%20');
@@ -33,19 +28,22 @@ angular.module('sraAngularApp')
 
 
 angular.module('sraAngularApp')
-  .controller('regionShowCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', function ($scope, $http, firebaseURL, $routeParams) {
+  .controller('regionShowCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', '$window', '$firebase', 
+    function ($scope, $http, firebaseURL, $routeParams, $window, $firebase) {
     'use strict';
     // variables
-    $scope.region = '';
+    // private variables
     var regionURL = '';
+    var firebaseRef = '';
 
     /**
     * init() acts as a constructor for the controller.
     */
     $scope.init = function() {
-      regionURL = firebaseURL + 'Organizations/Organization/Regions/' + $routeParams.name;
-      console.log($routeParams.name);
-      $scope.region = $routeParams.name;
+      regionURL = firebaseURL + 'Organizations/SRA/Regions/' + $routeParams.name.replace(/ /gi, '%20');
+      console.log(regionURL);
+      firebaseRef = new $window.Firebase(regionURL);
+      $scope.region  = $firebase(firebaseRef).$asObject();
     };
 
     $scope.init();

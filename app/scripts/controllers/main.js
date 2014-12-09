@@ -53,40 +53,40 @@ angular.module('sraAngularApp')
 
 /*Constants*/
 
-angular.module('sraAngularApp').constant("firebaseURL", "https://intense-inferno-7741.firebaseio.com/" /*"https://torid-inferno-2841.firebaseio.com/"*/);
+angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/' /*'https://torid-inferno-2841.firebaseio.com/'*/);
 
 
   angular.module('sraAngularApp')
   .controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope){
 
     $scope.Login = function(){
-    var email = $scope.user.email
-    var password = $scope.user.password
-    var ref = new Firebase("https://intense-inferno-7741.firebaseio.com");
+    var email = $scope.user.email;
+    var password = $scope.user.password;
+    var ref = new Firebase('https://intense-inferno-7741.firebaseio.com');
     $scope.authObj = $firebaseAuth(ref);
     $scope.authObj.$authWithPassword({
     email: email,
     password: password
   }).then(function(authData) {
-    console.log("Logged in as:", authData.password.email);
+    console.log('Logged in as:', authData.password.email);
     $rootScope.current_user = email;
     $location.path('/dashboard');
     $scope.$apply();
   }).catch(function(error) {
-    console.error("Authentication Failed:", error);
+    console.error('Authentication Failed:', error);
   });
 
-}
+};
 });
 
  angular.module('sraAngularApp')
   .controller('DashboardController', function ($scope, $location, $firebase, $rootScope){
-  console.log($rootScope.current_user)
+  console.log($rootScope.current_user);
 });
 
 angular.module('sraAngularApp')
 .controller('AreasController', function ($scope, $location, $firebase, $routeParams){
-  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Users/User%201/Organizations/Organization/Region/Region0/Areas")
+  var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Users/User%201/Organizations/Organization/Region/Region0/Areas');
   $scope.areas = $firebase(ref).$asArray();
-  console.log($scope.areas)
+  console.log($scope.areas);
 });
