@@ -14,11 +14,14 @@
           Assiged Areas
         </h3>
       </div>
-      <ul>
-        <li ng-repeat="area in region.Areas" >
-          {{area.Name}}
-        </li>
-      </ul>
+      <table>
+        <tr ng-repeat="area in region.Areas" >
+          <td>{{area.Name}}</td>
+          <td><a ng-href="#/areas/show/{{area.Name}}">Show</a></td>
+          <td><a ng-href="">Edit</a></td>
+          <td><a ng-href="">Delete</a></td>
+        </tr>
+      </table>>
       <div class="panel-body">
         <!--<%= link_to  'Unassign', new_area_region_path(area, @region), method: :delete, id: "#{area.id}_unassign" %>-->
       </div>
