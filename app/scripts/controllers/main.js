@@ -113,7 +113,9 @@ angular.module('sraAngularApp')
 angular.module('sraAngularApp')
 .controller('AreasShowController', function ($scope,$location,$firebase,$routeParams){
   var name = $routeParams.name
-  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/South%20Africa/Areas/"+name);
-  $scope.area = $firebase(ref).$asArray();
+  console.log(name)
+  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/South%20Africa/Areas/" + name);
+  $scope.area = $firebase(ref).$asObject();
+  $scope.household = $scope.area.Resources
   
 });

@@ -1,69 +1,54 @@
-<div class="row btn-toolbar">
-  <%= link_to 'Assign Worker', dashboard_path, class: [:btn, "btn-large", "btn-success", "col-sm-offset-8", "col-md-offset-10", "col-sm-3", "col-md-2", :right], id: :interview_household %>
-</div>
-<%= link_to 'Edit', edit_area_path(@area) %>
-|
-<%= link_to 'Back', areas_path %>
+{{area}}
 <p>
   <b>
     Name:
   </b>
-  <%= @area.name %>
+ {{area.Name}}
 </p>
 <h2>
-  Assigned
+  Assigned Households
 </h2>
 <div class="row">
-  <% @area.users.each do |user| %>
     <div class="col-sm-6 col-md-4">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
-            <%= user.email %>
+          <li ng-repeat = "resource in resources">{{}}</li>
           </h3>
         </div>
         <div class="panel-body">
-          <%= # fw.relationship %>
-          <%= link_to  "Unassign #{user.area_relationships.where(area_id: @area.id).first.relationship}", destroy_area_user_path(@area, user), method: :delete, id: "#{user.id}_unassign", class: [:btn, :"btn-success", :"col-xs-12"] %>
+        
         </div>
       </div>
     </div>
-  <% end %>
+
 </div>
 <h2>
   Unassigned
 </h2>
-<% if @users.empty? %>
+
   <p>
     No users have been assigned as any roles.
   </p>
-<% else %>
   <div class="row">
-    <% @users.each do |user| %>
-      <% user_role = user.roles %>
-      <% unless @area.users.include? user %>
         <div class="col-sm-6 col-md-4">
           <div class="panel panel-primary">
             <div class="panel-heading">
               <h3 class="panel-title">
-                <%= user.email %>
+                
               </h3>
             </div>
             <div class="panel-body">
               Select Role
-              <% @roles.each do |all_role| %>
-                <% user_role.each do |role| %>
-                  <% if role.name == all_role.name %>
+            
+                
                     <div class="row">
-                      <%= link_to role.name.titleize, new_area_user_path(@area, user, role.name.titleize), method: :post, id: "#{user.id}_assign_#{role.name.downcase.tr(" ", "_")}", class: [:btn, :"btn-success", :"col-xs-12"] %>
+                   
                     </div>
-                  <% end %>
-                <% end %>
-              <% end %>
+                
             </div>
           </div>
         </div>
-      <% end %>
-    <% end %>
+     
   </div>
-<% end %>
+
