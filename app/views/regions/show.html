@@ -1,28 +1,26 @@
 <p>{{region}}</p>
 
 <p>
-  <b>
-    Name:
-  </b>
-  <p>{{region.$id}}</p>
+  <h2 class="title">
+    {{region.$id}}
+  </h2>
 </p>
 
-<h2>
-  Assigned
-</h2>
-
 <div class="row">
-  <div ng-repeat="area in region.Areas" >
-    <div class="col-sm-6 col-md-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            {{area.Name}}
-          </h3>
-        </div>
-        <div class="panel-body">
-          <!--<%= link_to  'Unassign', new_area_region_path(area, @region), method: :delete, id: "#{area.id}_unassign" %>-->
-        </div>
+<div class="col-sm-12 col-md-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Assiged Areas
+        </h3>
+      </div>
+      <ul>
+        <li ng-repeat="area in region.Areas" >
+          {{area.Name}}
+        </li>
+      </ul>
+      <div class="panel-body">
+        <!--<%= link_to  'Unassign', new_area_region_path(area, @region), method: :delete, id: "#{area.id}_unassign" %>-->
       </div>
     </div>
   </div>
