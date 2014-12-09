@@ -53,11 +53,11 @@ angular
         templateUrl: 'views/dashboard/worker.html',
         controller: 'DashboardController'
       })
-      .when('/areas/', {
+      .when('/areas', {
         templateUrl: 'views/areas/index.html',
         controller: 'AreasIndexController'
       })
-      .when('/areas/:id', {
+      .when('/areas/show/:name', {
         templateUrl: 'views/areas/show.html',
         controller: 'AreasShowController'
       })

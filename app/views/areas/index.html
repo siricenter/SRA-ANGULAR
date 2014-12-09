@@ -9,7 +9,10 @@
       <div class="panel-body index">
           <ul ng-repeat = "area in areas">
             <li>
-              {{area.Name}} - {{area.$id}}
+      
+              <a ng-href = "#/areas/show/{{area.Name}}">{{area.Name}}</a>
+            
+            
             </li>
           </ul>
       </div>
