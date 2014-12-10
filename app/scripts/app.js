@@ -20,7 +20,7 @@ angular
     'ngTouch',
     'firebase'
   ]).run(function($rootScope) {
-    $rootScope.current_user = {};
+    $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
     $rootScope.firebaseSession = localStorage['firebase:session::intense-inferno-7741']
 })
   .config(function ($routeProvider) {
