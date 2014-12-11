@@ -26,7 +26,9 @@ angular.module('sraAngularApp')
   }]);
 
 
-
+/**
+* 
+*/
 angular.module('sraAngularApp')
   .controller('regionShowCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', '$window', '$firebase', 
     function ($scope, $http, firebaseURL, $routeParams, $window, $firebase) {
@@ -50,56 +52,49 @@ angular.module('sraAngularApp')
   }]);
 
   angular.module('sraAngularApp')
-  .controller('regionNewCtrl', ['$scope', '$http', 'firebaseURL', function ($scope, $http, firebaseURL) {
+  .controller('regionNewCtrl', ['$scope', '$http', 'firebaseURL', '$window', '$firebase', 
+    function ($scope, $http, firebaseURL, $window, $firebase) {
     'use strict';
+
     // variables
-    $scope.region = '';
-    var regionURL = '';
-    $scope.name = '';
+    var URL = firebaseURL + 'Organizations/SRA/Regions/';
+    var firebaseRef = new $window.Firebase(URL);
+    var sync = $firebase(firebaseRef);
     $scope.errors = [];
 
     /**
     * for validating and submitting html forms
     */
     $scope.submit = function() {
-      
+      if($scope.newName != "undefined" && $scope.newName != "" ) {
+        console.log("name:" + $scope.newName);
+        sync.$push($scope.newName);
+      }
     };
 
-    /**
-    * init() acts as a constructor for the controller.
-    */
-    $scope.init = function() {
-      regionURL = firebaseURL + 'Organizations/Organization/Regions/';
-    };
-
-    $scope.init();
   }]);
 
   angular.module('sraAngularApp')
-  .controller('regionEditCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', function ($scope, $http, firebaseURL, $routeParams) {
+  .controller('regionEditCtrl', ['$scope', '$http', 'firebaseURL', '$routeParams', '$window', '$firebase', 
+    function ($scope, $http, firebaseURL, $routeParams, $window, $firebase) {
     'use strict';
 
     // variables
-    $scope.region = '';
-    var regionURL = '';
-    $scope.name = '';
+    var regionURL = firebaseURL + 'Organizations/SRA/Regions/' + $routeParams.name.replace(/ /gi, '%20');
+    var firebaseRef = new $window.Firebase(regionURL);
+    $scope.region = $firebase(firebaseRef).$asObject();
+          
     $scope.errors = [];
 
     /**
     * for validating and submitting html forms
     */
     $scope.submit = function() {
-      
+      if($scope.newName != "undefined" && $scope.newName != "" ) {
+        console.log("name:" + $scope.newName);
+        $scope.region.$id = $scope.newName;
+        $scope.region.$save();
+      }
     };
 
-    /**
-    * init() acts as a constructor for the controller.
-    */
-    $scope.init = function() {
-      regionURL = firebaseURL + 'Organizations/Organization/Regions/' + $routeParams.name;
-      console.log($routeParams.name);
-      $scope.region = $routeParams.name;
-    };
-
-    $scope.init();
   }]);
