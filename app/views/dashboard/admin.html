@@ -2,14 +2,15 @@
   Admin Dashboard
 </h1>
 <div class="row btn-toolbar">
-  <%= link_to 'Users', users_path, class: [:'toolbar-button'], id: :top %>
-  <%= link_to 'Roles', roles_path, class: [:'toolbar-button'], id: :top %>
-  <%= link_to 'Areas', areas_path, class: [:'toolbar-button'], id: :top %>
+    
+    <a href = "#admin/areas"><button class = "btn-success">Areas Index</button></a>
+    <a href = "#admin/users"><button class = "btn-success">Users Index</button></a>
+    <a href = "#admin/regions"><button class = "btn-success">Regions Index</button></a>
 </div>
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span2"></div>
-    <%= render 'dashboard/create_user' %>
+   
   </div>
 </div>
 

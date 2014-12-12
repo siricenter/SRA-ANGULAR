@@ -21,34 +21,11 @@ angular.module('sraAngularApp')
     ];
   });
 
-angular.module('sraAngularApp')
-  .service('sharedData', function () {
-      var region;
-      var area;
-      var resource;
 
-      // place getters/setters here
-      return {
-          getRegion: function () {
-              return region;
-          },
-          setRegion: function(value) {
-              region = value;
-          },
-          getArea: function() {
-            return area;
-          },
-          setArea: function(value) {
-            area = value;
-          },
-          getResource: function() {
-            return resource;
-          },
-          setResource: function(value) {
-            resource = value;
-          }
-      };
-  });
+    
+    
+    
+    
 
 /*Constants*/
 
@@ -75,28 +52,42 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
     userObj.$loaded().then(function(data){ 
       console.log(userObj)
       var regions = data.Organizations.SRA.Regions;
-      var areas= new Array();
+      var roles = data.Organizations.SRA.Roles;
+      var areasArray= new Array();
       for(var region in regions){
-        areas.push(Object.keys(regions[region].Areas));
+        areasArray.push(Object.keys(regions[region].Areas));
 
       }
+      var areas = [];
+      var areas = areas.concat.apply(areas, areasArray);
+
+      
       var user = {
       email: data.Email,
       first_name: data['First Name'],
       last_name: data['Last Name'],
       organizations: data.Organizations.SRA.Name,
       regions: Object.keys(regions),
-      areas: areas
+      areas: areas,
+      roles: data.Organizations.SRA.Roles.Name
        
     }
 
     var user_js = JSON.stringify(user);
     sessionStorage.setItem('user', user_js)
     var stored_user = sessionStorage.getItem('user')
-    console.log($rootScope.current_user);
+    console.log(stored_user);
+    $rootScope.current_user = {};
+    $rootScope.current_user = JSON.parse(stored_user);
+    console.log($rootScope.current_user.roles);
    })
-    $location.path('/dashboard');
-    $scope.$apply();
+    if($rootScope.current_user.roles == 'Admin'){
+      $location.path('/admin/dashboard');
+      $scope.$apply();
+    }else{
+      $location.path('/dashboard');
+      $scope.$apply();
+    } 
   }).catch(function(error) {
     console.error('Authentication Failed:', error);
   });
@@ -107,34 +98,37 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
 
  angular.module('sraAngularApp')
   .controller('DashboardController', function ($scope, $location, $firebase, $rootScope){
-  console.log($rootScope.current_user);
-});
+ $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+ if($rootScope.current_user.roles == 'Admin'){
+  $location.path('/admin/dashboard')
+  $scope.$apply();
+ };
+})
+
 
 angular.module('sraAngularApp')
-.controller('AreasController', function ($scope, $location, $firebase, $routeParams){
+.controller('AreasController', function ($scope, $location, $firebase, $routeParams,$rootScope){
   var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Users/User%201/Organizations/Organization/Region/Region0/Areas');
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
   $scope.areas = $firebase(ref).$asArray();
   console.log($scope.areas);
 });
-angular.module('sraAngularApp')
-  .controller('DashboardController', function ($scope, $location, $firebase, $rootScope,$cookieStore){
-  console.log($rootScope.current_user)
-});
 
 angular.module('sraAngularApp')
-.controller('AreasIndexController', function ($scope,$location,$firebase,$rootScope){
-  console.log($rootScope.current_user.areas[0][0])
+.controller('AreasIndexController', function($scope,$location,$firebase,$rootScope){
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+  console.log($rootScope.current_user.areas)
   $scope.areas = $rootScope.current_user.areas;
 });
 
 angular.module('sraAngularApp')
-.controller('AreasShowController', function ($scope,$location,$firebase,$routeParams){
+.controller('AreasShowController', function ($scope,$location,$firebase,$routeParams,$rootScope){
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
   var name = $routeParams.name
   console.log(name)
   var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/South%20Africa/Areas/" + name);
-  //$scope.area
   $scope.area = $firebase(ref).$asObject();
-  //var area = $scope.area.Resources
+
   $scope.area.$loaded().then(function(data){
   $scope.names = Object.keys(data.Resources)
   var list = new Array();
@@ -146,3 +140,54 @@ angular.module('sraAngularApp')
   })
 
 });
+angular.module('sraAngularApp')
+.controller('AdminDashboardController', function ($scope,$location,$firebase,$routeParams,$rootScope){
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+  var name = $routeParams.name;
+  var area = []
+
+});
+angular.module('sraAngularApp')
+.controller('AdminUsersController', function ($scope,$location,$firebase,$routeParams,$rootScope){
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+  var name = $routeParams.name;
+  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/South%20Africa/Areas/" + name);
+  var areas = $firebase(ref);
+});
+angular.module('sraAngularApp')
+.controller('AdminAreasController', function ($scope,$location,$firebase,$routeParams,$rootScope){
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+  
+  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions");
+  var regionsArr = $firebase(ref).$asArray();
+  $scope.regions = [];
+  var areasArr = [];
+  regionsArr.$loaded().then(function(data){
+    for(var region in regionsArr){
+      if(regionsArr[region].$id != undefined){
+        $scope.regions.push(regionsArr[region].$id)
+        console.log($scope.regions[region])
+        for(var name in $scope.regions){
+            var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/"+$scope.regions[region]+"/Areas")
+            var sync = $firebase(ref).$asObject();
+            sync.$loaded().then(function(areaData){
+              areasArr.push(areaData)
+              $scope.areas = [];
+              $scope.areas = $scope.areas.concat.apply($scope.areas, areasArr);
+              console.log($scope.areas)
+             
+            })
+      }
+
+    } 
+    }
+
+});
+
+  
+      
+});
+
+
+
+
