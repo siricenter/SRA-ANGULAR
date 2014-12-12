@@ -20,7 +20,9 @@ angular
     'ngTouch',
     'firebase'
   ]).run(function($rootScope) {
-    $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+    
+    $rootScope.current_user = {};
+
     $rootScope.firebaseSession = localStorage['firebase:session::intense-inferno-7741']
 })
   .config(function ($routeProvider) {
@@ -53,6 +55,14 @@ angular
         templateUrl: 'views/dashboard/worker.html',
         controller: 'DashboardController'
       })
+      .when('/admin/dashboard', {
+        templateUrl: 'views/dashboard/admin.html',
+        controller: 'AdminDashboardController'
+      })
+      .when('/admin/areas',{
+        templateUrl: 'views/admin/areas.html',
+        controller: 'AdminAreasController'
+      })
       .when('/areas', {
         templateUrl: 'views/areas/index.html',
         controller: 'AreasIndexController'
@@ -64,4 +74,45 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  });
+
+angular.module('sraAngularApp')
+  .factory('RestClient', function ($firebase) {
+    RestClient.getArea = function(name){
+      
+       var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/South%20Africa/Areas/" + name);
+       var sync = $firebase(ref).$asObject();
+       return sync;
+    }
+    RestClient.getAreas = function(){
+
+      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/South%20Africa/Areas/")
+      var sync = $firebase(ref).$asArray();
+      return sync;
+    }
+    RestClient.getUsers = function(){
+
+      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Users");
+      var sync = $firebase(ref).$asArray();
+      return sync;
+    }
+    RestClient.getUser = function(email){
+
+      var node = email.split('@');
+      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Users/" + node[0])
+      var sync = $firebase(ref).$asObject();
+      return sync;
+    }
+    RestClient.getRegions =  function(){
+
+      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions");
+      var sync = $firebase(ref).$asArray();
+    }
+    RestClient.getRegion =function (name){
+
+      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions" + name);
+      var sync = $firebase(ref).$asObject();
+    }
+     
+    return RestClient;
   });
