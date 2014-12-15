@@ -80,6 +80,14 @@ angular
         templateUrl: 'views/admin/areas.html',
         controller: 'AdminAreasController'
       })
+      .when('/admin/users/new',{
+        templateUrl: 'views/users/new.html',
+        controller: 'NewUsersController'
+      })
+      .when('/admin/users',{
+        templateUrl: 'views/admin/users.html',
+        controller: 'AdminUsersController'
+      })
       .when('/areas', {
         templateUrl: 'views/areas/index.html',
         controller: 'AreasIndexController'
@@ -89,7 +97,7 @@ angular
         controller: 'AreasShowController'
       })
       .when('/areas/edit/:name',{
-        templateUrl: 'views/areas/edit.html',
+        templateUrl: 'views/areas/editform.html',
         controller: 'AreasEditController'
       })
       .otherwise({

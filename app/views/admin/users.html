@@ -3,22 +3,22 @@
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">
-          Areas
+          All Users
         </h3>
       </div>
+
       <div class="panel-body index">
-          <ul ng-repeat = "area in areas">
-            <li>
-            
-              <a ng-href = "#/areas/show/{{area}}">{{area}}</a>
-           
+          <ul>
+            <li ng-repeat = "user in users">
+            {{user.$value}} - <a href = "#/admin/user/edit/{{user.Name}}">Edit</a> - <a href = "#/users/show/{{user.Name}}">View</a>
             
             
-            </li>
+            
+            </li></ul><br/>
+            <a href = "#admin/users/new"><button class = "btn-success">Add New User</button></a>
           </ul>
       </div>
     </div>
   </div>
 </div>
 <div class="row"></div>
-

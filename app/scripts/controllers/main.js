@@ -81,7 +81,8 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
     $rootScope.current_user = JSON.parse(stored_user);
     console.log($rootScope.current_user.roles);
    })
-    if($rootScope.current_user.roles == 'Admin'){
+    if($rootScope.current_user.roles != undefined){
+      if($rootScope.current_user.roles == 'Admin'){
       $location.path('/admin/dashboard');
       $scope.$apply();
     }else if($rootScope.current_user.roles == 'Developer'){
@@ -90,6 +91,7 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
     }else{
       $location.path('/dashboard')
     } 
+    }  
   }).catch(function(error) {
     console.error('Authentication Failed:', error);
   });
@@ -193,12 +195,45 @@ angular.module('sraAngularApp')
 .controller('AreasEditController', function ($scope,$location,$firebase,$routeParams,$rootScope){
   $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
    var area = $routeParams.name
-
-    
-   
-           
 });
 
+angular.module('sraAngularApp')
+.controller('AdminUsersController', function ($scope,$location,$firebase,$routeParams,$rootScope){
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users")
+  $scope.users = $firebase(ref).$asArray();
+  console.log($scope.users)
+          
+});
 
-
+angular.module('sraAngularApp')
+.controller('NewUsersController', function ($scope,$location,$firebase,$routeParams,$rootScope,$firebaseAuth){
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+  $scope.CreateUser = function(){
+    console.log('hello')
+    var user_node = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users")
+    var email = $scope.user.email;
+    var password = $scope.user.password;
+    var ref = new Firebase('https://intense-inferno-7741.firebaseio.com');
+    $scope.authObj = $firebaseAuth(ref);
+    $scope.authObj.$createUser(email, password).then(function() {
+      console.log("User created successfully!");
+      var list = $firebase(user_node)
+      list.$push(email).then(function(ref) {
+      var id = ref.key();
+      console.log("added record with id " + id);
+       list.$indexFor(id); // returns location in the array
+});
+  return $scope.authObj.$authWithPassword({
+    email: email,
+    password: email
+  });
+}).then(function(authData) {
+  console.log("Logged in as:", authData.uid);
+}).catch(function(error) {
+  console.error("Error: ", error);
+});  
+  }
+          
+});
 
