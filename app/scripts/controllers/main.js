@@ -84,9 +84,11 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
     if($rootScope.current_user.roles == 'Admin'){
       $location.path('/admin/dashboard');
       $scope.$apply();
-    }else{
+    }else if($rootScope.current_user.roles == 'Developer'){
       $location.path('/dashboard');
       $scope.$apply();
+    }else{
+      $location.path('/dashboard')
     } 
   }).catch(function(error) {
     console.error('Authentication Failed:', error);
@@ -125,26 +127,36 @@ angular.module('sraAngularApp')
 .controller('AreasShowController', function ($scope,$location,$firebase,$routeParams,$rootScope){
   $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
   var name = $routeParams.name
-  console.log(name)
+ 
   var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/South%20Africa/Areas/" + name);
-  $scope.area = $firebase(ref).$asObject();
+  var area = $firebase(ref).$asObject();
+  area.$loaded().then(function(data){
+  var names = Object.keys(data.Resources);
+  
+  $scope.households = [];
+  
+function Household(family,members){
+    this.family = family;
+    this.members = members;
+};
 
-  $scope.area.$loaded().then(function(data){
-  $scope.names = Object.keys(data.Resources)
-  var list = new Array();
-  for(name in $scope.names){
-    list.push( Object.keys(data.Resources[$scope.names[name]].Members))
-  }
-  $scope.memberNames = list;
-  console.log(list)
+var list = new Array();
+
+for(var family in names){
+  var members =  Object.keys(data.Resources[names[family]].Members);
+  $scope.households[family] = new Household(names[family], members);
+}
+console.log($scope.households)
+ 
   })
 
 });
+
 angular.module('sraAngularApp')
 .controller('AdminDashboardController', function ($scope,$location,$firebase,$routeParams,$rootScope){
   $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
   var name = $routeParams.name;
-  var area = []
+  console.log('here')
 
 });
 angular.module('sraAngularApp')
@@ -157,35 +169,34 @@ angular.module('sraAngularApp')
 angular.module('sraAngularApp')
 .controller('AdminAreasController', function ($scope,$location,$firebase,$routeParams,$rootScope){
   $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
-  
-  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions");
-  var regionsArr = $firebase(ref).$asArray();
-  $scope.regions = [];
-  var areasArr = [];
-  regionsArr.$loaded().then(function(data){
-    for(var region in regionsArr){
-      if(regionsArr[region].$id != undefined){
-        $scope.regions.push(regionsArr[region].$id)
-        console.log($scope.regions[region])
-        for(var name in $scope.regions){
-            var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/"+$scope.regions[region]+"/Areas")
-            var sync = $firebase(ref).$asObject();
+  var regions = JSON.parse(localStorage['regions']);
+    if(regions != undefined){
+      for(var i = 0; i < regions.length; i++){
+         var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/"+regions[i]+"/Areas")
+          var sync = $firebase(ref).$asArray();
+          var areasArr = [];
             sync.$loaded().then(function(areaData){
               areasArr.push(areaData)
-              $scope.areas = [];
-              $scope.areas = $scope.areas.concat.apply($scope.areas, areasArr);
-              console.log($scope.areas)
-             
+              var areas = [];
+              $scope.areas = areas.concat.apply(areas, areasArr);
+              console.log($scope.areas.Name)         
             })
       }
-
-    } 
     }
-
+       
+    
+   
+           
 });
 
-  
-      
+angular.module('sraAngularApp')
+.controller('AreasEditController', function ($scope,$location,$firebase,$routeParams,$rootScope){
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+   var area = $routeParams.name
+
+    
+   
+           
 });
 
 

@@ -19,11 +19,28 @@ angular
     'ngSanitize',
     'ngTouch',
     'firebase'
-  ]).run(function($rootScope) {
+  ]).run(function($rootScope,$firebase) {
     
     $rootScope.current_user = {};
 
-    $rootScope.firebaseSession = localStorage['firebase:session::intense-inferno-7741']
+    $rootScope.firebaseSession = localStorage['firebase:session::intense-inferno-7741'];
+
+  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions");
+  var regionsArr = $firebase(ref).$asArray();
+  var regions = [];
+  var areasArr = [];
+  regionsArr.$loaded().then(function(data){
+    for(var region in regionsArr){
+      if(regionsArr[region].$id != undefined){
+        regions.push(regionsArr[region].$id)
+       }
+      }
+      regions = JSON.stringify(regions);
+      localStorage.setItem('regions', regions)
+      $rootScope.regions = JSON.parse(localStorage['regions']);
+    });
+
+
 })
   .config(function ($routeProvider) {
     $routeProvider
@@ -70,6 +87,10 @@ angular
       .when('/areas/show/:name', {
         templateUrl: 'views/areas/show.html',
         controller: 'AreasShowController'
+      })
+      .when('/areas/edit/:name',{
+        templateUrl: 'views/areas/edit.html',
+        controller: 'AreasEditController'
       })
       .otherwise({
         redirectTo: '/'

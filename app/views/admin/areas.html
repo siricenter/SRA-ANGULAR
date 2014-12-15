@@ -3,18 +3,19 @@
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">
-          Areas
+          All Areas
         </h3>
       </div>
+
       <div class="panel-body index">
-          <ul ng-repeat = "area in areas">
-            <li>
-            
-              <a ng-href = "#admin/areas/show/{{area}}">{{area}}</a>
-           
+          <ul>
+            <li ng-repeat = "area in areas">
+            {{area.Name}} - <a href = "#/admin/areas/edit/{{area.Name}}">Edit</a> - <a href = "#/areas/show/{{area.Name}}">View</a>
             
             
-            </li>
+            
+            </li></ul><br/>
+            <a href = "#admin/areas/new"><button class = "btn-success">Add New Area</button></a>
           </ul>
       </div>
     </div>

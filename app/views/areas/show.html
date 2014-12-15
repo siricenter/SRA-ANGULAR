@@ -3,21 +3,22 @@
   <b>
     Name:
   </b>
- {{area.Name}}
+ 
 </p>
 <h2>
-  Households
+  
 </h2>
-<div ng-repeat = "name in names" class="row">
+<div ng-repeat = "household in households" class="row">
     <div class="col-sm-6 col-md-4">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
-           {{name}}
+           {{household.family}}
           </h3>
         </div>
         <div class="panel-body">
-        
+        <ul>
+          <li ng-repeat = "members in household.members">{{members}}</li>
         </div>
       </div>
     </div>
