@@ -80,7 +80,7 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
     $rootScope.current_user = {};
     $rootScope.current_user = JSON.parse(stored_user);
     console.log($rootScope.current_user.roles);
-   })
+   }).then(function(){
     if($rootScope.current_user.roles != undefined){
       if($rootScope.current_user.roles == 'Admin'){
       $location.path('/admin/dashboard');
@@ -91,7 +91,8 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
     }else{
       $location.path('/dashboard')
     } 
-    }  
+    } 
+   })  
   }).catch(function(error) {
     console.error('Authentication Failed:', error);
   });
@@ -185,9 +186,6 @@ angular.module('sraAngularApp')
             })
       }
     }
-       
-    
-   
            
 });
 
@@ -228,8 +226,6 @@ angular.module('sraAngularApp')
     email: email,
     password: email
   });
-}).then(function(authData) {
-  console.log("Logged in as:", authData.uid);
 }).catch(function(error) {
   console.error("Error: ", error);
 });  

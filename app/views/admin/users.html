@@ -8,6 +8,7 @@
       </div>
 
       <div class="panel-body index">
+      
           <ul>
             <li ng-repeat = "user in users">
             {{user.$value}} - <a href = "#/admin/user/edit/{{user.Name}}">Edit</a> - <a href = "#/users/show/{{user.Name}}">View</a>

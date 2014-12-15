@@ -52,19 +52,19 @@ angular
         templateUrl: 'views/sessions/new.html',
         controller: 'LoginController'
       })
-      .when('/regions', {
+      .when('/admin/regions', {
         templateUrl: 'views/regions/index.html',
         controller: 'regionsIndexCtrl'
       })
-      .when('/region/show/:name', {
+      .when('/admin/regions/show/:name', {
         templateUrl: 'views/regions/show.html',
         controller: 'regionShowCtrl'
       })
-      .when('/region/new', {
+      .when('/admin/regions/new', {
         templateUrl: 'views/regions/new.html',
         controller: 'regionNewCtrl'
       })
-      .when('/region/edit/:name', {
+      .when('/admin/regions/edit/:name', {
         templateUrl: 'views/regions/edit.html',
         controller: 'regionEditCtrl'
       })
