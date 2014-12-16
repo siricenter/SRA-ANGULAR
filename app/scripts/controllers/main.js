@@ -199,14 +199,19 @@ angular.module('sraAngularApp')
 angular.module('sraAngularApp')
 .controller('EditUsersController', function ($scope,$location,$firebase,$routeParams,$rootScope){
   $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
-  $scope.username = $routeParams.id
-  console.log(JSON.parse(localStorage.getItem('users')))
-  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users")
-  
-  
-  
-
-          
+  $scope.UpdateUser = function(){
+     $scope.username = $routeParams.id
+      var fname = $scope.user.fname;
+      var lname = $scope.user.lname;
+      console.log(JSON.parse(localStorage.getItem('users')))
+      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users/" + $scope.username)
+      var sync = $firebase(ref).$asObject;
+      sync.$update({ FirstName: fname, LastName: lname }).then(function(ref) {
+        ref.key();   // bar
+      }, function(error) {
+        console.log("Error:", error);
+        });;
+  }        
 });
 
 angular.module('sraAngularApp')
