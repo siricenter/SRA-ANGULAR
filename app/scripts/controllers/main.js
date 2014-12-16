@@ -149,8 +149,9 @@ console.log($scope.households)
 angular.module('sraAngularApp')
 .controller('AdminDashboardController', function ($scope,$location,$firebase,$routeParams,$rootScope){
   $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
-  var name = $routeParams.name;
-  console.log('here')
+  $scope.firstname = $rootScope.current_user.first_name
+  $scope.lastname = $rootScope.current_user.last_name
+  console.log($rootScope.current_user)
 
 });
 angular.module('sraAngularApp')
