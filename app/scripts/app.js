@@ -92,6 +92,10 @@ angular
         templateUrl: 'views/users/edit.html',
         controller: 'EditUsersController'
       })
+      .when('/admin/users/areas/:id',{
+        templateUrl: 'views/users/region.html',
+        controller: 'AreasUsersController'
+      })
       .when('/areas', {
         templateUrl: 'views/areas/index.html',
         controller: 'AreasIndexController'
