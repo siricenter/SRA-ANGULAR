@@ -11,12 +11,13 @@
       
           <ul>
             <li ng-repeat = "user in users">
-            {{user.$value}} - <a href = "#/admin/user/edit/{{user.Name}}">Edit</a> - <a href = "#/users/show/{{user.Name}}">View</a>
+            {{user.FirstName}} {{user.LastName}} - <a href = "#/admin/users/edit/{{user.$id}}">Edit</a> - <a href = "#/users/show/{{user.$id}}">View</a>
             
             
             
             </li></ul><br/>
             <a href = "#admin/users/new"><button class = "btn-success">Add New User</button></a>
+            <a href = "#admin/users/areas"><button class = "btn-success">Assign User to Area</button></a>
           </ul>
       </div>
     </div>

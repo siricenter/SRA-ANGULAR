@@ -21,12 +21,6 @@ angular.module('sraAngularApp')
     ];
   });
 
-
-    
-    
-    
-    
-
 /*Constants*/
 
 angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/' /*'https://torid-inferno-2841.firebaseio.com/'*/);
@@ -44,7 +38,6 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
     email: email,
     password: password
   }).then(function(authData) {
-
     console.log("Logged in as:", authData.password.email);
     var node = email.split('@');
     var user_ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Users/" + node[0])
@@ -61,7 +54,6 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
       var areas = [];
       var areas = areas.concat.apply(areas, areasArray);
 
-      
       var user = {
       email: data.Email,
       first_name: data['First Name'],
@@ -70,7 +62,6 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
       regions: Object.keys(regions),
       areas: areas,
       roles: data.Organizations.SRA.Roles.Name
-       
     }
 
     var user_js = JSON.stringify(user);
@@ -186,7 +177,6 @@ angular.module('sraAngularApp')
             })
       }
     }
-           
 });
 
 angular.module('sraAngularApp')
@@ -200,7 +190,22 @@ angular.module('sraAngularApp')
   $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
   var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users")
   $scope.users = $firebase(ref).$asArray();
+  $scope.users.$loaded(function(data){
+    localStorage.setItem('users', JSON.stringify($scope.users));
+  })
   console.log($scope.users)
+          
+});
+angular.module('sraAngularApp')
+.controller('EditUsersController', function ($scope,$location,$firebase,$routeParams,$rootScope){
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+  $scope.username = $routeParams.id
+  console.log(JSON.parse(localStorage.getItem('users')))
+  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users")
+  
+  
+  
+
           
 });
 
@@ -212,24 +217,23 @@ angular.module('sraAngularApp')
     var user_node = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users")
     var email = $scope.user.email;
     var password = $scope.user.password;
+    var fname = $scope.user.fname;
+    var lname = $scope.user.lname;
     var ref = new Firebase('https://intense-inferno-7741.firebaseio.com');
     $scope.authObj = $firebaseAuth(ref);
     $scope.authObj.$createUser(email, password).then(function() {
       console.log("User created successfully!");
-      var list = $firebase(user_node)
-      list.$push(email).then(function(ref) {
-      var id = ref.key();
-      console.log("added record with id " + id);
-       list.$indexFor(id); // returns location in the array
-});
-  return $scope.authObj.$authWithPassword({
-    email: email,
-    password: email
-  });
-}).catch(function(error) {
-  console.error("Error: ", error);
-});  
+      user_node.push(user_node.child(email.split('@')[0]).set({"FirstName":fname ,"LastName":lname}))
+      return $scope.authObj.$authWithPassword({
+      email: email,
+      password: email
+      });
+      }).catch(function(error) {
+      console.error("Error: ", error);
+    });
   }
-          
-});
+});   
+
+angular.module('')     
+
 
