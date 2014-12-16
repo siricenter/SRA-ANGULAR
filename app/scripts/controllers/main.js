@@ -180,11 +180,6 @@ angular.module('sraAngularApp')
     }
 });
 
-angular.module('sraAngularApp')
-.controller('AreasEditController', function ($scope,$location,$firebase,$routeParams,$rootScope){
-  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
-   var area = $routeParams.name
-});
 
 angular.module('sraAngularApp')
 .controller('AdminUsersController', function ($scope,$location,$firebase,$routeParams,$rootScope){
@@ -240,6 +235,47 @@ angular.module('sraAngularApp')
   }
 });   
 
-angular.module('')     
+angular.module('sraAngularApp')
+.controller('AreasUsersController', function ($scope,$location,$firebase,$routeParams,$rootScope){
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+  $scope.regions = JSON.parse(localStorage.getItem('regions'));
+  var region = $routeParams.name
+  var areas_ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/" + region)
+  var areas = $firebase(areas_ref).$asArray();
+  areas.$loaded(function(){
+    $scope.areas = areas[0]
+    console.log($scope.areas)
+  })
+  console.log($scope.regions)
+});
+angular.module('sraAngularApp')
+.controller('AreasNewController', function ($scope,$location,$firebase,$routeParams,$rootScope){
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+  $scope.regions = JSON.parse(localStorage.getItem('regions'));
+  var region = $routeParams.name
+  $scope.region = $routeParams.name
+  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/" + region +"/Areas")
+  var areas_ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/" + region)
+  var areas = $firebase(areas_ref).$asArray();
+  areas.$loaded(function(){
+    $scope.areas = areas[0]
+    console.log($scope.areas)
+  })
+  $scope.CreateArea = function(){
+    var name = $scope.area.name
+      ref.push(ref.child(name).set({"Name": name}));
+    }
+  
+ 
+});
 
+angular.module('sraAngularApp')
+  .controller('AreasEditController', function ($scope,$location,$firebase,$routeParams,$rootScope) {
+    console.log('here')
+    $scope.area = $routeParams.name
+    $scope.UpdateArea = function(){
+    var name = $scope.area.name
+     $scope.area = name;
+    }
 
+  });

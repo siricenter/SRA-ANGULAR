@@ -37,7 +37,7 @@ angular
       }
       regions = JSON.stringify(regions);
       localStorage.setItem('regions', regions)
-      $rootScope.regions = JSON.parse(localStorage['regions']);
+      $rootScope.regions = JSON.parse(localStorage.getItem('regions'));
     });
 
 
@@ -96,16 +96,32 @@ angular
         templateUrl: 'views/users/region.html',
         controller: 'AreasUsersController'
       })
+      .when('/users/area-assignment/:name',{
+        templateUrl: 'views/users/area.html',
+        controller: 'AreasUsersController'
+      })
+      .when('/areas/region-assignment/:name',{
+        templateUrl: 'views/areas/new.html',
+        controller: 'AreasNewController'
+      })
       .when('/areas', {
         templateUrl: 'views/areas/index.html',
         controller: 'AreasIndexController'
+      })
+      .when('/admin/areas/new', {
+        templateUrl: 'views/areas/region.html',
+        controller: 'AreasNewController'
       })
       .when('/areas/show/:name', {
         templateUrl: 'views/areas/show.html',
         controller: 'AreasShowController'
       })
-      .when('/areas/edit/:name',{
+      .when('/admin/areas/edit/:name',{
         templateUrl: 'views/areas/editform.html',
+        controller: 'AreasEditController'
+      })
+      .when('/users/area-assignment/static',{
+        templateUrl: 'views/areas/new.html',
         controller: 'AreasEditController'
       })
       .otherwise({

@@ -1,0 +1,19 @@
+<div id="error_explanation">
+
+  </div>
+ 
+  <div class="row form-group">
+            Enter Area Name: <br/>
+            <div class="col-sm-3">
+              <input type = "text" ng-model="area.name" />
+            </div>
+          </div>
+    		<button class = "btn-success" ng-click = "CreateArea()">Add Area</button>
+           
+          </div>
+            <div class="row form-group">
+            <p>Current Areas in {{region}}
+            	<ul>
+            		<li ng-repeat = 'area in areas'>{{area.Name}}</li>
+            	</ul>
+            </div>
