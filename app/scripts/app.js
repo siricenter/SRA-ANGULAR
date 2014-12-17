@@ -120,9 +120,9 @@ angular
         templateUrl: 'views/areas/editform.html',
         controller: 'AreasEditController'
       })
-      .when('/users/area-assignment/static',{
-        templateUrl: 'views/areas/new.html',
-        controller: 'AreasEditController'
+      .when('/users/areas/assignment/:area',{
+        templateUrl: 'views/areas/static.html',
+        controller: 'AreasUsersController'
       })
       .otherwise({
         redirectTo: '/'
