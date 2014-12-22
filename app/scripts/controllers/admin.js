@@ -6,6 +6,7 @@ angular.module('sraAngularApp')
   var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/South%20Africa/Areas/" + name);
   var areas = $firebase(ref);
 });
+
 angular.module('sraAngularApp')
 .controller('AdminAreasController', function ($scope,$location,$firebase,$routeParams,$rootScope){
   $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
@@ -126,7 +127,7 @@ angular.module('sraAngularApp')
     var sync = $firebase(ref).$asArray;
     console.log(sync)
     console.log($scope.area + $scope.region + $scope.username)
-    ref.push(ref.child($scope.region).child($scope.area).set({"Name": $scope.area}))
+    ref.push(ref.child($scope.region).child('Areas').child($scope.area).set({"Name": $scope.area}))
     $location.path('/')
     $scope.$apply();
   },
