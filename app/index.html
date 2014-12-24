@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js">
   <head>
   <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
@@ -14,10 +14,10 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main (2).css">
+    <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="sraAngularApp">
+  <body data-ng-app="sraAngularApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -57,7 +57,7 @@
           </div>
         </nav>
 
-      <div ng-view=""></div>    
+      <div data-ng-view=""></div>    
 
     
 
@@ -118,7 +118,6 @@
         <!-- Controllers -->
         <!-- main controller must be included before all other controllers -->
         <script src="scripts/controllers/main.js"></script>  <!-- <-Main -->
-        <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/regions.js"></script>
         <script src="scripts/controllers/areas.js"></script>
         <script src="scripts/controllers/admin.js"></script>
