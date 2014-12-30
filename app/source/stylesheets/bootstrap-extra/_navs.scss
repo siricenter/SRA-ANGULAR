@@ -1,0 +1,123 @@
+$nav-pills-light-active-link-hover-color: $text-color !default;
+$nav-pills-light-active-link-hover-bg:  $gray-lighter !default;
+
+// justify no matter what screen it is
+.nav-justified-all {
+  width: 100%;
+  
+  > li {
+    float: none;
+    display: table-cell;
+    width: 1%;
+    > a {
+      text-align: center;
+      margin-bottom: 0;
+    }
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-tabs-active-link-hover-color;
+        background-color: $nav-tabs-active-link-hover-bg;
+        cursor: default;
+      }
+    }
+  }
+
+  > .dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+  }
+
+}
+
+// Pills
+// -------------------------
+.nav-pills-light {
+  &.nav-stacked {
+    > li {
+      float: none;
+    }
+  }
+  > li {
+    float: left;
+
+    // Links rendered as pills
+    > a {
+      border-radius: $nav-pills-border-radius;
+    }
+    + li {
+      margin-left: 2px;
+    }
+
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-pills-light-active-link-hover-color;
+        background-color: $nav-pills-light-active-link-hover-bg;
+      }
+    }
+  }
+}
+
+.nav-center {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+.nav-compact {
+  > li > a {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
+// justify and keep tab style
+.nav-justified-only {
+  width: 100%;
+  
+  > li {
+    float: none;
+    display: table-cell;
+    width: 1%;
+    > a {
+      text-align: center;
+      margin-bottom: 0;
+    }
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-tabs-active-link-hover-color;
+        background-color: $nav-tabs-active-link-hover-bg;
+        cursor: default;
+      }
+    }
+  }
+
+  > .dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+  }
+  
+  @media (max-width: $screen-sm-max) {
+    > li {
+      float: none;
+      display: block;
+      width: 100%;
+      > a {
+        text-align: center;
+        margin-bottom: 5px;
+        margin-right: 0;
+        border-radius: $border-radius-large;
+      }
+    }
+  }
+
+}

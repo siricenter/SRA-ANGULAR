@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" class="high">
+<head>
+  <%= partial 'layouts/head' %>
+</head>
+
+<body class="high emerald-default <%= page_classes %>">
+
+<%
+   dir = Middleman::Application.root_path.join('source', 'doc').to_s
+   files = Dir.glob("#{dir}/**/*.md").map {|f| f.sub(dir, '') }
+%>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="list-group">
+        <% files.each do |f| %>
+            <li class="list-group-item">
+              <%= link_to f.split('/').last.split('.').first.humanize, "/doc#{f.sub('.md', '.html')}" %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-9">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="mq"></div>
+<div id="emvars"></div>
+
+</body>
+</html>

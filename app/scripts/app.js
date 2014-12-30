@@ -45,8 +45,8 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/static/landing.html',
-        controller: ''
+        templateUrl: '/build/login.html',
+        controller: 'LoginController'
       })
       .when('/login', {
         templateUrl: 'views/sessions/new.html',
@@ -116,13 +116,21 @@ angular
         templateUrl: 'views/areas/show.html',
         controller: 'AreasShowController'
       })
-      .when('/admin/areas/edit/:name',{
+      .when('/admin/areas/edit/:region/:name',{
         templateUrl: 'views/areas/editform.html',
         controller: 'AreasEditController'
       })
       .when('/users/areas/assignment/:area',{
         templateUrl: 'views/areas/static.html',
         controller: 'AreasUsersController'
+      })
+      .when('/:area/households',{
+        templateUrl: 'views/households/index.html',
+        controller: 'HouseholdsController'
+      })
+      .when('/households/:id',{
+        templateUrl: 'views/households/show.html',
+        controller: 'HouseholdsController'
       })
       .otherwise({
         redirectTo: '/'
@@ -169,3 +177,4 @@ angular.module('sraAngularApp')
      
     return RestClient;
   });
+

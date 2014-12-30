@@ -1,0 +1,122 @@
+<%
+classes = %w(primary info success warning danger)
+%>
+
+<ol class='nestable dd-list list-unstyled'>
+  <li class="dd-item">
+    <button class="btn btn-info dd-handle pull-left">
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="dd-content">
+      <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+    </div>
+  </li>
+  <li class="dd-item">
+    <button class="btn btn-info dd-handle pull-left">
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="dd-content">
+      <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+      <a href="#" class="badge badge-<%= classes.sample %>-lt 
+         badge-rounded badge-empty badge-grow pull-right"></a>
+    </div>
+  </li>
+  <li class="dd-item">
+    <button class="btn btn-info dd-handle pull-left">
+      <i class="fa fa-bars"></i>
+    </button>
+    <% uid1 = uid() %>
+    <button class="btn btn-default dd-toggle" data-toggle="collapse" 
+            data-target="#<%= uid1 %>">
+    </button>
+    <div class="dd-content">
+      <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+    </div>
+    <ol class="dd-list collapse in" id="<%= uid1 %>">
+      <li class="dd-item">
+        <button class="btn btn-info dd-handle pull-left">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="dd-content">
+          <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+          <a href="#" class="badge badge-<%= classes.sample %>-lt 
+             badge-rounded badge-empty badge-grow pull-right"></a>
+        </div>
+      </li>
+      <li class="dd-item">
+        <button class="btn btn-info dd-handle pull-left">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="dd-content">
+          <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+          <a href="#" class="badge badge-<%= classes.sample %>-lt 
+             badge-rounded badge-empty badge-grow pull-right"></a>
+        </div>
+      </li>
+      <li class="dd-item">
+        <button class="btn btn-info dd-handle pull-left">
+          <i class="fa fa-bars"></i>
+        </button>
+        <% uid2 = uid() %>
+        <button class="btn btn-default dd-toggle" data-toggle="collapse" 
+                data-target="#<%= uid2 %>">
+        </button>
+        <div class="dd-content">
+          <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+        </div>
+        <ol class="dd-list collapse in" id="<%= uid2 %>">
+          <li class="dd-item">
+            <button class="btn btn-info dd-handle pull-left">
+              <i class="fa fa-bars"></i>
+            </button>
+            <div class="dd-content">
+              <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+              <a href="#" class="badge badge-<%= classes.sample %>-lt badge-grow pull-right">22</a>
+            </div>
+          </li>
+          <li class="dd-item">
+            <button class="btn btn-info dd-handle pull-left">
+              <i class="fa fa-bars"></i>
+            </button>
+            <div class="dd-content">
+              <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+            </div>
+          </li>
+          <li class="dd-item">
+            <button class="btn btn-info dd-handle pull-left">
+              <i class="fa fa-bars"></i>
+            </button>
+            <div class="dd-content">
+              <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+            </div>
+          </li>
+        </ol>
+      </li>
+      <li class="dd-item">
+        <button class="btn btn-info dd-handle pull-left">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="dd-content">
+          <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+          <a href="#" class="label label-<%= classes.sample %>-lt pull-right"><%= lorem.name %></a>
+        </div>
+      </li>
+    </ol>
+  </li>
+  <li class="dd-item">
+    <button class="btn btn-info dd-handle pull-left">
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="dd-content">
+      <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+    </div>
+  </li>
+  <li class="dd-item">
+    <button class="btn btn-info dd-handle pull-left">
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="dd-content">
+      <strong><%= lorem.word.capitalize %></strong> <small><%= lorem.words(5) %></small>
+    </div>
+  </li>
+</ol>

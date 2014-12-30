@@ -1,0 +1,168 @@
+@import "compass/typography/text/ellipsis";
+
+$chat-online-lightbulb-color: $brand-success !default;
+$chat-unread-lightbulb-color: $brand-info !default;
+$chat-color: $gray-light !default;
+$chat-color-bg: $gray-dark !default;
+$chat-faded-color: $gray-dark !default;
+$chat-zindex-visible: $oc-zindex-visible !default;
+
+$chat-right-bg: $state-success-bg !default;
+$chat-right-border: $state-success-border !default;
+$chat-right-text: $state-success-text !default;
+
+$chat-left-bg: $state-info-bg !default;
+$chat-left-border: $state-info-border !default;
+$chat-left-text: $state-info-text !default;
+
+.chat-contact {
+  font-size: $font-size-base;
+  .media {
+    &:before {
+      content: " ";
+      border-radius: 50%;
+      border: 2px solid $chat-color-bg;
+      background-color: $chat-online-lightbulb-color;
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      left: 13px;
+      top: 13px;
+    }
+  }
+  .media-object {
+    height: 35px;
+  }
+  .media-heading {
+    color: $chat-color;
+    margin: 0;
+  }
+  .last-message-date {
+    display: none;
+    color: $chat-faded-color;
+    line-height: 16px;
+  }
+  .last-message {
+    color: $chat-faded-color;
+    @include ellipsis;
+  }
+  &.offline {
+    .media {
+      &:before {
+        background-color: $chat-faded-color;
+      }
+    }
+    .media-object {
+      @extend .grayscale;
+    }
+    .media-heading {
+      color: $chat-faded-color;
+    }
+  }
+  &.unread {
+    .media {
+      &:before {
+        background-color: $chat-unread-lightbulb-color;
+      }
+    }
+    .last-message-date {
+      display: inline;
+    }
+    .last-message {
+      color: lighten($chat-faded-color, 40);
+    }
+  }
+}
+
+.chat-bubble {
+  @include border-radius(5px);
+  display: inline-block;
+  padding: 6px 6px;
+  position: relative;
+  vertical-align: top;
+  z-index: $chat-zindex-visible;
+}
+
+.chat-bubble-right {
+  background-color: $chat-right-bg;
+  border-color: $chat-right-border;
+  color: $chat-right-text;
+  float: right;
+  margin: 5px 45px 5px 20px;
+  @include arrow("right", $chat-right-bg, 5px, $position: 7px);
+}
+
+.chat-bubble-left {
+  background-color: $chat-left-bg;
+  border-color: $chat-left-border;
+  color: $chat-left-text;
+  float: left;
+  margin: 5px 20px 5px 45px;
+  @include arrow("left", $chat-left-bg, 5px, $position: 7px);
+}
+
+.chat-bubble-avatar {
+  position: absolute;
+  top: 0;
+}
+.chat-bubble-avatar-left {
+  position: absolute;
+  left: -34px;
+}
+.chat-bubble-avatar-right {
+  position: absolute;
+  right: -34px;
+}
+
+.chat-conversation {
+  color: $gray-light;
+  font-size: $font-size-base;
+  height: 100%;
+  position: relative;
+  a.close {
+    text-shadow: none;
+    z-index: $chat-zindex-visible + 1;
+  }
+  .chat-contact {
+    padding: 8px $navbar-padding-horizontal;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $chat-zindex-visible + 1;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  .chat-messages {
+    position: absolute;
+    top: 50px;
+    bottom: 80px;
+    width: 100%;
+    height: auto;
+  }
+  .chat-sender {
+    margin: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: $chat-zindex-visible + 1;
+    textarea {
+      color: $text-color;
+      background-color: #fff;
+    }
+  }
+}
+
+.chat-oc-wrapper {
+  overflow-y: hidden;
+}
+
+.chat-oc-container {
+  height: 100%;
+}
+
+.chat-conversation {
+  color: $brand-light;
+}

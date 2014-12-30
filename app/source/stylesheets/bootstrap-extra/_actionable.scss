@@ -1,0 +1,45 @@
+.actionable {
+  position: relative;
+  @include perspective(3000px);
+  @include transform-style(preserve-3d);
+  .actionable-front {
+    @include transform-origin(left, center, 0);
+    @include transition(transform .3s ease-in-out);
+  }
+  .actionable-back {
+    @include transform-origin(left, center, 0);
+    @include transition(transform .15s ease-out .25s, opacity .2s ease-out .1s);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include transform(rotateY(60deg));
+    @include opacity(0);
+  }
+  &.ready {
+    .actionable-front {
+      @include transform(rotateY(15deg));
+      @include transition(transform .20s ease-in .15s, opacity .15s ease-in .15s);
+    }
+  }
+  &.actioning {
+    .actionable-front {
+      @include transform(rotateY(-60deg));
+      @include opacity(0);
+    }
+    .actionable-back {
+      @include transform(rotateY(0deg));
+      @include opacity(1);
+    }
+  }
+}
+
+.actionable-contain {
+  overflow: hidden;
+}
+
+.actionable-animated-fadeInRightSmall,
+.actionable-animated-fadeInLeftSmall {
+  @include opacity(0);
+}

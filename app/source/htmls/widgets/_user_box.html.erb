@@ -1,0 +1,40 @@
+<div class="panel panel-white">
+  <div class="panel-colorize">
+    <div class="panel-heading">
+      <%= partial 'htmls/widgets/actions', locals: { colors: true } %>
+      <div class="panel-title">&nbsp;</div>
+    </div>
+    <div class="panel-body panel-body-collapse no-padding">
+
+      <div class="vpadded">
+        <%= image_tag lorem.avatar(128), class: 'img-responsive img-circle' %>
+
+        <div class="text-center">
+          <h3 class="panel-text-dk">John Smith</h3>
+          <h4>Creative designer</h4>
+        </div>
+      </div>
+
+      <div class="panel-line-top panel-line-bottom text-center">
+        <div class="row">
+          <div class="col-xs-6 panel-line-right">
+            <h4 class="panel-text-dk">12.331</h4>
+            <h5>Followers</h5>
+          </div>
+          <div class="col-xs-6">
+            <h4 class="panel-text-dk">1.254</h4>
+            <h5>Following</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="padded text-center">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum fugit id illo laudantium magni officia saepe ut, veritatis vitae!
+      </div>
+
+      <div class="padded text-center panel-line-top">
+        <button class="btn panel-bg-inverse btn-block"><i class="fa fa-plus"></i> Follow this user</button>
+      </div>
+    </div>
+  </div>
+</div>

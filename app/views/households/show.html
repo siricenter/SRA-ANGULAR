@@ -1,23 +1,15 @@
 <div class="row">
-  <%= link_to 'Households', households_path, class: [:btn, "btn-large", "btn-success", "col-sm-2"], id: :back %>
+ 
 </div>
 <div class="row">
   <h1>
-    <%= @household.name + " Household" %>
   </h1>
 </div>
-<% interviewed =	Interview.where({household_id: @household}).last %>
+
 <div class="row btn-toolbar">
-  <%= link_to 'Add Person', new_household_person_path(@household), class: [:'toolbar-button'], id: "add_person_top" %>
-  <%= link_to 'Rename', edit_household_path(@household), class: [:'toolbar-button'], id: "rename_top" %>
-  <% if interviewed %>
-    <%= link_to 'Nutrition', interview_path(Interview.where({household_id: @household}).last), class: [:'toolbar-button'], id: "nutrition" %>
-  <% end %>
-  <% if @household.people.count > 0 and not interviewed %>
-    <%= link_to 'Interview', new_household_interview_path(@household), class: [:'toolbar-button'], id: :interview_household %>
-  <% end %>
+  
 </div>
-<% if @people.size > 0 %>
+
   <div class="row">
     <% @people.each do |person| %>
       <div class="col-sm-6 col-md-4">
@@ -37,11 +29,8 @@
                 <%= "Born #{person.birthday}" %>
               </li>
             </ul>
-            <%= link_to 'View', person_path(person), class: [:button, :'col-sm-5'] %>
-            <%= link_to 'Edit', edit_person_path(person), class: [:button, :'col-sm-5', :'col-sm-offset-2'], id: "#{person.id}_edit" %>
           </div>
         </div>
       </div>
-    <% end %>
   </div>
-<% end %>
+

@@ -1,0 +1,62 @@
+//overrides for jasny bootstrap navmenu
+
+.navmenu-full {
+  width: 100%;
+}
+
+.navmenu {
+  background: transparent;
+  border: none;
+}
+
+$navmenu-bg: rgba(dkize($brand-light), .2);
+
+.navmenu {
+  li {
+    &.active > a {
+      background-color: $navmenu-bg;
+    }
+    > a {
+      color: $text-color;
+      &:hover, &:focus {
+        background-color: $navmenu-bg;
+      }
+    }
+  }
+
+  .open > a {
+    &, &:hover, &:focus {
+      background-color: $navmenu-bg;
+    }
+  }
+
+  .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover {
+    background-color: $navmenu-bg;
+    color: $text-color;
+  }
+}
+
+.navmenu-nav {
+  margin-bottom: 0;
+  li {
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    a {
+      i, .badge {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    padding-bottom: 0;
+
+    > li > a {
+      padding-top: 7px;
+      padding-bottom: 7px;
+    }
+  }
+
+}

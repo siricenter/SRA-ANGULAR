@@ -1,0 +1,31 @@
+<%
+id = rid() if !defined?(id) || id.nil?
+modal_class = 'fade' if !defined?(modal_class) || modal_class.blank?
+modal_dialog_class = '' if !defined?(modal_dialog_class) || modal_dialog_class.nil?
+modal_header_class = '' if !defined?(modal_header_class) || modal_header_class.nil?
+title = 'Modal' if !defined?(title)|| title.nil?
+content = lorem.paragraph if !defined?(content)|| content.nil?
+%>
+<% unless defined? footer %>
+  <% footer = capture_html do %>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+  <% end %>
+<% end %>
+
+<div class="modal <%= modal_class %>" id="<%= id %>">
+  <div class="modal-dialog <%= modal_dialog_class %>">
+    <div class="modal-content">
+      <div class="modal-header <%= modal_header_class %>">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"><%= title %></h4>
+      </div>
+      <div class="modal-body">
+        <%= content %>
+      </div>
+      <div class="modal-footer">
+        <%= footer %>
+      </div>
+    </div>
+  </div>
+</div>

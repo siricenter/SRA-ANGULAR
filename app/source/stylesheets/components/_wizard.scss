@@ -1,0 +1,37 @@
+$wizard-mid-line-color: $gray-dark !default;
+$wizard-mid-line-height: 3px !default;
+
+.wizard-steps {
+  position: relative;
+  margin-top: $panel-body-padding;
+  margin-bottom: $panel-body-padding;
+  width: 100%;
+
+  &::before {
+    left: 0;
+    right: 0;
+    position: absolute;
+    content: " ";
+    height: $wizard-mid-line-height;
+    background-color: $wizard-mid-line-color;
+    top: 50%;
+    margin-top: -(floor($wizard-mid-line-height/2));
+  }
+    
+  > .wizard-step {
+    position: relative;
+    float: none;
+    display: table-cell;
+    width: 1%;
+    text-align: center;
+  }
+
+}
+.wizard-body {
+  position: relative;
+  @include arrow(top, $brand-white, $tl-arrow-size);
+}
+
+.wizard-info {
+  margin-top: 5px;
+}

@@ -1,0 +1,68 @@
+.base-header {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: inherit;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+.major {
+  font-weight: 600;
+}
+
+.lead {
+  font-weight: 300;
+}
+
+strong {
+  font-weight: 600;
+}
+
+$header-sizes:
+  h1 $font-size-h1,
+  h2 $font-size-h2,
+  h3 $font-size-h3,
+  h4 $font-size-h4,
+  h5 $font-size-h5;
+
+@each $pair in $header-sizes {
+  #{nth($pair, 1)}.text-lg {
+    font-size: nth($pair, 2) * 2;
+    line-height: nth($pair, 2) * 2 + 10px;
+  }
+}
+
+@each $pair in $emerald-colors {
+  @include text-emphasis-variant('.text-#{nth($pair, 1)}', nth($pair,2));
+  .bg-#{nth($pair, 1)} {
+    background-color: nth($pair, 2);
+    @include bg-gradients(nth($pair, 2));
+    &, a:not(.btn) {
+      color: nth($pair, 3);
+    }
+  }
+  .bg-#{nth($pair, 1)}-inverse {
+    background-color: nth($pair, 4);
+    &, a:not(.btn) {
+      color: nth($pair, 5);
+    }
+  }
+}
+
+@each $pair in $em-white-colors {
+  .bg-#{nth($pair, 1)} {
+    background: nth($pair, 2);
+  }
+}
+
+.bg-light-semi {
+  background: rgba($brand-light, .2);
+}
+
+@include text-emphasis-variant('.text-normal', $text-color);
+
+strong {
+  font-weight: 600;
+}

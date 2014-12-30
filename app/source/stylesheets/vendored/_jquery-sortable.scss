@@ -1,0 +1,21 @@
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+ol.dd-list li.placeholder {
+  position: relative;
+  height: 18px;
+  /** More li styles **/
+  &::before {
+    position: absolute;
+    font-family: "FontAwesome";
+    content: "\f0da";
+    color: $brand-info;
+  }
+}

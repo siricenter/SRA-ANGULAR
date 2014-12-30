@@ -1,0 +1,20 @@
+<% colors = true if !defined?(colors) || colors.nil? %>
+
+<% if colors != false %>
+  <span class="panel-action panel-classify">
+    <select rel="classselector">
+      <% %w(none default light dark inverse warning danger primary info success).each do |opt| %>
+        <option>panel-<%= opt %></option>
+      <% end %>
+    </select>
+  </span>
+<% end %>
+<span class="panel-action panel-fullscreen">
+  <i class="fa fa-expand"></i>
+</span>
+<span class="panel-action panel-collapse">
+  <i class="fa fa-minus"></i>
+</span>
+<span class="panel-action panel-close">
+  <i class="fa fa-times"></i>
+</span>

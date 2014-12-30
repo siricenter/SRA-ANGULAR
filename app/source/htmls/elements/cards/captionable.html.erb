@@ -1,0 +1,404 @@
+<div class="container-fluid">
+    
+  <div class="row" rel="panels">
+    <div class="col-md-3 panels">
+
+      <div class="captionable captionable-effect-flip horizontal">
+        <div class="captionable-flip">
+          <div class="captionable-front">
+            <%= partial 'htmls/elements/captionable/panel', locals: {
+              title: 'Flip horizontal' } %>
+          </div>
+          <div class="captionable-caption captionable-back panel-body-info padded">
+            <h4><%= lorem.word.capitalize %></h4>
+            <p><%= lorem.sentence %></p>
+            <p><%= lorem.sentence %></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3 panels">
+
+      <div class="captionable captionable-effect-flip vertical">
+        <div class="captionable-flip">
+          <div class="captionable-front">
+            <%= partial 'htmls/elements/captionable/panel', locals: {
+              title: 'Flip vertical', kind: 'heart' } %>
+          </div>
+          <div class="captionable-caption captionable-back panel-body-info padded">
+            <h4><%= lorem.word.capitalize %></h4>
+            <p><%= lorem.sentence %></p>
+            <p><%= lorem.sentence %></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3 panels">
+
+      <div class="captionable captionable-effect-almost-over">
+        <%= partial 'htmls/elements/captionable/panel', locals: {
+          title: 'Almost over' } %>
+        <div class="captionable-caption panel-body-info padded">
+          <h4><%= lorem.word.capitalize %></h4>
+          <p><%= lorem.sentence %></p>
+          <p><%= lorem.sentence %></p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3 panels">
+
+      <div class="captionable captionable-effect-to-the-left">
+        <%= partial 'htmls/elements/captionable/panel', locals: {
+          title: 'To the left', kind: 'heart' } %>
+        <div class="captionable-caption panel-body-info padded">
+          <h4><%= lorem.word.capitalize %></h4>
+          <p><%= lorem.sentence %></p>
+          <p><%= lorem.sentence %></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row" rel="panels">
+    <div class="col-md-3 panels">
+
+      <div class="captionable captionable-effect-slide-left">
+        <div class="panel captionable-panel-clip">
+          <div class="panel-heading">
+            <div class="panel-title text-center">
+              Slide left
+            </div>
+          </div>
+          <div class="panel-body no-padding-top">
+            <%= partial 'htmls/elements/captionable/body', locals: { kind: 'heart' } %>
+          </div>
+          <div class="captionable-caption captionable-caption-bis panel-body-info nano">
+            <div class="nano-content padded no-padding-top">
+              <div class="margin-right">
+                <h4 class="text-right vertical-text-right with-scroll"><%= lorem.name %></h4>
+                <p><%= lorem.paragraph %></p>
+                <p><%= lorem.paragraph %></p>
+                <p><%= lorem.paragraph %></p>
+                <p><%= lorem.paragraph %></p>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3 panels">
+
+      <div class="captionable captionable-effect-slide-right">
+        <div class="panel captionable-panel-clip">
+          <div class="panel-heading">
+            <div class="panel-title text-center">
+              Slide right
+            </div>
+          </div>
+          <div class="panel-body no-padding-top">
+            <%= partial 'htmls/elements/captionable/body' %>
+          </div>
+          <div class="captionable-caption captionable-caption-bis panel-body-info nano">
+            <div class="nano-content padded no-padding-top">
+              <div class="margin-left">
+                <h4 class="vertical-text-left"><%= lorem.name %></h4>
+                <p><%= lorem.paragraph %></p>
+                <p><%= lorem.paragraph %></p>
+                <p><%= lorem.paragraph %></p>
+                <p><%= lorem.paragraph %></p>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3 panels">
+
+      <div class="captionable captionable-effect-slide-bottom">
+        <div class="panel captionable-panel-clip">
+          <div class="panel-heading">
+            <div class="panel-title text-center">
+              Slide bottom
+            </div>
+          </div>
+          <div class="panel-body no-padding-top">
+            <%= partial 'htmls/elements/captionable/body', locals: { kind: 'heart' } %>
+          </div>
+          <div class="captionable-caption captionable-caption-bis panel-body-info nano">
+            <div class="nano-content padded">
+              <button class="btn btn-info-dk pull-right">Details</button>
+              <h4><%= lorem.name %></h4>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3 panels">
+
+      <div class="captionable captionable-effect-slide-top">
+        <div class="panel captionable-panel-clip">
+          <div class="panel-heading">
+            <div class="panel-title text-center">
+              Slide top
+            </div>
+          </div>
+          <div class="panel-body no-padding-top">
+            <%= partial 'htmls/elements/captionable/body' %>
+          </div>
+          <div class="captionable-caption captionable-caption-bis panel-body-info nano">
+            <div class="nano-content padded">
+              <p>
+                Quaerat facilis magnam mollitia excepturi aut voluptatum dolor in alias. nostrum sit sunt in ratione veritatis aperiam est animi asperiores facere aut rerum voluptatum. quaerat autem autem tempora soluta. maiores quae consectetur laudantium dolore nulla in animi iste. soluta autem voluptatibus qui sapiente eum velit laboriosam optio voluptas
+              </p>
+              <button class="btn btn-xs btn-info-dk pull-right">Details</button>
+              <h4><%= lorem.name %></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <div class="row" rel="panels">
+    <div class="col-md-3 panels">
+
+      <div class="captionable captionable-effect-door-left">
+        <div class="panel">
+          <div class="panel-heading">
+            <div class="panel-title text-center">
+              Door left
+            </div>
+          </div>
+          <div class="panel-body no-padding-top">
+            <%= partial 'htmls/elements/captionable/body', locals: {
+              title: 'Door left' } %>
+          </div>
+          <div class="captionable-caption panel-body-info nano">
+            <div class="nano-content padded no-padding-top">
+              <h4><%= lorem.name %></h4>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3 panels">
+
+      <div class="captionable captionable-effect-door-right">
+        <div class="panel">
+          <div class="panel-heading">
+            <div class="panel-title text-center">
+              Door right
+            </div>
+          </div>
+          <div class="panel-body no-padding-top">
+            <%= partial 'htmls/elements/captionable/body', locals: {
+              title: 'Door right', kind: 'heart' } %>
+          </div>
+          <div class="captionable-caption panel-body-info nano">
+            <div class="nano-content padded no-padding-top">
+              <h4><%= lorem.name %></h4>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-3 panels">
+      
+      <div class="captionable captionable-effect-door-top">
+        <div class="panel">
+          <div class="panel-heading">
+            <div class="panel-title text-center">
+              Door top
+            </div>
+          </div>
+          <div class="panel-body no-padding-top">
+            <%= partial 'htmls/elements/captionable/body', locals: {
+              title: 'Door top' } %>
+          </div>
+          <div class="captionable-caption panel-body-info nano">
+            <div class="nano-content padded no-padding-top">
+              <h4><%= lorem.name %></h4>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3 panels">
+      
+      <div class="captionable captionable-effect-door-bottom">
+        <div class="panel">
+          <div class="panel-heading">
+            <div class="panel-title text-center">
+              Door bottom
+            </div>
+          </div>
+          <div class="panel-body no-padding-top">
+            <%= partial 'htmls/elements/captionable/body', locals: {
+              title: 'Door bottom', kind: 'heart' } %>
+          </div>
+          <div class="captionable-caption panel-body-info nano">
+            <div class="nano-content padded no-padding-top">
+              <h4><%= lorem.name %></h4>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+              <p><%= lorem.paragraph %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row" rel="panels">
+    <div class="col-md-3 panels">
+      
+      <div class="panel">
+        <div class="panel-heading">
+          <div class="panel-title text-center">
+            Reveal top left
+          </div>
+        </div>
+        <div class="panel-body no-padding-top captionable captionable-effect-reveal-top-left">
+          <div class="captionable-reveal padded-top">
+            <h4 class="text-muted text-right">
+              Sr.<br>
+              Software<br>
+              Architect
+            </h4>
+            <br>
+            <h4 class="text-center text-success no-margin-bottom"><%= lorem.name %></h4>
+            <p class="text-center">
+              <small><a class="text-muted" href="#"><%= lorem.email %></a></small>
+            </p>
+            <%= partial 'htmls/elements/captionable/actions' %>
+          </div>
+          <div class="captionable-revealer">
+            <%= image_tag 'superbox/superbox-thumb-7.jpg', :class => 'captionable-revealer-image' %>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-3 panels">
+      
+      <div class="panel">
+        <div class="panel-heading">
+          <div class="panel-title text-center">
+            Reveal top right
+          </div>
+        </div>
+        <div class="panel-body no-padding-top captionable captionable-effect-reveal-top-right">
+          <div class="captionable-reveal padded-top">
+            <h4 class="text-muted">
+              Sr.<br>
+              Software<br>
+              Architect
+            </h4>
+            <br>
+            <h4 class="text-center text-success no-margin-bottom"><%= lorem.name %></h4>
+            <p class="text-center">
+              <small><a class="text-muted" href="#"><%= lorem.email %></a></small>
+            </p>
+            <%= partial 'htmls/elements/captionable/actions' %>
+          </div>
+          <div class="captionable-revealer">
+            <%= image_tag 'superbox/superbox-thumb-11.jpg', :class => 'captionable-revealer-image' %>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-3 panels">
+      
+      <div class="panel">
+        <div class="panel-heading">
+          <div class="panel-title text-center">
+            Reveal bottom left
+          </div>
+        </div>
+        <div class="panel-body no-padding-top captionable captionable-effect-reveal-bottom-left">
+          <div class="captionable-reveal padded-top">
+            <%= partial 'htmls/elements/captionable/actions' %>
+            <h4 class="text-center text-success no-margin-bottom"><%= lorem.name %></h4>
+            <p class="text-center">
+              <small><a class="text-muted" href="#"><%= lorem.email %></a></small>
+            </p>
+            <br>
+            <h4 class="text-muted text-right">
+              Sr.<br>
+              Software<br>
+              Architect
+            </h4>
+          </div>
+          <div class="captionable-revealer">
+            <%= image_tag 'superbox/superbox-thumb-13.jpg', :class => 'captionable-revealer-image' %>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-3 panels">
+      
+      <div class="panel">
+        <div class="panel-heading">
+          <div class="panel-title text-center">
+            Reveal bottom right
+          </div>
+        </div>
+        <div class="panel-body no-padding-top captionable captionable-effect-reveal-bottom-right">
+          <div class="captionable-reveal padded-top">
+            <%= partial 'htmls/elements/captionable/actions' %>
+            <h4 class="text-center text-success no-margin-bottom"><%= lorem.name %></h4>
+            <p class="text-center">
+              <small><a class="text-muted" href="#"><%= lorem.email %></a></small>
+            </p>
+            <br>
+            <h4 class="text-muted">
+              Sr.<br>
+              Software<br>
+              Architect
+            </h4>
+          </div>
+          <div class="captionable-revealer">
+            <%= image_tag 'superbox/superbox-thumb-16.jpg', :class => 'captionable-revealer-image' %>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>

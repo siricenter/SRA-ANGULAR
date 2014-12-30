@@ -1,0 +1,15 @@
+$growl-color-pairs:
+  default ltize($brand-dark)    $brand-white,
+  error   $brand-danger  $brand-white,
+  notice  $brand-success $brand-white,
+  warning $brand-warning $brand-white;
+
+
+.growl {
+  @each $pair in $growl-color-pairs {
+    .growl-#{nth($pair, 1)} {
+      background: nth($pair, 2);
+      color: nth($pair, 3);
+    }
+  }
+}

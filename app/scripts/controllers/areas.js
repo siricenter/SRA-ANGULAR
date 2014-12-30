@@ -1,8 +1,8 @@
 angular.module('sraAngularApp')
 .controller('AreasController', function ($scope, $location, $firebase, $routeParams,$rootScope){
-  var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Users/User%201/Organizations/Organization/Region/Region0/Areas');
   $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
-  $scope.areas = $firebase(ref).$asArray();
+  $scope.regions = $rootScope.current_user.regions
+  $scope.areas = $rootScope.current_user.areas
   console.log($scope.areas);
 });
 

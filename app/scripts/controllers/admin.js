@@ -26,6 +26,7 @@ angular.module('sraAngularApp')
     }
 });
 
+
 angular.module('sraAngularApp')
 .controller('AdminDashboardController', function ($scope,$location,$firebase,$routeParams,$rootScope){
   $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
@@ -157,11 +158,20 @@ angular.module('sraAngularApp')
 
 angular.module('sraAngularApp')
   .controller('AreasEditController', function ($scope,$location,$firebase,$routeParams,$rootScope) {
-    console.log('here')
-    $scope.area = $routeParams.name
+    $scope.area = $routeParams.name;
+    $scope.region = $routeParams.region;
+    console.log($scope.area)
+    console.log($scope.region)
+    console.log("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/" + $scope.region +"/Areas/" + $scope.area)
+    
     $scope.UpdateArea = function(){
-    var name = $scope.area.name
-     $scope.area = name;
+      console.log('here')
+      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/" + $scope.region +"/Areas/" + $scope.area)
+      var name = $scope.Area.name;
+      ref.set(name);
     }
+
+
+  
 
   });

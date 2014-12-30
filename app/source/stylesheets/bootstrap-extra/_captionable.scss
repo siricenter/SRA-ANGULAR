@@ -1,0 +1,293 @@
+$captionable-sides: top bottom left right;
+$captionable-positions: top-left top-right bottom-left bottom-right;
+$captionable-zindex-bottom: 1600;
+$captionable-zindex-top: $captionable-zindex-bottom + 1;
+
+// helpers
+
+.captionable-panel-clip {
+  position: relative;
+  overflow: hidden;
+}
+
+// effects
+
+.captionable {
+  @include perspective(1000px);
+}
+
+// captionable-effect-almost-over
+.captionable-effect-almost-over {
+  position: relative;
+  .captionable-caption {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    @include backface-visibility(hidden);
+    @include transition(transform 0.35s, opacity 0.35s);
+  }
+  &:hover,
+  &.hover {
+    .captionable-caption {
+      opacity: 1;
+      @include transform(translate(15px, 15px));
+    }
+  }
+}
+
+// captionable-effect-to-the-left
+.captionable-effect-to-the-left {
+  position: relative;
+  .captionable-caption {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    @include backface-visibility(hidden);
+    @include transition(transform 0.35s, opacity 0.35s);
+  }
+  &:hover,
+  &.hover {
+    .captionable-caption {
+      opacity: 1;
+      @include transform(translate(-100%));
+    }
+  }
+}
+
+// captionable-effect-flip
+@-moz-document url-prefix() {
+  .captionable-flip {
+    @include transform-style(preserve-3d);
+  }
+}
+.captionable-effect-flip {
+  position: relative;
+  .captionable-front,
+  .captionable-back {
+    @include backface-visibility(hidden);
+    @include transition(transform 0.35s);
+    @include transform-style(preserve-3d);
+  }
+  .captionable-front {
+    z-index: 2;
+    @include transform(rotateY(0deg));
+  }
+  .captionable-back {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    top: 0;
+    left: 0;
+    @include transform(rotateY(-180deg));
+  }
+  &:hover,
+  &.hover {
+    .captionable-back {
+      @include transform(rotateY(0deg));
+    }
+    .captionable-front {
+      @include transform(rotateY(180deg));
+    }
+  }
+  &.vertical {
+    position: relative;
+    .captionable-back {
+      @include transform(rotateX(180deg));
+    }
+    &:hover,
+    &.hover {
+      .captionable-back {
+        @include transform(rotateX(0deg));
+      }
+      .captionable-front {
+        @include transform(rotateX(180deg));
+      }
+    }
+  }
+}
+
+// slide
+
+// captionable-effect-slide-bottom
+.captionable-effect-slide-bottom {
+  position: relative;
+  overflow: hidden;
+  .captionable-caption {
+    position: absolute;
+    top: 100%;
+    @include transition(top 0.35s);
+  }
+  &:hover,
+  &.hover {
+    .captionable-caption {
+      top: 75%;
+    }
+    .captionable-caption-bis:hover {
+      top: 0%;
+    }
+  }
+}
+
+// captionable-effect-slide-left
+.captionable-effect-slide-left {
+  position: relative;
+  overflow: hidden;
+  .captionable-caption {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    @include transition(right 0.35s);
+  }
+  &:hover,
+  &.hover {
+    .captionable-caption {
+      right: 75%;
+    }
+    .captionable-caption-bis:hover {
+      right: 0%;
+    }
+  }
+}
+
+// captionable-effect-slide-right
+.captionable-effect-slide-right {
+  position: relative;
+  overflow: hidden;
+  .captionable-caption {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    @include transition(left 0.35s);
+  }
+  &:hover,
+  &.hover {
+    .captionable-caption {
+      left: 75%;
+    }
+    .captionable-caption-bis:hover {
+      left: 0%;
+    }
+  }
+}
+
+// captionable-effect-slide-top
+.captionable-effect-slide-top {
+  position: relative;
+  overflow: hidden;
+  .captionable-caption {
+    position: absolute;
+    bottom: 100%;
+    @include transition(bottom 0.35s);
+  }
+  &:hover,
+  &.hover {
+    .captionable-caption {
+      bottom: 75%;
+    }
+    .captionable-caption-bis:hover {
+      bottom: 0%;
+    }
+  }
+}
+
+// doors
+
+@each $side in $captionable-sides {
+  .captionable-effect-door-#{$side} {
+    position: relative;
+    @include transform-style(preserve-3d);
+    .panel {
+      @include transform-style(preserve-3d);
+    }
+    .captionable-caption {
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      @include backface-visibility(hidden);
+      @include transition(transform 0.35s, opacity 0.35s);
+      @include transform-style(preserve-3d);
+      @if ($side == left) {
+        @include transform-origin(left, top, 0);
+        @include transform(rotateY(-90deg));
+      }
+      @if ($side == right) {
+        @include transform-origin(right, top, 0);
+        @include transform(rotateY(90deg));
+      }
+      @if ($side == top) {
+        @include transform-origin(left, top, 0);
+        @include transform(rotateX(90deg));
+      }
+      @if ($side == bottom) {
+        @include transform-origin(left, bottom, 0);
+        @include transform(rotateX(-90deg));
+      }
+    }
+    &:hover,
+    &.hover {
+      .captionable-caption {
+        opacity: 1;
+        @include transform(rotateY(0deg));
+        @include transform(rotateX(0deg));
+      }
+    }
+  }
+}
+
+// reveal
+
+@each $position in $captionable-positions {
+  .captionable-effect-reveal-#{$position} {
+    position: relative;
+    .captionable-revealer {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: $captionable-zindex-top;
+      @include transition(transform 0.35s ease-in-out);
+    }
+    .captionable-revealer-image {
+      @include transition(border-radius 0.35s ease-in-out);
+      width: 100%;
+      height: 100%;
+    }
+    &:hover,
+    &.hover {
+      .captionable-revealer-image {
+        border-radius: 50%;
+      }
+      .captionable-revealer {
+        $toX: 0;
+        $toY: 0;
+        @if ($position == top-left) {
+          $toX: 'calc(-50% + 1em)';
+          $toY: 'calc(-50% + 1em)';
+        }
+        @if ($position == top-right) {
+          $toX: 'calc(50% - 1em)';
+          $toY: 'calc(-50% + 1em)';
+        }
+        @if ($position == bottom-left) {
+          $toX: 'calc(-50% + 1em)';
+          $toY: 'calc(50% - 1em)';
+        }
+        @if ($position == bottom-right) {
+          $toX: 'calc(50% - 1em)';
+          $toY: 'calc(50% - 1em)';
+        }
+        @include transform(scale(.5) translate(#{$toX}, #{$toY}));
+      }
+    }
+  }
+}

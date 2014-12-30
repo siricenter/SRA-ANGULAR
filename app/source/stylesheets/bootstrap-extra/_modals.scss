@@ -1,0 +1,332 @@
+@import "compass/css3";
+
+// clear modal borders and such
+.modal-content {
+  border: 1px solid transparent;
+  border-radius: $border-radius-large;
+  overflow: hidden;
+}
+.modal-header {
+  border-bottom: 1px solid transparent;
+}
+.modal-footer {
+  margin-top: 0;
+  border-top: 1px solid transparent;
+}
+
+// Extra styles
+@mixin modal-colors($light, $text: #fff, $alpha: 0.1) {
+  .modal-content {
+    background-color: $light;
+    color: $text;
+  }
+  .close {
+    color: $text;
+  }
+  .modal-header,
+  .modal-footer {
+    background-color: rgba(0, 0, 0, $alpha);
+  }
+  &.in.just-modal {
+    background-color: $light;
+    .modal-header {
+      background-color: transparent;
+    }
+    .modal-footer {
+      background-color: transparent;
+    }
+  }
+}
+
+@each $pair in $emerald-colors {
+  $name: nth($pair, 1);
+  $bg-color: nth($pair, 2);
+  $color: nth($pair, 3);
+  .modal-#{$name} {
+    @include modal-colors($bg-color, $color);
+  }
+}
+
+/* Individual modal styles with animations/transitions */
+
+/* Fade in and scale up */
+.fade-in-scale .modal-content {
+  @include transform(scale(0.7));
+  @include transition(all 0.3s);
+  opacity: 0;
+}
+
+.in.fade-in-scale .modal-content {
+  @include transform(scale(1));
+  opacity: 1;
+}
+
+/* Slide from the right */
+.slide-in-right .modal-content {
+  @include transform(translateX(20%));
+  @include transition(all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9));
+  opacity: 0;
+}
+
+.in.slide-in-right .modal-content {
+  @include transform(translateX(0));
+  opacity: 1;
+}
+
+/* Slide from the bottom */
+.slide-in-bottom .modal-content {
+  @include transform(translateY(20%));
+  @include transition(all 0.3s);
+  opacity: 0;
+}
+
+.in.slide-in-bottom .modal-content {
+  @include transform(translateY(0));
+  opacity: 1;
+}
+
+/* Newspaper */
+.newspaper .modal-content {
+  @include transform(scale(0) rotate(720deg));
+  opacity: 0;
+}
+
+.newspaper .modal-content {
+  @include transition(all 0.5s);
+}
+
+.in.newspaper .modal-content {
+  @include transform(scale(1) rotate(0deg));
+  opacity: 1;
+}
+
+/* slide and stick to top */
+.slide-to-top .modal-dialog {
+  margin-top: 0;
+}
+
+.slide-to-top .modal-content {
+  @include transform(translateY(-200%));
+  @include transition(all .3s);
+  opacity: 0;
+}
+
+.in.slide-to-top .modal-content {
+  @include transform(translateY(0%));
+  @include border-radius(0 0 $border-radius-large $border-radius-large);
+  opacity: 1;
+}
+
+/* Super scaled */
+.super-scaled .modal-content {
+  @include transform(scale(2));
+  @include transition(all 0.3s);
+  opacity: 0;
+}
+
+.in.super-scaled .modal-content {
+  @include transform(scale(1));
+  opacity: 1;
+}
+
+/* Just modal */
+.just-modal .modal-content {
+  @include transform(scale(0.8));
+  @include transition(all 0.3s);
+  opacity: 0;
+}
+
+.just-modal .modal-content {
+  background: transparent;
+}
+
+.in.just-modal .modal-content {
+  @include transform(scale(1));
+  opacity: 1;
+}
+
+.just-modal {
+  // vertical center modal
+  .modal-dialog {
+    padding-top: 10%;
+  }
+  // rm borders in effect
+  .modal-content {
+    border: none;
+    @include box-shadow(none);
+  }
+}
+
+/* Blur */
+.blur.in ~ .modal-blur-content {
+  @include filter(blur(3px));
+}
+
+/* Fall */
+.fall.modal {
+  @include perspective(1300px);
+}
+
+.fall .modal-content {
+  @include transform-style(preserve-3d);
+  @include transform(translateZ(600px) rotateX(20deg));
+  opacity: 0;
+}
+
+.in.fall {
+  .modal-dialog {
+    @include transform(none);
+  }
+  .modal-content {
+    @include transition(all 0.3s ease-in);
+    @include transform(translateZ(0px) rotateX(0deg));
+    opacity: 1;
+  }
+}
+
+/* Side fall */
+.side-fall.modal {
+  @include perspective(1300px);
+}
+
+.side-fall .modal-content {
+  @include transform-style(preserve-3d);
+  @include transform(translate(30%) translateZ(600px) rotate(10deg));
+  opacity: 0;
+}
+
+.in.side-fall {
+  .modal-dialog {
+    @include transform(none);
+  }
+  .modal-content {
+    @include transition(all 0.3s ease-in);
+    @include transform(translate(0%) translateZ(0) rotate(0deg));
+    opacity: 1;
+  }
+}
+
+/* 3D flip horizontal */
+.flip-horizontal-3d.modal {
+  @include perspective(1300px);
+}
+
+.flip-horizontal-3d .modal-content {
+  @include transform-style(preserve-3d);
+  @include transform(rotateY(-70deg));
+  @include transition(all 0.3s);
+  opacity: 0;
+}
+
+.in.flip-horizontal-3d {
+  .modal-dialog {
+    @include transform(none);
+  }
+  .modal-content {
+    @include transform(rotateY(0deg));
+    opacity: 1;
+  }
+}
+
+/* 3D flip vertical */
+.flip-vertical-3d.modal {
+  @include perspective(1300px);
+}
+
+.flip-vertical-3d .modal-content {
+  @include transform-style(preserve-3d);
+  @include transform(rotateX(-70deg));
+  @include transition(all 0.3s);
+  opacity: 0;
+}
+
+.in.flip-vertical-3d {
+  .modal-dialog {
+    @include transform(none);
+  }
+  .modal-content {
+    @include transform(rotateX(0deg));
+    opacity: 1;
+  }
+}
+
+/* 3D slit */
+.slit-3d.modal {
+  @include perspective(1300px);
+}
+
+.slit-3d .modal-content {
+  @include transform-style(preserve-3d);
+  @include transform(translateZ(-3000px) rotateY(90deg));
+  opacity: 0;
+}
+
+.in.slit-3d {
+  .modal-dialog {
+    @include transform(none);
+  }
+  .modal-content {
+    -webkit-animation: slit .7s forwards ease-out;
+    -moz-animation: slit .7s forwards ease-out;
+    animation: slit .7s forwards ease-out;
+  }
+}
+
+@-webkit-keyframes slit {
+  50% { -webkit-transform: translateZ(-250px) rotateY(89deg); opacity: .5; -webkit-animation-timing-function: ease-out;}
+  100% { -webkit-transform: translateZ(0) rotateY(0deg); opacity: 1; }
+}
+@-moz-keyframes slit {
+  50% { -moz-transform: translateZ(-250px) rotateY(89deg); opacity: .5; -moz-animation-timing-function: ease-out;}
+  100% { -moz-transform: translateZ(0) rotateY(0deg); opacity: 1; }
+}
+@keyframes slit {
+  50% { transform: translateZ(-250px) rotateY(89deg); opacity: 1; animation-timing-function: ease-in;}
+  100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
+}
+
+/* 3D Rotate from bottom */
+.rotate-bottom-3d.modal {
+  @include perspective(1300px);
+}
+
+.rotate-bottom-3d .modal-content {
+  @include transform-style(preserve-3d);
+  @include transform(translateY(100%) rotateX(90deg));
+  @include transform-origin(0 100%);
+  @include transition(all 0.3s ease-out);
+  opacity: 0;
+}
+
+.in.rotate-bottom-3d {
+  .modal-dialog {
+    @include transform(none);
+  }
+  .modal-content {
+    @include transform(translateY(0%) rotateX(0deg));
+    opacity: 1;
+  }
+}
+
+/* 3D Rotate in from left */
+.rotate-left-3d.modal {
+  @include perspective(1300px);
+}
+
+.rotate-left-3d .modal-content {
+  @include transform-style(preserve-3d);
+  @include transform(translateZ(100px) translateX(-30%) rotateY(90deg));
+  @include transform-origin(0 100%);
+  opacity: 0;
+  @include transition(all 0.3s);
+}
+
+.in.rotate-left-3d {
+  .modal-dialog {
+    @include transform(none);
+  }
+  .modal-content {
+    @include transform(translateZ(0px) translateX(0%) rotateY(0deg));
+    opacity: 1;
+  }
+}

@@ -1,0 +1,36 @@
+---
+layout: false
+---
+<div class="animated fadeIn padded bg-info">
+  <button type="button" class="close pull-right turbo-toggle">&times;</button>
+  <h2 class="thin no-margin-top">Ajax</h2>
+
+  <div class="row padded-top padded-bottom">
+    <div class="col-sm-8">
+      <div class="flot-transparent-line tile-normal"></div>
+    </div>
+    <div class="col-sm-4 text-center padded-top">
+      <div class="easy-pie-chart easy-pie-chart-normal"
+           data-percent="40"
+           data-color="white"
+           data-size="160"
+           data-line-width="8"
+           data-scale-color="false"
+           data-track-color="rgba(255,255,255,0.3)">
+        <span>40%</span>
+      </div>
+      <div class="padded">
+        <h3 class="no-margin-top">Load</h3>
+        <p><a href="#">Manage server resources</a></p>
+      </div>
+    </div>
+  </div>
+
+  <% 13.times do %>
+    <p><%= lorem.paragraph %></p>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $(document).trigger('page:load');
+</script>

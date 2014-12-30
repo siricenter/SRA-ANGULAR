@@ -1,0 +1,84 @@
+@import 'compass/css3/border-radius';
+
+$tree-highlight: $component-active-bg !default;
+
+/* collapsible tree */
+.tree {
+  a {
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+  }
+  ul {
+    padding-left: 20px;
+  }
+  > ul {
+    padding-left: 0px;
+  }
+  li {
+    list-style-type: none;
+    margin: 0px 0;
+    padding: 4px 0px 0px 2px;
+    position: relative;
+    &::before, &::after {
+      content: '';
+      left: -10px;
+      position: absolute;
+      right: auto;
+    }
+    &::before {
+      border-left: 1px solid $gray-lighter;
+      bottom: 50px;
+      height: 100%;
+      top: 0;
+      width: 1px;
+      @include transition(border-color 0.1s ease 0.1s);
+    }
+    &::after {
+      border-top: 1px solid $gray-lighter;
+      height: 20px;
+      top: 13px;
+      width: 12px;
+      @include transition(border-color 0.1s ease 0.1s);
+    }
+    &.tree-parent > span {
+      cursor: pointer;
+      /*Time for some hover effects*/
+      &:hover {
+        background-color: lighten($tree-highlight, 35%);;
+        color: #fff;
+      }
+      &:hover + ul li {
+        &::after {
+          border-top-color: lighten($tree-highlight, 35%);;
+        }
+        &::before {
+          border-left-color: lighten($tree-highlight, 35%);;
+        }
+      }
+      &:hover + ul li span {
+        background: lighten($tree-highlight, 35%);
+        color: #fff;
+      }
+    }
+    /*Remove connectors after last child*/
+    &:last-child::before {
+      height: 30px;
+    }
+  }
+  /*Remove connectors before root*/
+  > ul > li::before, > ul > li::after {
+    border: 0;
+  }
+}
+
+.tree-node {
+  @include border-radius($border-radius-base);
+  display: inline-block;
+  line-height: 14px;
+  padding: 2px 4px;
+  text-decoration: none;
+  @include transition(color 0.2s ease 0.1s, background-color 0.2s ease 0.1s, border-color 0.3s ease 0.2s);
+}
+

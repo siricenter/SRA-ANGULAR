@@ -1,0 +1,117 @@
+<div class="chat-box-timeline">
+  <%= image_tag lorem.avatar(48), class: 'img-responsive img-circle avatar' %>
+
+  <div class="message">
+    <div class="panel <%= 'panel-shadow' if shadow %> <%= panel_bg %>">
+      <div class="panel-body panel-arrow-left">
+
+        <div class="chat-box-timeline-title">
+          <span class="label label-success-lt">COMMENT</span>
+          <strong><%= lorem.name.split.first %></strong>
+          <span>posted a comment on this project.</span>
+
+          <div class="pull-right text-semi">
+            <i class="fa fa-clock-o"></i> 4m ago
+          </div>
+        </div>
+
+        <div class="chat-box-timeline-content">
+          <blockquote>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem doloribus eaque explicabo nihil obcaecati saepe. Animi doloremque eaque eius fuga, magni mollitia nam placeat quas quos repudiandae suscipit vel velit.
+          </blockquote>
+        </div>
+
+        <div class="chat-box-timeline-footer">
+
+          <a href="#" rel="tooltip" title="Bookmark">
+            <i class="fa fa-bookmark"></i>
+          </a>
+
+          <a href="#" rel="tooltip" title="Download">
+            <i class="fa fa-paperclip"></i> document.pdf
+          </a>
+
+          <a href="#" class="pull-right" rel="tooltip" title="Delete">
+            <i class="fa fa-trash-o"></i>
+          </a>
+
+          <form>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Add Comment">
+              <span class="input-group-addon">
+                <a class="hpadded" href="#" title="Attach a file" rel="tooltip"><i class="fa fa-paperclip"></i></a>
+                <button class="btn btn-xs btn-success">Reply</button>
+              </span>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chat-box-timeline">
+  <%= image_tag lorem.avatar(48), class: 'img-responsive img-circle avatar' %>
+  <div class="message">
+    <div class="panel <%= 'panel-shadow' if shadow %> <%= panel_bg %>">
+      <div class="panel-body panel-arrow-left">
+
+        <div class="chat-box-timeline-title">
+          <span class="label label-primary-lt">TASK</span>
+          <strong><%= lorem.name.split.first %></strong>
+          <span>completed this task.</span>
+
+          <div class="pull-right text-semi">
+            <i class="fa fa-clock-o"></i> 8m ago
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chat-box-timeline">
+  <%= image_tag lorem.avatar(48), class: 'img-responsive img-circle avatar' %>
+  <div class="message">
+    <div class="panel <%= 'panel-shadow' if shadow %> <%= panel_bg %>">
+      <div class="panel-body panel-arrow-left">
+
+        <div class="chat-box-timeline-title">
+          <span class="label label-inverse-lt">FILE</span>
+          <strong><%= lorem.name.split.first %></strong>
+          <span>added 4 files to this project.</span>
+
+          <div class="pull-right text-semi">
+            <i class="fa fa-clock-o"></i> 11m ago
+          </div>
+        </div>
+
+        <div class="chat-box-timeline-content">
+          <div class="row">
+            <% 4.times do %>
+                <div class="col-xs-6 col-md-3">
+                  <a href="#" class="thumbnail">
+                    <img src="http://placehold.it/240x150" class="img-responsive">
+                  </a>
+                </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="chat-box-timeline-footer">
+          <form>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Add Comment">
+              <span class="input-group-addon">
+                <a class="hpadded" href="#" title="Attach a file" rel="tooltip"><i class="fa fa-paperclip"></i></a>
+                <button class="btn btn-xs btn-success">Reply</button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

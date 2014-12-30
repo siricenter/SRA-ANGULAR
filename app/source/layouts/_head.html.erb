@@ -1,0 +1,33 @@
+<% skip_assets = false if !defined?(skip_assets) || skip_assets.nil? %>
+
+<meta charset="utf-8">
+
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+<meta name="viewport" content="width=device-width, minimal-ui, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- Apple Touch -->
+<% %w(144 114 72 57).each do |size| %>
+    <link rel="apple-touch-icon-precomposed" sizes="<%= "#{size}x#{size}" %>" href="<%= image_path "apple-touch-icon-#{size}-precomposed.png" %>">
+<% end %>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="<%= image_path 'favicon.png' %>">
+
+<!-- Use title if it's in the page YAML frontmatter -->
+<title><%= current_page.data.title || "Emerald" %></title>
+
+<script type="text/javascript">
+    var polyfilter_scriptpath = "<%= @polyfilter_demo_url || url_for('/polyfills/filters/') %>";
+    window.polyfilter_skip_stylesheets = true
+</script>
+
+<% unless skip_assets %>
+  <%= split_stylesheet_link_tag "application", split_count: 3 %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "demo" %>
+  <%= javascript_include_tag "init" %>
+<% end %>
+

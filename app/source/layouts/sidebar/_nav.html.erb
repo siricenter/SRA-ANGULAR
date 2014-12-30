@@ -1,0 +1,54 @@
+<% @sidebar_menu = sidebar_menu %>
+<% parent_id = 'collapseNavbarLeft2' %>
+
+<form class="oc-header oc-search oc-partial-hidden oc-filter" role="search">
+  <div class="form-group has-header oc-reveal collapsed">
+    <span class="icm icm-filter3 form-control-header"></span>
+    <input type="text" class="form-control oc-menu-filter"
+           placeholder="Filter menu" data-toggle="listfilter" data-target="#<%= parent_id %>">
+  </div>
+</form>
+
+<ul class="nav nav-stacked oc-sidebar-nav" id="<%= parent_id %>">
+  <% @sidebar_menu.each do |k, v| %>
+    <%
+    level_id = uid()
+    href = v['href']
+    href = "##{level_id}" if v['children']
+    href = "#" unless href
+    collapse = { 'data-toggle' => "collapse", 'data-parent' => "##{parent_id}" }
+    highlight = v['highlight'] || href
+    highlighted = highlighted?([highlight])
+    attrs = highlighted ? {} : { 'class' => "collapsed" }
+    attrs.merge!(collapse) if v['children']
+    attrs.merge!(v['attrs']) if v['attrs']
+    classes = ''
+    classes << ' dropdown' if v['children']
+    classes << ' active' if highlighted
+    %>
+    <li class="<%= classes %>">
+      <% link_to href, attrs do %>
+        <% if v['icon'] %>
+          <i class="oc-partial-icon <%= v['icon'] %>"></i>
+        <% end %>
+        <span class="oc-partial-menu-item">
+          <%= v['text'] %>
+          <% if v['children'] %>
+            <b class="caret"></b>
+          <% end %>
+        </span>
+      <% end %>
+      <% if v['caption'] %>
+        <%= v['caption'].html_safe %>
+      <% end %>
+      <% if v['children'] %>
+        <ul class="collapse dropdown-menu <%= 'in' if highlighted %>" id="<%= level_id %>">
+          <% v['children'].each do |k, v| %>
+            <%= partial 'layouts/sidebar/node',
+              locals: { v: v, parent_id: level_id } %>
+          <% end %>
+        </ul>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

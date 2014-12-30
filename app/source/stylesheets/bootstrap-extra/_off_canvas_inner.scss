@@ -1,0 +1,208 @@
+// oc interior
+
+.oc-partial-menu-item {
+  margin-left: 5px;
+}
+
+.oc-sidebar-header {
+  width: 100%;
+  position: absolute;
+  &:hover {
+    z-index: $oc-zindex-visible;
+  }
+  a.btn-nav {
+    @include btn-nav();
+  }
+  .oc-nav.pull-right .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+}
+
+.oc-sidebar-header + .oc-sidebar-content {
+  height: 100%;
+  padding-top: 50px;
+}
+
+.oc-header,
+.oc-inner {
+  padding: 8px;
+}
+.oc-inner {
+  color: $text-color;
+  width: 100%;
+}
+
+.oc-sidebar-nav {
+  > .dropdown > a {
+    cursor: pointer;
+  }
+  .collapse.in.dropdown-menu,
+  .collapsing.dropdown-menu {
+    z-index: $oc-zindex-visible;
+  }
+  .dropdown-menu > li > a {
+    background: none;
+    color: $text-color;
+    &:hover, &:focus {
+      color: $text-color;
+      background: none;
+    }
+  }
+}
+
+@mixin oc-open-dropdown-nest($level: 6, $start: 50) {
+  $selector: " .dropdown-menu > li ";
+  $padding-left: $start + 15;
+  #{$selector} > a {
+    padding-left: #{$padding-left}px;
+  }
+  @for $i from 2 through $level + 1 {
+    $selector: $selector + " > .dropdown-menu > li ";
+    $padding-left: $start + $i * 15;
+    #{$selector} > a {
+      padding-left: #{$padding-left}px;
+    }
+  }
+}
+
+@mixin oc-open-dropdowns() {
+  .oc-sidebar-nav {
+    .collapse.in, .collapsing {
+      &.dropdown-menu {
+        position: static;
+        display: block;
+        float: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        width: auto;
+        box-shadow: none;
+      }
+    }
+    > .dropdown > .dropdown-menu > li {
+      > a {
+        padding-left: 50px;
+      }
+      @include oc-open-dropdown-nest(6);
+    }
+  }
+}
+
+@mixin visible-menu() {
+  position: relative;
+  display: block;
+  float: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  @include border-radius(none);
+  width: $oc-width - $oc-partial-width;
+  height: auto !important;
+}
+
+@mixin oc-partial-dropdowns() {
+  .oc-sidebar-nav {
+    > .dropdown > .dropdown-menu > li {
+      @include oc-open-dropdown-nest(6, 20);
+    }
+    > li {
+      > a {
+        z-index: $oc-zindex-visible;
+        &.collapsed {
+          z-index: $oc-zindex-hidden;
+          background-color: transparent;
+        }
+      }
+      &:hover > a {
+        z-index: $oc-zindex-visible !important;
+        @include animation-duration(0.35s);
+        animation-fill-mode: both;
+        @include animation-name(fadeInLeft);
+      }
+      // in partial, first level menus should show up opened
+      &.dropdown:hover {
+        > ul.collapse {
+          @include visible-menu();
+          z-index: $oc-zindex-visible !important;
+          left: $oc-partial-width;
+          position: absolute;
+          @include animation-duration(0.35s);
+          animation-fill-mode: both;
+          @include animation-name(fadeInLeft);
+        }
+      }
+      .collapse.in, .collapsing {
+        &.dropdown-menu {
+          @include visible-menu();
+        }
+      }
+      > .collapse.in, > .collapsing {
+        &.dropdown-menu {
+          left: $oc-partial-width;
+          position: absolute;
+        }
+      }
+    }
+  }
+}
+
+.oc-partial-menu-item {
+  margin-left: 16px;
+}
+
+@mixin oc-dropdowns($screen: lg) {
+  .oc-#{$screen}-open-left,
+  .oc-#{$screen}-open-right {
+    @include oc-open-dropdowns();
+  }
+  .oc-#{$screen}-partial-left,
+  .oc-#{$screen}-partial-right {
+    @include oc-partial-dropdowns();
+  }
+}
+
+// visible-xs
+@media (max-width: $screen-xs-max) {
+  @include oc-dropdowns(xs);
+}
+
+// visible-sm
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  @include oc-dropdowns(sm);
+}
+
+// visible-md
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  @include oc-dropdowns(md);
+}
+
+// visible-lg
+@media (min-width: $screen-lg-min) {
+  @include oc-dropdowns(lg);
+}
+
+// for animation
+.oc-filter {
+  max-height: 50px;
+}
+
+.oc-sidebar-nav {
+  ul li {
+    position: relative; // for captions
+  }
+}
+
+.oc-nav-caption {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+
+.dropdown {
+  > .oc-nav-caption {
+    top: 18px;
+  }
+}

@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      
+      <div class="wizard-steps">
+        <div class="wizard-step">
+          <div class="badge badge-success badge-empty"></div>
+        </div>
+        <div class="wizard-step">
+          <div class="badge badge-success badge-empty"></div>
+        </div>
+        <div class="wizard-step">
+          <div class="badge badge-primary badge-empty" title="Wizard step 3 title"
+               data-tooltip-show data-placement="top"></div>
+        </div>
+        <div class="wizard-step">
+          <div class="badge badge-default badge-empty"></div>
+        </div>
+        <div class="wizard-step">
+          <div class="badge badge-default badge-empty"></div>
+        </div>
+      </div>
+      
+      <div class="panel panel-default wizard-body">
+        <div class="panel-body">
+          
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group string">
+                  <input aria-required="true" class="string form-control" 
+                         maxlength="255" name="user[full_name]" placeholder="Full name" 
+                         size="255" type="text" rel="jvfloat">
+                </div>
+                <div class="form-group email required">
+                  <input aria-required="true" class="string email required form-control"
+                         maxlength="255" name="user[email]" placeholder="Email" 
+                         required="required" size="255" type="email" rel="jvfloat">
+                </div>
+                <form action="http://www.torrentplease.com/dropzone.php"
+                      class="dropzone dz-clickable" id="dropzone-demo"></form>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group string">
+                  <input aria-required="true" class="string form-control" 
+                         maxlength="255" name="user[full_name]" placeholder="Age" 
+                         size="255" type="text" rel="jvfloat">
+                </div>
+                <div class="form-group email required">
+                  <input aria-required="true" class="string email required form-control"
+                         maxlength="255" name="user[email]" placeholder="Title" 
+                         required="required" size="255" type="email" rel="jvfloat">
+                </div>
+                <div class="form-group required">
+                  <textarea aria-required="true" class="string required form-control"
+                         name="user[body]" placeholder="Description" rows="6"
+                         required="required" rel="jvfloat"></textarea>
+                </div>
+              </div>
+            </div>
+          
+        </div>
+        <div class="panel-footer bg-light-semi">
+          <div class="clearfix">
+            <a href="#" class="btn btn-default pull-left">
+              <i class="icm icm-arrow-left16"></i> Back
+            </a>
+            <a href="#" class="btn btn-primary pull-right">
+              Next <i class="icm icm-arrow-right17"></i>
+            </a>
+            <span class="pull-center wizard-info">
+              Step &nbsp;
+              <span class="label label-primary">3</span>
+              &nbsp; of &nbsp;
+              <span class="label label-info">5</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

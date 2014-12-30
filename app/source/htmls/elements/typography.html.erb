@@ -1,0 +1,197 @@
+<style>
+  .accented-text h3 {
+    display: inline-block;
+    clear: both;
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="row" rel="panels">
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <% panel 'Headings', compact: true do %>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><h1>h1. Heading <small>Secondary</small></h1></td>
+            </tr>
+            <tr>
+              <td><h2>h2. Heading <small>Secondary</small></h2></td>
+            </tr>
+            <tr>
+              <td><h3>h3. Heading <small>Secondary</small></h3></td>
+            </tr>
+            <tr>
+              <td><h4>h4. Heading <small>Secondary</small></h4></td>
+            </tr>
+            <tr>
+              <td><h5>h5. Heading <small>Secondary</small></h5></td>
+            </tr>
+            <tr>
+              <td><h6>h6. Heading <small>Secondary</small></h6></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+
+      <% panel 'Copy' do %>
+          <h4>Lead</h4>
+          <p class="lead"><%= lorem.sentence %></p>
+          <h4>Body</h4>
+          <p><%= lorem.paragraph %></p>
+          <h4>Variations</h4>
+          <p>
+            <em>Ephasis</em>
+            <strong>Strong</strong>
+            <small>Small</small>
+            <abbr title="Abreviation">ABBR</abbr>
+          </p>
+      <% end %>
+          
+      <% panel 'Accented text' do %>
+          <div class="accented-text">
+            <h3 class="text-gradient-primary thin">Nullam id dolor id nibh ultricies</h3>
+            <h3 class="text-gradient-success thin">Duis mollis, est non commodo luctus</h3>
+            <h3 class="text-gradient-info thin">Maecenas sed diam eget risus varius</h3>
+            <h3 class="text-gradient-warning thin">Etiam porta sem malesuada magna</h3>
+            <h3 class="text-gradient-danger thin">Donec ullamcorper nulla non metus</h3>
+            <h3 class="text-gradient-inverse thin">Maecenas sed diam eget risus varius</h3>
+            <h3 class="text-gradient-dark thin">Etiam porta sem malesuada magna mollis</h3>
+            <h3 class="text-gradient-black thin">Donec ullamcorper nulla non metus</h3>
+            <h3 class="text-gradient-light-dk thin">Nullam id dolor id nibh ultricies</h3>
+          </div>
+      <% end %>
+
+      <% panel 'Elements' do %>
+          <h4>Address</h4>
+          <address>
+            <strong>Twitter, Inc.</strong><br>
+            795 Folsom Ave, Suite 600<br>
+            San Francisco, CA 94107<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+          </address>
+
+          <address>
+            <strong>Full Name</strong><br>
+            <a href="mailto:#">first.last@example.com</a>
+          </address>
+          <h4>Blockquotes</h4>
+          <blockquote>
+            <p><%= lorem.sentence %></p>
+            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+          </blockquote>
+      <% end %>
+
+    </div>
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <% panel 'Lists' do %>
+          <div class="row">
+            <div class="col-md-6">
+              <h4>Unordered</h4>
+              <ul>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipiscing elit</li>
+                <li>Integer molestie lorem at massa</li>
+                <li>Facilisis in pretium nisl aliquet</li>
+                <li>Nulla volutpat aliquam velit
+                  <ul>
+                    <li>Phasellus iaculis neque</li>
+                    <li>Purus sodales ultricies</li>
+                    <li>Vestibulum laoreet porttitor sem</li>
+                    <li>Ac tristique libero volutpat at</li>
+                  </ul>
+                </li>
+                <li>Faucibus porta lacus fringilla vel</li>
+                <li>Aenean sit amet erat nunc</li>
+                <li>Eget porttitor lorem</li>
+              </ul>
+              <h4>Description</h4>
+              <dl>
+                <dt>Description lists</dt>
+                <dd>A description list is perfect for defining terms.</dd>
+                <dt>Euismod</dt>
+                <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+              </dl>
+            </div>
+            <div class="col-md-6">
+              <h4>Ordered</h4>
+              <ol>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipiscing elit</li>
+                <li>Integer molestie lorem at massa</li>
+                <li>Facilisis in pretium nisl aliquet</li>
+                <li>Nulla volutpat aliquam velit</li>
+                <li>Faucibus porta lacus fringilla vel</li>
+                <li>Aenean sit amet erat nunc</li>
+                <li>Eget porttitor lorem</li>
+              </ol>
+              <h4>Unstyled</h4>
+              <ul class="list-unstyled">
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipiscing elit</li>
+                <li>Integer molestie lorem at massa</li>
+                <li>Facilisis in pretium nisl aliquet</li>
+                <li>Nulla volutpat aliquam velit
+                  <ul>
+                    <li>Phasellus iaculis neque</li>
+                    <li>Purus sodales ultricies</li>
+                    <li>Vestibulum laoreet porttitor sem</li>
+                    <li>Ac tristique libero volutpat at</li>
+                  </ul>
+                </li>
+                <li>Faucibus porta lacus fringilla vel</li>
+                <li>Aenean sit amet erat nunc</li>
+                <li>Eget porttitor lorem</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4>Inline</h4>
+          <ul class="list-inline">
+            <li>Lorem ipsum</li>
+            <li>Phasellus iaculis</li>
+            <li>Nulla volutpat</li>
+          </ul>
+          <h4>Horizontal description</h4>
+          <dl class="dl-horizontal">
+            <dt>Description lists</dt>
+            <dd>A description list is perfect for defining terms.</dd>
+            <dt>Euismod</dt>
+            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+            <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+            <dt>Malesuada porta</dt>
+            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+          </dl>
+
+      <% end %>
+
+      <% panel 'Contextual' do %>
+          <h4>Colors</h4>
+          <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+          <p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+          <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+          <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <p class="text-inverse">Ullam ab laboriosam et voluptate in unde nihil ducimus modi.</p>
+          <p class="text-dark">Facilis voluptatem consequatur eveniet nisi.</p>
+          <p class="text-black">Vestibulum id ligula porta felis euismod semper eget.</p>
+          <p class="text-light-dk">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+
+          <h4>Backgrounds</h4>
+          <p class="bg-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p class="bg-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+          <p class="bg-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <p class="bg-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+          <p class="bg-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <p class="bg-inverse">Facilis voluptatem consequatur eveniet nisi.</p>
+          <p class="bg-dark">Vestibulum id ligula porta felis euismod semper eget.</p>
+          <p class="bg-black">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+          <p class="bg-light">Ullam ab laboriosam et voluptate in unde nihil ducimus modi.</p>
+      <% end %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.rings {
+  position: relative;
+  width: 100%;
+
+  .ring-left, .ring-right {
+    position: absolute;
+  }
+
+  .ring-left {
+    left: 2em;
+    top: -24px;
+  }
+
+  .ring-right {
+    right: 2em;
+    top: -24px;
+  }
+
+  .ring-left:before, .ring-left:after, .ring-right:before, .ring-right:after {
+    background: #fff;
+    border-radius: 4px;
+    @include box-shadow(0 3px 1px rgba(0, 0, 0, .2), 0 -1px 1px rgba(0, 0, 0, .2));
+    content: "";
+    display: inline-block;
+    margin: 8px;
+    height: 32px;
+    width: 8px;
+  }
+}

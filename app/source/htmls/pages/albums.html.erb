@@ -1,0 +1,56 @@
+
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-12">
+
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <div class="row push-bottom">
+            <div class="col-md-6">
+              <h1 class="base-header">All Your Albums</h1>
+            </div>
+            <div class="col-md-6 text-right">
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-success active">
+                  <input checked="checked" type="radio" name="options" id="option1"> <i class="fa fa-th"></i>
+                </label>
+                <label class="btn btn-success">
+                  <input type="radio" name="options" id="option2"> <i class="fa fa-list"></i>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <% 4.times do %>
+              <div class="row">
+
+                <div class="col-md-4">
+                  <h1 class="thin">Some album title</h1>
+                  <span class="label label-light">12 photos. Yesterday</span>
+                  <div class="vpadded">
+                    <a class="btn btn-success-lt" href="#">View Album</a>
+                  </div>
+                </div>
+
+                <div class="col-md-8">
+                  <div class="superbox">
+                    <% 8.times do |i| %>
+                        <div class="superbox-list">
+                          <%= image_tag "superbox/superbox-thumb-#{(1..24).to_a.sample}.jpg", class: 'superbox-img' %>
+                        </div>
+                    <% end %>
+                  </div>
+                </div>
+
+              </div>
+              <hr/>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

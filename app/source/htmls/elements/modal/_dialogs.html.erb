@@ -1,0 +1,59 @@
+<h5>Dialogs</h5>
+
+<a href="javascript: BootstrapDialog.alert('Alert: Important message!!');"
+   class="btn btn-warning">Alert</a>
+<a href="javascript: BootstrapDialog.confirm('Are you sure you want to proceed with the action ?');"
+   class="btn btn-dark">Confirm</a>
+<a href="javascript: BootstrapDialog.prompt('Please enter your data.');"
+   class="btn btn-info">Prompt</a>
+<a href="javascript: customButtons();"
+   class="btn btn-primary">Custom btns</a>
+<a href="javascript: customContent();"
+   class="btn btn-success">Custom content</a>
+
+<h5>Notifications</h5>
+
+<a class="btn btn-primary" href="#" data-growl="default" data-growl-title="Default" data-growl-message="The kitten is awake!">Default</a>
+<a class="btn btn-success" href="#" data-growl="notice"  data-growl-title="Notice" data-growl-message="The kitten is cute!">Notice</a>
+<a class="btn btn-warning" href="#" data-growl="warning" data-growl-title="Warning" data-growl-message="The kitten is ugly!">Warning</a>
+<a class="btn btn-danger"  href="#" data-growl="error"   data-growl-title="Error" data-growl-message="The kitten is attacking!">Error</a>
+   
+<script type="text/javascript">
+  function customButtons() {
+    BootstrapDialog.show({
+      type: 'modal-primary',
+      title: 'Custom title',
+      message: 'Custom message',
+      buttons: [{
+          icon: 'fa fa-bookmark',
+          label: 'Button 1',
+          cssClass: 'btn-dark'
+        }, {
+          icon: 'fa fa-user',
+          label: 'Button 2',
+          cssClass: 'btn-info'
+        }, {
+          label: 'Close',
+          icon: 'fa fa-times',
+          cssClass: 'btn-default',
+          action: function(dialog) {
+            dialog.close();
+          }
+        }]
+    });
+  }
+  function customContent() {
+    BootstrapDialog.show({
+      type: 'modal-success',
+      title: 'Custom title',
+      message: '<%= image_tag placekitten(200) %>',
+      buttons: [{
+          label: 'Ok',
+          cssClass: 'btn-default',
+          action: function(dialog) {
+            dialog.close();
+          }
+        }]
+    });
+  }
+</script>

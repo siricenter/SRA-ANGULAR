@@ -95,6 +95,13 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
  angular.module('sraAngularApp')
   .controller('DashboardController', function ($scope, $location, $firebase, $rootScope){
  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+ $scope.user = $rootScope.current_user
+ $scope.areas = $rootScope.current_user.areas
+ var regions = $scope.user.regions
+ 
+
+ 
+
  if($rootScope.current_user.roles == 'Admin'){
   $location.path('/admin/dashboard')
   $scope.$apply();

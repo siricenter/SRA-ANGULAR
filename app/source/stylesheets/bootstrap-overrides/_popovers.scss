@@ -1,0 +1,11 @@
+.popover {
+  @include box-shadow($component-shadow);
+  border-radius: 0;
+  border: none;
+  padding: 0;
+}
+
+.popover-title {
+  border-radius: 0;
+  border: none;
+}

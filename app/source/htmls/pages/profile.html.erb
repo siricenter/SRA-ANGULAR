@@ -1,0 +1,179 @@
+<% @no_breadcrumbs = true %>
+
+<div class="em-background-box text-white" style="background-image: url('<%= image_path('user_profile_blur.jpg') %>')">
+  <div class="container-fluid">
+    <div class="text-center em-background-box-content">
+
+      <ul class="list-inline">
+        <li class="animated fadeInRight">
+          <a href="#" title="Add Friend" rel="tooltip">
+            <i class="line-icon line-icon-plus line-icon-circle"></i>
+          </a>
+        </li>
+        <li>
+          <%= image_tag lorem.avatar(128), class: 'img-circle img-em-border' %>
+        </li>
+        <li class="animated fadeInLeft">
+          <a href="#" title="Send PM" rel="tooltip">
+            <i class="line-icon line-icon-chat-messages-01 line-icon-circle"></i>
+          </a>
+        </li>
+      </ul>
+
+
+      <h1 class="thin"><%= lorem.name %></h1>
+
+      <h4>
+        <i class="fa fa-map-marker v-mid fa-lg"></i>
+        <span class="thin">Seattle, Washington</span>
+      </h4>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="semi-well-dk em-background-box-actions">
+            <div class="row">
+              <div class="col-md-7 push-bottom-sm">
+                <ul class="list-inline no-margin v-mid-row">
+                  <% 3.times do %>
+                      <li class="hidden-xs">
+                        <a href="#" rel="tooltip" title="<%= lorem.name %>">
+                          <%= image_tag lorem.avatar(48), class: 'img-circle' %>
+                        </a>
+                      </li>
+                  <% end %>
+                  <li class="text-center">
+                    <h5 class="base-header">Followers</h5>
+                    <h4 class="base-header major">4.884</h4>
+                  </li>
+                  <li>
+                    <a class="btn btn-sm btn-transparent-light" href="#">View All</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-md-5">
+                <ul class="list-inline no-margin v-mid-row">
+                  <li style="width: 80px; height: 30px;">
+                    <div class="sparkline-bar" data-color="danger-lt"><!--<%= [16,7,23,13,12,11,15,4,19].shuffle.join(',') %>--></div>
+                  </li>
+                  <li class="text-center">
+                    <h5 class="base-header">Sales</h5>
+                    <h4 class="base-header major">$3.593</h4>
+                  </li>
+
+                  <li style="width: 80px; height: 30px;">
+                    <div class="sparkline-bar" data-color="success-lt"><!--<%= [16,7,23,13,12,11,15,4,19].shuffle.join(',') %>--></div>
+                  </li>
+                  <li class="text-center">
+                    <h5 class="base-header">Followers</h5>
+                    <h4 class="base-header major">+84</h4>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="hpadded">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#comm" data-toggle="tab"><i class="fa fa-comments"></i> Comments</a></li>
+    <li><a href="#activity" data-toggle="tab"><i class="fa fa-tasks"></i> Activity</a></li>
+    <li><a href="#profile"  data-toggle="tab"><i class="fa fa-calendar-o"></i> Timeline</a></li>
+    <li><a href="#account"  data-toggle="tab"><i class="fa fa-user"></i> Account</a></li>
+  </ul>
+</div>
+
+<div class="tab-content panel-body-white">
+
+  <div class="tab-pane active fade in" id="comm">
+    <div class="padded">
+      <%= partial 'htmls/widgets/chat_box_timeline_comments' %>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="activity">
+    <div class="padded">
+      <%= partial 'htmls/widgets/chat_box_timeline', locals: { shadow: false, panel_bg: 'panel-light' } %>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="profile">
+    <div class="padded">
+      <div class="row">
+        <div class="col-md-12">
+          <%= partial 'htmls/components/timeline/timeline', locals: { default_panel_bg_class: 'panel-light' } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="account">
+    <form class="form-horizontal">
+      <div class="padded">
+        <div class="row">
+          <div class="col-md-8">
+
+            <div class="col-sm-offset-4 col-sm-8">
+              <h4 class="vpadded">Account data</h4>
+            </div>
+
+            <% %w(name.text username.text email.email password.password confirm_password.password website.text).map{|f|f.split('.')}.each do |field| %>
+                <div class="form-group">
+                  <label for="<%= field.first %>" class="col-sm-4 control-label"><%= field.first.humanize %></label>
+                  <div class="col-sm-8">
+                    <input type="<%= field.last %>" class="form-control" id="<%= field.first %>">
+                  </div>
+                </div>
+            <% end %>
+
+            <div class="form-group">
+              <label for="#bio" class="col-sm-4 control-label">Bio</label>
+              <div class="col-sm-8">
+                <textarea class="form-control" rows="4"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <ul class="list-inline">
+                  <li><button type="submit" class="btn btn-success-lt">Update profile</button></li>
+                  <li><a href="#">Cancel</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <h4 class="vpadded">Your Avatar</h4>
+
+
+            <div class="fileinput fileinput-new" data-provides="fileinput">
+              <div class="fileinput-new" style="width: 100px; height: 100px;">
+                <%= image_tag lorem.avatar(64), class: 'img-circle img-em-border' %>
+              </div>
+              <div class="fileinput-preview fileinput-exists thumbnail"
+                   style="max-width: 100px; max-height: 100px;"></div>
+              <div>
+                <span class="btn btn-default btn-file">
+                  <span class="fileinput-new">Select image</span>
+                  <span class="fileinput-exists">Change</span>
+                  <input type="file" name="...">
+                </span>
+                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+              </div>
+            </div>
+
+            <h4 class="vpadded">Your Skills</h4>
+
+            <input type="text" class="form-control" rel="selectize-tags" value="html,css,javascript"/>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

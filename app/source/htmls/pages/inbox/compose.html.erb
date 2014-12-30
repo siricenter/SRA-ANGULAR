@@ -1,0 +1,66 @@
+<% @no_breadcrumbs = true %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <% link_to '/htmls/pages/inbox.html', class: 'btn btn-white btn-block' do %>
+        <i class="fa fa-arrow-left"></i> Back
+      <% end %>
+      <%= partial 'htmls/pages/inbox/folders' %>
+    </div>
+    <div class="col-sm-10">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          
+          <h3 class="no-margin-top thin">Compose</h3>
+          
+          <form class="form-horizontal">
+            <div class="form-group string">
+              <label for="compose-to" class="control-label col-sm-1">To</label>
+              <div class="col-sm-11">
+                <input aria-required="true"
+                       class="string form-control"
+                       id="compose-to"
+                       maxlength="255" name="user[full_name]" placeholder="To" 
+                       size="255" type="text" rel="selectize-tags"
+                       value="john@doe.com">
+              </div>
+            </div>
+            <div class="form-group string required">
+              <label for="compose-subject" class="control-label col-sm-1">Subject</label>
+              <div class="col-sm-11">
+                <input aria-required="true"
+                       class="string string required form-control"
+                       id="compose-subject"
+                       maxlength="255" name="user[email]" placeholder="Subject" 
+                       required="required" size="255" type="email"
+                       value="Re: I found a great theme!">
+              </div>
+            </div>
+            <div class="form-group text required">
+              <label for="compose-message" class="control-label col-sm-1">Message</label>
+              <div class="col-sm-11">
+                <textarea aria-required="true"
+                          class="text required form-control" 
+                          maxlength="128" name="user[password]" placeholder="Message" 
+                          required="required" size="128" type="password" rel="summernote">
+                  <p><%= lorem.paragraph %></p>
+                  <p><%= lorem.paragraph %></p>
+                </textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-1 col-sm-11">
+                <button type="button" class="btn btn-primary">
+                  <i class="fa fa-paper-plane"></i> Send
+                </button>
+              </div>
+            </div>
+          </form>
+          <form action="http://www.torrentplease.com/dropzone.php"
+                class="dropzone dz-clickable" id="dropzone-demo"></form>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

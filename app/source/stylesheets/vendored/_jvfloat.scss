@@ -1,0 +1,30 @@
+@import "compass/css3";
+
+/*
+ * Default jvFloat theme.
+ * modify it as you wish!
+ */
+
+.jvFloat {
+  position: relative;
+  margin-top: 1em;
+  padding-top: 4px;
+  .placeHolder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    font-size: .8em;
+    @include transform(translate(0, 0));
+    @include transition(transform 150ms, opacity 100ms, visibility 100ms);
+    opacity: 0;
+    visibility: hidden;
+    &.active {
+      display: block;
+      visibility: visible;
+      @include transform(translate(0, -1em));
+      @include transition(transform 100ms, opacity 120ms, visibility 120ms);
+      opacity: 1;
+    }
+  }
+}

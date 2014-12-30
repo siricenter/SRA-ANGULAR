@@ -1,0 +1,143 @@
+<div class="panel panel-success-lt">
+  <div class="panel-heading panel-colorize">
+    <div class="panel-title">
+      <div class="row">
+        <div class="col-xs-6">
+          <i class="fa fa-check"></i> Paid Invoice
+        </div>
+        <div class="col-xs-6">
+          <div class="dropdown text-right">
+            <a data-toggle="dropdown" href="#"><i class="fa fa-cog fa-lg"></i></a>
+            <ul class="dropdown-menu pull-right">
+              <li><a href="#"><i class="fa fa-print"></i> Print</a></li>
+              <li><a href="#"><i class="fa fa-download"></i> Download</a></li>
+              <li><a href="#"><i class="fa fa-file-pdf-o"></i> PDF</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2 class="base-header thin v-mid-row">
+          <%= image_tag 'emerald_flat.png' %>
+          <span>Emerald</span>
+        </h2>
+      </div>
+      <div class="col-sm-6">
+        <div class="text-right text-left-xs">
+          <h3 class="base-header">INVOICE #20312</h3>
+          <h5 class="base-header">17 May 2014</h5>
+        </div>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <h4>From</h4>
+        <h5><%= lorem.name %></h5>
+        <h5>Dolor Sit Amet Inc</h5>
+      </div>
+      <div class="col-sm-3">
+        <h4>To</h4>
+        <h5><%= lorem.name %></h5>
+        <h5>Lorem Ipsum Inc</h5>
+      </div>
+      <div class="col-sm-6 text-right text-left-xs">
+        <h4>Payment Details</h4>
+        <h5><span class="major">VAT Reg: </span> 892485</h5>
+        <h5><span class="major">Account: </span> 336771258456</h5>
+        <h5><span class="major">Code: </span> 89224563TEST78841</h5>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+              <th>Product</th>
+              <th>Description</th>
+              <th>Discount</th>
+              <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Concept</td>
+              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+              <td>0</td>
+              <td><strong>$1,300</strong></td>
+            </tr>
+            <tr>
+              <td>Design</td>
+              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+              <td>0</td>
+              <td><strong>$1,800</strong></td>
+            </tr>
+            <tr>
+              <td>Front end development</td>
+              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+              <td>0</td>
+              <td><strong>$2,200</strong></td>
+            </tr>
+            <tr>
+              <td>Database</td>
+              <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+              <td>0</td>
+              <td><strong>$1,200</strong></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="col-sm-8">
+
+      </div>
+      <div class="col-sm-4">
+        <h4>Summary</h4>
+        <table class="table">
+          <tbody>
+          <tr>
+            <th>Subtotal:</th>
+            <td class="text-right">$86,145</td>
+          </tr>
+          <tr>
+            <th>Tax:</th>
+            <td class="text-right">$3,157</td>
+          </tr>
+          <tr>
+            <th>Total:</th>
+            <td class="text-right text-danger major">$89,302</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="col-sm-6">
+      </div>
+
+      <div class="col-sm-6 text-right">
+        <a class="btn btn-success disabled" href="#"><i class="fa fa-check"></i> Payment Confirmed</a>
+        <a class="btn btn-dark" href="#"><i class="fa fa-print"></i> Print Invoice</a>
+      </div>
+    </div>
+
+  </div>
+</div>

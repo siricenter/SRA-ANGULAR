@@ -1,0 +1,33 @@
+<%
+  content = '' if !defined?(content) || content.nil?
+%>
+
+<div class="panel panel-primary img-fill-vertical" style="background-image: url('<%= image_path('forest800x600.jpg')%>')">
+
+  <div class="panel-body no-padding">
+
+    <div class="col-xs-8 col-xs-offset-4 panel-colorize gradient-diag1" style="position: relative;">
+
+        <%= partial 'htmls/widgets/actions', locals: {
+                colors: true, collapse: false, klass: 'text-right' } %>
+      <br>
+
+      <h3>Lorem ipsum dolor sit amet.</h3>
+      <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur delectus distinctio iure tenetur.</h5>
+      <p><%= content %></p>
+
+      <ul class="list-unstyled list-inline vpadded">
+        <li><a href="#" rel="tooltip" title="Edit"><i class="fa fa-pencil"></i></a></li>
+        <li><a href="#" rel="tooltip" title="Change date"><i class="fa fa-calendar-o"></i></a></li>
+        <li><a href="#" rel="tooltip" title="Delete"><i class="fa fa-trash-o"></i></a></li>
+      </ul>
+
+      <div class="vpadded text-right">
+        <div class="btn panel-lt btn-long btn-sm">
+          21.09
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

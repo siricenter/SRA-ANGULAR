@@ -1,0 +1,48 @@
+<div class="turbo-card turbo-toggle"
+     data-back-class="bg-info"
+     data-turbo-url="<%= url_for('/htmls/elements/turbocards/body.html') %>"
+     >
+<div class="carousel slide vertical tile-normal" data-ride="carousel">
+  <div class="carousel-inner bg-success-lt gradient-diag1">
+    <div class="item active">
+      <div class="padded">
+        <div class="media">
+          <a class="pull-left" href="#">
+            <%= image_tag lorem.avatar(48), class: 'img-responsive img-circle media-object' %>
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading"><a href="#"><%= lorem.name %></a></h4>
+            <a href="#" class="text-semi">@<%= lorem.name.split.first.downcase %></a>
+          </div>
+        </div>
+
+        <h4 class="tile-content-bottom-left padded">
+          Just launched the Emerald theme!
+          <a href="#">#frontend</a>
+          <a href="#">#themes</a>
+        </h4>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="padded">
+        <h4>
+          New Emerald theme launched, check it out!
+          <a href="#">#frontend</a>
+          <a href="#">#themes</a>
+        </h4>
+
+        <div class="media tile-content-bottom-left padded">
+          <a class="pull-left" href="#">
+            <%= image_tag lorem.avatar(48), class: 'img-responsive img-circle media-object' %>
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading"><a href="#"><%= lorem.name %></a></h4>
+            <a href="#" class="text-semi">@<%= lorem.name.split.first.downcase %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

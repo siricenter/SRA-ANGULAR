@@ -1,0 +1,15 @@
+@each $pair in $emerald-colors {
+  $name: nth($pair, 1);
+  $color: darken(nth($pair, 2), 6%);
+  .text-gradient-#{$name} {
+    // others
+    color: $color;
+    
+    // webkit only
+    $light: $color;
+    $dark: adjust_hue($color, 25);
+    background-image: -webkit-linear-gradient(135deg, $dark, $light 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

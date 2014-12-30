@@ -1,0 +1,187 @@
+#oc-wrapper {
+  background: $oc-wrapper-bg;
+
+  > .oc-push > .oc-container {
+    background-color: $oc-container-bg;
+
+    > .navbar-default {
+      background: $navbar-bg;
+      border: none;
+      border-bottom: $oc-nav-bottom-border;
+      box-shadow: $oc-nav-shadow;
+    }
+  }
+}
+
+.oc-sidebar-header {
+  background-color: $oc-sidebar-header-bg;
+  border-bottom: $oc-sidebar-bottom-border;
+  box-shadow: $oc-sidebar-shadow;
+}
+
+.oc-sidebar-nav li.active {
+  position: relative;
+  > a {
+    @include arrow(left, $oc-container-bg, 5px, $opposite: true);
+  }
+  &.dropdown > a {
+    &:after {
+      content: none;
+    }
+  }
+  &.dropdown > a.collapsed {
+    &:after {
+      content: " ";
+    }
+  }
+}
+
+//sidebar menu
+
+.oc-partial-icon {
+  &, & + span {
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+
+.oc-sidebar {
+
+  a {
+    color: $sidebar-link-color;
+    &:hover, &:focus {
+      color: $sidebar-link-color-over;
+    }
+  }
+
+  .nav .active > a {
+    color: $sidebar-link-color-over;
+  }
+
+  .nav-stacked > li + li {
+    margin-top: 0;
+  }
+
+  .nav > li > a,
+  .collapse > li > a {
+    &:hover, &:focus {
+      background-color: $sidebar-link-bg-over !important;
+    }
+  }
+
+  .nav-tabs-oc {
+    > li {
+      // Active state, and its :hover to override normal :hover
+      &.active > a {
+        &,
+        &:hover,
+        &:focus {
+          background-color: $oc-wrapper-bg !important;
+        }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background: $sidebar-dropdown-bg;
+    @include border-radius(0);
+
+    > li > a {
+      color: $sidebar-link-color;
+      padding-top: 0;
+      height: 35px;
+      line-height: 35px;
+
+      &:hover, &:focus {
+        color: $sidebar-link-color-over;
+      }
+    }
+  }
+}
+
+@mixin oc-partial-menu-hover($screen: lg) {
+  .oc-#{$screen}-partial-left {
+    .oc-sidebar-nav {
+      > li {
+        > a {
+          background-color: $oc-partial-menu-hover-bg !important;
+          &:hover, &:focus {
+            background-color: $oc-partial-menu-hover-bg !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// visible-xs
+@media (max-width: $screen-xs-max) {
+  @include oc-partial-menu-hover(xs);
+  .oc-xs-partial-left {
+    .oc-sidebar-nav li.active a::after {
+      content:none;
+    }
+  }
+}
+
+// visible-sm
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  @include oc-partial-menu-hover(sm);
+  .oc-sm-partial-left {
+    .oc-sidebar-nav li.active a::after {
+      content:none;
+    }
+  }
+}
+
+// visible-md
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  @include oc-partial-menu-hover(md);
+  .oc-md-partial-left {
+    .oc-sidebar-nav li.active a::after {
+      content:none;
+    }
+  }
+}
+
+// visible-lg
+@media (min-width: $screen-lg-min) {
+  @include oc-partial-menu-hover(lg);
+  .oc-lg-partial-left {
+    .oc-sidebar-nav li.active a::after {
+      content:none;
+    }
+  }
+}
+
+.oc-form,
+.oc-search {
+  input {
+    @include transition(background-color .35s ease);
+    background-color: $oc-search-input-bg;
+    color: $sidebar-link-color;
+    &:focus,
+    &:hover {
+      background-color: $oc-search-input-bg-over;
+    }
+  }
+  .form-control-header {
+    color: $sidebar-link-color;
+  }
+}
+
+.oc-search {
+  .form-group {
+    margin-bottom: 0;
+  }
+}
+
+.oc-inner {
+  color: lighten($brand-dark, 40);
+}
+
+.oc-sidebar-content {
+  hr {
+    border-top-color: $brand-dark;
+  }
+}

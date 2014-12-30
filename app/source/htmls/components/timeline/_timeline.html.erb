@@ -1,0 +1,47 @@
+<%
+   default_panel_bg_class = nil unless defined?(default_panel_bg_class)
+%>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="timeline-top">
+      <div class="panel <%= default_panel_bg_class %>">
+        <div class="panel-heading panel-colorize">
+
+          <div class="panel-title">
+            <a href="#" class="v-mid badge badge-danger badge-rounded badge-empty badge-grow"></a>
+            <span class="mid">title</span>
+          </div>
+
+          <span class="pull-right text-semi"><i class="icm icm-clock"></i> <span>8m ago</span></span>
+        </div>
+
+        <div class="panel-body panel-colorize">
+          <p><%= lorem.paragraph %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul class="timeline timeline-mid-light-dk timeline-badges-success-lt">
+
+  <%= partial 'htmls/components/timeline/panel', locals: { panel_bg_class: default_panel_bg_class } %>
+  <%= partial 'htmls/components/timeline/panel', locals: { timeline_class: 'timeline-inverted', title: 'Colorize options', panel_bg_class: 'panel-success', badge_class: 'badge-light' } %>
+  <%= partial 'htmls/components/timeline/panel', locals: { panel_bg_class: default_panel_bg_class } %>
+  <%= partial 'htmls/components/timeline/panel', locals: { timeline_class: 'timeline-inverted', panel_bg_class: default_panel_bg_class } %>
+  <%= partial 'htmls/components/timeline/panel', locals: { panel_bg_class: default_panel_bg_class } %>
+  <%= partial 'htmls/components/timeline/panel', locals: { timeline_class: 'timeline-inverted', panel_bg_class: default_panel_bg_class } %>
+  <%= partial 'htmls/components/timeline/panel', locals: { panel_bg_class: default_panel_bg_class } %>
+
+  <li class="clearfix" style="float: none;"></li>
+
+</ul>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="text-center timeline-bottom">
+      <a class="btn btn-success-lt" href="#">Load More</a>
+    </div>
+  </div>
+</div>

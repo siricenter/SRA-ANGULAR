@@ -1,0 +1,94 @@
+---
+title: JQuery UI
+---
+
+<style type="text/css">
+  .window-contain{
+    position: relative;
+    height: 200px;
+    padding:1% 4%;
+    overflow:hidden;
+  }
+  .overlay-absolute {
+    position: absolute;
+  }
+
+  ul#icons {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul#icons li {
+    margin: 2px;
+    position: relative;
+    padding: 4px 0;
+    cursor: pointer;
+    float: left;
+    list-style: none;
+  }
+
+  ul#icons span.ui-icon {
+    float: left;
+    margin: 0 4px;
+  }
+
+  ul#menu {
+    max-width: 100px;
+  }
+  .ui-spinner {
+    display: block;
+  }
+</style>
+
+<div class="container-fluid modal-demos">
+
+  <div class="row" rel="panels">
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <% panel 'Accordion' do %>
+        <%= partial 'htmls/elements/jquery-ui/accordion' %>
+      <% end %>
+
+      <% panel 'Dialog' do %>
+        <%= partial 'htmls/elements/jquery-ui/dialog' %>
+      <% end %>
+
+      <% panel 'Sliders' do %>
+        <%= partial 'htmls/elements/jquery-ui/slide' %>
+      <% end %>
+
+      <% panel 'Autocomplete, spinner' do %>
+        <%= partial 'htmls/elements/jquery-ui/autocomplete' %>
+        <%= partial 'htmls/elements/jquery-ui/spinner' %>
+      <% end %>
+
+      <% panel 'Menu' do %>
+        <%= partial 'htmls/elements/jquery-ui/menu' %>
+      <% end %>
+
+    </div>
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <% panel 'Tabs' do %>
+        <%= partial 'htmls/elements/jquery-ui/tabs' %>
+      <% end %>
+
+      <% panel 'Overlay' do %>
+        <%= partial 'htmls/elements/jquery-ui/overlay' %>
+      <% end %>
+
+      <% panel 'State' do %>
+        <%= partial 'htmls/elements/jquery-ui/state' %>
+      <% end %>
+
+      <% panel 'Progress' do %>
+        <%= partial 'htmls/elements/jquery-ui/progress' %>
+      <% end %>
+
+      <% panel 'Icons' do %>
+        <%= partial 'htmls/elements/jquery-ui/icons' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

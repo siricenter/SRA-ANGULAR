@@ -1,0 +1,18 @@
+<li class="chat-contact <%= state %>">
+  <a href="#<%= oc_id %>" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <%= image_tag lorem.avatar(48), 
+      :class => 'media-object pull-left img-circle' %>
+    <div class="media-body">
+      <div class="media-heading">
+        <%= lorem.name %>
+        <small class="last-message-date"><%= lorem.date('%d, %b') %></small>
+      </div>
+      <small class="last-message">
+        <%= truncate lorem.sentence, length: 30 %>
+      </small>
+    </div>
+  </a>
+</li>

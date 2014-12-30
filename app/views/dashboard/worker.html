@@ -1,9 +1,11 @@
 <h1>
-  Dashboard
+ {{user.first_name}} {{user.last_name}}'s Dashboard
 </h1>
 <div class="row">
   <div class="btn-toolbar">
-    <button class = "btn-success" data-ng-click = "createHousehold()">Add Household</button>
+  	<div >
+    <a ng-repeat="area in areas" href = "#/{{area}}/households"><button class = "btn-success">{{area}} Households</button></a>
+    </div>
     <button class = "btn-success" data-ng-click = "createEvent()">CreateEvent</button>
     <a href = "#/areas"><button class = "btn-success">Areas</button></a>
   </div>

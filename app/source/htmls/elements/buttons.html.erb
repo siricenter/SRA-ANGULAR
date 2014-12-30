@@ -1,0 +1,305 @@
+<div class="container-fluid">
+
+  <div class="row" rel="panels">
+    <div class="col-md-8 panels" id="<%= rid() %>">
+
+      <% panel 'Options' do %>
+
+          <h5>Buttons</h5>
+          <button type="button" class="btn">Btn</button>
+          <button type="button" class="btn btn-default">Default</button>
+          <button type="button" class="btn btn-dark">Dark</button>
+          <button type="button" class="btn btn-primary">Primary</button>
+          <button type="button" class="btn btn-success">Success</button>
+          <button type="button" class="btn btn-info">Info</button>
+          <button type="button" class="btn btn-warning">Warning</button>
+          <button type="button" class="btn btn-danger">Danger</button>
+          <button type="button" class="btn btn-link">Link</button>
+
+          <h5>Disabled</h5>
+          <button type="button" class="btn" disabled>Btn</button>
+          <button type="button" class="btn btn-default" disabled>Default</button>
+          <button type="button" class="btn btn-dark" disabled>Dark</button>
+          <button type="button" class="btn btn-primary" disabled>Primary</button>
+          <button type="button" class="btn btn-success" disabled>Success</button>
+          <button type="button" class="btn btn-info" disabled>Info</button>
+          <button type="button" class="btn btn-warning" disabled>Warning</button>
+          <button type="button" class="btn btn-danger" disabled>Danger</button>
+          <button type="button" class="btn btn-link" disabled>Link</button>
+
+          <h5>Button tags</h5>
+          <a class="btn btn-default" href="#" role="button">Link</a>
+          <button class="btn btn-default" type="submit">Button</button>
+          <input class="btn btn-default" type="button" value="Input">
+          <input class="btn btn-default" type="submit" value="Submit">
+
+      <% end %>
+
+      <% panel 'Button groups' do %>
+
+          <div class="row">
+            <div class="col-md-6">
+
+              <h5>Basic example</h5>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default">Left</button>
+                <button type="button" class="btn btn-default">Middle</button>
+                <button type="button" class="btn btn-default">Right</button>
+              </div>
+
+              <h5>Button toolbar</h5>
+              <div class="btn-toolbar" role="toolbar" style="margin: 0;">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default">1</button>
+                  <button type="button" class="btn btn-default">2</button>
+                  <button type="button" class="btn btn-default">3</button>
+                  <button type="button" class="btn btn-default">4</button>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default">5</button>
+                  <button type="button" class="btn btn-default">6</button>
+                  <button type="button" class="btn btn-default">7</button>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default">8</button>
+                </div>
+              </div>
+
+              <h5>Sizing</h5>
+              <style type="text/css">
+                .bs-toolbar-sizing > .btn-toolbar {
+                  margin-bottom: 4px;
+                }
+              </style>
+              <div class="bs-toolbar-sizing">
+                <div class="btn-toolbar" role="toolbar">
+                  <div class="btn-group btn-group-lg">
+                    <button type="button" class="btn btn-default">Left</button>
+                    <button type="button" class="btn btn-default">Middle</button>
+                    <button type="button" class="btn btn-default">Right</button>
+                  </div>
+                </div>
+                <div class="btn-toolbar" role="toolbar">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default">Left</button>
+                    <button type="button" class="btn btn-default">Middle</button>
+                    <button type="button" class="btn btn-default">Right</button>
+                  </div>
+                </div>
+                <div class="btn-toolbar" role="toolbar">
+                  <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-default">Left</button>
+                    <button type="button" class="btn btn-default">Middle</button>
+                    <button type="button" class="btn btn-default">Right</button>
+                  </div>
+                </div>
+                <div class="btn-toolbar" role="toolbar">
+                  <div class="btn-group btn-group-xs">
+                    <button type="button" class="btn btn-default">Left</button>
+                    <button type="button" class="btn btn-default">Middle</button>
+                    <button type="button" class="btn btn-default">Right</button>
+                  </div>
+                </div>
+              </div>
+
+              <h5>Nesting</h5>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default">1</button>
+                <button type="button" class="btn btn-default">2</button>
+
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Dropdown
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+
+              <h5>Vertical variation</h5>
+              <div class="btn-group-vertical">
+                <button type="button" class="btn btn-default">Button</button>
+                <button type="button" class="btn btn-default">Button</button>
+                <div class="btn-group">
+                  <button id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Dropdown <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                  </ul>
+                </div>
+                <button type="button" class="btn btn-default">Button</button>
+                <button type="button" class="btn btn-default">Button</button>
+                <div class="btn-group">
+                  <button id="btnGroupVerticalDrop2" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Dropdown <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop2">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                  </ul>
+                </div>
+                <div class="btn-group">
+                  <button id="btnGroupVerticalDrop3" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Dropdown <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop3">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                  </ul>
+                </div>
+                <div class="btn-group">
+                  <button id="btnGroupVerticalDrop4" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Dropdown <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop4">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <h5>Single button dropdown</h5>
+          <%= partial 'htmls/elements/buttons/single_button_dropdown',
+            locals: { klass: 'btn-default' } %>
+          <%= partial 'htmls/elements/buttons/single_button_dropdown',
+            locals: { klass: 'btn-dark' } %>
+          <%= partial 'htmls/elements/buttons/single_button_dropdown',
+            locals: { klass: 'btn-primary' } %>
+          <%= partial 'htmls/elements/buttons/single_button_dropdown',
+            locals: { klass: 'btn-info' } %>
+          <%= partial 'htmls/elements/buttons/single_button_dropdown',
+            locals: { klass: 'btn-success' } %>
+          <%= partial 'htmls/elements/buttons/single_button_dropdown',
+            locals: { klass: 'btn-warning' } %>
+          <%= partial 'htmls/elements/buttons/single_button_dropdown',
+            locals: { klass: 'btn-danger' } %>
+
+          <h5>Split button dropdown</h5>
+          <%= partial 'htmls/elements/buttons/split_button_dropdown.html',
+            locals: { klass: 'btn-default' } %>
+          <%= partial 'htmls/elements/buttons/split_button_dropdown.html',
+            locals: { klass: 'btn-dark' } %>
+          <%= partial 'htmls/elements/buttons/split_button_dropdown.html',
+            locals: { klass: 'btn-primary' } %>
+          <%= partial 'htmls/elements/buttons/split_button_dropdown.html',
+            locals: { klass: 'btn-info' } %>
+          <%= partial 'htmls/elements/buttons/split_button_dropdown.html',
+            locals: { klass: 'btn-success' } %>
+          <%= partial 'htmls/elements/buttons/split_button_dropdown.html',
+            locals: { klass: 'btn-warning' } %>
+          <%= partial 'htmls/elements/buttons/split_button_dropdown.html',
+            locals: { klass: 'btn-danger' } %>
+
+    <% end %>
+
+    </div>
+    <div class="col-md-4 panels" id="<%= rid() %>">
+
+      <% panel 'Sizes' do %>
+
+          <h5>Buttons</h5>
+          <p>
+            <button type="button" class="btn btn-primary btn-lg">Large button</button>
+            <button type="button" class="btn btn-default btn-lg">Large button</button>
+          </p>
+          <p>
+            <button type="button" class="btn btn-primary">Default button</button>
+            <button type="button" class="btn btn-default">Default button</button>
+          </p>
+          <p>
+            <button type="button" class="btn btn-primary btn-sm">Small button</button>
+            <button type="button" class="btn btn-default btn-sm">Small button</button>
+          </p>
+          <p>
+            <button type="button" class="btn btn-primary btn-xs">Extra small button</button>
+            <button type="button" class="btn btn-default btn-xs">Extra small button</button>
+          </p>
+
+          <p>
+            <button type="button" class="btn btn-primary btn-block">Block level button</button>
+            <button type="button" class="btn btn-default btn-block">Block level button</button>
+          </p>
+
+          <div class="row">
+            <div class="col-md-6">
+              <h5>With dropdowns</h5>
+              <p>
+                <%= partial 'htmls/elements/buttons/single_button_dropdown',
+                  locals: { klass: 'btn-primary btn-lg' } %>
+              </p>
+              <p>
+                <%= partial 'htmls/elements/buttons/single_button_dropdown',
+                  locals: { klass: 'btn-dark btn-sm' } %>
+              </p>
+              <p>
+                <%= partial 'htmls/elements/buttons/single_button_dropdown',
+                  locals: { klass: 'btn-warning btn-xs' } %>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <h5>With dropdowns</h5>
+              <p>
+                <%= partial 'htmls/elements/buttons/split_button_dropdown',
+                  locals: { klass: 'btn-success btn-lg' } %>
+              </p>
+              <p>
+                <%= partial 'htmls/elements/buttons/split_button_dropdown',
+                  locals: { klass: 'btn-info btn-sm' } %>
+              </p>
+              <p>
+                <%= partial 'htmls/elements/buttons/split_button_dropdown',
+                  locals: { klass: 'btn-danger btn-xs' } %>
+              </p>
+            </div>
+          </div>
+
+      <% end %>
+
+      <% panel 'Justified button groups' do %>
+
+          <p>
+            <%= partial 'htmls/elements/buttons/justified_button_group',
+              locals: { klass: 'btn-default' } %>
+          </p>
+          <p>
+            <%= partial 'htmls/elements/buttons/justified_button_group',
+              locals: { klass: 'btn-dark' } %>
+          </p>
+          <p>
+            <%= partial 'htmls/elements/buttons/justified_button_group',
+              locals: { klass: 'btn-primary' } %>
+          </p>
+          <p>
+            <%= partial 'htmls/elements/buttons/justified_button_group',
+              locals: { klass: 'btn-info' } %>
+          </p>
+          <p>
+            <%= partial 'htmls/elements/buttons/justified_button_group',
+              locals: { klass: 'btn-success' } %>
+          </p>
+          <p>
+            <%= partial 'htmls/elements/buttons/justified_button_group',
+              locals: { klass: 'btn-warning' } %>
+          </p>
+          <p>
+            <%= partial 'htmls/elements/buttons/justified_button_group',
+              locals: { klass: 'btn-danger' } %>
+          </p>
+
+      <% end %>
+
+    </div>
+  </div>
+
+</div>
