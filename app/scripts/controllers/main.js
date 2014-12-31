@@ -98,7 +98,9 @@ angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno
  $scope.user = $rootScope.current_user
  $scope.areas = $rootScope.current_user.areas
  var regions = $scope.user.regions
- 
+ $scope.firstname = $rootScope.current_user.first_name;
+ $scope.lastname = $rootScope.current_user.last_name;
+ console.log('here')
 
  
 

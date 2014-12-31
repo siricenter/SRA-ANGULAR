@@ -1,20 +1,84 @@
-<h1>
- {{user.first_name}} {{user.last_name}}'s Dashboard
-</h1>
-<div class="row">
-  <div class="btn-toolbar">
-  	<div >
-    <a ng-repeat="area in areas" href = "#/{{area}}/households"><button class = "btn-success">{{area}} Households</button></a>
-    </div>
-    <button class = "btn-success" data-ng-click = "createEvent()">CreateEvent</button>
-    <a href = "#/areas"><button class = "btn-success">Areas</button></a>
-  </div>
-</div>
-<div class="row">
-  <ng-include src="manager_partial.html"></ng-include>
-</div>
-<div class="row">
-  <ng-include src="dashboard_list.html"></ng-include>
-  <ng-include src="meetings_list.html"></ng-include>
+<div class="turbo-card" data-back-class="bg-info" data-turbo-url="elements/turbocards/body.html">
+   <div id="jsrid12038621151" class="panel">
+     <div class="row">
+       <div class="col-sm-5 turbo-toggle">
+         <div class="tile-normal bg-success gradient-diag1">
+           <div class="panel-heading">
+             <div class="panel-title">Profile Views</div>
+           </div>
+           <div class="panel-body">
+             <table class="table-full push-bottom">
+               <tbody><tr>
+                 <td>
+                   <h5 class="base-header major">TRACKED</h5>
+                 </td>
+                 <td class="text-right">
+                   <h3 class="base-header text-right">
+                   986
+                   </h3>
+                 </td>
+               </tr>
+               <tr>
+                 <td>
+                   <h5 class="base-header major">VISITS</h5>
+                 </td>
+                 <td class="text-right">
+                   <h3 class="base-header text-right">
+                   693
+                   </h3>
+                 </td>
+               </tr>
+               <tr>
+                 <td>
+                   <h5 class="base-header major">CUSTOMERS</h5>
+                 </td>
+                 <td class="text-right">
+                   <h3 class="base-header text-right">
+                   529
+                   </h3>
+                 </td>
+               </tr>
+             </tbody></table>
+            
+             <div data-original-title="60% complete" class="progress flat-progress" rel="tooltip" title="">
+               <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                 <span class="sr-only">60% Complete</span>
+               </div>
+             </div>
+            
+             <div class="clearfix">
+               <h5 class="pull-left base-header major">Today</h5>
+               <h5 class="base-header major">
+               <span class="pull-right panel-lt box-label">
+               18
+               </span>
+               </h5>
+             </div>
+           </div>
+         </div>
+       </div>
+      
+       <div class="col-sm-7 pull-left-lg no-pull-xs">
+         <div class="panel-heading">
+           <a data-no-turbolink="true" href="#" class="turbo-toggle badge badge-success-lt badge-rounded badge-empty badge-grow"></a>
+           <a data-no-turbolink="true" href="#" class="turbo-toggle badge badge-info-lt badge-rounded badge-empty badge-grow"></a>
+           <a data-no-turbolink="true" href="#" class="turbo-toggle badge badge-primary-lt badge-rounded badge-empty badge-grow"></a>
+           <div class="reportrange pull-right">
+             <i class="fa fa-calendar-o"></i>
+             <span>December 2 - December 31</span>
+             <b class="caret"></b>
+           </div>
+         </div>
+        
+         <div class="panel-body" style="padding-top: 40px">
+           <div style="height: 150px; padding: 0px; position: relative;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines="" data-flot-no-y-labels=""><canvas height="187" width="437" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 350px; height: 150px;" class="flot-base"></canvas><canvas height="187" width="437" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 350px; height: 150px;" class="flot-overlay"></canvas></div>
+         </div>
+       </div>
+     </div>
+    
+   </div>
 </div>
 
+ </div>
+ </div>
+ </div>
