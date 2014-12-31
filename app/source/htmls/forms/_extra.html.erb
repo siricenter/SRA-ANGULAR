@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="row" rel="panels">
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <% panel 'Compact form' do %>
+          <%= partial 'htmls/forms/compact' %>
+      <% end %>
+      
+      <% panel 'Sliders' do %>
+          <%= partial 'htmls/forms/powerange' %>
+      <% end %>
+
+      <% panel 'iCheck' do %>
+          <%= partial 'htmls/forms/icheck' %>
+      <% end %>
+      
+      <% panel 'Selectize' do %>
+          <%= partial 'htmls/forms/selectize' %>
+      <% end %>
+
+      <% panel 'Rich text editor', compact: true do %>
+        <div class="panel-body summernote" rel="summernote">
+          <h3><%= lorem.word.capitalize %></h3>
+          <p><%= lorem.paragraph %></p>
+        </div>
+      <% end %>
+      
+      <% panel 'Markdown editor', compact: true do %>
+        <textarea class="panel-body" data-provide="markdown" rows="10">
+###<%= lorem.word.capitalize %>
+<%= lorem.paragraph %>
+        </textarea>
+      <% end %>
+      
+      <% panel 'Editable' do %>
+        <%= partial 'htmls/forms/editable' %>
+      <% end %>
+
+    </div>
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <% panel 'File inputs' do %>
+          <%= partial 'htmls/forms/fileinput' %>
+      <% end %>
+
+      <% panel 'Switches' do %>
+          <%= partial 'htmls/forms/switches' %>
+      <% end %>
+
+      <% panel 'Jcrop' do %>
+          <%= partial 'htmls/forms/jcrop' %>
+      <% end %>
+      
+      <% panel 'Knobs, ratings' do %>
+          <%= partial 'htmls/forms/knob' %>
+      <% end %>
+
+      <% panel 'Time inputs' do %>
+          <%= partial 'htmls/forms/time' %>
+      <% end %>
+
+      <% panel 'Input header, feedback and add-ons' do %>
+          <%= partial 'htmls/forms/controls' %>
+      <% end %>
+      
+      <% panel 'Textarea auto size' do %>
+          <%= partial 'htmls/forms/textarea-autosize' %>
+      <% end %>
+      
+    </div>
+  </div>
+</div>

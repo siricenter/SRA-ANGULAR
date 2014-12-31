@@ -1,0 +1,113 @@
+.panel-heading {
+  border-bottom: none;
+}
+
+.panel {
+  @include box-shadow(none);
+  border: none;
+}
+
+//should only show up on colored title bars
+//need to put panel too since the link selector on the panel is too strong
+.panel .panel-colorize {
+  
+  .nav-tabs[rel=tabdrop] .open > a {
+    &, &:hover, &:focus {
+      background: transparent;
+      color: $brand-white;
+    }
+  }
+  
+  .nav-tabs, .nav-justified-all {
+    
+    > li {
+      > a {
+        &, &:hover {
+          background: transparent;
+          color: rgba($brand-white, .6);
+        }
+      }
+      
+      &.active {
+        @include arrow(top, $opposite: true);
+        > a {
+          &, &:hover, &:focus {
+            background: transparent;
+            color: $brand-white;
+          }
+        }
+      }
+    }
+
+    &.nav-tabs-no-arrow {
+      > li.active {
+        &:before, &:after {
+          content: none;
+        }
+      }
+    }
+
+    &.nav-tabs-inline {
+      display: inline-block;
+    }
+    
+    &.nav-arrow-top {
+      
+      > li {
+        > a i {
+          //when using a navigation with an icon, we push it down a bit. text only looks fine
+          display: inline-block;
+          margin-top: 5px;
+        }
+        &.active {
+          @include arrow(bottom, $opposite: true);
+        }
+      }
+    }
+  }
+  
+  .dropdown-menu > li {
+    a {
+      color: $text-color;
+    }
+    
+    &.active {
+      a {
+        color: $brand-white;
+      }
+    }
+  }
+}
+
+.panel {
+  &.panel-default {
+    .panel-colorize {
+      
+      .nav-tabs[rel=tabdrop] .open > a {
+        &, &:hover, &:focus {
+          color: $text-color;
+        }
+      }
+      
+      .nav-tabs > li, .nav-justified-all > li {
+
+        > a {
+          background: transparent;
+          color: rgba($text-color, .5);
+
+          &:hover {
+            color: $text-color;
+            background: transparent;
+          }
+        }
+
+        &.active > a {
+          &, &:hover, &:focus {
+            background: transparent;
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+}

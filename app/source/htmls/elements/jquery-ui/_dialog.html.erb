@@ -1,0 +1,28 @@
+<section id="dialog">
+  <p class="dialog-button">
+    <a href="#" id="btn-dialog-simple" class="btn btn-primary ui-state-default ui-corner-all">
+      Open Dialog
+    </a>
+    &nbsp;
+    <a href="#" id="btn-dialog-message" class="btn btn-info ui-state-default ui-corner-all">
+      Open Modal Dialog
+    </a>
+    &nbsp;
+    <a href="#" id="btn-dialog-button" class="btn btn-success ui-state-default ui-corner-all">
+      Open Button Dialog
+    </a>
+  </p>
+</section>
+
+
+<% content_for :top do %>
+  <div id="modal-simple" title="Dialog simple">
+    <p><%= lorem.paragraph %></p>
+  </div>
+  <div id="modal-message" title="Dialog with backdrop">
+    <p><%= lorem.paragraph %></p>
+  </div>
+  <div id="modal-button" title="Dialog multi button">
+    <p><%= lorem.paragraph %></p>
+  </div>
+<% end %>

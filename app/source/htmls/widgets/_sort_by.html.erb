@@ -1,0 +1,53 @@
+<div class="panel" id="<%= rid() %>">
+  <div class="panel-heading panel-handle">
+    <%= partial 'htmls/widgets/actions' %>
+    <div class="panel-title">
+      <span class="panel-title-edtitable">Sort By</span>
+    </div>
+  </div>
+  <div class="panel-body-collapse collapse in">
+    <div class="panel-body no-padding">
+
+      <div class="panel-section">
+        <div class="row">
+          <div class="col-xs-4">
+            <h5 class="base-header">Importance</h5>
+          </div>
+          <div class="col-xs-8">
+            <div class="clearfix">
+              <div class="pull-right badge-empty-list">
+                <% %w(success info primary warning danger).each do |c| %>
+                    <a href="#" class="badge badge-<%= c %>-lt badge-rounded badge-empty badge-grow"></a>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <div class="row">
+          <div class="col-xs-4">
+            <h5 class="base-header">Date</h5>
+          </div>
+          <div class="col-xs-8">
+            <div class="reportrange pull-right">
+              <i class="fa fa-calendar-o"></i>
+              <span></span>
+              <b class="caret"></b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <div class="row">
+          <div class="col-xs-12">
+            <button class="btn btn-success btn-sm">Show All</button>
+            <a href="#" class="text-muted pull-right">Reset</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

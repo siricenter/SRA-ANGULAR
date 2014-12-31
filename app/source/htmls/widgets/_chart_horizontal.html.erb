@@ -1,0 +1,66 @@
+<div class="turbo-card"
+     data-back-class="bg-info"
+     data-turbo-url="<%= url_for('/htmls/elements/turbocards/body.html') %>"
+>
+  <div class="panel">
+    <div class="row">
+      <div class="col-sm-5 turbo-toggle">
+        <div class="tile-normal bg-success gradient-diag1">
+          <div class="panel-heading">
+            <div class="panel-title">Profile Views</div>
+          </div>
+          <div class="panel-body">
+            <% actions = %w(TRACKED VISITS CUSTOMERS) %>
+            <table class="table-full push-bottom">
+              <% 3.times do |i| %>
+                  <tr>
+                    <td>
+                      <h5 class="base-header major"><%= actions[i] %></h5>
+                    </td>
+                    <td class="text-right">
+                      <h3 class="base-header text-right">
+                        <%= number_with_delimiter lorem.number(3) %>
+                      </h3>
+                    </td>
+                  </tr>
+              <% end %>
+            </table>
+
+            <div class="progress flat-progress" rel="tooltip" title="60% complete">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                <span class="sr-only">60% Complete</span>
+              </div>
+            </div>
+
+            <div class="clearfix">
+              <h5 class="pull-left base-header major">Today</h5>
+              <h5 class="base-header major">
+              <span class="pull-right panel-lt box-label">
+                <%= number_with_delimiter lorem.number(2) %>
+              </span>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-7 pull-left-lg no-pull-xs">
+        <div class="panel-heading">
+          <% %w(success info primary).each do |c| %>
+              <a href="#" class="turbo-toggle badge badge-<%= c %>-lt badge-rounded badge-empty badge-grow"></a>
+          <% end %>
+          <div class="reportrange pull-right">
+            <i class="fa fa-calendar-o"></i>
+            <span></span>
+            <b class="caret"></b>
+          </div>
+        </div>
+
+        <div class="panel-body" style="padding-top: 40px">
+          <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

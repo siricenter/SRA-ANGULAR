@@ -1,0 +1,42 @@
+<div class="panel panel-<%= color %>">
+
+  <div class="panel-body in panel-body-collapse panel-colorize gradient-diag1 no-padding-top">
+    <div class="panel-heading">
+      <%= partial 'htmls/widgets/actions', locals: { colors: true, collapse: false } %>
+      <div class="panel-title">Profile Views</div>
+    </div>
+    <div class="box-table push-bottom">
+      <div class="box-row mid-bordered">
+        <% actions = %w(TRACKED VISITS CUSTOMERS) %>
+        <% 3.times do |i| %>
+            <div class="box-cell">
+              <h5 class="base-header major"><%= actions[i] %></h5>
+              <h3 class="base-header">
+                <%= number_with_delimiter lorem.number(3) %>
+              </h3>
+            </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="progress flat-progress" rel="tooltip" title="60% complete">
+      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        <span class="sr-only">60% Complete</span>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <h5 class="pull-left base-header major">Today</h5>
+      <h5 class="base-header major">
+          <span class="pull-right panel-lt box-label">
+            <%= number_with_delimiter lorem.number(2) %>
+          </span>
+      </h5>
+    </div>
+
+  </div>
+
+  <div class="panel-body" style="padding-top: 50px; padding-bottom: 30px;">
+    <div style="height: 150px;" class="flot-transparent-line" data-flot-line-color="<%= color %>" data-flot-no-lines data-flot-no-y-labels></div>
+  </div>
+</div>

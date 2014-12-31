@@ -1,0 +1,50 @@
+<%
+actions = false unless defined?(actions) && !actions.nil?
+id1 = uid()
+id2 = uid()
+id3 = uid()
+%>
+
+<div class="panel panel-success" id="<%= rid() %>">
+  <div class="panel-header panel-handle panel-colorize" >
+    <% if actions %>
+      <div class="panel-actions pull-right panel-actions-reveal">
+        <span class="panel-actions-reveal-hide animated fadeInRight">
+          <%= partial 'htmls/panels/actions' %>
+        </span>
+        &nbsp;&nbsp;
+        <i class="fa fa-bars panel-actions-reveal-icon"></i>
+      </div>
+    <% end %>
+    <ul class="nav nav-justified-all <%= 'panel-actions-sibling' if actions %>">
+      <li class="active">
+        <%= link_to 'Nav', '#' + id1, 'data-toggle' => 'tab' %>
+      </li>
+      <li>
+        <%= link_to 'Justified', '#' + id2, 'data-toggle' => 'tab' %>
+      </li>
+      <li>
+        <%= link_to 'All', '#' + id3, 'data-toggle' => 'tab' %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="panel-body-collapse collapse in">
+    <div class="panel-body tab-content">
+      <div class="tab-pane active fade in" id="<%= id1 %>">
+        <h4>
+          A nav that stays the same (justified) on all devices.
+        </h4>
+        <p><%= lorem.paragraph %></p>
+      </div>
+      <div class="tab-pane fade" id="<%= id2 %>">
+        <p><%= lorem.paragraph %></p>
+        <p><%= lorem.paragraph %></p>
+      </div>
+      <div class="tab-pane fade" id="<%= id3 %>">
+        <p><%= lorem.paragraph %></p>
+        <p><%= lorem.paragraph %></p>
+      </div>
+    </div>
+  </div>
+</div>

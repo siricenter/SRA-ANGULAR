@@ -1,0 +1,35 @@
+<%
+level_id = uid()
+href = v['href']
+href = "##{level_id}" if v['children']
+href = "#" unless href
+collapse = { 'data-toggle' => "collapse", 'data-parent' => "##{parent_id}" }
+highlight = v['highlight'] || href
+highlighted = highlighted?([highlight])
+attrs = highlighted ? {} : { 'class' => "collapsed" }
+attrs.merge!(collapse) if v['children']
+attrs.merge!(v['attrs']) if v['attrs']
+classes = ''
+classes << ' dropdown' if v['children']
+classes << ' active' if highlighted
+%>
+
+<li class="<%= classes %>">
+  <% link_to href, attrs do %>
+    <%= v['text'] %>
+    <% if v['children'] %>
+      <b class="caret"></b>
+    <% end %>
+  <% end %>
+  <% if v['caption'] %>
+    <%= v['caption'].html_safe %>
+  <% end %>
+  <% if v['children'] %>
+    <ul class="collapse dropdown-menu <%= 'in' if highlighted %>" id="<%= level_id %>">
+      <% v['children'].each do |k, v| %>
+        <%= partial 'layouts/sidebar/node',
+          locals: { v: v, parent_id: level_id } %>
+      <% end %>
+    </ul>
+  <% end %>
+</li>

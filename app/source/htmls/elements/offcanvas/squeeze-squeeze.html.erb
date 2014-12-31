@@ -1,0 +1,45 @@
+---
+title: Offcanvas squeeze squeeze
+layout: plain
+---
+
+<div class="oc-lg-squeeze-squeeze oc-md-squeeze-squeeze oc-sm-squeeze-squeeze oc-xs-push-push">
+
+  <div id="oc-wrapper" class="oc-wrapper
+       oc-lg-open-left oc-md-open-left oc-sm-partial-left
+       oc-lg-left-squeeze oc-md-left-squeeze oc-sm-left-squeeze oc-xs-left-push
+       oc-lg-right-squeeze oc-md-right-squeeze oc-sm-right-squeeze oc-xs-right-push
+       ">
+
+    <div class="oc-push">
+      <aside id="main-oc-sidebar-left" class="oc-sidebar oc-sidebar-left oc-sidebar-fixed nano">
+        <div class="nano-content">
+          <%= partial 'layouts/sidebar' %>
+        </div>
+      </aside>
+
+      <div class="oc-container" id="main-oc-container">
+        <%= partial 'layouts/navbar' %>
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="col-md-12">
+              <p>
+                On large screens I squeeze both left and right.
+                Left excludes right.
+              </p>
+              <p>
+                On small screens I push both left and right.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="oc-sidebar oc-sidebar-right oc-sidebar-fixed">
+      <%= partial 'htmls/components/chat/chat' %>
+    </aside>
+
+  </div>
+
+</div>

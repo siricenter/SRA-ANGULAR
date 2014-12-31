@@ -1,0 +1,58 @@
+@import 'compass/css3';
+
+.btn-classselector {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #DDD;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.dropdown-classselector {
+  
+  > .dropdown-menu {
+    top: 80%;
+    left: -7px;
+    padding: 4px;
+    min-width: 130px;
+    max-width: 130px;
+    > li {
+      display: block;
+      float: left;
+      width: 20px;
+      height: 20px;
+      margin: 2px;
+    }
+  }
+  
+  .btn-classselector-class {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    position: relative;
+    @include transition(all ease 0.1s);
+    &:hover {
+      text-decoration: none;
+      opacity: 0.8;
+      filter: alpha(opacity = 80);
+      @include transform(scale(1.08));
+    }
+  }
+  span.btn-classselector-class.selected:after {
+    content: "\e013";
+    font-family: 'Glyphicons Halflings';
+    display: inline-block;
+    font-size: 11px;
+    color: #FFF;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 20px;
+  }
+  
+}

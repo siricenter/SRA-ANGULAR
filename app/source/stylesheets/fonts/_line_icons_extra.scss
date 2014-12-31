@@ -1,0 +1,25 @@
+.line-icon-plus {
+  &:before {
+    content: '\e126';
+  }
+  @include rotate(45deg);
+}
+
+.line-icon-circle {
+  border: 1px solid rgba($brand-light,.7);
+  border-radius: 50%;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  color: #fff;
+  @include transition(border-color .3s);
+
+  &.line-icon:before {
+    line-height: 30px;
+  }
+
+  &:hover {
+    border: 1px solid #fff;
+  }
+}

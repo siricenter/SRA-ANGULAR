@@ -1,0 +1,31 @@
+@include em-color-variants('.btn');
+
+.btn {
+  &, &:focus, &:active, &:hover {
+    outline: none;
+    border: none;
+  }
+}
+
+.btn-rounded {
+  @include border-radius(20px);
+}
+
+.btn-transparent-light {
+  background: transparent;
+  border: 1px solid rgba(#fff, .5);
+  color: #fff;
+  &:hover, &:active, &:focus {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+}
+
+.btn-long {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.btn-dark {
+  @include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
+}

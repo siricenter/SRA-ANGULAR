@@ -1,0 +1,141 @@
+// This file is just for demo pourposes, can be safely ignored
+
+@import "compass/css3";
+@import "variables";
+
+//***
+// Gauge
+
+@mixin keyframes($name) {
+  @-webkit-keyframes $name { @content }
+  @-moz-keyframes $name { @content }
+  @-o-keyframes $name { @content }
+  @keyframes $name { @content }
+}
+
+@mixin animation($value) {
+  @include experimental(animation, $value, -webkit, -moz, -ms, -o, official);
+}
+
+@mixin animation-timing-function($value) {
+  @include experimental(animation-timing-function, $value, -webkit, -moz, -ms, -o, official);
+}
+
+$gauge-size: 256px;
+$gauge-speed: 4000ms;
+$gauge-color: $brand-info;
+
+@include keyframes(gauge) {
+  0%   { @include rotateZ(-50deg); }
+  
+  10%  { @include rotateZ(20deg); }
+  20%  { @include rotateZ(60deg); }
+  24%  { @include rotateZ(60deg); }
+  
+  40%  { @include rotateZ(-20deg); }
+  54%  { @include rotateZ(70deg); }
+  56%  { @include rotateZ(78deg); }
+  58%  { @include rotateZ(73deg); }
+  60%  { @include rotateZ(75deg); }
+  62%  { @include rotateZ(70deg); }
+  
+  70%  { @include rotateZ(-20deg); }
+  
+  80%  { @include rotateZ(20deg); }
+  83%  { @include rotateZ(25deg); }
+  86%  { @include rotateZ(20deg); }
+  89%  { @include rotateZ(25deg); }
+  
+  100% { @include rotateZ(-50deg); }
+}
+
+.gauge {
+  margin-left: auto;
+  margin-right: auto;
+  background: $gauge-color;
+  @include border-top-radius($gauge-size / 2);
+  width: $gauge-size;
+  height: $gauge-size / 2;
+  overflow: hidden;
+  position: relative;
+  text-indent: -9999px;
+  @include box-shadow(rgba(0,0,0,0.3) 0 10px 60px,rgba(0,0,0,0.1) 0 0 20px);
+  -moz-transform: scale(.9999); // FF aliasing
+}
+.gauge-indicator {
+  @include animation(gauge $gauge-speed infinite ease);
+  content: '';
+  position: absolute;
+  left: ($gauge-size / 2) - ($gauge-size / 26);
+  top: ($gauge-size / 12);
+  width: 0;
+  height: 0;
+  border-bottom: (5 * $gauge-size / 12) solid white;
+  border-left: ($gauge-size / 24) solid rgba(255, 255, 255, 0);
+  border-right: ($gauge-size / 24) solid rgba(255, 255, 255, 0);
+  @include transform-origin(50%, 100%);
+}
+  
+.gauge-center {
+  content: '';
+  background: white;
+  @include border-radius($gauge-size / 8);
+  position: absolute;
+  left: ($gauge-size / 2) - ($gauge-size / 10);
+  top: ($gauge-size / 2) - ($gauge-size / 10);
+  width: ($gauge-size / 5);
+  height: ($gauge-size / 5);
+}
+
+//***
+// Utils
+
+.splash-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translateX(-50%) translateY(-50%));
+  text-align: center;
+}
+
+@include keyframes(fadeInDown) {
+  0% {
+    opacity: 0;
+    @include transform(translateY(-20px));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform(translateY(0));
+  }
+}
+
+.emerald {
+  $drop-color: lighten(saturate(#1aae88, 40%), 30%);
+  @include filter(
+    drop-shadow(0 0 60px rgba(#000, .3) )
+    drop-shadow(0 0 20px rgba(#000, .1) )
+  );
+  @include animation(fadeInDown .5s linear);
+}
+
+.warp-speed {
+  @include transition(transform .5s ease-in);
+  @include transform(scale(100, 100));
+}
+
+//***
+// Splash
+
+html, body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: image-url('triangles-colors.svg');
+}

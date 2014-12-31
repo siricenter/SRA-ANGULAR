@@ -1,0 +1,350 @@
+// panels
+
+$panel-primary-text:          #fff !default;
+$panel-primary-border:        $brand-primary !default;
+$panel-primary-heading-bg:    $brand-primary !default;
+
+$panel-light-border: $gray-lighter !default;
+$panel-light-text: $text-color !default;
+$panel-light-heading-bg: $gray-lighter !default;
+
+$panel-dark-border: $gray-dark !default;
+$panel-dark-text: #fff !default;
+$panel-dark-heading-bg: $gray-dark !default;
+
+$panel-black-border: $gray-darker !default;
+$panel-black-text: #fff !default;
+$panel-black-heading-bg: $gray-darker !default;
+
+$panel-inverse-border: $gray-light !default;
+$panel-inverse-text: #fff !default;
+$panel-inverse-heading-bg: $gray-light !default;
+
+$panel-zindex: 1370 !default;
+
+@mixin panel-variant-header($border, $heading-text-color, $heading-bg-color, $heading-border) {
+  &.btn-classselector-class,
+  .panel-colorize {
+    background-color: $heading-bg-color;
+    @include bg-gradients($heading-bg-color);
+  }
+}
+
+// Contextual variations
+.panel-default {
+  @include panel-variant-header($panel-default-border, $panel-default-text, $panel-default-heading-bg, $panel-default-border);
+  .panel-colorize {
+    color: $text-color;
+  }
+}
+.panel-light {
+  @include panel-variant($panel-light-border, $panel-light-text, $panel-light-heading-bg, $panel-light-border);
+  @include panel-variant-header($panel-light-border, $panel-light-text, $panel-light-heading-bg, $panel-light-border);
+  .panel-colorize {
+    color: $text-color;
+  }
+}
+.panel-dark {
+  @include panel-variant($panel-dark-border, $panel-dark-text, $panel-dark-heading-bg, $panel-dark-border);
+  @include panel-variant-header($panel-dark-border, $panel-dark-text, $panel-dark-heading-bg, $panel-dark-border);
+  .panel-colorize {
+    color: #fff;
+  }
+}
+.panel-inverse {
+  @include panel-variant($panel-inverse-border, $panel-inverse-text, $panel-inverse-heading-bg, $panel-inverse-border);
+  @include panel-variant-header($panel-inverse-border, $panel-inverse-text, $panel-inverse-heading-bg, $panel-inverse-border);
+  .panel-colorize {
+    color: #fff;
+  }
+}
+.panel-black {
+  @include panel-variant($panel-black-border, $panel-black-text, $panel-black-heading-bg, $panel-black-border);
+  @include panel-variant-header($panel-black-border, $panel-black-text, $panel-black-heading-bg, $panel-black-border);
+  .panel-colorize {
+    color: #fff;
+  }
+}
+.panel-primary {
+  @include panel-variant-header($panel-primary-border, $panel-primary-text, $panel-primary-heading-bg, $panel-primary-border);
+  .panel-colorize {
+    color: #fff;
+  }
+}
+.panel-success {
+  @include panel-variant-header($panel-success-border, $panel-success-text, $panel-success-heading-bg, $panel-success-border);
+  .panel-colorize {
+    color: #fff;
+  }
+}
+.panel-info {
+  @include panel-variant-header($panel-info-border, $panel-info-text, $panel-info-heading-bg, $panel-info-border);
+  .panel-colorize {
+    color: #fff;
+  }
+}
+.panel-warning {
+  @include panel-variant-header($panel-warning-border, $panel-warning-text, $panel-warning-heading-bg, $panel-warning-border);
+  .panel-colorize {
+    color: #fff;
+  }
+}
+.panel-danger {
+  @include panel-variant-header($panel-danger-border, $panel-danger-text, $panel-danger-heading-bg, $panel-danger-border);
+  .panel-colorize {
+    color: #fff;
+  }
+}
+
+// Contextual bg variations
+.panel-bg-default {
+  background-color: $panel-default-heading-bg;
+  @include bg-gradients($panel-default-heading-bg);
+}
+.panel-bg-dark {
+  background-color: $panel-dark-heading-bg;
+}
+.panel-bg-primary {
+  background-color: $panel-primary-heading-bg;
+}
+.panel-bg-success {
+  background-color: $panel-success-heading-bg;
+}
+.panel-bg-info {
+  background-color: $panel-info-heading-bg;
+}
+.panel-bg-warning {
+  background-color: $panel-warning-heading-bg;
+}
+.panel-bg-danger {
+  background-color: $panel-danger-heading-bg;
+}
+
+.panel-heading,
+.panel-header {
+  position: relative;
+  border-top-left-radius: $border-radius-base;
+  border-top-right-radius: $border-radius-base;
+}
+
+// panels
+.panel-handle {
+  cursor: move;
+}
+
+.panel-actions {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  z-index: $panel-zindex + 1;
+}
+
+.panel-action {
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.5;
+  &:hover, &:focus {
+    opacity: 1;
+  }
+  .dropdown-colorselector,
+  .dropdown-classselector, {
+    display: inline;
+  }
+  .btn-colorselector,
+  .btn-classselector {
+    width: 13px;
+    height: 13px;
+    border: 1px solid $gray;
+  }
+}
+
+a.btn-classselector-class.panel-none {
+  border: 1px solid $gray-lighter;
+  color: $text-color;
+}
+
+.panel-title-edtitable {
+  cursor: pointer;
+  border-bottom: none;
+  &:hover {
+    border-bottom: 1px dashed $text-color;
+  }
+}
+
+.panel-placeholder {
+  background-color: $gray-lighter;
+  border: 1px dashed $gray-light !important;
+}
+
+// panel utilities
+
+.panel-actions-reveal {
+  padding-left: 6em;
+  > .panel-actions-reveal-hide {
+    display: none;
+  }
+  > .panel-actions-reveal-icon {
+    @include transition-duration(0.35s);
+    @include transition-property(transform);
+    opacity: 0.5;
+  }
+  &:hover,
+  &:active {
+    padding-left: 0;
+    > .panel-actions-reveal-hide {
+      display: inline;
+    }
+    > .panel-actions-reveal-icon {
+      @include transform(rotate(-90deg));
+      opacity: 1;
+    }
+  }
+}
+
+.panel-title {
+  @include headers {
+    margin: 0;
+  }
+  display: inline-block;
+}
+
+//use panel header title inside a panel header to add the padding inside the header (not on the header itself)
+//useful when you need a title AND a nav menu on the same header
+.panel-header-title {
+  padding: 7px 15px;
+}
+
+.panels.ui-sortable {
+  min-height: 100px;
+}
+
+// leaves room for actions in the right
+.panel-actions-sibling {
+  padding-right: 130px;
+  z-index: $panel-zindex;
+}
+
+.panel-section {
+  padding: $panel-body-padding;
+}
+
+//used in pricing
+.panel-enlarged {
+  margin: -$panel-body-padding;
+}
+
+.panel-placeholder {
+  background-color: $brand-white;
+}
+
+$positions: top left right bottom;
+
+@each $pos in $positions {
+  .panel-line-#{$pos} {
+    border-#{$pos}: 1px solid $brand-light;
+  }
+}
+
+@each $pair in $emerald-colors {
+  $name: nth($pair, 1);
+  $bg: nth($pair, 2);
+  $color: nth($pair,3);
+  $inverse-bg: nth($pair, 4);
+  $inverse-color: nth($pair, 5);
+    
+  .panel-#{$name} .panel-colorize,
+  .panel-body-#{$name} {
+    background-color: $bg;
+    @include bg-gradients($bg);
+
+    &, a:not(.btn), .form-control {
+      color: $color;
+    }
+
+    &.panel-arrow-left:after {
+      border-right-color: $bg;
+    }
+
+    .panel-text-dk {
+      color: dkize($color);
+    }
+
+    .panel-text-lt {
+      color: ltize($color);
+    }
+
+    .panel-text-lter {
+      color: ltize($color, 30);
+    }
+
+    .form-control {
+      @include placeholder($color)
+    }
+
+    .panel-bg-inverse {
+      background: $inverse-bg;
+      color: $inverse-color;
+    }
+    
+    .panel-lt {
+      @if $bg == $brand-white {
+        background-color: #{dkize($bg)};
+      } @else {
+        background-color: #{ltize($bg)};
+      }
+
+      &, a, .form-control {
+        color: $color;
+      }
+    }
+    
+    &.gradient-diag1 .panel-lt {
+      @if $bg == $brand-white {
+        background: #{dkize($bg)};
+      } @else {
+        $dark: adjust_hue($bg, 10);
+        background-color: #{ltize($dark)};
+      }
+    }
+    
+    @each $pos in $positions {
+      .panel-line-#{$pos} {
+        @if $bg == $brand-white {
+          border-#{$pos}: 1px solid dkize($bg);
+        } @else {
+          border-#{$pos}: 1px solid ltize($bg);
+        }
+      }
+    }
+  }
+}
+
+.panel-dark-hl {
+  background: rgba(#000,0.05);
+}
+
+.panel-section {
+  border-top: 1px solid $brand-light;
+}
+
+.panel-arrow-left {
+  position: relative;
+  @include arrow(left, $brand-white, 7px, $position: 20px);
+}
+
+.panel-shadow {
+  @include box-shadow($panel-shadow);
+}
+
+.panel-rounded {
+  overflow: hidden;
+  border-radius: $border-radius-base;
+}
+
+.panel-body {
+  > .panel-heading {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}

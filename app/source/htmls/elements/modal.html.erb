@@ -1,0 +1,119 @@
+---
+title: Modals & Notifications
+---
+
+<style type="text/css">
+  .modal-demos button,
+  .modal-demos .btn {
+    margin-top: 3px;
+  }
+</style>
+
+<div class="container-fluid modal-demos">
+
+  <div class="row" rel="panels">
+    <div class="col-md-4 panels" id="<%= rid() %>">
+
+      <% panel 'Modal sizes and colors' do %>
+        <%= partial 'htmls/elements/modal/demo', locals: {
+          modal_class: 'modal-dark fade',
+          btn_class: 'btn-dark'
+          } %> <br>
+        <%= partial 'htmls/elements/modal/demo', locals: {
+          modal_class: 'modal-light fade'
+          } %> <br>
+        <%= partial 'htmls/elements/modal/demo', locals: {
+          modal_class: 'modal-primary fade',
+          btn_class: 'btn-primary'
+          } %> <br>
+        <%= partial 'htmls/elements/modal/demo', locals: {
+          modal_class: 'modal-success fade',
+          btn_class: 'btn-success'
+          } %> <br>
+        <%= partial 'htmls/elements/modal/demo', locals: {
+          modal_class: 'modal-info fade',
+          btn_class: 'btn-info'
+          } %> <br>
+        <%= partial 'htmls/elements/modal/demo', locals: {
+          modal_class: 'modal-warning fade',
+          btn_class: 'btn-warning'
+          } %> <br>
+        <%= partial 'htmls/elements/modal/demo', locals: {
+          modal_class: 'modal-danger fade',
+          btn_class: 'btn-danger'
+          } %>
+      <% end %>
+
+    </div>
+    <div class="col-md-3 panels" id="<%= rid() %>">
+
+      <% panel 'Dialogs & notifications' do %>
+        <%= partial 'htmls/elements/modal/dialogs' %>
+      <% end %>
+
+    </div>
+    <div class="col-md-5 panels" id="<%= rid() %>">
+
+      <% panel 'Modal effects' do %>
+        <%= partial 'htmls/elements/modal/effects' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+  .bs-example-modal .modal {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    z-index: 1;
+    display: block;
+    float: left;
+    padding-left: 1em;
+    padding-right: 1em;
+    overflow-y: hidden;
+  }
+</style>
+
+<div class="container-fluid modal-demos">
+  <div class="row" rel="panels">
+    <div class="col-md-12 panels bs-example-modal " id="<%= rid() %>">
+
+      <% panel 'At a glance' do %>
+        <% sentence = lorem.sentence %>
+        <%= partial 'htmls/elements/modal/modal', locals: { 
+          content: sentence, 
+          modal_class: 'modal-dark fade in', 
+          modal_dialog_class: 'modal-sm' } %>
+        <%= partial 'htmls/elements/modal/modal', locals: { 
+          content: sentence, 
+          modal_class: 'modal-light fade in', 
+          modal_dialog_class: 'modal-sm' } %>
+        <%= partial 'htmls/elements/modal/modal', locals: { 
+          content: sentence, 
+          modal_class: 'modal-primary fade in',
+          modal_dialog_class: 'modal-sm' } %>
+        <%= partial 'htmls/elements/modal/modal', locals: { 
+          content: sentence,
+          modal_class: 'modal-info fade in',
+          modal_dialog_class: 'modal-sm' } %>
+        <%= partial 'htmls/elements/modal/modal', locals: { 
+          content: sentence,
+          modal_class: 'modal-success fade in',
+          modal_dialog_class: 'modal-sm' } %>
+        <%= partial 'htmls/elements/modal/modal', locals: { 
+          content: sentence,
+          modal_class: 'modal-warning fade in',
+          modal_dialog_class: 'modal-sm' } %>
+        <%= partial 'htmls/elements/modal/modal', locals: { 
+          content: sentence,
+          modal_class: 'modal-danger fade in',
+          modal_dialog_class: 'modal-sm' } %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

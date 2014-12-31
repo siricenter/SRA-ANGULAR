@@ -1,0 +1,72 @@
+<% id1, id2, id3 = uid(), uid(), uid() %>
+<script type="text/template" id="bigdrop">
+  <div class="panel panel-success no-margin-bottom">
+
+    <div class="tab-content">
+      <div class="padded tab-pane active fade in" id="<%= id1 %>">
+        <ul class="list-group list-group-connected">
+          <% 5.times do %>
+            <li class="list-group-item">
+              <%= link_to lorem.words(3).capitalize, '#' %> <br>
+              <small class="text-muted"><%= lorem.date %></small>
+              <i class="icm icm-star6 pull-right text-info"></i>
+            </li>
+          <% end %>
+        </ul>
+        <div class="padded-top text-center">
+          <%= link_to 'Show all events', '#', class: 'btn btn-default btn-xs' %>
+        </div>
+      </div>
+      <div class="padded tab-pane fade" id="<%= id2 %>">
+        <ul class="list-group list-group-connected">
+          <% 5.times do %>
+            <li class="list-group-item">
+              <%= link_to lorem.name, '#' %> <br>
+              <small class="text-muted"><%= lorem.email %></small>
+            </li>
+          <% end %>
+        </ul>
+        <div class="padded-top text-center">
+          <%= link_to 'Show all leads', '#', class: 'btn btn-default btn-xs' %>
+        </div>
+      </div>
+      <div class="padded tab-pane fade" id="<%= id3 %>">
+        <ul class="list-group list-group-connected">
+          <% 7.times do %>
+            <li class="list-group-item">
+              <input type="checkbox" rel="icheck" class="table-checkable">
+              <%= link_to lorem.words(3).capitalize, '#' %>
+            </li>
+          <% end %>
+        </ul>
+        <div class="padded-top text-center">
+          <%= link_to 'Show all tasks', '#', class: 'btn btn-default btn-xs' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-colorize gradient-diag1">
+      <ul class="nav nav-justified-all nav-arrow-top">
+        <li class="active">
+          <a href="#<%= id1 %>" data-toggle="tab">
+            <i class="icm icm-location"></i>
+            <div>Events</div>
+          </a>
+        </li>
+        <li>
+          <a href="#<%= id2 %>" data-toggle="tab">
+            <i class="icm icm-users"></i>
+            <div>Leads</div>
+          </a>
+        </li>
+        <li>
+          <a href="#<%= id3 %>" data-toggle="tab">
+            <i class="icm icm-list"></i>
+            <div>Tasks</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</script>

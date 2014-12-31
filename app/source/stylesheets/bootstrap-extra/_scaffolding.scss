@@ -1,0 +1,48 @@
+.img-fill-vertical {
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.v-mid {
+  &, & + * {
+    vertical-align: middle;
+  }
+}
+
+.v-mid-row {
+  > * {
+    vertical-align: middle;
+  }
+}
+
+.img-em-border {
+  border: 8px solid rgba(#fff, .3);
+}
+
+.semi-well-dk, .semi-well-lt {
+  border-radius: $border-radius-large;
+  padding: 20px;
+}
+
+.semi-well-dk {
+  background: rgba(#000,.3);
+  color: #fff;
+}
+
+.semi-well-lt {
+  background: rgba(#fff, .3);
+  color: #222;
+}
+
+.em-page-center-parent {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.em-page-center {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}

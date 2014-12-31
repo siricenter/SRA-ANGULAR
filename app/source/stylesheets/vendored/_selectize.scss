@@ -1,0 +1,13 @@
+.selectize-dropdown, .selectize-dropdown.form-control {
+  @include box-shadow($component-shadow);
+  @include arrow(top, $dropdown-bg, 7px, $position: 15px);
+  border: none;
+}
+
+.selectize-input, .selectize-dropdown, .selectize-input input {
+  color: $selectize-dropdown-text-color;
+}
+
+.selectize-control.multi .selectize-input > div {
+  padding-left: 10px;
+}

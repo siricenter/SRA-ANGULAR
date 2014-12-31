@@ -1,0 +1,392 @@
+$brand-white:                    #ffffff !default;
+$brand-primary:                  #177bbb !default;
+$brand-info:                     #1ccacc !default;
+$brand-success:                  #1aae88 !default;
+$brand-warning:                  #FBB23E !default;
+$brand-danger:                   #e33244 !default;
+$brand-black:                    #12131a !default;
+$brand-dark:                     #222733 !default;
+$brand-light:                    #f2f4f8 !default;
+$brand-inverse:                  #433599 !default;
+
+$brand-success-ltest:            #eff8f7 !default;
+$brand-danger-ltest:             #fdf3f3 !default;
+$brand-info-ltest:               #eef6fd !default;
+
+$body-bg:                        $brand-light !default;
+$text-color:                     darken(#6c757b, 17%) !default;
+$text-muted:                     lighten($text-color, 25%) !default;
+
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 20%) !default;   // #333
+$gray:                   lighten(#000, 33.5%) !default; // #555
+$gray-light:             lighten(#000, 60%) !default;   // #999
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
+
+$font-family-sans-serif:         "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:              Georgia, "Times New Roman", Times, serif !default;
+$font-family-base:               $font-family-sans-serif !default;
+$font-family-hairline:           "Open Sans" !default;
+
+$icon-font-path: "../fonts/bootstrap/" !default;
+
+$grid-gutter-width: 20px !default;
+
+// Larger screen / wide desktop - because sometimes you need to further granulate how panels look like
+// Note: Deprecated $screen-hg and $screen-hg-desktop as of v3.0.1
+$screen-hg:                  1700px !default;
+$screen-hg-min:              $screen-hg !default;
+$screen-hg-desktop:          $screen-hg-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-hg-max:              ($screen-hg-min - 1) !default;
+
+// Large screen / wide desktop
+$container-huge-desktop:      ((1640px + $grid-gutter-width)) !default;
+//** For `$screen-lg-min` and up.
+$container-hg:                 $container-huge-desktop !default;
+
+$font-size-base:                 13px;
+$font-size-tiny:                 ceil(($font-size-base * 0.76)) !default; // ~10px
+$font-size-lg:                   ceil($font-size-base * 1.23) !default; // ~16px
+$font-size-md:                   ceil($font-size-base * 1.07) !default; // ~14px
+$font-size-sm:                   ceil($font-size-base * 0.92) !default; // ~12px
+$font-size-xs:                   ceil($font-size-base * 0.84) !default; // ~11px
+
+$link-color:                     darken($text-color, 25%) !default;
+$link-hover-color:               darken($text-color, 40%) !default;
+
+$border-radius-base:             2px !default;
+$border-color:                   #eaeef1 !default;
+
+$component-shadow:               rgba(0,0,0,0.3) 0 10px 60px,rgba(0,0,0,0.1) 0 0 20px !default;
+$component-active-bg:            $brand-success !default;
+
+$line-height-base:               1.53846154 !default; // 20/13
+$line-height-computed:           floor($font-size-base * $line-height-base) !default; // ~20px
+
+$btn-default-color:              $text-color !default;
+$btn-default-bg:                 $brand-light !default;
+$btn-default-border:             darken($border-color, 8%) !default;
+
+$btn-primary-color:              $brand-white !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-border:             $btn-primary-bg !default;
+
+$btn-success-color:              $brand-white !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             $btn-success-bg !default;
+
+$btn-info-color:                 $brand-white !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border:                $btn-info-bg !default;
+
+$btn-warning-color:              $brand-white !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             $btn-warning-bg !default;
+
+$btn-danger-color:               $brand-white !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              $btn-danger-bg !default;
+
+$btn-dark-color:                 $brand-white !default;
+$btn-dark-bg:                    $brand-dark !default;
+$btn-dark-border:                $btn-dark-bg !default;
+
+//color lists and names
+
+//low level saturation/darken of a color
+@function dkize($color, $percent: 5%, $saturation: 2.5%){
+  @return saturate(darken($color, $percent), $saturation);
+}
+
+//low level desaturation/lighen of a color
+@function ltize($color, $percent: 4%, $desaturation: 5%) {
+  @return desaturate(lighten($color, $percent), $desaturation);
+}
+
+//medium level desaturation/lighten of a color
+@function lterize($color) {
+  @return ltize($color, 15%, 5%);
+}
+
+//medium level saturation/darken of a color
+@function dkerize($color){
+  @return dkize($color, 15%, 5%);
+}
+
+//== Breadcrumbs
+//
+//##
+
+$breadcrumb-padding-vertical:   8px !default;
+$breadcrumb-padding-horizontal: 15px !default;
+$breadcrumb-bg:                 transparent !default;
+$breadcrumb-color:              $text-color !default;
+$breadcrumb-active-color:       $text-muted !default;
+$breadcrumb-separator:          "/" !default;
+
+//other theme variables
+
+$input-color:                      $text-color !default;
+
+// navs
+$nav-tabs-active-link-hover-bg: ltize($brand-light, 5%) !default;
+$nav-pills-light-active-link-hover-bg: dkize($brand-light) !default;
+
+// navbar
+$breadcrumb-active-color:          $text-color !default;
+$breadcrumb-color:                 $text-color !default;
+$navbar-default-color:             $text-color !default;
+$navbar-default-link-color:        $text-color !default;
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+$state-success-text:             $brand-white !default;
+$state-success-bg:               ltize($brand-success) !default;
+
+$state-info-text:                $brand-white !default;
+$state-info-bg:                  $brand-info !default;
+
+$state-warning-text:             $brand-white !default;
+$state-warning-bg:               $brand-warning !default;
+
+$state-danger-text:              $brand-white !default;
+$state-danger-bg:                ltize($brand-danger) !default;
+
+// colors
+$oc-wrapper-bg:                    $brand-black !default;
+$oc-container-bg:                  $brand-light !default;
+$oc-sidebar-header-bg:             ltize($brand-black) !default;
+//$oc-sidebar-bottom-border:         4px solid rgba(dkize($oc-wrapper-bg), .5);
+//$oc-nav-bottom-border:             4px solid rgba(dkize($brand-light), .6);
+$oc-nav-shadow:                    0 3px 3px rgba(0,0,0,.015) !default;
+$oc-sidebar-shadow:                0 3px 2px rgba(0,0,0,.015) !default;
+
+$navbar-bg:                        $brand-white !default;
+$sidebar-toggle-bg:                $brand-dark !default; //NOT USED?
+$sidebar-dropdown-bg:              ltize($brand-black) !default;
+
+$sidebar-link-color:               lighten($text-color, 20%) !default;
+$sidebar-link-color-over:          dkize($brand-light, 20%) !default;
+
+$sidebar-link-bg-over:             lighten(ltize($brand-black), 1) !default;
+
+$oc-partial-menu-hover-bg:         $brand-black !default;
+$oc-search-input-bg:               rgba($brand-dark, 0.1) !default;
+$oc-search-input-bg-over:          rgba($brand-dark, 0.2) !default;
+
+// forms
+$input-color: darken($text-color, 8%) !default;
+$input-color-placeholder: lighten($text-color, 20%) !default;
+$input-bg: rgba($brand-light, 0.4) !default;
+$input-border: none !default;
+$selectize-color-input-focus: $brand-light !default;
+
+//== Panels
+//
+//##
+
+//** Border color for elements within panels
+$panel-inner-border:          transparent !default;
+$panel-footer-bg:             #fff !default;
+
+$panel-default-text:          $text-color !default;
+$panel-default-border:        $brand-light !default;
+$panel-default-heading-bg:    rgba($brand-light, 0.2) !default;
+
+$panel-primary-text:          #fff !default;
+$panel-primary-heading-bg:    $brand-primary !default;
+
+$panel-success-text:          #fff !default;
+$panel-success-heading-bg:    $state-success-bg !default;
+
+$panel-info-text:             #fff !default;
+$panel-info-heading-bg:       $state-info-bg !default;
+
+$panel-warning-text:          #fff !default;
+$panel-warning-heading-bg:    $state-warning-bg !default;
+
+$panel-danger-text:           #fff !default;
+$panel-danger-heading-bg:     $state-danger-bg !default;
+
+$panel-primary-text:          #fff !default;
+$panel-primary-border:        $brand-primary !default;
+$panel-primary-heading-bg:    $brand-primary !default;
+
+$panel-light-border: $brand-light !default;
+$panel-light-text: $text-color !default;
+$panel-light-heading-bg: $brand-light !default;
+
+$panel-dark-border: $brand-dark !default;
+$panel-dark-text: #fff !default;
+$panel-dark-heading-bg: $brand-dark !default;
+
+$panel-black-border: $brand-black !default;
+$panel-black-text: #fff !default;
+$panel-black-heading-bg: $brand-black !default;
+
+$panel-inverse-border: $brand-inverse !default;
+$panel-inverse-text: #fff !default;
+$panel-inverse-heading-bg: $brand-inverse !default;
+
+$panel-shadow: 0 1px 2px 0px rgba(0,0,0,.1) !default;
+
+// chat
+$chat-color: $brand-light !default;
+$chat-color-bg: $brand-black !default;
+$chat-faded-color: $brand-dark !default;
+
+// tooltips
+$tooltip-bg: $brand-black !default;
+
+//popovers
+
+$popover-color: #fff !default; // a nice yellow -> lighten(adjust-hue($brand-warning, 12deg), 4%);
+$popover-bg: $popover-color !default;
+$popover-border-color: $popover-color !default;
+$popover-fallback-border-color: $popover-color !default;
+$popover-arrow-color: $popover-color !default;
+$popover-arrow-outer-color: $popover-color !default;
+$popover-arrow-outer-fallback-color: $popover-color !default;
+$popover-arrow-width: 8px !default;
+
+// selectize
+$selectize-shadow-input: none !default;
+$selectize-shadow-input-focus: none !default;
+$selectize-color-item: ltize($brand-success) !default;
+$selectize-border-radius: 4px !default;
+$selectize-color-text: #fff !default;
+$selectize-dropdown-text-color: $text-color !default;
+
+//timeline
+$tl-mid-line-color: dkize($brand-light) !default;
+$tl-mid-line-width: 3px !default;
+$tl-shadow: none !default;
+$tl-bg: $brand-white !default;
+$tl-arrow-size: 10px !default;
+$tl-arrow-top: 26px !default;
+$tl-badge-size: 11px !default;
+
+//wizard
+$wizard-mid-line-color: dkize($brand-light) !default;
+
+// navbar
+$navbar-margin-bottom: 15px !default;
+
+// z values
+$zindex-dropdown:         2000 !default;
+$zindex-popover:          2010 !default;
+$zindex-tooltip:          2030 !default;
+$zindex-modal-background: 1340 !default;
+$zindex-modal:            1350 !default;
+// $zindex-navbar:            1000 !default;
+// $zindex-navbar-fixed:      1030 !default;
+
+//== Pagination
+//
+
+$pagination-color:                     $text-color !default;
+$pagination-bg:                        #fff !default;
+$pagination-border:                    $brand-light !default;
+
+$pagination-hover-color:               $link-hover-color !default;
+$pagination-hover-bg:                  $brand-light !default;
+$pagination-hover-border:              dkize($brand-light) !default;
+
+$pagination-active-color:              #fff !default;
+$pagination-active-bg:                 $brand-success !default;
+$pagination-active-border:             $brand-success !default;
+
+$pagination-disabled-color:            dkize($brand-light) !default;
+$pagination-disabled-bg:               #fff !default;
+$pagination-disabled-border:           $brand-light !default;
+
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Padding for `<th>`s and `<td>`s.
+$table-cell-padding:            8px !default;
+//** Padding for cells in `.table-condensed`.
+$table-condensed-cell-padding:  5px !default;
+
+//** Default background color used for all tables.
+$table-bg:                      transparent !default;
+//** Background color used for `.table-striped`.
+$table-bg-accent:               $brand-light !default;
+//** Background color used for `.table-hover`.
+$table-bg-hover:                $brand-light !default;
+$table-bg-active:               $brand-light !default;
+
+//** Border color for table and cell borders.
+$table-border-color:            $brand-light !default;
+
+
+$headings-line-height: 1.3 !default;
+
+// close
+$close-text-shadow: none !default;
+
+//name,         background,                   text,          inverse background, inverse background's text
+$emerald-colors:
+  white         $brand-white                  $text-color    $brand-primary      $brand-white,
+  semi-light    $panel-default-heading-bg     $text-color    $brand-primary      $brand-white,
+  light         $brand-light                  $text-color    $brand-primary      $brand-white,
+  primary       $brand-primary                $brand-white   $brand-white        $text-color,
+  info          $brand-info                   $brand-white   $brand-white        $text-color,
+  success       $brand-success                $brand-white   $brand-white        $text-color,
+  warning       $brand-warning                $brand-white   $brand-white        $text-color,
+  danger        $brand-danger                 $brand-white   $brand-white        $text-color,
+  black         $brand-black                  $brand-white   $brand-white        $text-color,
+  dark          $brand-dark                   $brand-white   $brand-white        $text-color,
+  inverse       $brand-inverse                $brand-white   $brand-white        $text-color,
+
+  light-lt      ltize($brand-light)           $text-color    $brand-primary      $brand-white,
+  primary-lt    ltize($brand-primary)         $brand-white   $brand-primary      $brand-white,
+  info-lt       ltize($brand-info)            $brand-white   $brand-white        $text-color,
+  success-lt    ltize($brand-success)         $brand-white   $brand-white        $text-color,
+  warning-lt    ltize($brand-warning)         $brand-white   $brand-white        $text-color,
+  danger-lt     ltize($brand-danger)          $brand-white   $brand-white        $text-color,
+  black-lt      ltize($brand-black)           $brand-white   $brand-white        $text-color,
+  dark-lt       ltize($brand-dark)            $brand-white   $brand-white        $text-color,
+  inverse-lt    ltize($brand-inverse)         $brand-white   $brand-white        $text-color,
+
+  primary-lter  lterize($brand-primary)       $brand-white   $brand-primary      $brand-white,
+  info-lter     lterize($brand-info)          $brand-white   $brand-white        $text-color,
+  success-lter  lterize($brand-success)       $brand-white   $brand-white        $text-color,
+  warning-lter  lterize($brand-warning)       $brand-white   $brand-white        $text-color,
+  danger-lter   lterize($brand-danger)        $brand-white   $brand-white        $text-color,
+  black-lter    lterize($brand-black)         $brand-white   $brand-white        $text-color,
+  dark-lter     lterize($brand-dark)          $brand-white   $brand-white        $text-color,
+  inverse-lter  lterize($brand-inverse)       $brand-white   $brand-white        $text-color,
+
+  white-dk      dkize($brand-white)           $text-color    $brand-primary      $brand-white,
+  light-dk      dkize($brand-light)           $text-color    $brand-primary      $brand-white,
+  primary-dk    dkize($brand-primary)         $brand-white   $brand-white        $text-color,
+  info-dk       dkize($brand-info)            $brand-white   $brand-white        $text-color,
+  success-dk    dkize($brand-success)         $brand-white   $brand-white        $text-color,
+  warning-dk    dkize($brand-warning)         $brand-white   $brand-white        $text-color,
+  danger-dk     dkize($brand-danger)          $brand-white   $brand-white        $text-color,
+  dark-dk       dkize($brand-dark)            $brand-white   $brand-white        $text-color,
+  black-dk      dkize($brand-black)           $brand-white   $brand-white        $text-color,
+  inverse-dk    dkize($brand-inverse)         $brand-white   $brand-white        $text-color  !default;
+
+$em-white-colors:
+  success-ltest $brand-success-ltest,
+  info-ltest    $brand-info-ltest,
+  danger-ltest  $brand-danger-ltest  !default;
+
+@function vars-to-json() {
+  $json: '{ "colors": [';
+  @each $pair in $emerald-colors {
+    $json: $json + '["#{nth($pair, 1)}", "#{nth($pair, 2)}", "#{nth($pair, 3)}"]';
+    @if $pair != nth($emerald-colors, length($emerald-colors)) {
+      $json: $json + ',';
+    }
+  }
+  $json: $json + ']}';
+  @return $json;
+}

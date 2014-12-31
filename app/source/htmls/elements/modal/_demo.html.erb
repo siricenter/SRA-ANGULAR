@@ -1,0 +1,54 @@
+<%
+modal_class = 'fade' if !defined?(modal_class) || modal_class.blank?
+btn_class = '' if !defined?(btn_class) || btn_class.nil?
+stacked_id = uid()
+%>
+
+<% modal_demo_content = capture_html do %>
+  <p><%= lorem.paragraph %></p>
+  <button class="btn <%= btn_class %>" 
+          data-toggle="modal" data-target="#<%= stacked_id %>">
+    Demo
+  </button>
+<% end %>
+
+<%= partial 'htmls/elements/modal/combo', locals: {
+  btn_class: btn_class,
+  btn_text: 'Demo',
+  id: uid(),
+  modal_class: modal_class,
+  content: modal_demo_content,
+  title: 'Modal demo'
+  } %>
+<% content_for :top do %>
+  <%= partial 'htmls/elements/modal/modal', locals: {
+    id: stacked_id,
+    modal_class: modal_class,
+    content: 'I am stacked',
+    title: 'Modal stacked'
+    } %>
+<% end %>
+<%= partial 'htmls/elements/modal/combo', locals: {
+  btn_class: btn_class,
+  btn_text: 'Large',
+  id: uid(),
+  modal_class: modal_class,
+  modal_dialog_class: 'modal-lg ',
+  title: 'Modal large'
+  } %>
+<%= partial 'htmls/elements/modal/combo', locals: {
+  btn_class: btn_class,
+  btn_text: 'Small',
+  id: uid(),
+  modal_class: modal_class,
+  modal_dialog_class: 'modal-sm ',
+  title: 'Modal large'
+  } %>
+<%= partial 'htmls/elements/modal/combo', locals: {
+  btn_class: btn_class,
+  btn_text: 'Long',
+  id: uid(),
+  modal_class: modal_class,
+  content: lorem.paragraphs(10),
+  title: 'Modal long'
+  } %>

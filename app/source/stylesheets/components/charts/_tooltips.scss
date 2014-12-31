@@ -1,0 +1,25 @@
+#flotTip, .em-sparkline-tooltip {
+  padding: 3px 5px;
+  background-color: #000;
+  z-index: 10000 !important;
+  color: #fff;
+  opacity: .7;
+  border: none;
+  @include border-radius(4px);
+  @include box-shadow(none);
+  font-size: $font-size-xs;
+}
+
+.em-sparkline-tooltip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  @include box-sizing(content-box);
+  display: inline-block;
+
+  .jqsfield {
+    color: #fff;
+    font-size: $font-size-xs;
+  }
+}

@@ -1,0 +1,41 @@
+<div class="container-fluid turbo-cols-static turbo-grid-wrap">
+
+  <div class="row">
+    <div class="col-md-offset-1 col-md-4">
+            
+      <div class="actionable">
+        <div class="actionable-front component-shadow">
+          <%= partial 'htmls/elements/actionable/card' %>
+        </div>
+        <div class="actionable-back bg-white padded component-shadow">
+          <%= partial 'htmls/elements/actionable/success' %>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-offset-2 col-md-4">
+      
+      <button class="btn" 
+        data-toggle="modal" data-target="#actionable-modal">
+        Open actionable modal
+      </button>
+
+      <% content_for :top do %>
+        <div class="modal" id="actionable-modal">
+          <div class="modal-dialog modal-sm">
+            <div class="actionable">
+              <div class="actionable-front component-shadow">
+                <%= partial 'htmls/elements/actionable/card' %>
+              </div>
+              <div class="actionable-back bg-white padded component-shadow">
+                <%= partial 'htmls/elements/actionable/success' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      
+    </div>
+  </div>
+
+</div>

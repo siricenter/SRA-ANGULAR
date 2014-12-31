@@ -1,0 +1,21 @@
+.sparkline-big {
+  font-size: 30px;
+}
+
+.quickchart {
+  margin-top: 8px;
+  .icm {
+    font-size: 11px;
+  }
+  canvas {
+    margin-left: 10px;
+  }
+}
+
+// visible-xs
+@media (max-width: $screen-xs-max) {
+  .quickchart {
+    margin: 0 0 15px 0;
+    background: #fff;
+  }
+}

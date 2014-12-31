@@ -1,0 +1,31 @@
+---
+title: Tree
+---
+
+<div class="container-fluid modal-demos">
+
+  <div class="row" rel="panels">
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <% panel 'Basic tree' do %>
+          <%= partial 'htmls/elements/tree/basic' %>
+      <% end %>
+
+      <% panel 'Nestable list basic' do %>
+          <%= partial 'htmls/elements/tree/nestable' %>
+      <% end %>
+
+    </div>
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <% panel 'Fancy tree' do %>
+          <%= partial 'htmls/elements/tree/fancy' %>
+      <% end %>
+
+      <% panel 'Nestable list fancy' do %>
+          <%= partial 'htmls/elements/tree/nestable-fancy' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

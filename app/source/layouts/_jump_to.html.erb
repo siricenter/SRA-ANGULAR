@@ -1,0 +1,37 @@
+<div class="modal blur jump-to-modal" id="jump-to-menu">
+  <div class="modal-dialog modal-lg">
+    <div class="clearfix">
+      <button type="button" class="close pull-right text-white-dk" 
+            data-dismiss="modal" aria-hidden="true">&times;</button>
+    </div>
+    <div class="container-fluid">
+      <% grid_of sidebar_menu do |k, v| %>
+        <div class="col-sm-4">
+          <%
+            href = v['href']
+            children = v['children']
+            node = children.try(:first).try(:at, 1)
+            if href.nil?
+              href = node.try(:fetch, "href", nil)
+            end
+            if href.nil?
+              href = node.try(:fetch, "href", nil)
+            end
+            if href.nil?
+              children = node.try(:fetch, 'children', nil)
+              node = children.try(:first).try(:at, 1)
+              href = node.try(:fetch, "href", nil)
+            end
+          %>
+          <% link_to href do %>
+            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+              <i class="<%= v['icon'] %> icm-4x"></i>
+              <h5><%= v['text'] %></h5>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    
+  </div>
+</div>

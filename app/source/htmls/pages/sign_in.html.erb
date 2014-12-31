@@ -1,0 +1,85 @@
+---
+title: Emerald - Sign In
+layout: plain
+---
+
+<div class="em-page-center-parent">
+<div class="em-page-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+
+        <div class="actionable" id="actionable-sign-in">
+          <div class="actionable-front component-shadow">
+            <div class="panel">
+              <div class="panel-body">
+                <div class="text-center">
+                  <%= image_tag 'emerald64.png' %>
+                  <h3>
+                    <strong>EMERALD</strong> <span class="thin">LOGIN</span>
+                  </h3>
+                </div>
+
+                <div class="padded">
+                  <form action="<%= url_for('/htmls/dashboard.html') %>" id="form-sign-in-demo">
+                    <div class="form-group email required">
+                      <input class="string email required form-control"
+                             maxlength="255" name="user" placeholder="User"
+                             rel="jvfloat">
+                    </div>
+                    <div class="form-group password required">
+                      <input class="password required form-control"
+                             name="password" placeholder="Password"
+                             type="password" rel="jvfloat">
+                    </div>
+
+                    <div class="form-group actions">
+                      <a class="btn btn-success-lt btn-block actionable-action" name="commit">Let's do this</a>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-xs-6">
+                          <label class="checkbox-inline no-padding">
+                            <input type="checkbox" value="1" rel="icheck" class="checkable-success"> Remember Me
+                          </label>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                          <a href="#">Forgot password?</a>
+                        </div>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+
+                <div class="text-center form-group">
+                  Don't have an account?
+                  <% link_to '/htmls/pages/sign_up.html', relative: true do %>
+                    <strong>Sign Up</strong>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="actionable-back component-shadow bg-white padded">
+            <%= partial 'htmls/elements/actionable/success' %>
+          </div>
+        </div>
+
+        <div class="text-center">
+          &copy; 2014 Emerald Inc. All Rights Reserved
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script type="text/javascript">
+  $('#actionable-sign-in').on('acted.actionable', function(){
+    var url = $('#form-sign-in-demo').attr('action');
+    function go() { Turbolinks.visit(url); }
+    setTimeout(go, 1000);
+  });
+</script>

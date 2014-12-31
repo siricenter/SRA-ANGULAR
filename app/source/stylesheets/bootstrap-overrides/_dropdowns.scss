@@ -1,0 +1,8 @@
+.dropdown-menu a {
+  @include transition(background .3s, color .3s);
+}
+
+.dropdown-menu {
+  @include box-shadow($component-shadow);
+  border: none;
+}

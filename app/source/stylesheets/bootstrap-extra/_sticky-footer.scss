@@ -1,0 +1,35 @@
+//  sticky footer
+//  
+//  <body class="">
+//    <div id="sf-wrapper">
+//      CONTENT
+//      <div id="sf-push"></div>
+//    </div>
+//    <div class="sf-footer">
+//      FOOTER-CONTENT
+//    </div>
+//  </body>
+
+$sf-height: 80px;
+
+// responsive full height
+.sf-holder {
+  @media (min-width: $grid-float-breakpoint) {
+    height: 100%;
+  }
+}
+
+.sf-wrapper {
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto (-$sf-height);
+}
+
+.sf-push {
+  height: $sf-height;
+}
+
+.sf-footer {
+  height: $sf-height;
+}
+

@@ -1,0 +1,45 @@
+<%
+uid1 = uid()
+%>
+
+<div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
+  <div id="<%= oc_id %>" class="oc-wrapper chat-oc-wrapper
+       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push">
+
+    <div class="oc-push">
+      <div class="oc-container chat-oc-container" style="z-index: 1100;">
+
+        <form class="oc-header oc-search" role="search">
+          <div class="form-group has-header">
+            <span class="icm icm-filter3 form-control-header"></span>
+            <input type="text" class="form-control" placeholder="Filter contacts"
+                   data-toggle="listfilter" data-target="#<%= uid1 %>">
+          </div>
+        </form>
+
+        <div class="nano">
+          <ul class="nav nav-stacked nano-content" id="<%= uid1 %>">
+            <% 3.times do %>
+              <%= partial 'htmls/components/chat/contact',
+                locals: { state: 'unread', oc_id: oc_id } %>
+            <% end %>
+            <% 3.times do %>
+              <%= partial 'htmls/components/chat/contact',
+                locals: { state: '', oc_id: oc_id } %>
+            <% end %>
+            <% 8.times do %>
+              <%= partial 'htmls/components/chat/contact',
+                locals: { state: 'offline', oc_id: oc_id } %>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>      
+    </div>
+
+    <aside class="oc-sidebar oc-sidebar-right">
+      <%= partial 'htmls/components/chat/conversation', locals: { oc_id: oc_id } %>
+    </aside>
+
+  </div>
+</div>

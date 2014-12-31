@@ -1,0 +1,89 @@
+---
+title: Charts
+---
+
+<div class="container-fluid" rel="panels">
+
+  <div class="row">
+
+    <% %w(success primary info).each do |color| %>
+      <div class="col-lg-4 col-md-6 col-sm-6 panels" id="<%= rid() %>">
+        <%= partial 'htmls/widgets/box', locals: { color: color } %>
+      </div>
+    <% end %>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12 panels" id="<%= rid() %>">
+      <% panel 'Easy pie charts', kind: 'panel-none' do %>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="easy-pie-chart easy-pie-chart-normal" data-percent="33" data-color="danger">
+                <span>33%</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="easy-pie-chart easy-pie-chart-normal" data-percent="76" data-color="success">
+                <span>76%</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <!-- the easy-pie-chart-percent class will add some demo animations to it, check out the javascripts/demo folder for easypiecharts -->
+              <div class="easy-pie-chart easy-pie-chart-percent" data-percent="73">
+                <span>73%</span>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% %w(sparkline-pie sparkline-composite).each do |cls| %>
+      <div class="col-md-6 panels" id="<%= rid() %>">
+        <% panel cls.underscore.humanize, kind: 'panel-none' do %>
+          <div class="text-center">
+            <div class="<%= cls %>"></div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class="row">
+    <% %w(flot-line flot-multi flot-live flot-spline flot-bar-horizontal flot-bar flot-pie flot-pie-donut).each do |flot| %>
+      <div class="col-md-6 panels" id="<%= rid() %>">
+        <% panel "Site statistics - #{flot.humanize}", kind: 'panel-none', compact: true do %>
+
+          <div class="panel-body">
+            <div class="<%= flot %>" style="height:250px"></div>
+          </div>
+
+          <div class="panel-footer bg-white">
+            <div class="row text-center">
+              <% %w(Orders Sold Items Customers).each do |label| %>
+              <div class="col-xs-3">
+                <h3><%= number_with_delimiter lorem.number(4) %></h3>
+                <p class="text-muted"><%= label %></p>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 panels" id="<%= rid() %>">
+      <% gradient_panel 'Traffic', kind: 'panel-info', compact: true do %>
+        <div class="panel-body panel-body-collapse">
+          <div class="flot-transparent-line" style="height:200px"></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

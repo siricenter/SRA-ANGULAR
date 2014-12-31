@@ -1,15 +1,19 @@
 'use strict';
-angular.module('sraAngularApp').controller('AreasController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
-	var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Users/User%201/Organizations/Organization/Region/Region0/Areas');
-	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
-	$scope.areas = $firebase(ref).$asArray();
-	console.log($scope.areas);
+
+angular.module('sraAngularApp')
+.controller('AreasController', function ($scope, $location, $firebase, $routeParams,$rootScope) {
+  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+  $scope.regions = $rootScope.current_user.regions
+  $scope.areas = $rootScope.current_user.areas
+  console.log($scope.areas);
 });
+
 angular.module('sraAngularApp').controller('AreasIndexController', function ($scope, $location, $firebase, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	console.log($rootScope.currentUser.areas);
 	$scope.areas = $rootScope.currentUser.areas;
 });
+
 angular.module('sraAngularApp').controller('AreasShowController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var name = $routeParams.name;

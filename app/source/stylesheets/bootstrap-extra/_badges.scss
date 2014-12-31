@@ -1,0 +1,90 @@
+.badge-rounded {
+  @include border-radius(50%);
+}
+
+.badge.badge-empty {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+  vertical-align: middle;
+
+  + span {
+    vertical-align: middle;
+  }
+}
+
+.badge-checkmark {
+  position: relative;
+}
+
+.active {
+  &.badge-checkmark, .badge-checkmark {
+    &:after {
+      content: "\e013";
+      font-family: 'Glyphicons Halflings';
+      display: inline-block;
+      font-size: 11px;
+      color: #FFF;
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      line-height: 20px;
+    }
+  }
+}
+
+a:hover .badge-grow {
+  opacity: 0.8;
+  @include transform(scale(1.08));
+}
+
+.badge-grow {
+  opacity: 1;
+  @include transition(all ease .3s);
+
+  &:hover {
+    opacity: 0.8;
+    @include transform(scale(1.08));
+  }
+}
+
+.badge-empty-list {
+  .badge {
+    margin-left: 5px;
+  }
+}
+
+.has-corner-badge {
+  position: relative;
+}
+
+.badge-corner {
+  font-size: $font-size-tiny;
+  font-family: $font-family-base;
+  position: absolute;
+
+  display: inline-block;
+  padding: 0 4px;
+  border-radius: 10px;
+  height: 14px;
+  min-width: 14px;
+  line-height: 14px;
+}
+
+.badge-corner-top-right {
+  top: 0;
+  right: 0;
+  @include transform(translateX(50%) translateY(-50%));
+}
+
+.badge-corner-top-left {
+  top: 0;
+  left: 0;
+  @include transform(translateX(-50%) translateY(-50%));
+}
+
+@include em-color-variants('.badge');

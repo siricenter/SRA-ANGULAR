@@ -1,0 +1,60 @@
+<% chat_id = uid() %>
+<div class="chat-conversation" id="<%= chat_id %>">
+
+  <div class="chat-contact unread">
+    <div class="media">
+      <a href="#<%= oc_id %>" class="close" aria-hidden="true"
+         data-toggle="offcanvas" data-control="right"
+         data-states="open,hidden"
+         >&times;</a>
+         <%= image_tag lorem.avatar(48),
+           :class => 'media-object pull-left img-circle' %>
+      <div class="media-body">
+        <div class="media-heading">
+          <%= lorem.name %>
+        </div>
+        <small class="last-message">
+          Be right back, on phone
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-messages nano">
+    <div class="nano-content">
+      <p class="text-center text-info small">
+        User went online <span class="text-muted">at <%= lorem.date %></span>
+      </p>
+
+      <% 4.times do %>
+        <%= partial 'htmls/components/chat/bubble', locals: { position: 'right'} %>
+        <%= partial 'htmls/components/chat/bubble', locals: { position: 'right'} %>
+        <%= partial 'htmls/components/chat/bubble', locals: { position: 'left'} %>
+        <%= partial 'htmls/components/chat/bubble', locals: { position: 'right'} %>
+      <% end %>
+
+      <p class="text-center text-warning small">
+        User went offline <span class="text-muted">at <%= lorem.date %></span>
+      </p>
+    </div>
+  </div>
+
+  <form role="form" class="chat-sender">
+    <textarea class="form-control" rows="2" placeholder="Type message..."></textarea>
+  </form>
+
+</div>
+
+<script type="text/template" id="chat-bubble-right-template">
+    <div class="clearfix">
+      <p class="chat-bubble chat-bubble-right">
+        <%= image_tag lorem.avatar(24),
+          :class => "img-circle chat-bubble-avatar chat-bubble-avatar-right" %>
+        <%%= this.message %>
+      </p>
+    </div>
+</script>
+
+<script type="text/javascript">
+  new ChatView({ el: $('#<%= chat_id %>') });
+</script>

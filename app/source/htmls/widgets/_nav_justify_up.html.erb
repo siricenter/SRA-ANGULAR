@@ -1,0 +1,61 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <%= partial 'htmls/widgets/actions', locals: { colors: true, fullscreen: false } %>
+
+    <div class="panel-title">
+      <span>Tasks</span>
+    </div>
+  </div>
+
+  <div class="panel-body panel-body-collapse in no-padding text-center">
+
+    <%
+       id1 = uid()
+       id2 = uid()
+       id3 = uid()
+    %>
+
+    <div class="tab-content">
+      <div class="tab-pane active fade in" id="<%= id1 %>">
+        <div class="padded">
+          <div style="height: 182px;" class="vpadded easy-pie-chart easy-pie-chart-normal" data-percent="76" data-color="success">
+            <span>76%</span>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="<%= id2 %>">
+        <div class="padded">
+          <div style="height: 182px; width: 100%;" class="flot-transparent-line" data-flot-line-color="success" data-flot-no-lines data-flot-no-y-labels></div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="<%= id3 %>">
+        <div class="padded">
+          <div style="height: 182px; width: 100%;" class="flot-transparent-line" data-flot-line-color="danger-lt" data-flot-no-lines data-flot-no-y-labels></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-colorize gradient-diag1">
+      <ul class="nav nav-justified-all nav-arrow-top">
+        <li class="active">
+          <a href="#<%= id1 %>" data-toggle="tab">
+            <i class="icm icm-pie"></i>
+            <div>Chart</div>
+          </a>
+        </li>
+        <li>
+          <a href="#<%= id2 %>" data-toggle="tab">
+            <i class="icm icm-list"></i>
+            <div>Tasks</div>
+          </a>
+        </li>
+        <li>
+          <a href="#<%= id3 %>" data-toggle="tab">
+            <i class="icm icm-location"></i>
+            <div>Events</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

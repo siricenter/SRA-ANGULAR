@@ -1,0 +1,35 @@
+<div class="row" rel="panels">
+  <div class="col-md-6 panels" id="<%= rid() %>">
+
+    <% panel 'Table' do %>
+        <%= partial 'htmls/tables/table', locals: { klass: 'table', checkable: true, label: true } %>
+    <% end %>
+
+    <% panel 'Striped' do %>
+        <%= partial 'htmls/tables/table', locals: { klass: 'table table-striped', email: true } %>
+    <% end %>
+
+    <% panel 'Bordered' do %>
+        <%= partial 'htmls/tables/table', locals: { klass: 'table table-bordered' } %>
+    <% end %>
+
+  </div>
+
+  <div class="col-md-6 panels" id="<%= rid() %>">
+
+    <% panel 'Hover' do %>
+        <%= partial 'htmls/tables/table', locals: { klass: 'table table-hover' } %>
+    <% end %>
+
+    <% panel 'Condensed' do %>
+        <%= partial 'htmls/tables/table', locals: { klass: 'table table-condensed' } %>
+    <% end %>
+
+    <% panel 'Responsive' do %>
+        <div class="table-responsive">
+          <%= partial 'htmls/tables/table', locals: { klass: 'table', checkable: true, email: true } %>
+        </div>
+    <% end %>
+
+  </div>
+</div>

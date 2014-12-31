@@ -1,0 +1,15 @@
+<div class="container-fluid turbo-cols-static turbo-grid-wrap">
+  <div class="turbo-grid">
+
+    <% 3.times do |i| %>
+      <div class="row">
+        <% 3.times do |j| %>
+          <div class="col-md-4">
+            <%= partial 'htmls/elements/turbocards/card', locals: { i: i, j: j } %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  
+  </div>
+</div>

@@ -1,0 +1,34 @@
+$tile-carousel-heights:
+  tile-normal 250px,
+  tile-half 125px,
+  tile-double 500px;
+
+.carousel.vertical {
+  margin-bottom: $panel-body-padding;
+}
+
+@each $pair in $tile-carousel-heights {
+  .#{nth($pair,1)} {
+    &, .item {
+      height: #{nth($pair,2)};
+    }
+  }
+
+  .carousel.vertical.#{nth($pair,1)} {
+    .item {
+      height: #{nth($pair,2)};
+    }
+  }
+}
+
+.tile-content-bottom-left {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.tile-content-bottom-right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
