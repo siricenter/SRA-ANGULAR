@@ -1,5 +1,5 @@
+/* globals RestClient */
 'use strict';
-
 /**
  * @ngdoc overview
  * @name sraAngularApp
