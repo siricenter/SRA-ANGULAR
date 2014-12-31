@@ -137,44 +137,4 @@ angular
       });
   });
 
-angular.module('sraAngularApp')
-  .factory('RestClient', function ($firebase) {
-    RestClient.getArea = function(name){
-      
-       var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/South%20Africa/Areas/" + name);
-       var sync = $firebase(ref).$asObject();
-       return sync;
-    }
-    RestClient.getAreas = function(){
-
-      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/South%20Africa/Areas/")
-      var sync = $firebase(ref).$asArray();
-      return sync;
-    }
-    RestClient.getUsers = function(){
-
-      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Users");
-      var sync = $firebase(ref).$asArray();
-      return sync;
-    }
-    RestClient.getUser = function(email){
-
-      var node = email.split('@');
-      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Users/" + node[0])
-      var sync = $firebase(ref).$asObject();
-      return sync;
-    }
-    RestClient.getRegions =  function(){
-
-      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions");
-      var sync = $firebase(ref).$asArray();
-    }
-    RestClient.getRegion =function (name){
-
-      var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions" + name);
-      var sync = $firebase(ref).$asObject();
-    }
-     
-    return RestClient;
-  });
 
