@@ -2,22 +2,23 @@
 
 describe('Controller: regionsIndexCtrl', function () {
 
-  // load the controller's module
-  beforeEach(module('sraAngularApp'));
+	// load the controller's module
+	beforeEach(module('sraAngularApp'));
 
-  var regionsIndexCtrl,
+	var regionsIndexCtrl,
 
-    scope;
+	scope;
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    regionsIndexCtrl = $controller('regionsIndexCtrl', {
-    $scope: scope
-    });
-  }));
+	// Initialize the controller and a mock scope
+	beforeEach(inject(function ($controller, $rootScope) {
+		scope = $rootScope.$new();
+		regionsIndexCtrl = $controller('regionsIndexCtrl', {
+			$scope: scope
+		});
+	}));
 
-  it('regions should have an array of regions', function () {
-    expect(scope.regions.length).toBeGreaterThan(0);
-  });
+	it('regions should have an array of regions', function () {
+		expect(scope.regions.length).toBeGreaterThan(0);
+	});
+
 });
