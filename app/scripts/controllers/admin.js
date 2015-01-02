@@ -100,7 +100,7 @@ angular.module('sraAngularApp').controller('AreasUsersController', function ($sc
 });
 
 angular.module('sraAngularApp').controller('NewUsersController', function ($scope,$location,$firebase,$routeParams,$rootScope,$firebaseAuth){
-	$rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.CreateUser = function(){
 		console.log('hello');
 		var user_node = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users');

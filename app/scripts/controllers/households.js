@@ -1,7 +1,7 @@
 angular.module('sraAngularApp')
 .controller('HouseholdsController', function ($scope,$location,$firebase,$routeParams,$rootScope){
-  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
-  var regions = $scope.current_user.regions
+  $rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
+  var regions = $scope.currentUser.regions
   var area = $routeParams.area
   $scope.households = []
 

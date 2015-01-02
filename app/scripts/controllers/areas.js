@@ -2,9 +2,9 @@
 
 angular.module('sraAngularApp')
 .controller('AreasController', function ($scope, $location, $firebase, $routeParams,$rootScope) {
-  $rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
-  $scope.regions = $rootScope.current_user.regions
-  $scope.areas = $rootScope.current_user.areas
+  $rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
+  $scope.regions = $rootScope.currentUser.regions
+  $scope.areas = $rootScope.currentUser.areas
   console.log($scope.areas);
 });
 

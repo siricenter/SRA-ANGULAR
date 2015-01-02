@@ -76,17 +76,17 @@ angular.module('sraAngularApp').controller('LoginController', function ($scope, 
 
 angular.module('sraAngularApp')
 .controller('DashboardController', function ($scope, $location, $firebase, $rootScope){
-	$rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
-	$scope.user = $rootScope.current_user
-		$scope.areas = $rootScope.current_user.areas
+	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
+	$scope.user = $rootScope.currentUser
+		$scope.areas = $rootScope.currentUser.areas
 		var regions = $scope.user.regions
-		$scope.firstname = $rootScope.current_user.first_name;
-	$scope.lastname = $rootScope.current_user.last_name;
+		$scope.firstname = $rootScope.currentUser.first_name;
+	$scope.lastname = $rootScope.currentUser.last_name;
 	console.log('here')
 
 
 
-		if ($rootScope.current_user.roles === 'Admin'){
+		if ($rootScope.currentUser.roles === 'Admin'){
 			$location.path('/admin/dashboard')
 				$scope.$apply();
 		};
