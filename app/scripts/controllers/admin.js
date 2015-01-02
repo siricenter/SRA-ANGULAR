@@ -103,7 +103,7 @@ angular.module('sraAngularApp').controller('NewUsersController', function ($scop
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.CreateUser = function(){
 		console.log('hello');
-		var user_node = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users');
+		var userNode = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users');
 		var email = $scope.user.email;
 		var password = $scope.user.password;
 		var fname = $scope.user.fname;
@@ -112,7 +112,7 @@ angular.module('sraAngularApp').controller('NewUsersController', function ($scop
 		$scope.authObj = $firebaseAuth(ref);
 		$scope.authObj.$createUser(email, password).then(function() {
 			console.log('User created successfully!');
-			user_node.push(user_node.child(email.split('@')[0]).set({'FirstName':fname ,'LastName':lname}));
+			userNode.push(userNode.child(email.split('@')[0]).set({'FirstName':fname ,'LastName':lname}));
 			return $scope.authObj.$authWithPassword({
 				email: email,
 				password: email
