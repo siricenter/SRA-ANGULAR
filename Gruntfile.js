@@ -175,7 +175,7 @@ module.exports = function (grunt) {
 					'<%= yeoman.dist %>/scripts/{,*/}*.js',
 					'<%= yeoman.dist %>/styles/{,*/}*.css',
 					'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-						"<%= yeoman.dist %>/styles/fonts/*",
+						'<%= yeoman.dist %>/styles/fonts/*',
 				]
 			}
 		},
@@ -316,14 +316,14 @@ module.exports = function (grunt) {
 			cwd: '.tmp/images',
 			dest: '<%= yeoman.dist %>/images',
 			src: [
-				"generated/*"
+				'generated/*'
 			]
 		},
 		{
 			expand: true,
 			cwd: '.',
-			src: "bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*",
-			dest: "<%= yeoman.dist %>"
+			src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+			dest: '<%= yeoman.dist %>'
 		}
 	]
 	},
@@ -369,7 +369,7 @@ module.exports = function (grunt) {
 				'watch'
 		]);
 	});
-	grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
+	grunt.registerTask('server', 'DEPRECATED TASK. Use the 'serve' task instead', function (target) {
 		grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
 		grunt.task.run(['serve:' + target]);
 	});

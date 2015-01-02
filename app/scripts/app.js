@@ -25,7 +25,7 @@ angular
 
     $rootScope.firebaseSession = localStorage['firebase:session::intense-inferno-7741'];
 
-  var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions");
+  var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions');
   var regionsArr = $firebase(ref).$asArray();
   var regions = [];
   var areasArr = [];

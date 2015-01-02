@@ -103,7 +103,7 @@ angular.module('sraAngularApp').controller('NewUsersController', function ($scop
 	$rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
 	$scope.CreateUser = function(){
 		console.log('hello');
-		var user_node = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users");
+		var user_node = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users');
 		var email = $scope.user.email;
 		var password = $scope.user.password;
 		var fname = $scope.user.fname;
@@ -111,14 +111,14 @@ angular.module('sraAngularApp').controller('NewUsersController', function ($scop
 		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com');
 		$scope.authObj = $firebaseAuth(ref);
 		$scope.authObj.$createUser(email, password).then(function() {
-			console.log("User created successfully!");
-			user_node.push(user_node.child(email.split('@')[0]).set({"FirstName":fname ,"LastName":lname}));
+			console.log('User created successfully!');
+			user_node.push(user_node.child(email.split('@')[0]).set({'FirstName':fname ,'LastName':lname}));
 			return $scope.authObj.$authWithPassword({
 				email: email,
 				password: email
 			});
 		}).catch(function(error) {
-			console.error("Error: ", error);
+			console.error('Error: ', error);
 		});
 	}
 });   
@@ -147,11 +147,11 @@ angular.module('sraAngularApp').controller('AreasEditController', function ($sco
 
 	console.log($scope.area);
 	console.log($scope.region);
-	console.log("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/" + $scope.region +"/Areas/" + $scope.area);
+	console.log('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + $scope.region +'/Areas/' + $scope.area);
 
 	$scope.UpdateArea = function(){
 		console.log('here');
-		var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/" + $scope.region +"/Areas/" + $scope.area);
+		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + $scope.region +'/Areas/' + $scope.area);
 		var name = $scope.Area.name;
 		ref.set(name);
 	}
