@@ -32,7 +32,7 @@ angular.module('sraAngularApp').controller('AdminUsersController', function ($sc
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users');
 	$scope.users = $firebase(ref).$asArray();
-	$scope.users.$loaded(function (data) {
+	$scope.users.$loaded(function (/*data*/) {
 		localStorage.setItem('users', JSON.stringify($scope.users));
 	});
 	console.log($scope.users);
@@ -120,7 +120,7 @@ angular.module('sraAngularApp').controller('NewUsersController', function ($scop
 		}).catch(function(error) {
 			console.error('Error: ', error);
 		});
-	}
+	};
 });   
 
 angular.module('sraAngularApp').controller('AreasNewController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
@@ -154,5 +154,5 @@ angular.module('sraAngularApp').controller('AreasEditController', function ($sco
 		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + $scope.region +'/Areas/' + $scope.area);
 		var name = $scope.Area.name;
 		ref.set(name);
-	}
+	};
 });
