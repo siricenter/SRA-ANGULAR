@@ -175,42 +175,42 @@ module.exports = function (grunt) {
 					'<%= yeoman.dist %>/scripts/{,*/}*.js',
 					'<%= yeoman.dist %>/styles/{,*/}*.css',
 					'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-						'<%= yeoman.dist %>/styles/fonts/*'
-														  ]
-														  }
-														  },
-							// Reads HTML for usemin blocks to enable smart builds that automatically
-							// concat, minify and revision files. Creates configurations in memory so
-							// additional tasks can operate on them
-							useminPrepare: {
-							html: '<%= yeoman.app %>/index.html',
-							options: {
-							dest: '<%= yeoman.dist %>',
-							flow: {
-							html: {
-							steps: {
+						"<%= yeoman.dist %>/styles/fonts/*",
+				]
+			}
+		},
+			// Reads HTML for usemin blocks to enable smart builds that automatically
+			// concat, minify and revision files. Creates configurations in memory so
+			// additional tasks can operate on them
+		useminPrepare: {
+			html: '<%= yeoman.app %>/index.html',
+			options: {
+				dest: '<%= yeoman.dist %>',
+				flow: {
+					html: {
+						steps: {
 							js: [
-							'concat',
-							'uglifyjs'
+								'concat',
+								'uglifyjs'
 							],
 							css: ['cssmin']
-							},
-							post: {}
-							}
-							}
-							}
-							},
-							// Performs rewrites based on filerev and the useminPrepare configuration
-							usemin: {
-							html: ['<%= yeoman.dist %>/{,*/}*.html'],
-							css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-							options: {
-								assetsDirs: [
-									'<%= yeoman.dist %>',
-									'<%= yeoman.dist %>/images'
-								]
-							}
-			},
+						},
+						post: {}
+					}
+				}
+			}
+		},
+			// Performs rewrites based on filerev and the useminPrepare configuration
+		usemin: {
+			html: ['<%= yeoman.dist %>/{,*/}*.html'],
+			css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+			options: {
+				assetsDirs: [
+					'<%= yeoman.dist %>',
+					'<%= yeoman.dist %>/images'
+				]
+			}
+		},
 			// The following *-min tasks will produce minified files in the dist folder
 			// By default, your `index.html`'s <!-- Usemin block --> will take care of
 			// minification. These next options are pre-configured if you do not wish
@@ -315,21 +315,23 @@ module.exports = function (grunt) {
 			expand: true,
 			cwd: '.tmp/images',
 			dest: '<%= yeoman.dist %>/images',
-			src: ['generated/*']
-							  },
-							  {
-							  expand: true,
-							  cwd: '.',
-							  src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-							  dest: '<%= yeoman.dist %>'
-							  }
-							  ]
-							  },
-							  styles: {
-							  expand: true,
-							  cwd: '<%= yeoman.app %>/styles',
-							  dest: '.tmp/styles/',
-							  src: '{,*/}*.css'
+			src: [
+				"generated/*"
+			]
+		},
+		{
+			expand: true,
+			cwd: '.',
+			src: "bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*",
+			dest: "<%= yeoman.dist %>"
+		}
+	]
+	},
+		styles: {
+			expand: true,
+			cwd: '<%= yeoman.app %>/styles',
+			dest: '.tmp/styles/',
+			src: '{,*/}*.css'
 		}
 	},
 		// Run some tasks in parallel to speed up the build process
