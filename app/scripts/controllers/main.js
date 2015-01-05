@@ -26,7 +26,8 @@ angular.module('sraAngularApp').controller('LoginController', function ($scope, 
 				for (var region in regions) {
 					areasArray.push(Object.keys(regions[region].Areas));
 				}
-				var areas = areas.concat.apply(areas, areasArray);
+				var areas = [];
+				areas = areas.concat.apply(areas, areasArray);
 				var user = {
 					email: data.Email,
 					firstName: data['First Name'],
