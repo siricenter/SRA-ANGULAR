@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sraAngularApp').controller('AdminAreasController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
+app.controller('AdminAreasController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var regions = JSON.parse(localStorage.regions);
 	if (regions !== undefined) {
@@ -21,7 +21,7 @@ angular.module('sraAngularApp').controller('AdminAreasController', function ($sc
 	}
 });
 
-angular.module('sraAngularApp').controller('AdminDashboardController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
+app.controller('AdminDashboardController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.firstName = $rootScope.currentUser.firstName;
 	$scope.lastName = $rootScope.currentUser.lastName;
