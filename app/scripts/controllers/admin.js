@@ -32,7 +32,7 @@ angular.module('sraAngularApp').controller('AdminUsersController', function ($sc
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users');
 	$scope.users = $firebase(ref).$asArray();
-	$scope.users.$loaded(function (data) {
+	$scope.users.$loaded(function (/*data*/) {
 		localStorage.setItem('users', JSON.stringify($scope.users));
 	});
 	console.log($scope.users);
@@ -100,10 +100,10 @@ angular.module('sraAngularApp').controller('AreasUsersController', function ($sc
 });
 
 angular.module('sraAngularApp').controller('NewUsersController', function ($scope,$location,$firebase,$routeParams,$rootScope,$firebaseAuth){
-	$rootScope.current_user = JSON.parse(sessionStorage.getItem('user'));
+	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.CreateUser = function(){
 		console.log('hello');
-		var user_node = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users");
+		var userNode = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users');
 		var email = $scope.user.email;
 		var password = $scope.user.password;
 		var fname = $scope.user.fname;
@@ -111,16 +111,16 @@ angular.module('sraAngularApp').controller('NewUsersController', function ($scop
 		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com');
 		$scope.authObj = $firebaseAuth(ref);
 		$scope.authObj.$createUser(email, password).then(function() {
-			console.log("User created successfully!");
-			user_node.push(user_node.child(email.split('@')[0]).set({"FirstName":fname ,"LastName":lname}));
+			console.log('User created successfully!');
+			userNode.push(userNode.child(email.split('@')[0]).set({'FirstName':fname ,'LastName':lname}));
 			return $scope.authObj.$authWithPassword({
 				email: email,
 				password: email
 			});
 		}).catch(function(error) {
-			console.error("Error: ", error);
+			console.error('Error: ', error);
 		});
-	}
+	};
 });   
 
 angular.module('sraAngularApp').controller('AreasNewController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
@@ -141,18 +141,18 @@ angular.module('sraAngularApp').controller('AreasNewController', function ($scop
 	};
 });
 
-angular.module('sraAngularApp').controller('AreasEditController', function ($scope,$location,$firebase,$routeParams,$rootScope) {
+angular.module('sraAngularApp').controller('AreasEditController',  function ($scope, $location, $firebase, $routeParams) {
 	$scope.area = $routeParams.name;
 	$scope.region = $routeParams.region;
 
 	console.log($scope.area);
 	console.log($scope.region);
-	console.log("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/" + $scope.region +"/Areas/" + $scope.area);
+	console.log('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + $scope.region +'/Areas/' + $scope.area);
 
 	$scope.UpdateArea = function(){
 		console.log('here');
-		var ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/" + $scope.region +"/Areas/" + $scope.area);
+		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + $scope.region +'/Areas/' + $scope.area);
 		var name = $scope.Area.name;
 		ref.set(name);
-	}
+	};
 });

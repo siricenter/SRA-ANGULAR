@@ -143,6 +143,7 @@ controllers.RolesController = function ($scope, $firebase) {
 		rolesSync.$remove(key);
 	};
 };
+
 controllers.HouseholdController = function ($scope, $firebase) {
 	var houseRef = new Firebase('https://sweltering-heat-9359.firebaseio.com/households');
 	var houseSync = $firebase(houseRef);
@@ -152,14 +153,15 @@ controllers.HouseholdController = function ($scope, $firebase) {
 		// used
 		// var household = { familyName: familyName }; // Defined, but never
 		// used
-		houseSync.push(role).then(function (ref) { // role is not defined. Bug.
-			ref.key();
-		}, function (error) {
-			console.log('Error', error);
-		});
+		// houseSync.push(role).then(function (ref) { // role is not defined. Bug. Commenting out until we figure out what to do.
+		// 	ref.key();
+		// }, function (error) {
+		// 	console.log('Error', error);
+		// });
 	};
 };
-controllers.DashboardController = function ($scope, $firebase) {
+
+controllers.DashboardController = function (/*$scope, $firebase*/) {
 	// var areasRef = new Firebase('https://sweltering-heat-9359.firebaseio.com/users/' + id + '/areas'); // id is not defined
 	// var areasSync = $firebase(areasRef); // Used in defining the areas variable, but that variable is never used.
 	// var areas = areasSync.$asArray(); // Defined, but never used
