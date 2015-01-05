@@ -141,7 +141,7 @@ angular.module('sraAngularApp').controller('AreasNewController', function ($scop
 	};
 });
 
-angular.module('sraAngularApp').controller('AreasEditController', function ($scope,$location,$firebase,$routeParams,$rootScope) {
+angular.module('sraAngularApp').controller('AreasEditController',  function ($scope, $location, $firebase, $routeParams) {
 	$scope.area = $routeParams.name;
 	$scope.region = $routeParams.region;
 

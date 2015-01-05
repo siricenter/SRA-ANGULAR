@@ -3,8 +3,8 @@
 angular.module('sraAngularApp')
 .controller('AreasController', function ($scope, $location, $firebase, $routeParams,$rootScope) {
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
-  $scope.regions = $rootScope.currentUser.regions
-  $scope.areas = $rootScope.currentUser.areas
+  $scope.regions = $rootScope.currentUser.regions;
+  $scope.areas = $rootScope.currentUser.areas;
   console.log($scope.areas);
 });
 

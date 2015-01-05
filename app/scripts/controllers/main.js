@@ -1,25 +1,14 @@
 'use strict';
-/**
- * @ngdoc function
- * @name sraAngularApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the sraAngularApp
- */
-angular.module('sraAngularApp').controller('MainCtrl', function ($scope) {
-	$scope.awesomeThings = [
-		'HTML5 Boilerplate',
-		'AngularJS',
-		'Karma'
-	];
-});
+
 /*Constants*/
 angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/'  /*'https://torid-inferno-2841.firebaseio.com/'*/);
+
 angular.module('sraAngularApp').controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope) {
 	$scope.Login = function () {
 		var email = $scope.user.email;
 		var password = $scope.user.password;
 		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com');
+
 		$scope.authObj = $firebaseAuth(ref);
 		$scope.authObj.$authWithPassword({
 			email: email,
@@ -37,7 +26,6 @@ angular.module('sraAngularApp').controller('LoginController', function ($scope, 
 				for (var region in regions) {
 					areasArray.push(Object.keys(regions[region].Areas));
 				}
-				var areas = [];
 				var areas = areas.concat.apply(areas, areasArray);
 				var user = {
 					email: data.Email,
@@ -74,20 +62,19 @@ angular.module('sraAngularApp').controller('LoginController', function ($scope, 
 	};
 });
 
-angular.module('sraAngularApp')
-.controller('DashboardController', function ($scope, $location, $firebase, $rootScope){
+angular.module('sraAngularApp').controller('DashboardController', function ($scope, $location, $firebase, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
-	$scope.user = $rootScope.currentUser
-		$scope.areas = $rootScope.currentUser.areas
-		var regions = $scope.user.regions
-		$scope.firstname = $rootScope.currentUser.first_name;
-	$scope.lastname = $rootScope.currentUser.last_name;
-	console.log('here')
+	$scope.user = $rootScope.currentUser;
+	$scope.areas = $rootScope.currentUser.areas;
+	// var regions = $scope.user.regions; // Defined but never used
+	$scope.firstname = $rootScope.currentUser.firstName;
+	$scope.lastName = $rootScope.currentUser.lastName;
+	console.log('here');
 
 
 
-		if ($rootScope.currentUser.roles === 'Admin'){
-			$location.path('/admin/dashboard')
-				$scope.$apply();
-		};
-})
+	if ($rootScope.currentUser.roles === 'Admin') {
+		$location.path('/admin/dashboard');
+		$scope.$apply();
+	}
+});
