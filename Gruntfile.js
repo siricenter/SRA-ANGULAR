@@ -81,8 +81,8 @@ module.exports = function (grunt) {
 						return [
 							connect.static('.tmp'),
 							connect.static('test'),
-							connect().use('/bower_components', connect.static('./bower_components')),
-								connect.static(appConfig.app)
+							connect.static(appConfig.app),
+								connect().use('/bower_components', connect.static('./bower_components')), 
 						];
 					}
 				}
@@ -377,7 +377,6 @@ module.exports = function (grunt) {
 			'clean:server',
 			'concurrent:test',
 			'autoprefixer',
-			'connect:test',
 			'karma'
 	]);
 	grunt.registerTask('build', [
