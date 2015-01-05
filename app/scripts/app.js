@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sraAngularApp', [
+window.app = angular.module('sraAngularApp', [
 		'ngAnimate',
 		'ngAria',
 		'ngCookies',
