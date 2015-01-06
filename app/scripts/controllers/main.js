@@ -1,13 +1,14 @@
 'use strict';
 
 /*Constants*/
-angular.module('sraAngularApp').constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/'  /*'https://torid-inferno-2841.firebaseio.com/'*/);
+window.app.constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/'  /*'https://torid-inferno-2841.firebaseio.com/'*/);
 
-angular.module('sraAngularApp').controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope) {
+angular.module('sraAngularApp').controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope, firebaseURL) {
 	$scope.Login = function () {
+		console.log(firebaseURL);
 		var email = $scope.user.email;
 		var password = $scope.user.password;
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com');
+		var ref = new Firebase(firebaseURL);
 
 		$scope.authObj = $firebaseAuth(ref);
 		$scope.authObj.$authWithPassword({
@@ -16,7 +17,7 @@ angular.module('sraAngularApp').controller('LoginController', function ($scope, 
 		}).then(function (authData) {
 			console.log('Logged in as:', authData.password.email);
 			var node = email.split('@');
-			var userRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Users/' + node[0]);
+			var userRef = new Firebase(firebaseURL + 'Users/' + node[0]);
 			var userObj = $firebase(userRef).$asObject();
 			userObj.$loaded().then(function (data) {
 				console.log(userObj);

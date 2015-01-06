@@ -21,7 +21,7 @@ angular.module('sraAngularApp')
 	};
 
 	for(var i = 0; i < regions.length; i++) {
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + regions[i] + '/Areas/'+ area);
+		var ref = new Firebase(firebaseURL + 'Organizations/SRA/Regions/' + regions[i] + '/Areas/'+ area);
 		var sync = $firebase(ref).$asObject();
 
 		sync.$loaded().then(loaded);

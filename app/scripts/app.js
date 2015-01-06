@@ -13,7 +13,7 @@ window.app = angular.module('sraAngularApp', [
 ]).run(function ($rootScope, $firebase) {
 	$rootScope.currentUser = {};
 	$rootScope.firebaseSession = localStorage['firebase:session::intense-inferno-7741'];
-	var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions');
+	var ref = new Firebase(firebaseURL + 'Organizations/SRA/Regions');
 	var regionsArr = $firebase(ref).$asArray();
 	var regions = [];
 	regionsArr.$loaded().then(function (/*data*/) {

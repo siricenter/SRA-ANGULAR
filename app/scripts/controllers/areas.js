@@ -17,7 +17,7 @@ angular.module('sraAngularApp').controller('AreasIndexController', function ($sc
 angular.module('sraAngularApp').controller('AreasShowController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var name = $routeParams.name;
-	var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/South%20Africa/Areas/' + name);
+	var ref = new Firebase(firebaseURL + 'Organizations/SRA/Regions/South%20Africa/Areas/' + name);
 	var area = $firebase(ref).$asObject();
 	area.$loaded().then(function (data) {
 		var names = Object.keys(data.Resources);

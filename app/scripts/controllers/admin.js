@@ -1,6 +1,6 @@
 'use strict';
 
-window.app.controller('AdminAreasController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
+window.app.controller('AdminAreasController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var regions = JSON.parse(localStorage.regions);
 	if (regions !== undefined) {
@@ -13,7 +13,7 @@ window.app.controller('AdminAreasController', function ($scope, $location, $fire
 		};
 
 		for (var i = 0; i < regions.length; i++) {
-			var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + regions[i] + '/Areas');
+			var ref = new Firebase(firebaseURL + 'Organizations/SRA/Regions/' + regions[i] + '/Areas');
 			var sync = $firebase(ref).$asArray();
 			var areasArr = [];
 			sync.$loaded().then(callMe /*Maybe?*/);
@@ -28,9 +28,9 @@ window.app.controller('AdminDashboardController', function ($scope, $location, $
 	console.log($rootScope.currentUser);
 });
 
-angular.module('sraAngularApp').controller('AdminUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
+angular.module('sraAngularApp').controller('AdminUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
-	var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users');
+	var ref = new Firebase(firebaseURL + 'Organizations/SRA/Users');
 	$scope.users = $firebase(ref).$asArray();
 	$scope.users.$loaded(function (/*data*/) {
 		localStorage.setItem('users', JSON.stringify($scope.users));
@@ -38,14 +38,14 @@ angular.module('sraAngularApp').controller('AdminUsersController', function ($sc
 	console.log($scope.users);
 });
 
-angular.module('sraAngularApp').controller('EditUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
+angular.module('sraAngularApp').controller('EditUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.username = $routeParams.id;
 	$scope.UpdateUser = function () {
 		var fname = $scope.user.fname;
 		var lname = $scope.user.lname;
 		console.log(JSON.parse(localStorage.getItem('users')));
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users/' + $scope.username);
+		var ref = new Firebase(firebaseURL + 'Organizations/SRA/Users/' + $scope.username);
 		var sync = $firebase(ref);
 		sync.$update({
 			FirstName: fname,
@@ -58,7 +58,7 @@ angular.module('sraAngularApp').controller('EditUsersController', function ($sco
 	};
 });
 
-angular.module('sraAngularApp').controller('AreasUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
+angular.module('sraAngularApp').controller('AreasUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.regions = JSON.parse(localStorage.getItem('regions'));
 	/* What about these lines? I'm commenting them out until there's a reason
@@ -80,7 +80,7 @@ angular.module('sraAngularApp').controller('AreasUsersController', function ($sc
 	$scope.region = localStorage.regionParam;
 	$scope.username = localStorage.usernameParam;
 	$scope.area = localStorage.areaParam;
-	var areasRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + $scope.region);
+	var areasRef = new Firebase(firebaseURL + 'Organizations/SRA/Regions/' + $scope.region);
 	var areas = $firebase(areasRef).$asArray();
 	areas.$loaded(function () {
 		$scope.areas = areas[0];
@@ -88,7 +88,7 @@ angular.module('sraAngularApp').controller('AreasUsersController', function ($sc
 		console.log($scope.area + '' + '' + $scope.region + '' + '' + $scope.username);
 	});
 	$scope.AreaAssignemnt = function () {
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Users/' + $scope.username + '/Organizations/SRA/Regions');
+		var ref = new Firebase(firebaseURL + 'Users/' + $scope.username + '/Organizations/SRA/Regions');
 		var sync = $firebase(ref).$asArray;
 		console.log(sync);
 		console.log($scope.area + $scope.region + $scope.username);
@@ -99,16 +99,16 @@ angular.module('sraAngularApp').controller('AreasUsersController', function ($sc
 	console.log($scope.regions);
 });
 
-angular.module('sraAngularApp').controller('NewUsersController', function ($scope,$location,$firebase,$routeParams,$rootScope,$firebaseAuth){
+angular.module('sraAngularApp').controller('NewUsersController',  function ($scope, $location, $firebase, $routeParams, $rootScope, $firebaseAuth, firebaseURL){
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.CreateUser = function(){
 		console.log('hello');
-		var userNode = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Users');
+		var userNode = new Firebase(firebaseURL + 'Organizations/SRA/Users');
 		var email = $scope.user.email;
 		var password = $scope.user.password;
 		var fname = $scope.user.fname;
 		var lname = $scope.user.lname;
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com');
+		var ref = new Firebase(firebaseURL);
 		$scope.authObj = $firebaseAuth(ref);
 		$scope.authObj.$createUser(email, password).then(function() {
 			console.log('User created successfully!');
@@ -123,13 +123,13 @@ angular.module('sraAngularApp').controller('NewUsersController', function ($scop
 	};
 });   
 
-angular.module('sraAngularApp').controller('AreasNewController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
+angular.module('sraAngularApp').controller('AreasNewController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.regions = JSON.parse(localStorage.getItem('regions'));
 	var region = $routeParams.name;
 	$scope.region = $routeParams.name;
-	var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + region + '/Areas');
-	var areasRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + region);
+	var ref = new Firebase(firebaseURL + 'Organizations/SRA/Regions/' + region + '/Areas');
+	var areasRef = new Firebase(firebaseURL + 'Organizations/SRA/Regions/' + region);
 	var areas = $firebase(areasRef).$asArray();
 	areas.$loaded(function () {
 		$scope.areas = areas[0];
@@ -141,17 +141,17 @@ angular.module('sraAngularApp').controller('AreasNewController', function ($scop
 	};
 });
 
-angular.module('sraAngularApp').controller('AreasEditController',  function ($scope, $location, $firebase, $routeParams) {
+angular.module('sraAngularApp').controller('AreasEditController',  function ($scope, $location, $firebase, $routeParams, firebaseURL) {
 	$scope.area = $routeParams.name;
 	$scope.region = $routeParams.region;
 
 	console.log($scope.area);
 	console.log($scope.region);
-	console.log('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + $scope.region +'/Areas/' + $scope.area);
+	console.log(firebaseURL + 'Organizations/SRA/Regions/' + $scope.region +'/Areas/' + $scope.area);
 
 	$scope.UpdateArea = function(){
 		console.log('here');
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Regions/' + $scope.region +'/Areas/' + $scope.area);
+		var ref = new Firebase(firebaseURL + 'Organizations/SRA/Regions/' + $scope.region +'/Areas/' + $scope.area);
 		var name = $scope.Area.name;
 		ref.set(name);
 	};
