@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('sraAngularApp')
-.controller('HouseholdsController',  function ($scope, $location, $firebase, $routeParams, $rootScope) {
+
+app.controller('HouseholdsController',  function ($scope, $location, $firebase, $routeParams, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var regions = $scope.currentUser.regions;
 	var area = $routeParams.area;

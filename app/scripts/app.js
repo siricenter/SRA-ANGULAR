@@ -1,6 +1,9 @@
 'use strict';
 
-window.app = angular.module('sraAngularApp', [
+
+
+
+var app = angular.module('sraAngularApp', [
 		'ngAnimate',
 		'ngAria',
 		'ngCookies',
@@ -10,7 +13,29 @@ window.app = angular.module('sraAngularApp', [
 		'ngSanitize',
 		'ngTouch',
 		'firebase'
-]).run(function ($rootScope, $firebase) {
+]);
+
+app.service('OrgBuilder', function($firebase){
+  this.orgCache= function(ref){
+        var fireRef = new Firebase(ref + 'Organizations/SRA');
+        var org = $firebase(fireRef).$asObject();
+        org.$loaded().then(function(data){
+          var sra = {}
+          sra.id = data.$id
+          sra.Countries = data.Countries
+          sra['Question Sets'] = data['Question Sets']
+          sra.Roles = data.Roles
+          sra.Users = data.Users
+          localStorage.setItem('SRA', JSON.stringify(sra))
+
+        })
+        
+    };       
+});
+
+
+app.run(function ($rootScope, $firebase, firebaseURL) {
+
 	$rootScope.currentUser = {};
 	$rootScope.firebaseSession = localStorage['firebase:session::intense-inferno-7741'];
 	var ref = new Firebase(firebaseURL + 'Organizations/SRA/Regions');
@@ -26,7 +51,9 @@ window.app = angular.module('sraAngularApp', [
 		localStorage.setItem('regions', regions);
 		$rootScope.regions = JSON.parse(localStorage.getItem('regions'));
 	});
-}).config(function ($routeProvider) {
+});
+
+app.config(function ($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl: '/build/login.html',
 		controller: 'LoginController'

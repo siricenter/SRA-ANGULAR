@@ -1,11 +1,10 @@
 'use strict';
 
 /*Constants*/
-window.app.constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/'  /*'https://torid-inferno-2841.firebaseio.com/'*/);
+app.constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/'  /*'https://torid-inferno-2841.firebaseio.com/'*/);
 
-angular.module('sraAngularApp').controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope, firebaseURL) {
+app.controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope, firebaseURL, OrgBuilder) {
 	$scope.Login = function () {
-		console.log(firebaseURL);
 		var email = $scope.user.email;
 		var password = $scope.user.password;
 		var ref = new Firebase(firebaseURL);
@@ -48,6 +47,7 @@ angular.module('sraAngularApp').controller('LoginController', function ($scope, 
 			}).then(function () {
 				if ($rootScope.currentUser.roles !== undefined) {
 					if ($rootScope.currentUser.roles === 'Admin') {
+						$scope.fromService = OrgBuilder.orgCache(firebaseURL);
 						$location.path('/admin/dashboard');
 						$scope.$apply();
 					} else if ($rootScope.currentUser.roles === 'Developer') {
@@ -64,7 +64,7 @@ angular.module('sraAngularApp').controller('LoginController', function ($scope, 
 	};
 });
 
-angular.module('sraAngularApp').controller('DashboardController', function ($scope, $location, $firebase, $rootScope) {
+app.controller('DashboardController', function ($scope, $location, $firebase, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.user = $rootScope.currentUser;
 	$scope.areas = $rootScope.currentUser.areas;

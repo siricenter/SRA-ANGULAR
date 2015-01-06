@@ -1,6 +1,6 @@
 'use strict';
 
-window.app.controller('AdminAreasController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
+app.controller('AdminAreasController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var regions = JSON.parse(localStorage.regions);
 	if (regions !== undefined) {
@@ -21,14 +21,16 @@ window.app.controller('AdminAreasController', function ($scope, $location, $fire
 	}
 });
 
-window.app.controller('AdminDashboardController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
+app.controller('AdminDashboardController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
+	$rootScope.SRA = JSON.parse(localStorage['SRA'])
 	$scope.firstName = $rootScope.currentUser.firstName;
 	$scope.lastName = $rootScope.currentUser.lastName;
 	console.log($rootScope.currentUser);
+	console.log($rootScope.SRA);
 });
 
-angular.module('sraAngularApp').controller('AdminUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
+app.controller('AdminUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var ref = new Firebase(firebaseURL + 'Organizations/SRA/Users');
 	$scope.users = $firebase(ref).$asArray();
@@ -38,7 +40,7 @@ angular.module('sraAngularApp').controller('AdminUsersController', function ($sc
 	console.log($scope.users);
 });
 
-angular.module('sraAngularApp').controller('EditUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
+app.controller('EditUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.username = $routeParams.id;
 	$scope.UpdateUser = function () {
@@ -58,7 +60,7 @@ angular.module('sraAngularApp').controller('EditUsersController', function ($sco
 	};
 });
 
-angular.module('sraAngularApp').controller('AreasUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
+app.controller('AreasUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.regions = JSON.parse(localStorage.getItem('regions'));
 	/* What about these lines? I'm commenting them out until there's a reason
@@ -99,7 +101,7 @@ angular.module('sraAngularApp').controller('AreasUsersController', function ($sc
 	console.log($scope.regions);
 });
 
-angular.module('sraAngularApp').controller('NewUsersController',  function ($scope, $location, $firebase, $routeParams, $rootScope, $firebaseAuth, firebaseURL){
+app.controller('NewUsersController',  function ($scope, $location, $firebase, $routeParams, $rootScope, $firebaseAuth, firebaseURL){
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.CreateUser = function(){
 		console.log('hello');
@@ -123,7 +125,7 @@ angular.module('sraAngularApp').controller('NewUsersController',  function ($sco
 	};
 });   
 
-angular.module('sraAngularApp').controller('AreasNewController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
+app.controller('AreasNewController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.regions = JSON.parse(localStorage.getItem('regions'));
 	var region = $routeParams.name;
@@ -141,7 +143,7 @@ angular.module('sraAngularApp').controller('AreasNewController', function ($scop
 	};
 });
 
-angular.module('sraAngularApp').controller('AreasEditController',  function ($scope, $location, $firebase, $routeParams, firebaseURL) {
+app.controller('AreasEditController',  function ($scope, $location, $firebase, $routeParams, firebaseURL) {
 	$scope.area = $routeParams.name;
 	$scope.region = $routeParams.region;
 

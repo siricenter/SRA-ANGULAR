@@ -1,20 +1,19 @@
 'use strict';
 
-angular.module('sraAngularApp')
-.controller('AreasController', function ($scope, $location, $firebase, $routeParams,$rootScope) {
+app.controller('AreasController', function ($scope, $location, $firebase, $routeParams,$rootScope) {
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
   $scope.regions = $rootScope.currentUser.regions;
   $scope.areas = $rootScope.currentUser.areas;
   console.log($scope.areas);
 });
 
-angular.module('sraAngularApp').controller('AreasIndexController', function ($scope, $location, $firebase, $rootScope) {
+app.controller('AreasIndexController', function ($scope, $location, $firebase, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	console.log($rootScope.currentUser.areas);
 	$scope.areas = $rootScope.currentUser.areas;
 });
 
-angular.module('sraAngularApp').controller('AreasShowController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
+app.controller('AreasShowController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var name = $routeParams.name;
 	var ref = new Firebase(firebaseURL + 'Organizations/SRA/Regions/South%20Africa/Areas/' + name);

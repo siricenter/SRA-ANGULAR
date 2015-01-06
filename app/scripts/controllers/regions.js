@@ -1,4 +1,4 @@
-angular.module('sraAngularApp').controller('regionsIndexCtrl', [
+app.controller('regionsIndexCtrl', [
   '$window',
   '$scope',
   '$http',
@@ -27,7 +27,7 @@ angular.module('sraAngularApp').controller('regionsIndexCtrl', [
 /**
 * 
 */
-angular.module('sraAngularApp').controller('regionShowCtrl', [
+app.controller('regionShowCtrl', [
   '$scope',
   '$http',
   'firebaseURL',
@@ -52,7 +52,7 @@ angular.module('sraAngularApp').controller('regionShowCtrl', [
     $scope.init();
   }
 ]);
-angular.module('sraAngularApp').controller('regionNewCtrl', [
+app.controller('regionNewCtrl', [
   '$scope',
   '$http',
   'firebaseURL',
@@ -76,7 +76,7 @@ angular.module('sraAngularApp').controller('regionNewCtrl', [
     };
   }
 ]);
-angular.module('sraAngularApp').controller('regionEditCtrl', [
+app.controller('regionEditCtrl', [
   '$scope',
   '$http',
   'firebaseURL',
