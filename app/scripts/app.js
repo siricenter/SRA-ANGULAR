@@ -1,9 +1,6 @@
 'use strict';
 
-
-
-
-var app = angular.module('sraAngularApp', [
+window.app = angular.module('sraAngularApp', [
 		'ngAnimate',
 		'ngAria',
 		'ngCookies',
@@ -15,47 +12,42 @@ var app = angular.module('sraAngularApp', [
 		'firebase'
 ]);
 
-app.service('OrgBuilder', function($firebase,$rootScope){
-  this.orgCache= function(ref){
-        var fireRef = new Firebase(ref + 'Organizations/SRA');
-        var org = $firebase(fireRef).$asObject();
-        org.$loaded().then(function(data){
-          var sra = {}
-          sra.id = data.$id
-          sra.Countries = data.Countries
-          sra['Question Sets'] = data['Question Sets']
-          sra.Roles = data.Roles
-          sra.Users = data.Users
-          localStorage.setItem('SRA', JSON.stringify(sra))
+window.app.service('OrgBuilder', function($firebase,$rootScope) {
+	this.orgCache= function(ref){
+		var fireRef = new Firebase(ref + 'Organizations/SRA');
+		var org = $firebase(fireRef).$asObject();
+		org.$loaded().then(function(data){
+			var sra = {};
+			sra.id = data.$id;
+			sra.Countries = data.Countries;
+			sra['Question Sets'] = data['Question Sets'];
+			sra.Roles = data.Roles;
+			sra.Users = data.Users;
+			localStorage.setItem('SRA', JSON.stringify(sra));
+		});
+	}; 
 
-        })
-        
-    }; 
-  this.userCache = function(obj){
-     
-        // var roles = data.Organizations.SRA.Roles; // defined, but never used
-       var user = {}
-    
-        user.email = obj.Email
-        user.firstName = obj['First Name']
-        user.lastName = obj['Last Name']
-        user.organizations = obj.Organizations.SRA
-        sessionStorage.setItem('user', JSON.stringify(user));
-        var storedUser = sessionStorage.getItem('user');
-        console.log(storedUser);
-        $rootScope.currentUser = {};
-        $rootScope.currentUser = JSON.parse(storedUser);
-        console.log($rootScope.currentUser);
-      
-  
+	this.userCache = function(obj) {
 
-};
+		// var roles = data.Organizations.SRA.Roles; // defined, but never used
+		var user = {};
+
+		user.email = obj.Email;
+			user.firstName = obj['First Name'];
+			user.lastName = obj['Last Name'];
+			user.organizations = obj.Organizations.SRA;
+			sessionStorage.setItem('user', JSON.stringify(user));
+		var storedUser = sessionStorage.getItem('user');
+		console.log(storedUser);
+		$rootScope.currentUser = {};
+		$rootScope.currentUser = JSON.parse(storedUser);
+		console.log($rootScope.currentUser);
+	};
 });
 
 
 
-app.run(function ($rootScope, $firebase, firebaseURL) {
-
+window.app.run(function ($rootScope, $firebase, firebaseURL) {
 	$rootScope.currentUser = {};
 	$rootScope.firebaseSession = localStorage['firebase:session::intense-inferno-7741'];
 	var ref = new Firebase(firebaseURL + 'Organizations/SRA/Regions');
@@ -73,7 +65,7 @@ app.run(function ($rootScope, $firebase, firebaseURL) {
 	});
 });
 
-app.config(function ($routeProvider) {
+window.app.config(function ($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl: '/build/login.html',
 		controller: 'LoginController'

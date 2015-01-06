@@ -1,4 +1,4 @@
-app.controller('regionsIndexCtrl', [
+window.app.controller('regionsIndexCtrl', [
   '$window',
   '$scope',
   '$http',
@@ -27,7 +27,7 @@ app.controller('regionsIndexCtrl', [
 /**
 * 
 */
-app.controller('regionShowCtrl', [
+window.app.controller('regionShowCtrl', [
   '$scope',
   '$http',
   'firebaseURL',
@@ -52,7 +52,7 @@ app.controller('regionShowCtrl', [
     $scope.init();
   }
 ]);
-app.controller('regionNewCtrl', [
+window.app.controller('regionNewCtrl', [
   '$scope',
   '$http',
   'firebaseURL',
@@ -76,7 +76,7 @@ app.controller('regionNewCtrl', [
     };
   }
 ]);
-app.controller('regionEditCtrl', [
+window.app.controller('regionEditCtrl', [
   '$scope',
   '$http',
   'firebaseURL',

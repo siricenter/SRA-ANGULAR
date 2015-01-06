@@ -1,9 +1,9 @@
 'use strict';
 
 /*Constants*/
-app.constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/'  /*'https://torid-inferno-2841.firebaseio.com/'*/);
+window.app.constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/'  /*'https://torid-inferno-2841.firebaseio.com/'*/);
 
-app.controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope, firebaseURL, OrgBuilder) {
+window.app.controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope, firebaseURL, OrgBuilder) {
 	$scope.Login = function () {
 		var email = $scope.user.email;
 		var password = $scope.user.password;
@@ -40,7 +40,7 @@ app.controller('LoginController', function ($scope, $firebaseAuth, $location, $f
 	};
 });
 
-app.controller('DashboardController', function ($scope, $location, $firebase, $rootScope) {
+window.app.controller('DashboardController', function ($scope, $location, $firebase, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.user = $rootScope.currentUser;
 	$scope.areas = $rootScope.currentUser.areas;

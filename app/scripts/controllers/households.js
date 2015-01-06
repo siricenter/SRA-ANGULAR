@@ -1,7 +1,7 @@
 'use strict';
 
 
-app.controller('HouseholdsController',  function ($scope, $location, $firebase, $routeParams, $rootScope) {
+window.app.controller('HouseholdsController',  function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var regions = $scope.currentUser.regions;
 	var area = $routeParams.area;
