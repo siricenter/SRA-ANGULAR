@@ -21,12 +21,12 @@ app.controller('LoginController', function ($scope, $firebaseAuth, $location, $f
 			userObj.$loaded().then(function (data) {
 				$scope.fromService = OrgBuilder.userCache(data);
 			}).then(function () {
-				if ($rootScope.currentUser.roles !== undefined) {
-					if ($rootScope.currentUser.roles === 'Admin') {
+				if ($rootScope.currentUser.organizations.Roles !== undefined) {
+					if ($rootScope.currentUser.organizations.Roles.Name === 'Admin') {
 						$scope.fromService = OrgBuilder.orgCache(firebaseURL);
 						$location.path('/admin/dashboard');
 						$scope.$apply();
-					} else if ($rootScope.currentUser.roles === 'Developer') {
+					} else if ($rootScope.currentUser.organizations.Roles.Name === 'Developer') {
 						$location.path('/dashboard');
 						$scope.$apply();
 					} else {
