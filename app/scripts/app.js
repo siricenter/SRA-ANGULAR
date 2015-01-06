@@ -13,10 +13,11 @@ window.app = angular.module('sraAngularApp', [
 ]);
 
 window.app.service('OrgBuilder', function($firebase,$rootScope) {
-	this.orgCache= function(ref){
+	this.orgCache= function(ref) {
 		var fireRef = new Firebase(ref + 'Organizations/SRA');
 		var org = $firebase(fireRef).$asObject();
-		org.$loaded().then(function(data){
+
+		org.$loaded().then(function(data) {
 			var sra = {};
 			sra.id = data.$id;
 			sra.Countries = data.Countries;
@@ -28,41 +29,45 @@ window.app.service('OrgBuilder', function($firebase,$rootScope) {
 	}; 
 
 	this.userCache = function(obj) {
-
-		// var roles = data.Organizations.SRA.Roles; // defined, but never used
-		var user = {};
+		var user, storedUser;
+		user = {};
 
 		user.email = obj.Email;
-			user.firstName = obj['First Name'];
-			user.lastName = obj['Last Name'];
-			user.organizations = obj.Organizations.SRA;
-			sessionStorage.setItem('user', JSON.stringify(user));
-		var storedUser = sessionStorage.getItem('user');
-		console.log(storedUser);
+		user.firstName = obj['First Name'];
+		user.lastName = obj['Last Name'];
+		user.organizations = obj.Organizations.SRA;
+
+		sessionStorage.setItem('user', JSON.stringify(user));
+		storedUser = sessionStorage.getItem('user');
+
 		$rootScope.currentUser = {};
 		$rootScope.currentUser = JSON.parse(storedUser);
-		console.log($rootScope.currentUser);
 	};
 });
 
-
-
 window.app.run(function ($rootScope, $firebase, firebaseURL) {
+	var ref, regionsArr, regions, onArrLoad;
+
 	$rootScope.currentUser = {};
 	$rootScope.firebaseSession = localStorage['firebase:session::intense-inferno-7741'];
-	var ref = new Firebase(firebaseURL + 'Organizations/SRA/Regions');
-	var regionsArr = $firebase(ref).$asArray();
-	var regions = [];
-	regionsArr.$loaded().then(function (/*data*/) {
+
+	ref = new Firebase(firebaseURL + 'Organizations/SRA/Regions');
+	regionsArr = $firebase(ref).$asArray();
+	regions = [];
+
+	onArrLoad = function () {
 		for (var region in regionsArr) {
 			if (regionsArr[region].$id !== undefined) {
 				regions.push(regionsArr[region].$id);
 			}
 		}
+
 		regions = JSON.stringify(regions);
 		localStorage.setItem('regions', regions);
 		$rootScope.regions = JSON.parse(localStorage.getItem('regions'));
-	});
+	};
+
+	regionsArr.$loaded().then(onArrLoad);
 });
 
 window.app.config(function ($routeProvider) {

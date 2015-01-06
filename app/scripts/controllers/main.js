@@ -5,19 +5,23 @@ window.app.constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/
 
 window.app.controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope, firebaseURL, OrgBuilder) {
 	$scope.Login = function () {
-		var email = $scope.user.email;
-		var password = $scope.user.password;
-		var ref = new Firebase(firebaseURL);
+		var email, password, ref;
+
+		email = $scope.user.email;
+		password = $scope.user.password;
+		ref = new Firebase(firebaseURL);
 
 		$scope.authObj = $firebaseAuth(ref);
 		$scope.authObj.$authWithPassword({
 			email: email,
 			password: password
-		}).then(function (authData) {
-			console.log('Logged in as:', authData.password.email);
-			var node = email.split('@');
-			var userRef = new Firebase(firebaseURL + 'Users/' + node[0]);
-			var userObj = $firebase(userRef).$asObject();
+		}).then(function () {
+			var node, userRef, userObj;
+
+			node = email.split('@');
+			userRef = new Firebase(firebaseURL + 'Users/' + node[0]);
+			userObj = $firebase(userRef).$asObject();
+
 			userObj.$loaded().then(function (data) {
 				$scope.fromService = OrgBuilder.userCache(data);
 			}).then(function () {
@@ -42,14 +46,11 @@ window.app.controller('LoginController', function ($scope, $firebaseAuth, $locat
 
 window.app.controller('DashboardController', function ($scope, $location, $firebase, $rootScope) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
+
 	$scope.user = $rootScope.currentUser;
 	$scope.areas = $rootScope.currentUser.areas;
-	// var regions = $scope.user.regions; // Defined but never used
 	$scope.firstname = $rootScope.currentUser.firstName;
 	$scope.lastName = $rootScope.currentUser.lastName;
-	console.log('here');
-
-
 
 	if ($rootScope.currentUser.roles === 'Admin') {
 		$location.path('/admin/dashboard');
