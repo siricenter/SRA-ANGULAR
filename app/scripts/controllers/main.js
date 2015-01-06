@@ -19,31 +19,7 @@ app.controller('LoginController', function ($scope, $firebaseAuth, $location, $f
 			var userRef = new Firebase(firebaseURL + 'Users/' + node[0]);
 			var userObj = $firebase(userRef).$asObject();
 			userObj.$loaded().then(function (data) {
-				console.log(userObj);
-				var regions = data.Organizations.SRA.Regions;
-				// var roles = data.Organizations.SRA.Roles; // defined, but never used
-				var areasArray = [];
-				for (var region in regions) {
-					areasArray.push(Object.keys(regions[region].Areas));
-				}
-				var areas = [];
-				areas = areas.concat.apply(areas, areasArray);
-				var user = {
-					email: data.Email,
-					firstName: data['First Name'],
-					lastName: data['Last Name'],
-					organizations: data.Organizations.SRA.Name,
-					regions: Object.keys(regions),
-					areas: areas,
-					roles: data.Organizations.SRA.Roles.Name
-				};
-				var userJS = JSON.stringify(user);
-				sessionStorage.setItem('user', userJS);
-				var storedUser = sessionStorage.getItem('user');
-				console.log(storedUser);
-				$rootScope.currentUser = {};
-				$rootScope.currentUser = JSON.parse(storedUser);
-				console.log($rootScope.currentUser.roles);
+				$scope.fromService = OrgBuilder.userCache(data);
 			}).then(function () {
 				if ($rootScope.currentUser.roles !== undefined) {
 					if ($rootScope.currentUser.roles === 'Admin') {

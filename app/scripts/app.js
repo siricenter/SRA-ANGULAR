@@ -15,7 +15,7 @@ var app = angular.module('sraAngularApp', [
 		'firebase'
 ]);
 
-app.service('OrgBuilder', function($firebase){
+app.service('OrgBuilder', function($firebase,$rootScope){
   this.orgCache= function(ref){
         var fireRef = new Firebase(ref + 'Organizations/SRA');
         var org = $firebase(fireRef).$asObject();
@@ -30,8 +30,28 @@ app.service('OrgBuilder', function($firebase){
 
         })
         
-    };       
+    }; 
+  this.userCache = function(obj){
+     
+        // var roles = data.Organizations.SRA.Roles; // defined, but never used
+       var user = {}
+    
+        user.email = obj.Email
+        user.firstName = obj['First Name']
+        user.lastName = obj['Last Name']
+        user.organizations = obj.Organizations.SRA
+        sessionStorage.setItem('user', JSON.stringify(user));
+        var storedUser = sessionStorage.getItem('user');
+        console.log(storedUser);
+        $rootScope.currentUser = {};
+        $rootScope.currentUser = JSON.parse(storedUser);
+        console.log($rootScope.currentUser);
+      
+  
+
+};
 });
+
 
 
 app.run(function ($rootScope, $firebase, firebaseURL) {
