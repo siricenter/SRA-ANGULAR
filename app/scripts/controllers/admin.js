@@ -1,6 +1,6 @@
 'use strict';
 
-window.app.controller('AdminAreasController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
+window.app.controller('AdminAreasController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL	) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	var regions = JSON.parse(localStorage.regions);
 	if (regions !== undefined) {
@@ -21,7 +21,11 @@ window.app.controller('AdminAreasController', function ($scope, $location, $fire
 	}
 });
 
-window.app.controller('AdminDashboardController', function ($scope, $location, $firebase, $routeParams, $rootScope) {
+window.app.controller('AdminDashboardController', function ($scope, $location, $firebase, $routeParams, $rootScope, OrgBuilder) {
+	$scope.fromService = OrgBuilder.getCountriesFromOrg()
+	console.log($scope.fromService);
+	
+	
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$rootScope.SRA = JSON.parse(localStorage.SRA);
 	$scope.firstName = $rootScope.currentUser.firstName;

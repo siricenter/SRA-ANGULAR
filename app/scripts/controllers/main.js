@@ -6,11 +6,10 @@ window.app.constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/
 window.app.controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope, firebaseURL, OrgBuilder) {
 	$scope.Login = function () {
 		var email, password, ref;
-
+		
 		email = $scope.user.email;
 		password = $scope.user.password;
 		ref = new Firebase(firebaseURL);
-
 		$scope.authObj = $firebaseAuth(ref);
 		$scope.authObj.$authWithPassword({
 			email: email,

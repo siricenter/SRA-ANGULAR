@@ -19,7 +19,8 @@ window.app.service('OrgBuilder', function($firebase,$rootScope) {
 
 		org.$loaded().then(function(data) {
 			var sra = {};
-			sra.id = data.$id;
+			sra.id = data.$id
+      sra.Countries = []
 			sra.Countries = data.Countries;
 			sra['Question Sets'] = data['Question Sets'];
 			sra.Roles = data.Roles;
@@ -43,6 +44,64 @@ window.app.service('OrgBuilder', function($firebase,$rootScope) {
 		$rootScope.currentUser = {};
 		$rootScope.currentUser = JSON.parse(storedUser);
 	};
+
+  this.getAreasFromRegion = function(region){
+    var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/'+ region.Country + '/Regions/' + region.Name + '/Areas')
+    var sync = $firebase(ref).$asArray();
+    return sync.$loaded().then(function (data){
+       return data;
+    });
+  };
+  this.getRegionsFromCountry = function(county){
+    var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/'+ country + '/Regions');
+    var sync = $firebase(ref).$asArray();
+    return sync.$loaded().then(function (data){
+       return data;
+    }); 
+  };
+  this.getCountriesFromOrg = function(){
+    var items;
+    var countries;
+    var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries');
+    var sync = $firebase(ref).$asArray();
+
+    
+    var i = sync.$loaded().then(function(data){
+      countries = data
+    })
+    return countries;
+  }
+     
+  this.getHouseholdsFromArea = function(area){
+    var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/'+ area.Country + '/Regions/' + area.Region + '/Areas/'+ area.Name + '/Resources')
+    var sync = $firebase(ref).$asArray();
+    
+    sync.$loaded().then(function(data){
+       
+
+    });
+    
+  };
+
+  this.getHouseholdsInOrg = function(){
+    var households = [];
+    var countries = this.getCountriesFromOrg();
+    for (var i = 0; i < countries.length; i++) {
+      var regions = this.getRegionsfromCountry(countries[i]);
+      console.log("Regions = " + regions)
+      for (var i = 0; i < regions.length; i++) {
+        var areas = this.getAreasFromRegion(region[i]);
+        console.log("Areas = " + areas)
+        for (var i = areas.length - 1; i >= 0; i--) {
+          households.push(getHouseholdsFromArea(areas[i]));
+        }
+      }
+    }
+    return households
+    
+  }
+
+
 });
 
 window.app.run(function ($rootScope, $firebase, firebaseURL) {
