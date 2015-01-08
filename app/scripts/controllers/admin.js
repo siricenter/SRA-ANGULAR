@@ -22,9 +22,8 @@ window.app.controller('AdminAreasController', function ($scope, $location, $fire
 });
 
 window.app.controller('AdminDashboardController', function ($scope, $location, $firebase, $routeParams, $rootScope, OrgBuilder) {
-	$scope.fromService = OrgBuilder.getHouseholdsFromOrg()
+	$scope.fromService = OrgBuilder.getHouseholdsFromOrg();
 	console.log($scope.fromService);
-	
 	
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$rootScope.SRA = JSON.parse(localStorage.SRA);
@@ -67,13 +66,7 @@ window.app.controller('EditUsersController', function ($scope, $location, $fireb
 window.app.controller('AreasUsersController', function ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) {
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem('user'));
 	$scope.regions = JSON.parse(localStorage.getItem('regions'));
-	/* What about these lines? I'm commenting them out until there's a reason
-	 * for them to exist. If they are not necessary, please delete them.
-	 *
-	 * $scope.region;
-	 * $scope.username;
-	 * $scope.area;
-	 */
+
 	if ($routeParams.name !== undefined) {
 		localStorage.regionParam = $routeParams.name;
 	}
@@ -83,6 +76,7 @@ window.app.controller('AreasUsersController', function ($scope, $location, $fire
 	if ($routeParams.area !== undefined) {
 		localStorage.areaParam = $routeParams.area;
 	}
+
 	$scope.region = localStorage.regionParam;
 	$scope.username = localStorage.usernameParam;
 	$scope.area = localStorage.areaParam;

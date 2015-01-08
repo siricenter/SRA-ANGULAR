@@ -3,8 +3,10 @@
 /*Constants*/
 window.app.constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/'  /*'https://torid-inferno-2841.firebaseio.com/'*/);
 
-window.app.controller('LoginController', function ($scope, $firebaseAuth, $location, $firebase, $rootScope, firebaseURL, OrgBuilder) {
-	$scope.Login = function () {
+window.app.controller('LoginController', function ($scope, $location, $rootScope, $firebase, firebaseURL, OrgBuilder) {
+	var loginFunction;
+
+	loginFunction = function () {
 		var email, password, ref;
 		
 		email = $scope.user.email;
@@ -41,6 +43,8 @@ window.app.controller('LoginController', function ($scope, $firebaseAuth, $locat
 			console.error('Authentication Failed:', error);
 		});
 	};
+
+	$scope.Login = loginFunction;
 });
 
 window.app.controller('DashboardController', function ($scope, $location, $firebase, $rootScope) {
