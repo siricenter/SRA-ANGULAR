@@ -22,7 +22,7 @@ window.app.controller('AdminAreasController', function ($scope, $location, $fire
 });
 
 window.app.controller('AdminDashboardController', function ($scope, $location, $firebase, $routeParams, $rootScope, OrgBuilder) {
-	$scope.fromService = OrgBuilder.getCountriesFromOrg()
+	$scope.fromService = OrgBuilder.getHouseholdsFromOrg()
 	console.log($scope.fromService);
 	
 	

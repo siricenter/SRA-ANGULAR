@@ -7,7 +7,7 @@ window.app.controller('HouseholdsController',  function ($scope, $location, $fir
 	var area = $routeParams.area;
 	$scope.households = [];
 
-	// Don't create funtions in a loop - it's a performance killer
+	
 	var loaded = function(data) {
 		if(data.Resources !== undefined) {
 			$scope.households.push(data);
