@@ -19,9 +19,9 @@ window.app.service('OrgBuilder', function($firebase, $rootScope) {
 
 		org.$loaded().then(function(data) {
 			var sra = {};
-			sra.id = data.$id
-				sra.Countries = []
-				sra.Countries = data.Countries;
+			sra.id = data.$id;
+			sra.Countries = [];
+			sra.Countries = data.Countries;
 			sra['Question Sets'] = data['Question Sets'];
 			sra.Roles = data.Roles;
 			sra.Users = data.Users;
@@ -45,82 +45,96 @@ window.app.service('OrgBuilder', function($firebase, $rootScope) {
 		$rootScope.currentUser = JSON.parse(storedUser);
 	};
 
-	this.getAreasFromRegion = function(region) {
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + region.Country + '/Regions/' + region.Name + '/Areas')
-			var sync = $firebase(ref).$asArray();
-		return sync.$loaded().then(function(data) {
+	this.getAreasFromRegion = function(region){
+		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/'+ region.Country + '/Regions/' + region.Name + '/Areas');
+		var sync = $firebase(ref).$asArray();
+		return sync.$loaded().then(function (data){
 			return data;
 		});
 	};
-	this.getRegionsFromCountry = function(county) {
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + country + '/Regions');
+	this.getRegionsFromCountry = function(country){
+		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/'+ country + '/Regions');
 		var sync = $firebase(ref).$asArray();
-		return sync.$loaded().then(function(data) {
+		return sync.$loaded().then(function (data){
 			return data;
-		});
+		}); 
 	};
 
-	this.getCountriesFromOrg = function() {
-		var items;
+	this.getCountriesFromOrg = function(){
 		var countries = {};
 		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries');
 		var sync = $firebase(ref).$asArray();
-		countries.data = sync.$loaded().then(function(data) {
-			return data
-		})
-		return countries
+		countries.data = sync.$loaded().then(function(data){
+			return data;
+		});
+		return countries;
 	};
 
-	this.getHouseholdsFromArea = function(area) {
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + area.Country + '/Regions/' + area.Region + '/Areas/' + area.Name + '/Resources')
-			var sync = $firebase(ref).$asArray();
+	this.getHouseholdsFromArea = function(area){
+		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/'+ area.Country + '/Regions/' + area.Region + '/Areas/'+ area.Name + '/Resources');
+		var sync = $firebase(ref).$asArray();
 
-		sync.$loaded().then(function(data) {
-
-
+		sync.$loaded().then(function() {
 		});
 
 	};
 
 	this.getHouseholdsFromOrg = function() {
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries');
-		var sync = $firebase(ref).$asArray();
-		sync.$loaded().then(function(countries) {
+		var households, countries, regions, areas, callback1, callback2, callback3, callback4, ref, sync;
+
+		households = [];
+		countries = [];
+		regions = [];
+		areas = [];
+
+		callback1 = function(d) {
+			households = d;
+		};
+
+		callback2 = function(a){
+			countries = a;
 			for (var i = 0; i < countries.length; i++) {
-				console.log("Country: ");
-				console.log(countries[i])
-					var regRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + countries[i].Name + '/Regions');
+				console.log(countries[i]);
+				var regRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + countries[i].Name + '/Regions');
 				var regSync = $firebase(regRef).$asArray();
-				regSync.$loaded().then(function(regions) {
-					for (var j = 0; j < regions.length; j++) {
-						console.log("Region: ");
-						console.log(regions[j]);
-						console.log("Country of Region: ");
-						console.log(regions[j].Country)
-							var areaRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + regions[j].Country + '/Regions/' + regions[j].Name + '/Areas')
-							var areaSync = $firebase(areaRef).$asArray();
-						areaSync.$loaded().then(function(areas) {
-							for (var k = 0; k < areas.length; k++) {
-								console.log("Area: ");
-								console.log(areas[k]);
-								console.log("Region of Area: ");
-								console.log(areas[k].Region);
-								console.log("Country of Area: ");
-								console.log(areas[k].Country)
-									var houseRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + areas[k].Country + '/Regions/' + areas[k].Region + '/Areas/' + areas[k].Name + '/Resources')
-									var houseSync = $firebase(houseRef).$asArray();
-								houseSync.$loaded().then(function(households) {
-									for (var l = households.length - 1; l >= 0; l--) {
-										console.log("The " + households[l].Name + " family lives in " + households[l].Area);
-									};
-								})
-							}
-						})
-					}
-				})
+				regSync.$loaded().then(callback3(i));
 			}
-		})
-	}
+		};
+
+		// Technically this is still defining a function inside of the loop, so
+		// we're not getting very good performance, but at least the linter is
+		// happy.
+		callback3 = function (i) {
+			return function(b) {
+				regions = b;
+				for(var j = 0; j < regions.length; j++) {
+					console.log(countries[i]);
+					var areaRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + countries[i].Name + '/Regions/' + regions[j].Name + '/Areas');
+					var areaSync = $firebase(areaRef);
+					areaSync.$loaded().then(callback4(i, j));
+				}
+			};
+		};
+
+		// Technically this is still defining a function inside of the loop, so
+		// we're not getting very good performance, but at least the linter is
+		// happy.
+		callback4 = function (i, j) {
+			return function(c) {
+				areas = c ;
+				for(var k = 0; k < areas.length; k++) {
+					console.log(countries[i]);
+					var houseRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + countries[i].Name + '/Regions/' + regions[j].Name + '/Areas/' + areas[k].Name + '/Resources');
+					var houseSync = $firebase(houseRef).$asArray();
+					houseSync.$loaded().then(callback1);
+				}
+			};
+		};
+
+		ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries');
+		sync = $firebase(ref).$asArray();
+		sync.$loaded().then(callback2);
+	};
 });
 
 window.app.run(function($rootScope, $firebase, firebaseURL) {
