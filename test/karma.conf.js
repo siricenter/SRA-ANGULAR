@@ -30,7 +30,9 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
 	  'bower_components/firebase/firebase.js',
 	  'bower_components/angularfire/dist/angularfire.js',
-      'app/scripts/**/*.js',
+      'app/build/javascripts/app.js',
+      'app/build/javascripts/main.js',
+	  'app/build/javascripts/controllers/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],

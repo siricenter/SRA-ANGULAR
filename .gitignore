@@ -4,4 +4,4 @@ dist/
 .sass-cache
 .junk
 bower_components
-app/build
+app/build/javascripts/*.js
