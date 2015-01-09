@@ -22,9 +22,9 @@ describe( 'Controller: LoginController', function () {
 
 	it( 'has the login function', function () {
 		expect( scope ).not.toBeNull();
-		expect( scope.Login ).not.toBeUndefined();
-		expect( scope.Login ).not.toBeNull();
-		expect( typeof scope.Login ).toBe('function');
+		expect( scope.submit ).not.toBeUndefined();
+		expect( scope.submit ).not.toBeNull();
+		expect( typeof scope.submit ).toBe('function');
 	});
 
 });
