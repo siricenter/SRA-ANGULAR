@@ -42,6 +42,14 @@ module.exports = function (grunt) {
 					'karma'
 				]
 			},
+			jsProtractor: {
+				files: ['test/protractor/{,*/}*.js'],
+				tasks: [
+					'newer:jshint:test',
+					'connect:test',
+					'protractor:run'
+				]
+			},
 			compass: {
 				files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
 				tasks: [
