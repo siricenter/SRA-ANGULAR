@@ -39,7 +39,7 @@ window.app.controller "LoginController", ($scope, $location, $rootScope, $fireba
 
     return
 
-  $scope.Login = loginFunction
+  $scope.submit = loginFunction
   return
 
 window.app.controller "DashboardController", ($scope, $location, $firebase, $rootScope) ->
