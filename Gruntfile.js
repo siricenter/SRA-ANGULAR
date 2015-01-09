@@ -294,47 +294,47 @@ module.exports = function (grunt) {
 			// Replace Google CDN references
 		cdnify: { dist: { html: ['<%= yeoman.dist %>/*.html'] } },
 			// Copies remaining files to places other tasks can use
-			copy: {
+		copy: {
 			dist: {
-			files: [
-			{
-			expand: true,
-			dot: true,
-			cwd: '<%= yeoman.app %>',
-			dest: '<%= yeoman.dist %>',
-			src: [
-			'*.{ico,png,txt}',
-			'.htaccess',
-			'*.html',
-			'views/{,*/}*.html',
-			'images/{,*/}*.{webp}',
-			'fonts/{,*/}*.*'
+				files: [
+				{
+					expand: true,
+					dot: true,
+					cwd: '<%= yeoman.app %>',
+					dest: '<%= yeoman.dist %>',
+					src: [
+						'*.{ico,png,txt}',
+						'.htaccess',
+						'*.html',
+							'views/{,*/}*.html',
+							'images/{,*/}*.{webp}',
+								'fonts/{,*/}*.*'
+					]
+				},
+				{
+					expand: true,
+					cwd: '.tmp/images',
+					dest: '<%= yeoman.dist %>/images',
+					src: [
+						'generated/*'
+					]
+				},
+					{
+						expand: true,
+						cwd: '.',
+						src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+						dest: '<%= yeoman.dist %>'
+					}
 				]
-	},
-		{
-			expand: true,
-			cwd: '.tmp/images',
-			dest: '<%= yeoman.dist %>/images',
-			src: [
-				'generated/*'
-			]
+			},
+			styles: {
+				expand: true,
+				cwd: '<%= yeoman.app %>/styles',
+				dest: '.tmp/styles/',
+				src: '{,*/}*.css'
+			}
 		},
-		{
-			expand: true,
-			cwd: '.',
-			src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-			dest: '<%= yeoman.dist %>'
-		}
-	]
-	},
-		styles: {
-			expand: true,
-			cwd: '<%= yeoman.app %>/styles',
-			dest: '.tmp/styles/',
-			src: '{,*/}*.css'
-		}
-	},
-		// Run some tasks in parallel to speed up the build process
+			// Run some tasks in parallel to speed up the build process
 		concurrent: {
 			server: ['compass:server'],
 			test: ['compass'],
@@ -344,12 +344,20 @@ module.exports = function (grunt) {
 				'svgmin'
 			]
 		},
-		// Test settings
+			// Test settings
 		karma: {
 			unit: {
 				configFile: 'test/karma.conf.js',
 				singleRun: true
 			}
+		},
+		protractor: {
+			options: {
+				configFile: 'test/test.conf.js', // Default config file
+				keepAlive: true, // If false, the grunt process stops when the test fails.
+				noColor: false, // If true, protractor will not use colors in its output.
+			},
+			run: {}
 		},
 		fixmyjs: { options: { indentpref: 'tabs' } }
 	});
@@ -377,7 +385,9 @@ module.exports = function (grunt) {
 			'clean:server',
 			'concurrent:test',
 			'autoprefixer',
-			'karma'
+			'connect:test',
+			'karma',
+			'protractor:run'
 	]);
 	grunt.registerTask('build', [
 			'clean:dist',
@@ -402,4 +412,5 @@ module.exports = function (grunt) {
 	]);
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-fixmyjs');
+	grunt.loadNpmTasks('grunt-protractor-runner');
 };
