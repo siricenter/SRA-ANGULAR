@@ -1,5 +1,5 @@
 window.app.service "orgBuilder", ($firebase, $rootScope) ->
-	this.orgCache = (ref) ->
+	@orgCache = (ref) ->
 		fireRef = new Firebase(ref + "Organizations/SRA")
 		org = $firebase(fireRef).$asObject()
 		org.$loaded().then (data) ->
@@ -12,7 +12,7 @@ window.app.service "orgBuilder", ($firebase, $rootScope) ->
 			sra.Users = data.Users
 			localStorage.setItem "SRA", JSON.stringify(sra)
 
-	this.userCache = (obj) ->
+	@userCache = (obj) ->
 		user = undefined
 		storedUser = undefined
 		user = {}
@@ -25,19 +25,19 @@ window.app.service "orgBuilder", ($firebase, $rootScope) ->
 		$rootScope.currentUser = {}
 		$rootScope.currentUser = JSON.parse(storedUser)
 
-	this.getAreasFromRegion = (region) ->
+	@getAreasFromRegion = (region) ->
 		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/" + region.Country + "/Regions/" + region.Name + "/Areas")
 		sync = $firebase(ref).$asArray()
 		sync.$loaded().then (data) ->
 			data
 
-	this.getRegionsFromCountry = (country) ->
+	@getRegionsFromCountry = (country) ->
 		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/" + country + "/Regions")
 		sync = $firebase(ref).$asArray()
 		sync.$loaded().then (data) ->
 			data
 
-	this.getCountriesFromOrg = ->
+	@getCountriesFromOrg = ->
 		countries = {}
 		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries")
 		sync = $firebase(ref).$asArray()
@@ -46,12 +46,12 @@ window.app.service "orgBuilder", ($firebase, $rootScope) ->
 		)
 		countries
 
-	this.getHouseholdsFromArea = (area) ->
+	@getHouseholdsFromArea = (area) ->
 		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/" + area.Country + "/Regions/" + area.Region + "/Areas/" + area.Name + "/Resources")
 		sync = $firebase(ref).$asArray()
 		sync.$loaded().then ->
 
-	this.getHouseholdsFromOrg = ->
+	@getHouseholdsFromOrg = ->
 		householdsCallback = undefined
 		areasCallback = undefined
 		regionsCallback = undefined
@@ -91,5 +91,5 @@ window.app.service "orgBuilder", ($firebase, $rootScope) ->
 				i++
 
 		sync.$loaded().then countriesCallback
-	return 	# If this return isn't here, then this entire function is evaluated 
+	return 	# If @return isn't here, then @entire function is evaluated 
 			# as just countriesCallback.
