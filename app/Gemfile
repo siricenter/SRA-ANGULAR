@@ -13,6 +13,8 @@ gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 # use bower for frontend package management
 gem 'middleman-bower', '~> 1.0.2'
 
+gem 'coffee-script', '~> 2.3.0'
+
 # tools
 #gem "faker", "~> 1.2.0"
 gem 'capistrano', '3.2.1'
