@@ -4,7 +4,7 @@
 window.app.constant('firebaseURL', 'https://intense-inferno-7741.firebaseio.com/'  /*'https://torid-inferno-2841.firebaseio.com/'*/);
 
 window.app.controller('LoginController', function ($scope, $location, $rootScope, $firebase, firebaseURL, OrgBuilder) {
-	$scope.title = "Login";
+	$rootScope.title = 'Login';
 
 	var loginFunction;
 
