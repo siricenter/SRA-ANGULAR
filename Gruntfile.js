@@ -426,8 +426,4 @@ module.exports = function (grunt) {
 			'test',
 			'build'
 	]);
-	//grunt.loadNpmTasks('grunt-contrib-compass');
-	//grunt.loadNpmTasks('grunt-fixmyjs');
-	//grunt.loadNpmTasks('grunt-protractor-runner');
-	//grunt.loadNpmTasks('grunt-contrib-coffee');
 };
