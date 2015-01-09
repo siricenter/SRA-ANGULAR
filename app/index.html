@@ -16,8 +16,8 @@
 		<!-- Use title if it's in the page YAML frontmatter -->
 		<title data-ng-bind="title"></title>
 		<script type="text/javascript">
-var polyfilter_scriptpath = "/themes/emerald/polyfills/filters/";
-window.polyfilter_skip_stylesheets = true
+			var polyfilter_scriptpath = "/themes/emerald/polyfills/filters/";
+			window.polyfilter_skip_stylesheets = true
 		</script>
 		<link href="build/stylesheets/application.css" rel="stylesheet" type="text/css" />
 		<!--[if lte IE 9]>
@@ -61,13 +61,12 @@ window.polyfilter_skip_stylesheets = true
 		<script src="bower_components/firebase/firebase.js"></script>
 		<script src="bower_components/angularfire/dist/angularfire.js"></script>
 		<!-- endbower -->
-		<!-- endbuild -->
-		<!-- build:js({.tmp,app}) scripts/scripts.js -->
+		<!-- build:js({.tmp,app/build/}) /*.js -->
 		<script src="build/javascripts/app.js"></script>
 		<script src="build/javascripts/main.js"></script>
 		<script src="build/javascripts/services.js"></script>
 		<script src="build/javascripts/controllers.js"></script>
-		<!-- Controllers -->
+		<!-- endbuild -->
 
 
 	</body>
