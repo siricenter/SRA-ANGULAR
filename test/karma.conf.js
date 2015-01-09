@@ -33,6 +33,7 @@ module.exports = function(config) {
       'app/build/javascripts/app.js',
       'app/build/javascripts/main.js',
 	  'app/build/javascripts/controllers/*.js',
+	  'app/build/javascripts/services/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],

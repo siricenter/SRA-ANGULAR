@@ -1,4 +1,4 @@
-window.app.controller "regionsIndexCtrl", [
+window.app.controller "regionsIndexController", [
   "$window"
   "$scope"
   "$http"
