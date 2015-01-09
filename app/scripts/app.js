@@ -45,33 +45,33 @@ window.app.service('OrgBuilder', function($firebase, $rootScope) {
 		$rootScope.currentUser = JSON.parse(storedUser);
 	};
 
-	this.getAreasFromRegion = function(region){
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/'+ region.Country + '/Regions/' + region.Name + '/Areas');
+	this.getAreasFromRegion = function(region) {
+		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + region.Country + '/Regions/' + region.Name + '/Areas');
 		var sync = $firebase(ref).$asArray();
-		return sync.$loaded().then(function (data){
+		return sync.$loaded().then(function (data) {
 			return data;
 		});
 	};
-	this.getRegionsFromCountry = function(country){
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/'+ country + '/Regions');
+	this.getRegionsFromCountry = function(country) {
+		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + country + '/Regions');
 		var sync = $firebase(ref).$asArray();
-		return sync.$loaded().then(function (data){
+		return sync.$loaded().then(function (data) {
 			return data;
-		}); 
+		});
 	};
 
-	this.getCountriesFromOrg = function(){
+	this.getCountriesFromOrg = function() {
 		var countries = {};
 		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries');
 		var sync = $firebase(ref).$asArray();
-		countries.data = sync.$loaded().then(function(data){
+		countries.data = sync.$loaded().then(function(data) {
 			return data;
 		});
 		return countries;
 	};
 
-	this.getHouseholdsFromArea = function(area){
-		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/'+ area.Country + '/Regions/' + area.Region + '/Areas/'+ area.Name + '/Resources');
+	this.getHouseholdsFromArea = function(area) {
+		var ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + area.Country + '/Regions/' + area.Region + '/Areas/' + area.Name + '/Resources');
 		var sync = $firebase(ref).$asArray();
 
 		sync.$loaded().then(function() {
@@ -80,60 +80,39 @@ window.app.service('OrgBuilder', function($firebase, $rootScope) {
 	};
 
 	this.getHouseholdsFromOrg = function() {
-		var households, countries, regions, areas, callback1, callback2, callback3, callback4, ref, sync;
+		var householdsCallback, areasCallback, regionsCallback, countriesCallback, ref, sync;
+		ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries');
+		sync = $firebase(ref).$asArray();
 
-		households = [];
-		countries = [];
-		regions = [];
-		areas = [];
-
-		callback1 = function(d) {
-			households = d;
+		var householdsCallback = function(households) {
+			return households;
 		};
 
-		callback2 = function(a){
-			countries = a;
-			for (var i = 0; i < countries.length; i++) {
-				console.log(countries[i]);
-				var regRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + countries[i].Name + '/Regions');
-				var regSync = $firebase(regRef).$asArray();
-				regSync.$loaded().then(callback3(i));
+		var areasCallback = function(areas) {
+			for (var k = 0; k < areas.length; k++) {
+				var houseRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + areas[k].Country + '/Regions/' + areas[k].Region + '/Areas/' + areas[k].Name + '/Resources');
+				var houseSync = $firebase(houseRef).$asArray();
+				houseSync.$loaded().then(householdsCallback);
 			}
 		};
 
-		// Technically this is still defining a function inside of the loop, so
-		// we're not getting very good performance, but at least the linter is
-		// happy.
-		callback3 = function (i) {
-			return function(b) {
-				regions = b;
-				for(var j = 0; j < regions.length; j++) {
-					console.log(countries[i]);
-					var areaRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + countries[i].Name + '/Regions/' + regions[j].Name + '/Areas');
-					var areaSync = $firebase(areaRef);
-					areaSync.$loaded().then(callback4(i, j));
-				}
-			};
+		var regionsCallback = function(regions) {
+			for (var j = 0; j < regions.length; j++) {
+				var areaRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + regions[j].Country + '/Regions/' + regions[j].Name + '/Areas');
+					var areaSync = $firebase(areaRef).$asArray();
+				areaSync.$loaded().then(areasCallback);
+			}
 		};
 
-		// Technically this is still defining a function inside of the loop, so
-		// we're not getting very good performance, but at least the linter is
-		// happy.
-		callback4 = function (i, j) {
-			return function(c) {
-				areas = c ;
-				for(var k = 0; k < areas.length; k++) {
-					console.log(countries[i]);
-					var houseRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + countries[i].Name + '/Regions/' + regions[j].Name + '/Areas/' + areas[k].Name + '/Resources');
-					var houseSync = $firebase(houseRef).$asArray();
-					houseSync.$loaded().then(callback1);
-				}
-			};
+		var countriesCallback = function(countries) {
+			for (var i = 0; i < countries.length; i++) {
+				var regRef = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/' + countries[i].Name + '/Regions');
+				var regSync = $firebase(regRef).$asArray();
+				regSync.$loaded().then(regionsCallback);
+			}
 		};
 
-		ref = new Firebase('https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries');
-		sync = $firebase(ref).$asArray();
-		sync.$loaded().then(callback2);
+		sync.$loaded().then(countriesCallback);
 	};
 });
 
