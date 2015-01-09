@@ -12,7 +12,7 @@ describe( 'Controller: LoginController', function () {
 	setup = function ( $controller, $rootScope ) {
 		scope = $rootScope.$new();
 		subject = $controller( 'LoginController', {
-			$scope: scope
+			'$scope': scope
 		});
 	};
 
