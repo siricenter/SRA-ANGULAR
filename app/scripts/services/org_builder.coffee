@@ -45,51 +45,31 @@ window.app.service "orgBuilder", ($firebase, $rootScope) ->
 			data
 		)
 		countries
+	
+	flatten = (array) ->
+		return [].concat.apply([], array) # flatten array
 
 	@getHouseholdsFromArea = (area) ->
-		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/" + area.Country + "/Regions/" + area.Region + "/Areas/" + area.Name + "/Resources")
-		sync = $firebase(ref).$asArray()
-		sync.$loaded().then ->
+		flatten(for household of area.Resources
+			household)
+
+	@getHouseholdsFromRegion = (region) ->
+		flatten(for name, area of region.Areas
+			@getHouseholdsFromArea(area))
+
+	@getHouseholdsFromCountry = (country) ->
+		flatten(for name, region of country.Regions
+			@getHouseholdsFromRegion(region))
 
 	@getHouseholdsFromOrg = ->
-		householdsCallback = undefined
-		areasCallback = undefined
-		regionsCallback = undefined
-		countriesCallback = undefined
-		ref = undefined
-		sync = undefined
 		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries")
 		sync = $firebase(ref).$asArray()
-		householdsCallback = (households) ->
-			households
+		orgBuilder = this
 
-		areasCallback = (areas) ->
-			k = 0
+		callback = (countries) ->
+			households = (orgBuilder.getHouseholdsFromCountry(country) for country in countries)
+			return flatten households
 
-			while k < areas.length
-				houseRef = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/" + areas[k].Country + "/Regions/" + areas[k].Region + "/Areas/" + areas[k].Name + "/Resources")
-				houseSync = $firebase(houseRef).$asArray()
-				houseSync.$loaded().then householdsCallback
-				k++
-
-		regionsCallback = (regions) ->
-			j = 0
-
-			while j < regions.length
-				areaRef = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/" + regions[j].Country + "/Regions/" + regions[j].Name + "/Areas")
-				areaSync = $firebase(areaRef).$asArray()
-				areaSync.$loaded().then areasCallback
-				j++
-
-		countriesCallback = (countries) ->
-			i = 0
-
-			while i < countries.length
-				regRef = new Firebase("https://intense-inferno-7741.firebaseio.com/Organizations/SRA/Countries/" + countries[i].Name + "/Regions")
-				regSync = $firebase(regRef).$asArray()
-				regSync.$loaded().then regionsCallback
-				i++
-
-		sync.$loaded().then countriesCallback
+		sync.$loaded().then callback
 	return 	# If @return isn't here, then @entire function is evaluated 
 			# as just countriesCallback.
