@@ -68,7 +68,9 @@ window.app.service "orgBuilder", ($firebase, $rootScope) ->
 
 		callback = (countries) ->
 			households = (orgBuilder.getHouseholdsFromCountry(country) for country in countries)
+
 			return flatten households
+			
 
 		sync.$loaded().then callback
 	return 	# If @return isn't here, then @entire function is evaluated 
