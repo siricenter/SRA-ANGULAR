@@ -407,30 +407,15 @@
                 </div>
               </div>
               <div class="row ">
-                <div class="col-xs-4 text-center">
+                <div class="col-xs-4 text-center" ng-repeat="members in households.Members">
                   <div>
                     <i class="icm icm-heart7 text-danger"></i>
                   </div>
-                  <div>
-                    4,524
+                  <div ng-repeat="member in members">
+                    {{member.Name}}
                   </div>
                 </div>
-                <div class="col-xs-4 text-center">
-                  <div>
-                    <i class="icm icm-star4 text-warning"></i>
-                  </div>
-                  <div>
-                    2,589
-                  </div>
-                </div>
-                <div class="col-xs-4 text-center">
-                  <div>
-                    <i class="icm icm-radio-unchecked text-primary"></i>
-                  </div>
-                  <div>
-                    8,149
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>
