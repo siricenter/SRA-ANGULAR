@@ -391,31 +391,34 @@
       </nav>
       <div class="container-fluid turbo-cols-static turbo-grid-wrap">
         <div class="turbo-grid">
-          <!-- ngView:  --><div class="row ng-scope" rel="panels">
-          
-          <div class="panel panel-success" ng-repeat="area in areas">
-            <div class="panel-heading">
-              <div class="panel-title text-center">
-                {{area.Name}}
-              </div>
-            </div>
-            <div class="panel-body no-padding-top">
-              
-              <div class="vpadded">
-                <div style="height: 186px;" class="text-center padded-top">
-                  <i class="icm icm-html52 icm-4x text-primary" style="font-size: 128px;"></i>
-                </div>
-              </div>
-              <div class="row ">
-                <div class="col-xs-4 text-center" ng-repeat = "households in area.Resources">
-                  <div ng-repeat = "household in households">
-                    <i class="icm icm-heart7 text-danger"></i>
+          <!-- ngView:  -->
+          <div class="row ng-scope" rel="panels">
+            <div class="col-md-4" ng-repeat="area in areas">
+              <div class="turbo-card turbo-toggle">
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <div class="panel-title text-center">
+                      {{area.Name}}
+                    </div>
                   </div>
-                  <div>
-                    {{household.Name}}
+                  <div class="panel-body no-padding-top">
+                    
+                    <div class="vpadded">
+                      <div style="height: 186px;" class="text-center padded-top">
+                        <i class="icm icm-html52 icm-4x text-primary" style="font-size: 128px;"></i>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-4 text-center" ng-repeat="resource in area.Resources">
+                        <div>
+                          <i class="icm icm-heart7 text-danger"></i>
+                        </div>
+                        {{resource.Name}}
+                      </div>
+                      
+                    </div>
                   </div>
                 </div>
-               
               </div>
             </div>
           </div>
