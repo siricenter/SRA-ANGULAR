@@ -398,7 +398,7 @@
                 <div class="panel panel-success">
                   <div class="panel-heading">
                     <div class="panel-title text-center">
-                      {{user.FirstName}}
+                      {{user.FirstName}} {{user.LastName}}
                     </div>
                   </div>
                   <div class="panel-body no-padding-top">
@@ -409,7 +409,7 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-xs-4 text-center" ng-repeat="organization in area.Organizations">
+                      <div class="col-xs-4 text-center" ng-repeat="organization in user.Organizations">
                         <div>
                           <i class="icm icm-heart7 text-danger"></i>
                         </div>
