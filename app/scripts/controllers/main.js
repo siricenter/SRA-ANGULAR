@@ -28,12 +28,12 @@ window.app.controller('LoginController', function ($scope, $location, $rootScope
 			userObj.$loaded().then(function (data) {
 				$scope.fromService = orgBuilder.userCache(data);
 			}).then(function () {
-				if ($rootScope.currentUser.organizations.Roles !== undefined) {
-					if ($rootScope.currentUser.organizations.Roles.Name === 'Admin') {
+				if ($rootScope.currentUser.Roles !== undefined) {
+					if ($rootScope.currentUser.Roles.Name === 'Admin') {
 						$scope.fromService = orgBuilder.orgCache(firebaseURL);
 						$location.path('/admin/dashboard');
 						$scope.$apply();
-					} else if ($rootScope.currentUser.organizations.Roles.Name === 'Developer') {
+					} else if ($rootScope.currentUser.Roles.Name === 'Developer') {
 						$location.path('/dashboard');
 						$scope.$apply();
 					} else {
