@@ -392,30 +392,33 @@
       <div class="container-fluid turbo-cols-static turbo-grid-wrap">
         <div class="turbo-grid">
           <!-- ngView:  --><div class="row ng-scope" rel="panels">
-          
-          <div class="panel panel-success" ng-repeat="household in households">
-            <div class="panel-heading">
-              <div class="panel-title text-center">
-                {{household.Name}}
-              </div>
-            </div>
-            <div class="panel-body no-padding-top">
-              
-              <div class="vpadded">
-                <div style="height: 186px;" class="text-center padded-top">
-                  <i class="icm icm-html52 icm-4x text-primary" style="font-size: 128px;"></i>
-                </div>
-              </div>
-              <div class="row ">
-                <div class="col-xs-4 text-center" ng-repeat="members in households.Members">
-                  <div>
-                    <i class="icm icm-heart7 text-danger"></i>
-                  </div>
-                  <div ng-repeat="member in members">
-                    {{member.Name}}
+          <div class="col-md-4" ng-repeat="household in households">
+            <div class="turbo-card turbo-toggle">
+              <div class="panel panel-success">
+                <div class="panel-heading">
+                  <div class="panel-title text-center">
+                    {{household.Name}}
                   </div>
                 </div>
-                
+                <div class="panel-body no-padding-top">
+                  
+                  <div class="vpadded">
+                    <div style="height: 186px;" class="text-center padded-top">
+                      <i class="icm icm-html52 icm-4x text-primary" style="font-size: 128px;"></i>
+                    </div>
+                  </div>
+                  <div class="row ">
+                    <div class="col-xs-4 text-center" ng-repeat="members in households.Members">
+                      <div>
+                        <i class="icm icm-heart7 text-danger"></i>
+                      </div>
+                      <div ng-repeat="member in members">
+                        {{member.Name}}
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
               </div>
             </div>
           </div>
