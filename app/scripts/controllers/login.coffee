@@ -44,6 +44,7 @@ window.app.controller "LoginController", ($scope, $location, $rootScope, $fireba
 
 window.app.controller "DashboardController", ($scope, $location, $firebase, $rootScope) ->
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
+  $rootScope.title = "Dashboard"
   $scope.user = $rootScope.currentUser
   $scope.areas = $rootScope.currentUser.areas
   $scope.firstname = $rootScope.currentUser.firstName
