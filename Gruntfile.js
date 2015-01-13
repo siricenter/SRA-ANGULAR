@@ -43,8 +43,9 @@ module.exports = function (grunt) {
 				]
 			},
 			jsProtractor: {
-				files: ['test/protractor/{,*/}*.js'],
+				files: ['test/protractor/{,*/}*.coffee'],
 				tasks: [
+					'coffee',
 					'newer:jshint:test',
 					'connect:test',
 					'protractor:run'
@@ -381,6 +382,7 @@ module.exports = function (grunt) {
 					'app/build/javascripts/main.js': 'app/scripts/main.coffee',
 					'app/build/javascripts/services.js': 'app/scripts/services/*.coffee',
 					'app/build/javascripts/controllers.js': 'app/scripts/controllers/*.coffee',
+					'test/protractor/build/protractor_test.js': 'test/protractor/**/*.coffee'
 				}
 			},
 		}
