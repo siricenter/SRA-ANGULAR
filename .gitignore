@@ -5,3 +5,4 @@ dist/
 .junk
 bower_components
 app/build/javascripts/*.js
+test/protractor/build/*.js
