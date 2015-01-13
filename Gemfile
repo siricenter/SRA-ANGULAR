@@ -2,7 +2,14 @@
 # the following line to use "https"
 source "http://rubygems.org"
 
+gem 'cucumber', '~> 1.3.18'
+gem 'capybara', '~> 2.4.4'
 gem "middleman", "~> 3.3.3"
+gem 'selenium-webdriver', '~> 2.44.0'
+gem 'rspec', '~> 3.1.0'
+gem 'poltergeist', '~> 1.5.1'
+
+gem 'rake', '~> 10.4.2'
 
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.3.4"
