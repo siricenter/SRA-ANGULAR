@@ -42,15 +42,6 @@ module.exports = function (grunt) {
 					'karma'
 				]
 			},
-			jsProtractor: {
-				files: ['test/protractor/{,*/}*.coffee'],
-				tasks: [
-					'coffee',
-					'newer:jshint:test',
-					'connect:test',
-					'protractor:run'
-				]
-			},
 			compass: {
 				files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
 				tasks: [
@@ -366,14 +357,6 @@ module.exports = function (grunt) {
 				singleRun: true
 			}
 		},
-		protractor: {
-			options: {
-				configFile: 'test/test.conf.js', // Default config file
-				keepAlive: true, // If false, the grunt process stops when the test fails.
-				noColor: false, // If true, protractor will not use colors in its output.
-			},
-			run: {}
-		},
 		fixmyjs: { options: { indentpref: 'tabs' } },
 		coffee: {
 			compile: {
@@ -382,7 +365,6 @@ module.exports = function (grunt) {
 					'app/build/javascripts/main.js': 'app/scripts/main.coffee',
 					'app/build/javascripts/services.js': 'app/scripts/services/*.coffee',
 					'app/build/javascripts/controllers.js': 'app/scripts/controllers/*.coffee',
-					'test/protractor/build/protractor_test.js': 'test/protractor/**/*.coffee'
 				}
 			},
 		}
@@ -412,8 +394,7 @@ module.exports = function (grunt) {
 			'concurrent:test',
 			'autoprefixer',
 			'connect:test',
-			'karma',
-			'protractor:run'
+			'karma'
 	]);
 	grunt.registerTask('build', [
 			'clean:dist',
