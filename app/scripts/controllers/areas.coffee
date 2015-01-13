@@ -3,12 +3,10 @@ window.app.controller "AreasController", ($scope, $location, $firebase, $routePa
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
   $scope.regions = $rootScope.currentUser.regions
   $scope.areas = $rootScope.currentUser.areas
-  console.log $scope.areas
   return
 
 window.app.controller "AreasIndexController", ($scope, $location, $firebase, $rootScope) ->
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
-  console.log $rootScope.currentUser.areas
   $scope.areas = $rootScope.currentUser.areas
   return
 
@@ -29,7 +27,6 @@ window.app.controller "AreasShowController", ($scope, $location, $firebase, $rou
     for family of names
       members = Object.keys(data.Resources[names[family]].Members)
       $scope.households[family] = new Household(names[family], members)
-    console.log $scope.households
     return
 
   return

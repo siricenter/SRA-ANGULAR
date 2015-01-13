@@ -17,7 +17,6 @@ window.app.controller "regionsIndexController", [
     $scope.init = ->
       regionsURL = firebaseURL + "Organizations/SRA/Regions"
       firebaseRef = new $window.Firebase(regionsURL)
-      console.log regionsURL
       $scope.regions = $firebase(firebaseRef).$asArray()
       return
 
@@ -49,7 +48,6 @@ window.app.controller "regionShowCtrl", [
     ###
     $scope.init = ->
       regionURL = firebaseURL + "Organizations/SRA/Regions/" + $routeParams.name.replace(RegExp(" ", "g"), "%20")
-      console.log regionURL
       firebaseRef = new $window.Firebase(regionURL)
       $scope.region = $firebase(firebaseRef).$asObject()
       return
@@ -76,7 +74,6 @@ window.app.controller "regionNewCtrl", [
     ###
     $scope.submit = ->
       if $scope.newName isnt "undefined" and $scope.newName isnt ""
-        console.log "name:" + $scope.newName
         sync.$push $scope.newName
       return
 ]
@@ -101,7 +98,6 @@ window.app.controller "regionEditCtrl", [
     ###
     $scope.submit = ->
       if $scope.newName isnt "undefined" and $scope.newName isnt ""
-        console.log "name:" + $scope.newName
         $scope.region.$id = $scope.newName
         $scope.region.$save()
       return

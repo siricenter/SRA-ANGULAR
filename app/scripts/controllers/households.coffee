@@ -20,7 +20,6 @@ window.app.controller "HouseholdsController", ($scope, $location, $firebase, $ro
     ref = new Firebase(firebaseURL + "Organizations/SRA/Regions/" + regions[i] + "/Areas/" + area)
     sync = $firebase(ref).$asObject()
     sync.$loaded().then loaded
-    console.log $scope.households
     i++
   $scope.ViewMembers = ->
 

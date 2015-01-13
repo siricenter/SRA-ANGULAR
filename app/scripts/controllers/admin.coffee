@@ -9,7 +9,6 @@ window.app.controller "AdminAreasController", ($scope, $location, $firebase, $ro
       areasArr.push areaData
       areas = []
       $scope.areas = areas.concat.apply(areas, areasArr)
-      console.log $scope.areas.Name
       return
 
     i = 0
@@ -26,13 +25,10 @@ window.app.controller "AdminDashboardController", ($scope, $location, $firebase,
   $rootScope.title = "Dashboard"
   $scope.fromService = orgBuilder.getHouseholdsFromOrg()
   $rootScope.title = 'Dashboard'
-  console.log $scope.fromService
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
   $rootScope.SRA = JSON.parse(localStorage.SRA)
   $scope.firstName = $rootScope.currentUser.firstName
   $scope.lastName = $rootScope.currentUser.lastName
-  console.log $rootScope.currentUser
-  console.log $rootScope.SRA
   return
 
 window.app.controller "AdminUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
@@ -43,7 +39,6 @@ window.app.controller "AdminUsersController", ($scope, $location, $firebase, $ro
     localStorage.setItem "users", JSON.stringify($scope.users)
     return
 
-  console.log $scope.users
   return
 
 window.app.controller "EditUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
@@ -52,7 +47,6 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
   $scope.UpdateUser = ->
     fname = $scope.user.fname
     lname = $scope.user.lname
-    console.log JSON.parse(localStorage.getItem("users"))
     ref = new Firebase(firebaseURL + "Organizations/SRA/Users/" + $scope.username)
     sync = $firebase(ref)
     sync.$update(
@@ -62,7 +56,6 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
       ref.key() # bar
       return
     ), (error) ->
-      console.log "Error:", error
       return
 
     return
@@ -82,27 +75,21 @@ window.app.controller "AreasUsersController", ($scope, $location, $firebase, $ro
   areas = $firebase(areasRef).$asArray()
   areas.$loaded ->
     $scope.areas = areas[0]
-    console.log $scope.areas
-    console.log $scope.area + "" + "" + $scope.region + "" + "" + $scope.username
     return
 
   $scope.AreaAssignemnt = ->
     ref = new Firebase(firebaseURL + "Users/" + $scope.username + "/Organizations/SRA/Regions")
     sync = $firebase(ref).$asArray
-    console.log sync
-    console.log $scope.area + $scope.region + $scope.username
     ref.push ref.child($scope.region).child($scope.area).set(Name: $scope.area)
     $location.path "/"
     $scope.$apply()
     return
 
-  console.log $scope.regions
   return
 
 window.app.controller "NewUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, $firebaseAuth, firebaseURL) ->
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
   $scope.CreateUser = ->
-    console.log "hello"
     userNode = new Firebase(firebaseURL + "Organizations/SRA/Users")
     email = $scope.user.email
     password = $scope.user.password
@@ -111,7 +98,6 @@ window.app.controller "NewUsersController", ($scope, $location, $firebase, $rout
     ref = new Firebase(firebaseURL)
     $scope.authObj = $firebaseAuth(ref)
     $scope.authObj.$createUser(email, password).then(->
-      console.log "User created successfully!"
       userNode.push userNode.child(email.split("@")[0]).set(
         FirstName: fname
         LastName: lname
@@ -138,7 +124,6 @@ window.app.controller "AreasNewController", ($scope, $location, $firebase, $rout
   areas = $firebase(areasRef).$asArray()
   areas.$loaded ->
     $scope.areas = areas[0]
-    console.log $scope.areas
     return
 
   $scope.CreateArea = ->
@@ -151,11 +136,7 @@ window.app.controller "AreasNewController", ($scope, $location, $firebase, $rout
 window.app.controller "AreasEditController", ($scope, $location, $firebase, $routeParams, firebaseURL) ->
   $scope.area = $routeParams.name
   $scope.region = $routeParams.region
-  console.log $scope.area
-  console.log $scope.region
-  console.log firebaseURL + "Organizations/SRA/Regions/" + $scope.region + "/Areas/" + $scope.area
   $scope.UpdateArea = ->
-    console.log "here"
     ref = new Firebase(firebaseURL + "Organizations/SRA/Regions/" + $scope.region + "/Areas/" + $scope.area)
     name = $scope.Area.name
     ref.set name
