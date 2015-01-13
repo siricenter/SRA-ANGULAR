@@ -25,6 +25,7 @@ window.app.controller "AdminAreasController", ($scope, $location, $firebase, $ro
 window.app.controller "AdminDashboardController", ($scope, $location, $firebase, $routeParams, $rootScope, orgBuilder) ->
   $rootScope.title = "Dashboard"
   $scope.fromService = orgBuilder.getHouseholdsFromOrg()
+  $rootScope.title = 'Dashboard'
   console.log $scope.fromService
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
   $rootScope.SRA = JSON.parse(localStorage.SRA)
