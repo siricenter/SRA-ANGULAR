@@ -49,6 +49,7 @@ window.app.controller "DashboardController", ($scope, $location, $firebase, $roo
   $scope.areas = $rootScope.currentUser.areas
   $scope.firstname = $rootScope.currentUser.firstName
   $scope.lastName = $rootScope.currentUser.lastName
+
   if $rootScope.currentUser.roles is "Admin"
     $location.path "/admin/dashboard"
     $scope.$apply()
