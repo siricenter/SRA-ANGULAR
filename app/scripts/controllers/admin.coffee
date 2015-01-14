@@ -24,15 +24,19 @@ window.app.controller "AdminAreasController", ($scope, $location, $firebase, $ro
 window.app.controller "AdminDashboardController", ($scope, $location, $firebase, $routeParams, $rootScope, orgBuilder) ->
   $rootScope.title = "Dashboard"
   $scope.fromService = orgBuilder.getHouseholdsFromOrg()
+  console.log($scope.fromService)
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
   $rootScope.SRA = JSON.parse(localStorage.SRA)
+  $scope.firstName = $rootScope.currentUser.firstName
+  $scope.lastName = $rootScope.currentUser.lastName
+  console.log($scope.firstName)
   return
 
 window.app.controller "AdminUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
   ref = new Firebase(firebaseURL + "Organizations/SRA/Users")
   $scope.users = $firebase(ref).$asArray()
-  $scope.users.$loaded -> #data
+  $scope.users.$loaded ->   
     localStorage.setItem "users", JSON.stringify($scope.users)
     return
 

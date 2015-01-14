@@ -50,7 +50,7 @@ window.app.service "orgBuilder", ($firebase, $rootScope) ->
 		return [].concat.apply([], array) # flatten array
 
 	@getHouseholdsFromArea = (area) ->
-		flatten(for household of area.Resources
+		flatten(for key, household of area.Resources
 			household)
 
 	@getHouseholdsFromRegion = (region) ->
@@ -73,5 +73,8 @@ window.app.service "orgBuilder", ($firebase, $rootScope) ->
 			
 
 		sync.$loaded().then callback
-	return 	# If @return isn't here, then @entire function is evaluated 
+		# If @return isn't here, then @entire function is evaluated 
 			# as just countriesCallback.
+	
+
+	return 
