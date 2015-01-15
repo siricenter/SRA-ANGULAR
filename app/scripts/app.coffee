@@ -78,6 +78,12 @@ window.app.config ($routeProvider) ->
 	).when("/areas/region-assignment/:name",
 		templateUrl: "views/areas/new.html"
 		controller: "AreasNewController"
+	).when("/admin/users/:name/country-assignment",
+		templateUrl: "views/admin/country-assignment.html"
+		controller: "AreasUsersController"
+	).when("/admin/assign/country/:country",
+		templateUrl: "views/admin/region-assignment.html"
+		controller: "AreasUsersController"
 	).when("/areas",
 		templateUrl: "views/areas/index.html"
 		controller: "AreasIndexController"

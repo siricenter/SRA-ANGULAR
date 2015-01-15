@@ -77,14 +77,25 @@ window.app.controller "AreasUsersController", ($scope, $location, $firebase, $ro
   localStorage.regionParam = $routeParams.name  if $routeParams.name isnt `undefined`
   localStorage.usernameParam = $routeParams.id  if $routeParams.id isnt `undefined`
   localStorage.areaParam = $routeParams.area  if $routeParams.area isnt `undefined`
+  localStorage.countryParam = $routeParams.country if $routeParams.country isnt 'undefined'
   $scope.region = localStorage.regionParam
   $scope.username = localStorage.usernameParam
   $scope.area = localStorage.areaParam
-  areasRef = new Firebase(firebaseURL + "Organizations/SRA/Regions/" + $scope.region)
-  areas = $firebase(areasRef).$asArray()
-  areas.$loaded ->
-    $scope.areas = areas[0]
+  $scope.country = localStorage.countryParam
+  countryRef = new Firebase(firebaseURL + "Organizations/SRA/Countries")
+  countries = $firebase(countryRef).$asArray()
+  countries.$loaded().then (data) ->
+    $scope.countries = data
+    console.log(data)
     return
+  if $scope.country != undefined
+    regionRef = new Firebase(firebaseURL + "Organizations/SRA/Countries/"+ $scope.country+"Regions")
+    region = $firebase(countryRef).$asArray()
+    region.$loaded().then (data) ->
+      $scope.regions = data
+      return
+
+   
 
   $scope.AreaAssignemnt = ->
     ref = new Firebase(firebaseURL + "Users/" + $scope.username + "/Organizations/SRA/Regions")
