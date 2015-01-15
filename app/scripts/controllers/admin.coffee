@@ -34,10 +34,19 @@ window.app.controller "AdminDashboardController", ($scope, $location, $firebase,
 
 window.app.controller "AdminUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
+  $scope.users = []
   ref = new Firebase(firebaseURL + "Organizations/SRA/Users")
   users = $firebase(ref).$asArray()
-  users.$loaded.then (data) ->   
-    console.log data
+  users.$loaded().then (data) ->   
+    for user in data
+      fb = new Firebase(firebaseURL + "Users/"+ user.$id)
+      sync = $firebase(fb).$asObject()
+      
+      sync.$loaded().then (userObj) ->
+        console.log(userObj)
+        if(userObj.Email != undefined)
+          $scope.users.push userObj
+        
     return
   return
 
