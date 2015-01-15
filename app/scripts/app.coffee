@@ -98,7 +98,7 @@ window.app.config ($routeProvider) ->
 		controller: "HouseholdsController"
 	).when("/admin/householdsindex",
 		templateUrl: "views/admin/households.html"
-		controller: "regionShowCtrl"
+		controller: "AdminHouseholdsController"
 	).when("/households/:id",
 		templateUrl: "views/households/show.html"
 		controller: "HouseholdsController"

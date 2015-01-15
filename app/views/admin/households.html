@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row text-center vpadded-row">
         <div class="col-sm-4">
-          <a href="#/admin/ddashboard">
+          <a href="#/#/admin/dashboard">
             <div class="jump-to-element padded text-gradient-white text-component-shadow">
               <i class="icm icm-screen4 icm-4x">
               </i>
@@ -398,22 +398,20 @@
                 <div class="panel panel-success">
                   <div class="panel-heading">
                     <div class="panel-title text-center">
-                      {{household.Name}}
+                      {{household.Name}} Household
                     </div>
                   </div>
                   <div class="panel-body no-padding-top">
-                    
                     <div class="vpadded">
                       <div style="height: 186px;" class="text-center padded-top">
-                        <i class="icm icm-html52 icm-4x text-primary" style="font-size: 128px;"></i>
+                       Country: {{household.Country}}</br>
+                       Region: {{household.Region}}</br>
+                       Area: {{household.Area}}
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-xs-4 text-center" ng-repeat="members in household.Members">
-                        <div>
-                          <i class="icm icm-heart7 text-danger"></i>
-                        </div>
-                        {{member.Name}}
+                      <div class="col-xs-5" ng-repeat="member in household.Members">
+                        Name: {{member.Name}} Relationship:{{member.Relationship}} Gender: {{member.Gender}}
                       </div>
                       
                     </div>

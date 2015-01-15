@@ -35,11 +35,10 @@ window.app.controller "AdminDashboardController", ($scope, $location, $firebase,
 window.app.controller "AdminUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
   ref = new Firebase(firebaseURL + "Organizations/SRA/Users")
-  $scope.users = $firebase(ref).$asArray()
-  $scope.users.$loaded ->   
-    localStorage.setItem "users", JSON.stringify($scope.users)
+  users = $firebase(ref).$asArray()
+  users.$loaded.then (data) ->   
+    console.log data
     return
-
   return
 
 window.app.controller "EditUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
@@ -144,3 +143,9 @@ window.app.controller "AreasEditController", ($scope, $location, $firebase, $rou
     return
 
   return
+
+window.app.controller "AdminHouseholdsController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder) ->
+  $scope.fromService = orgBuilder.getHouseholdsFromOrg();
+  console.log($rootScope.households)
+  return
+
