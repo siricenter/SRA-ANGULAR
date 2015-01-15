@@ -333,7 +333,7 @@
           </li>
         </ul>
         <a class="navbar-brand" href="dashboard.html">
-          <img src="../images/emerald_flat.png">
+          
           <span class="text-gradient-success-dk">
           Company Name
           </span>
@@ -389,7 +389,7 @@
           </li>
         </ul>
       </nav>
-      <div class="container-fluid turbo-cols-static turbo-grid-wrap">
+      <div class="container-fluid turbo-cols-static turbo-grid-wrap" ng-controller="AreasUsersController" data-ng-init="regionAssignment()">
         <div class="turbo-grid">
           <!-- ngView:  -->
           <div class="row ng-scope" rel="panels">
@@ -404,7 +404,11 @@
                   <div class="panel-body no-padding-top">
                     <div class="vpadded">
                     <ul>
-                    <li ng-repeat="region in regions"><a href = "admin/assign/region/{{region.Name}}">{{region.Name}}</a></li>
+                    <li ng-repeat="region in regions">{{region.Name}} <ul>
+                    <li ng-repeat = "(key,value) in region.Areas">
+                    {{key}} - <button type="button" class="btn btn-primary btn-xs">Assign</button>
+                    </ul></li>
+
                     </ul>
                     </br>
                    

@@ -86,13 +86,13 @@ window.app.controller "AreasUsersController", ($scope, $location, $firebase, $ro
   countries = $firebase(countryRef).$asArray()
   countries.$loaded().then (data) ->
     $scope.countries = data
-    console.log(data)
     return
-  if $scope.country != undefined
-    regionRef = new Firebase(firebaseURL + "Organizations/SRA/Countries/"+ $scope.country+"Regions")
-    region = $firebase(countryRef).$asArray()
-    region.$loaded().then (data) ->
+  $scope.regionAssignment = ->
+    ref = new Firebase(firebaseURL + "Organizations/SRA/Countries/" + $scope.country + "/Regions")
+    regions = $firebase(ref).$asArray()
+    regions.$loaded().then (data) ->
       $scope.regions = data
+      console.log(data)
       return
 
    
