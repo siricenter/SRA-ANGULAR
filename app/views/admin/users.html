@@ -403,6 +403,15 @@
                   </div>
                   <div class="panel-body no-padding-top">
                     <div class="vpadded">
+                    <ul>
+                    <li>Email: {{user.Email}}</li>
+                    Organizations: 
+                    <ul> 
+                    <li ng-repeat = "(key, value) in user.Organizations">{{key}}</li>
+                    </ul>
+                    </ul>
+                    </br>
+                   
                     </div>
                     <div class="row">
                       <div class="col-xs-4 text-center" ng-repeat="organization in user.Organizations">
