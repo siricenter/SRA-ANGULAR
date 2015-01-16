@@ -97,9 +97,13 @@ window.app.controller "AreasUsersController", ($scope, $location, $firebase, $ro
 
    
 
-  $scope.AreaAssignemnt = ->
-    ref = new Firebase(firebaseURL + "Users/" + $scope.username + "/Organizations/SRA/Regions")
+  $scope.areaAssignemnt = ->
+    console.log("hi")
+    ref = new Firebase(firebaseURL + "Users/" + $scope.username + "/Organizations/SRA/Countries/"+$scope.country+"/Regions")
     sync = $firebase(ref).$asArray
+    sync.$loaded().then (data) ->
+      console.log(data)
+      return
     ref.push ref.child($scope.region).child($scope.area).set(Name: $scope.area)
     $location.path "/"
     $scope.$apply()

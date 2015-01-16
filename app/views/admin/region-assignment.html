@@ -403,20 +403,22 @@
                   </div>
                   <div class="panel-body no-padding-top">
                     <div class="vpadded">
-                    <ul>
-                    <li ng-repeat="region in regions">{{region.Name}} <ul>
-                    <li ng-repeat = "(key,value) in region.Areas">
-                    {{key}} - <button type="button" class="btn btn-primary btn-xs">Assign</button>
-                    </ul></li>
-
-                    </ul>
-                    </br>
-                   
-                    </div>
-                    <div class="row">
-                      <div class="col-xs-12">
-                        <div>
+                      <form name="myForm" ng-repeat="region in regions">{{region.Name}}
+                      <div ng-repeat = "(key,value) in region.Areas">
+                        <input type="radio"  ng-model="area" ng-value={{key}}>{{key}}
+                        </div>
+                      </form>
+                     
                           
+                        
+                        </br>
+                        
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <div>
+                            
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -429,10 +431,9 @@
       </div>
     </div>
   </div>
-</div>
-<!-- Needed by BSE.Mq.screen() helper in utils.js -->
-<div id="mq">
-</div>
-<!-- Needed by EmVars helper in _emerald.js -->
-<div id="emvars">
-</div>
+  <!-- Needed by BSE.Mq.screen() helper in utils.js -->
+  <div id="mq">
+  </div>
+  <!-- Needed by EmVars helper in _emerald.js -->
+  <div id="emvars">
+  </div>
