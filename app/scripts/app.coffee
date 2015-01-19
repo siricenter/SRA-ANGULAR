@@ -19,7 +19,7 @@ window.app.run ($rootScope, $firebase, firebaseURL) ->
 	onArrLoad = undefined
 	$rootScope.currentUser = {}
 	$rootScope.firebaseSession = localStorage["firebase:session::intense-inferno-7741"]
-	ref = new Firebase(firebaseURL + "Organizations/SRA/Regions")
+	ref = new Firebase(firebaseURL + "organizations/sra/regions")
 	regionsArr = $firebase(ref).$asArray()
 	regions = []
 	onArrLoad = ->
@@ -89,6 +89,9 @@ window.app.config ($routeProvider) ->
 	).when("/areas",
 		templateUrl: "views/areas/index.html"
 		controller: "AreasIndexController"
+	).when("/admin/assign/area/:region",
+		templateUrl: "views/admin/area-assignment.html"
+		controller: "AreasUsersController"
 	).when("/admin/areas/new",
 		templateUrl: "views/areas/region.html"
 		controller: "AreasNewController"

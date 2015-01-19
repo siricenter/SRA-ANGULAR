@@ -389,7 +389,7 @@
           </li>
         </ul>
       </nav>
-      <div class="container-fluid turbo-cols-static turbo-grid-wrap" ng-controller="AreasUsersController" data-ng-init="regionAssignment()">
+      <div class="container-fluid turbo-cols-static turbo-grid-wrap" ng-controller="AreasUsersController" data-ng-init="regionInit()">
         <div class="turbo-grid">
           <!-- ngView:  -->
           <div class="row ng-scope" rel="panels">
@@ -403,19 +403,8 @@
                   </div>
                   <div class="panel-body no-padding-top">
                     <div class="vpadded" ng-repeat="region in regions">
-                    <h2>{{region.Name}}:</h2>
-                      
-                        <label ng-repeat="area in areas">
-                        <input type="checkbox"  checklist-model="areaNames" checklist-value="area.Name">{{area.Name}}
-                        </label>
-                        <button type="button" class="btn btn-primary btn-xs" ng-click="areaAssignment()">Assign</button>
-
-                        
-                        
-                    
-                     
-                          
-                        
+                    <a href = "#/admin/assign/area/{{region.name}}"ng-click="regionAssign()"><h2>{{region.name}}</h2></a>
+       
                         </br>
                         
                       </div>

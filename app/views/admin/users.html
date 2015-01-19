@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row text-center vpadded-row">
         <div class="col-sm-4">
-          <a href="#/admin/ddashboard">
+          <a href="#/admin/dashboard">
             <div class="jump-to-element padded text-gradient-white text-component-shadow">
               <i class="icm icm-screen4 icm-4x">
               </i>
@@ -398,20 +398,20 @@
                 <div class="panel panel-success">
                   <div class="panel-heading">
                     <div class="panel-title text-center">
-                      {{user['First Name']}} {{user['Last Name']}}
+                      {{user['first name']}} {{user['last name']}}
                     </div>
                   </div>
                   <div class="panel-body no-padding-top">
                     <div class="vpadded">
                     <ul>
-                    <li>Email: {{user.Email}}</li>
+                    <li>Email: {{user.email}}</li>
                     Organizations: 
                     <ul> 
-                    <li ng-repeat = "(key, value) in user.Organizations">{{key}}</li>
+                    <li ng-repeat = "(key, value) in user.organizations">{{key}}</li>
                     </ul>
                     Roles:
                     <ul>
-                    <li ng-repeat = "role in user.Organizations.SRA.Roles">{{role}}</li>
+                    <li ng-repeat = "role in user.organizations.sra.roles">{{role}}</li>
                     </ul>
 
                     </ul>
