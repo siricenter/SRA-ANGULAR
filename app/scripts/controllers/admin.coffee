@@ -94,14 +94,6 @@ window.app.controller "AreasUsersController", ($scope, $location, $firebase, $ro
     regions = $firebase(ref).$asArray()
     regions.$loaded().then (data) ->
       $scope.regions = data
-      for region in $scope.regions
-        areaRef = new Firebase(firebaseURL + "Organizations/SRA/Countries/" + $scope.country + "/Regions/"+region.Name+"/Areas")
-        areas = $firebase(areaRef).$asArray()
-        areas.$loaded().then (areasData) ->
-          array = []
-          array.push(areasData)
-          $scope.areas = $scope.areas.concat.apply($scope.areas, array);
-          console.log($scope.areas)
       return
 
    
@@ -110,7 +102,7 @@ window.app.controller "AreasUsersController", ($scope, $location, $firebase, $ro
     console.log $scope.areaNames
     console.log $scope.username
     console.log $scope.country
-    ref = new Firebase(firebaseURL + "Users/" + $scope.username + "/Organizations/SRA/Countries/"+$scope.country+"/Regions/"+)
+    ref = new Firebase(firebaseURL + "Users/" + $scope.username + "/Organizations/SRA/Countries/"+$scope.country+"/Regions")
     sync = $firebase(ref).$asArray()
     sync.$loaded().then (data) ->
       console.log(data)
