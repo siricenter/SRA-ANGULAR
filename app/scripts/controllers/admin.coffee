@@ -82,31 +82,40 @@ window.app.controller "AreasUsersController", ($scope, $location, $firebase, $ro
   $scope.username = localStorage.usernameParam
   $scope.area = localStorage.areaParam
   $scope.country = localStorage.countryParam
+  $scope.areaNames = []
   countryRef = new Firebase(firebaseURL + "Organizations/SRA/Countries")
   countries = $firebase(countryRef).$asArray()
   countries.$loaded().then (data) ->
     $scope.countries = data
     return
   $scope.regionAssignment = ->
+    $scope.areas = []
     ref = new Firebase(firebaseURL + "Organizations/SRA/Countries/" + $scope.country + "/Regions")
     regions = $firebase(ref).$asArray()
     regions.$loaded().then (data) ->
       $scope.regions = data
-      console.log(data)
+      for region in $scope.regions
+        areaRef = new Firebase(firebaseURL + "Organizations/SRA/Countries/" + $scope.country + "/Regions/"+region.Name+"/Areas")
+        areas = $firebase(areaRef).$asArray()
+        areas.$loaded().then (areasData) ->
+          array = []
+          array.push(areasData)
+          $scope.areas = $scope.areas.concat.apply($scope.areas, array);
+          console.log($scope.areas)
       return
 
    
 
-  $scope.areaAssignemnt = ->
-    console.log("hi")
-    ref = new Firebase(firebaseURL + "Users/" + $scope.username + "/Organizations/SRA/Countries/"+$scope.country+"/Regions")
-    sync = $firebase(ref).$asArray
+  $scope.areaAssignment = ->
+    console.log $scope.areaNames
+    console.log $scope.username
+    console.log $scope.country
+    ref = new Firebase(firebaseURL + "Users/" + $scope.username + "/Organizations/SRA/Countries/"+$scope.country+"/Regions/"+)
+    sync = $firebase(ref).$asArray()
     sync.$loaded().then (data) ->
       console.log(data)
       return
-    ref.push ref.child($scope.region).child($scope.area).set(Name: $scope.area)
-    $location.path "/"
-    $scope.$apply()
+    
     return
 
   return

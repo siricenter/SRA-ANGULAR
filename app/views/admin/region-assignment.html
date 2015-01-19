@@ -402,12 +402,17 @@
                     </div>
                   </div>
                   <div class="panel-body no-padding-top">
-                    <div class="vpadded">
-                      <form name="myForm" ng-repeat="region in regions">{{region.Name}}
-                      <div ng-repeat = "(key,value) in region.Areas">
-                        <input type="radio"  ng-model="area" ng-value={{key}}>{{key}}
-                        </div>
-                      </form>
+                    <div class="vpadded" ng-repeat="region in regions">
+                    <h2>{{region.Name}}:</h2>
+                      
+                        <label ng-repeat="area in areas">
+                        <input type="checkbox"  checklist-model="areaNames" checklist-value="area.Name">{{area.Name}}
+                        </label>
+                        <button type="button" class="btn btn-primary btn-xs" ng-click="areaAssignment()">Assign</button>
+
+                        
+                        
+                    
                      
                           
                         

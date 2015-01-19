@@ -9,6 +9,7 @@ window.app = angular.module("sraAngularApp", [
 	"ngSanitize"
 	"ngTouch"
 	"firebase"
+	"checklist-model"
 ])
 
 window.app.run ($rootScope, $firebase, firebaseURL) ->
@@ -31,6 +32,7 @@ window.app.run ($rootScope, $firebase, firebaseURL) ->
 
 	regionsArr.$loaded().then onArrLoad
 	return
+
 
 window.app.config ($routeProvider) ->
 	$routeProvider.when("/",
