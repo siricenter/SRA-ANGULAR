@@ -10,9 +10,6 @@ window.app.controller "LoginController", ($scope, $location, $rootScope, $fireba
       email: email
       password: password
     ).then(->
-      node = undefined
-      userRef = undefined
-      userObj = undefined
       node = email.split("@")
       userRef = new Firebase(firebaseURL + "users/" + node[0])
       userObj = $firebase(userRef).$asObject()
