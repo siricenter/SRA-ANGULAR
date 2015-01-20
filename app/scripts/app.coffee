@@ -9,6 +9,7 @@ window.app = angular.module("sraAngularApp", [
 	"ngSanitize"
 	"ngTouch"
 	"firebase"
+	"checklist-model"
 ])
 
 window.app.run ($rootScope, $firebase, firebaseURL) ->
@@ -18,7 +19,7 @@ window.app.run ($rootScope, $firebase, firebaseURL) ->
 	onArrLoad = undefined
 	$rootScope.currentUser = {}
 	$rootScope.firebaseSession = localStorage["firebase:session::intense-inferno-7741"]
-	ref = new Firebase(firebaseURL + "Organizations/SRA/Regions")
+	ref = new Firebase(firebaseURL + "organizations/sra/regions")
 	regionsArr = $firebase(ref).$asArray()
 	regions = []
 	onArrLoad = ->
@@ -31,6 +32,7 @@ window.app.run ($rootScope, $firebase, firebaseURL) ->
 
 	regionsArr.$loaded().then onArrLoad
 	return
+
 
 window.app.config ($routeProvider) ->
 	$routeProvider.when("/",
@@ -78,9 +80,18 @@ window.app.config ($routeProvider) ->
 	).when("/areas/region-assignment/:name",
 		templateUrl: "views/areas/new.html"
 		controller: "AreasNewController"
+	).when("/admin/users/:id/country-assignment",
+		templateUrl: "views/admin/country-assignment.html"
+		controller: "AreasUsersController"
+	).when("/admin/assign/country/:country",
+		templateUrl: "views/admin/region-assignment.html"
+		controller: "AreasUsersController"
 	).when("/areas",
 		templateUrl: "views/areas/index.html"
 		controller: "AreasIndexController"
+	).when("/admin/assign/area/:region",
+		templateUrl: "views/admin/area-assignment.html"
+		controller: "AreasUsersController"
 	).when("/admin/areas/new",
 		templateUrl: "views/areas/region.html"
 		controller: "AreasNewController"
@@ -98,7 +109,7 @@ window.app.config ($routeProvider) ->
 		controller: "HouseholdsController"
 	).when("/admin/householdsindex",
 		templateUrl: "views/admin/households.html"
-		controller: "regionShowCtrl"
+		controller: "AdminHouseholdsController"
 	).when("/households/:id",
 		templateUrl: "views/households/show.html"
 		controller: "HouseholdsController"

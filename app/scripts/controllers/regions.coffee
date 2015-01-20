@@ -15,7 +15,7 @@ window.app.controller "regionsIndexController", [
     init() acts as a constructor for the controller.
     ###
     $scope.init = ->
-      regionsURL = firebaseURL + "Organizations/SRA/Regions"
+      regionsURL = firebaseURL + "organizations/sra/regions"
       firebaseRef = new $window.Firebase(regionsURL)
       $scope.regions = $firebase(firebaseRef).$asArray()
       return
@@ -47,7 +47,7 @@ window.app.controller "regionShowCtrl", [
     init() acts as a constructor for the controller.
     ###
     $scope.init = ->
-      regionURL = firebaseURL + "Organizations/SRA/Regions/" + $routeParams.name.replace(RegExp(" ", "g"), "%20")
+      regionURL = firebaseURL + "organizations/sra/regions/" + $routeParams.name.replace(RegExp(" ", "g"), "%20")
       firebaseRef = new $window.Firebase(regionURL)
       $scope.region = $firebase(firebaseRef).$asObject()
       return
@@ -64,7 +64,7 @@ window.app.controller "regionNewCtrl", [
     "use strict"
     
     # variables
-    URL = firebaseURL + "Organizations/SRA/Regions/"
+    URL = firebaseURL + "organizations/sra/regions/"
     firebaseRef = new $window.Firebase(URL)
     sync = $firebase(firebaseRef)
     $scope.errors = []
@@ -88,7 +88,7 @@ window.app.controller "regionEditCtrl", [
     "use strict"
     
     # variables
-    regionURL = firebaseURL + "Organizations/SRA/Regions/" + $routeParams.name.replace(RegExp(" ", "g"), "%20")
+    regionURL = firebaseURL + "organizations/sra/regions/" + $routeParams.name.replace(RegExp(" ", "g"), "%20")
     firebaseRef = new $window.Firebase(regionURL)
     $scope.region = $firebase(firebaseRef).$asObject()
     $scope.errors = []

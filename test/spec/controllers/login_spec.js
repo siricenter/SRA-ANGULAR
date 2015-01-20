@@ -17,8 +17,7 @@ describe( 'Controller: LoginController', function () {
 	};
 
 	// Initialize the controller and a mock scope
-	beforeEach( 
-			inject( setup ));
+	beforeEach(inject(setup));
 
 	it( 'has the login function', function () {
 		expect( scope ).not.toBeNull();

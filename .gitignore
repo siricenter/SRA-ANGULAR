@@ -6,3 +6,5 @@ dist/
 bower_components
 app/build/javascripts/*.js
 test/protractor/build/*.js
+sra_angular.sublime-project
+sra_angular.sublime-workspace

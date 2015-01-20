@@ -14,18 +14,18 @@ window.app.controller "LoginController", ($scope, $location, $rootScope, $fireba
       userRef = undefined
       userObj = undefined
       node = email.split("@")
-      userRef = new Firebase(firebaseURL + "Users/" + node[0])
+      userRef = new Firebase(firebaseURL + "users/" + node[0])
       userObj = $firebase(userRef).$asObject()
       userObj.$loaded().then((data) ->
         $scope.fromService = orgBuilder.userCache(data)
         return
       ).then ->
-        if $rootScope.currentUser.organizations.Roles isnt `undefined`
-          if $rootScope.currentUser.organizations.Roles.Name is "Admin"
+        if $rootScope.currentUser.organizations.roles isnt `undefined`
+          if $rootScope.currentUser.organizations.roles.name is "admin"
             $scope.fromService = orgBuilder.orgCache(firebaseURL)
             $location.path "/admin/dashboard"
             $scope.$apply()
-          else if $rootScope.currentUser.organizations.Roles.Name is "Developer"
+          else if $rootScope.currentUser.organizations.roles.name is "developer"
             $location.path "/dashboard"
             $scope.$apply()
           else

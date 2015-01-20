@@ -16,7 +16,7 @@
         <div class="col-sm-4">
           <a href="org_admin/cards/turbocards.html">
             <div class="jump-to-element padded text-gradient-white text-component-shadow">
-              <i class="icm icm-html5 icm-4x">
+              <i class="icm icm-office icm-4x">
               </i>
               <h5>
               Org Admin
@@ -29,7 +29,7 @@
         <div class="col-sm-4">
           <a href="#/admin/users">
             <div class="jump-to-element padded text-gradient-white text-component-shadow">
-              <i class="icm icm-chart icm-4x">
+              <i class="icm icm-user icm-4x">
               </i>
               <h5>
               User Admin
@@ -40,7 +40,7 @@
         <div class="col-sm-4">
           <a href="#/admin/security">
             <div class="jump-to-element padded text-gradient-white text-component-shadow">
-              <i class="icm icm-clipboard3 icm-4x">
+              <i class="icm icm-lock icm-4x">
               </i>
               <h5>
               Security Admin
@@ -188,7 +188,7 @@
           <ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
             <li class="active">
               <a rel="popover-sidebar" data-container="body" data-placement="right" data-content="A mashup of components, mainly visual indicators.
-                " href="admin/dashboard">
+                " href="#/admin/dashboard">
                 <i class="oc-partial-icon icm icm-screen4">
                 </i>
                 <span class="oc-partial-menu-item">
@@ -197,9 +197,9 @@
               </a>
             </li>
             <li class="">
-              <a class="collapsed" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Visual indicators like charts and graphs, bars, pies, gauges and more.
+              <a class="collapsed" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Visual indicators like home3s and graphs, bars, pies, gauges and more.
                 " href="#/admin/householdsindex">
-                <i class="oc-partial-icon icm icm-chart">
+                <i class="oc-partial-icon icm icm-home3">
                 </i>
                 <span class="oc-partial-menu-item">
                 Households
@@ -209,7 +209,7 @@
             <li class="dropdown">
               <a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!
                 " href="#uid392a71038bd462a6657abe6f74fba7b8">
-                <i class="oc-partial-icon icm icm-html5">
+                <i class="oc-partial-icon icm icm-office">
                 </i>
                 <span class="oc-partial-menu-item">
                 Org Admin
@@ -245,9 +245,9 @@
               </ul>
             </li>
             <li class="">
-              <a class="collapsed" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Visual indicators like charts and graphs, bars, pies, gauges and more.
+              <a class="collapsed" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Visual indicators like home3s and graphs, bars, pies, gauges and more.
                 " href="#/admin/users">
-                <i class="oc-partial-icon icm icm-chart">
+                <i class="oc-partial-icon icm icm-user">
                 </i>
                 <span class="oc-partial-menu-item">
                 User Admin
@@ -258,7 +258,7 @@
               <a class="collapsed" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Forms and inputs, validations, form extensions and custom controll
                 for all your data needs, easy peasy.
                 " href="#/admin/security">
-                <i class="oc-partial-icon icm icm-clipboard3">
+                <i class="oc-partial-icon icm icm-lock">
                 </i>
                 <span class="oc-partial-menu-item">
                 Security Admin
@@ -301,7 +301,7 @@
             <div class="padded">
               <div class="row">
                 <div class="col-xs-6">
-                  <div class="easy-pie-chart easy-pie-chart-normal" data-percent="40" data-color="black-dk" data-size="80" data-line-width="8" data-scale-color="false" data-track-color="rgba(255,255,255,.05)">
+                  <div class="easy-pie-home3 easy-pie-home3-normal" data-percent="40" data-color="black-dk" data-size="80" data-line-width="8" data-scale-color="false" data-track-color="rgba(255,255,255,.05)">
                     <span>
                     40%</span>
                   </div>
@@ -309,7 +309,7 @@
                   Income</p>
                 </div>
                 <div class="col-xs-6">
-                  <div class="easy-pie-chart easy-pie-chart-normal" data-percent="25" data-color="black-dk" data-size="80" data-line-width="8" data-scale-color="false" data-track-color="rgba(255,255,255,.05)">
+                  <div class="easy-pie-home3 easy-pie-home3-normal" data-percent="25" data-color="black-dk" data-size="80" data-line-width="8" data-scale-color="false" data-track-color="rgba(255,255,255,.05)">
                     <span>
                     25%</span>
                   </div>
@@ -333,7 +333,7 @@
           </li>
         </ul>
         <a class="navbar-brand" href="dashboard.html">
-          <img src="../images/emerald_flat.png">
+          
           <span class="text-gradient-success-dk">
           Company Name
           </span>
@@ -398,22 +398,20 @@
                 <div class="panel panel-success">
                   <div class="panel-heading">
                     <div class="panel-title text-center">
-                      {{household.Name}}
+                      {{household.name}} Household
                     </div>
                   </div>
                   <div class="panel-body no-padding-top">
-                    
                     <div class="vpadded">
                       <div style="height: 186px;" class="text-center padded-top">
-                        <i class="icm icm-html52 icm-4x text-primary" style="font-size: 128px;"></i>
+                       Country: {{household.country}}</br>
+                       Region: {{household.region}}</br>
+                       Area: {{household.area}}
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-xs-4 text-center" ng-repeat="members in household.Members">
-                        <div>
-                          <i class="icm icm-heart7 text-danger"></i>
-                        </div>
-                        {{member.Name}}
+                      <div class="col-xs-5" ng-repeat="member in household.Members">
+                        Name: {{member.name}} Relationship:{{member.relationship}} Gender: {{member.gender}}
                       </div>
                       
                     </div>
