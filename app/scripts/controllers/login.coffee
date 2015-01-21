@@ -1,6 +1,5 @@
 window.app.controller "LoginController", ($scope, $location, $rootScope, $firebase, firebaseURL, $firebaseAuth, orgBuilder) ->
   $rootScope.title = "Login"
-  loginFunction = undefined
   loginFunction = ->
     email = $scope.user.email
     password = $scope.user.password
@@ -17,7 +16,7 @@ window.app.controller "LoginController", ($scope, $location, $rootScope, $fireba
         $scope.fromService = orgBuilder.userCache(data)
         return
       ).then ->
-        if $rootScope.currentUser.organizations.roles isnt `undefined`
+        if $rootScope.currentUser.organizations.roles isnt undefined
           if $rootScope.currentUser.organizations.roles.name is "admin"
             $scope.fromService = orgBuilder.orgCache(firebaseURL)
             $location.path "/admin/dashboard"
@@ -40,11 +39,11 @@ window.app.controller "LoginController", ($scope, $location, $rootScope, $fireba
 window.app.controller "DashboardController", ($scope, $location, $firebase, $rootScope) ->
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
   $rootScope.title = "Dashboard"
+
   $scope.user = $rootScope.currentUser
   $scope.areas = $rootScope.currentUser.areas
   $scope.firstname = $rootScope.currentUser.firstName
   $scope.lastName = $rootScope.currentUser.lastName
 
-  if $rootScope.currentUser.roles is "Admin"
-    $location.path "/admin/dashboard"
+  $location.path "/admin/dashboard" if $rootScope.currentUser.roles is "Admin"
   return

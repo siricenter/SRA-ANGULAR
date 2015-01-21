@@ -30,11 +30,12 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
 	  'bower_components/firebase/firebase.js',
 	  'bower_components/angularfire/dist/angularfire.js',
+	  'bower_components/checklist-model/checklist-model.js',
 
-      'app/build/javascripts/app.js',
-      'app/build/javascripts/main.js',
-	  'app/build/javascripts/services.js',
-	  'app/build/javascripts/controllers.js',
+      'app/emerald/build/javascripts/app.js',
+      'app/emerald/build/javascripts/main.js',
+	  'app/emerald/build/javascripts/services.js',
+	  'app/emerald/build/javascripts/controllers.js',
 
       'test/mock/**/*.js',
       'test/spec/**/*.js'
