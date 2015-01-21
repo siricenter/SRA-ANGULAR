@@ -28,5 +28,5 @@ When /^fill out the login form$/ do
 end
 
 Then /^I should be on the admin dashboard page$/ do
-	expect(current_path).to eq('http://localhost:9000/#/admin/dashboard')
+	expect(current_url).to eq('http://localhost:9000/#/admin/dashboard')
 end

@@ -11,3 +11,5 @@ namespace :cucumber do
 		t.cucumber_opts = "features --format pretty --tags @wip"
 	end
 end
+
+task :default => 'cucumber:wip'

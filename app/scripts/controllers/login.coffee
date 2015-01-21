@@ -24,10 +24,8 @@ window.app.controller "LoginController", ($scope, $location, $rootScope, $fireba
           if $rootScope.currentUser.organizations.roles.name is "admin"
             $scope.fromService = orgBuilder.orgCache(firebaseURL)
             $location.path "/admin/dashboard"
-            $scope.$apply()
           else if $rootScope.currentUser.organizations.roles.name is "developer"
             $location.path "/dashboard"
-            $scope.$apply()
           else
             $location.path "/dashboard"
         return
@@ -52,5 +50,4 @@ window.app.controller "DashboardController", ($scope, $location, $firebase, $roo
 
   if $rootScope.currentUser.roles is "Admin"
     $location.path "/admin/dashboard"
-    $scope.$apply()
   return

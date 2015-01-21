@@ -177,7 +177,7 @@ module.exports = function (grunt) {
 		filerev: {
 			dist: {
 				src: [
-					'<%= yeoman.dist %>/build/javascripts/{,*/}*.js',
+					'<%= yeoman.dist %>/emerald/build/javascripts/{,*/}*.js',
 					'<%= yeoman.dist %>/styles/{,*/}*.css',
 					'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
 					'<%= yeoman.dist %>/styles/fonts/*'
@@ -361,10 +361,10 @@ module.exports = function (grunt) {
 		coffee: {
 			compile: {
 				files: {
-					'app/build/javascripts/app.js': 'app/scripts/app.coffee',
-					'app/build/javascripts/main.js': 'app/scripts/main.coffee',
-					'app/build/javascripts/services.js': 'app/scripts/services/*.coffee',
-					'app/build/javascripts/controllers.js': 'app/scripts/controllers/*.coffee',
+					'app/emerald/build/javascripts/app.js': 'app/scripts/app.coffee',
+					'app/emerald/build/javascripts/main.js': 'app/scripts/main.coffee',
+					'app/emerald/build/javascripts/services.js': 'app/scripts/services/*.coffee',
+					'app/emerald/build/javascripts/controllers.js': 'app/scripts/controllers/*.coffee',
 				}
 			},
 		}
