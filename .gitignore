@@ -4,7 +4,7 @@ dist/
 .sass-cache
 .junk
 bower_components
-app/build/javascripts/*.js
+app/emerald/build/javascripts/*.js
 test/protractor/build/*.js
 sra_angular.sublime-project
 sra_angular.sublime-workspace
