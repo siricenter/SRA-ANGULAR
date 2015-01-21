@@ -36,10 +36,10 @@ window.app.run ($rootScope, $firebase, firebaseURL) ->
 
 window.app.config ($routeProvider) ->
 	$routeProvider.when("/",
-		templateUrl: "/build/login.html"
+		templateUrl: "/views/login/login.html"
 		controller: "LoginController"
 	).when("/login",
-		templateUrl: "/build/login.html"
+		templateUrl: "/views/login/login.html"
 		controller: "LoginController"
 	).when("/admin/regions",
 		templateUrl: "views/regions/index.html"

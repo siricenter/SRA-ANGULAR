@@ -13,8 +13,6 @@ window.app.service "orgBuilder", ($firebase, $rootScope) ->
 			localStorage.setItem "SRA", JSON.stringify(sra)
 
 	@userCache = (obj) ->
-		user = undefined
-		storedUser = undefined
 		user = {}
 		user.email = obj.email
 		user.firstName = obj["first name"]

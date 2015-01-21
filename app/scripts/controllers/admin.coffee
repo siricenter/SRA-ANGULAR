@@ -24,12 +24,10 @@ window.app.controller "AdminAreasController", ($scope, $location, $firebase, $ro
 window.app.controller "AdminDashboardController", ($scope, $location, $firebase, $routeParams, $rootScope, orgBuilder) ->
   $rootScope.title = "Dashboard"
   $scope.fromService = orgBuilder.getHouseholdsFromOrg()
-  console.log($scope.fromService)
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
   $rootScope.sra = JSON.parse(localStorage.sra)
   $scope.firstName = $rootScope.currentUser.firstName
   $scope.lastName = $rootScope.currentUser.lastName
-  console.log($scope.firstName)
   return
 
 window.app.controller "AdminUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
@@ -43,7 +41,6 @@ window.app.controller "AdminUsersController", ($scope, $location, $firebase, $ro
       sync = $firebase(fb).$asObject()
       
       sync.$loaded().then (userObj) ->
-        console.log(userObj)
         if(userObj.email != undefined)
           $scope.users.push userObj
         
@@ -98,13 +95,10 @@ window.app.controller "AreasUsersController", ($scope, $location, $firebase, $ro
       return
 
   $scope.regionAssign = ->
-    console.log($scope.country)
-    console.log($scope.region)
     ref = new Firebase(firebaseURL + "organizations/sra/countries/" + $scope.country + "/regions/" + $scope.region + "/areas")
     sync = $firebase(ref).$asArray()
     sync.$loaded().then (data) ->
       $scope.areas = data
-      console.log($scope.areas)
       return
     return
 
@@ -112,13 +106,9 @@ window.app.controller "AreasUsersController", ($scope, $location, $firebase, $ro
    
 
   $scope.areaAssignment = ->
-    console.log $scope.areaNames
-    console.log $scope.username
-    console.log $scope.country
     ref = new Firebase(firebaseURL + "users/" + $scope.username + "/organizations/sra/countries/"+$scope.country+"/regions")
     sync = $firebase(ref).$asArray()
     sync.$loaded().then (data) ->
-      console.log(data)
       return
     
     return
@@ -184,6 +174,4 @@ window.app.controller "AreasEditController", ($scope, $location, $firebase, $rou
 
 window.app.controller "AdminHouseholdsController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder) ->
   $scope.fromService = orgBuilder.getHouseholdsFromOrg();
-  console.log($rootScope.households)
   return
-
