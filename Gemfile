@@ -8,6 +8,7 @@ gem "middleman", "~> 3.3.3"
 gem 'selenium-webdriver', '~> 2.44.0'
 gem 'rspec', '~> 3.1.0'
 gem 'poltergeist', '~> 1.5.1'
+gem 'compass', '~> 1.0.3'
 
 gem 'rake', '~> 10.4.2'
 
