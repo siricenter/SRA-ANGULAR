@@ -1,33 +1,22 @@
 (function() {
+  window.app.service("currentUser", function($rootScope) {
+    this.currentUser = function() {
+      if ($rootScope.currentUser != null) {
+        return $rootScope.currentUser;
+      }
+      return sessionStorage.getItem('userId');
+    };
+  });
+
+}).call(this);
+
+(function() {
   window.app.service("orgBuilder", function($firebase, $rootScope) {
     var flatten;
-    this.orgCache = function(ref) {
-      var fireRef, org;
-      fireRef = new Firebase(ref + "organizations/sra");
-      org = $firebase(fireRef).$asObject();
-      return org.$loaded().then(function(data) {
-        var sra;
-        sra = {};
-        sra.id = data.$id;
-        sra.Countries = [];
-        sra.Countries = data.countries;
-        sra["Question Sets"] = data["Question Sets"];
-        sra.Roles = data.roles;
-        sra.Users = data.users;
-        return localStorage.setItem("SRA", JSON.stringify(sra));
-      });
-    };
-    this.userCache = function(obj) {
-      var storedUser, user;
-      user = {};
-      user.email = obj.email;
-      user.firstName = obj["first name"];
-      user.lastName = obj["last name"];
-      user.organizations = obj.organizations.sra;
-      sessionStorage.setItem("user", JSON.stringify(user));
-      storedUser = sessionStorage.getItem("user");
-      $rootScope.currentUser = {};
-      $rootScope.currentUser = JSON.parse(storedUser);
+    this.userCache = function(user) {
+      $rootScope.currentUser = user;
+      sessionStorage.setItem("userId", JSON.stringify(user.$id));
+      return user;
     };
     this.getAreasFromRegion = function(region) {
       var ref, sync;

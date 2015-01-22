@@ -1,4 +1,5 @@
 "use strict"
+
 window.app.controller "AdminAreasController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
   $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
   regions = JSON.parse(localStorage.regions)
@@ -21,11 +22,15 @@ window.app.controller "AdminAreasController", ($scope, $location, $firebase, $ro
       i++
   return
 
-window.app.controller "AdminDashboardController", ($scope, $location, $firebase, $routeParams, $rootScope, orgBuilder) ->
+window.app.controller "AdminDashboardController", ($scope, $location, $firebase, $routeParams, $rootScope, orgBuilder, currentUser) ->
   $rootScope.title = "Dashboard"
-  $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
-  $scope.firstName = $rootScope.currentUser.firstName
-  $scope.lastName = $rootScope.currentUser.lastName
+
+  user = currentUser.currentUser()
+  if user?
+    $scope.firstName = user["first name"]
+    $scope.lastName = user["last name"]
+  else
+    $location.path "/login"
   return
 
 window.app.controller "AdminUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
@@ -33,7 +38,7 @@ window.app.controller "AdminUsersController", ($scope, $location, $firebase, $ro
   $scope.users = []
   ref = new Firebase(firebaseURL + "organizations/sra/users")
   users = $firebase(ref).$asArray()
-  users.$loaded().then (data) ->   
+  users.$loaded().then (data) ->
     for user in data
       fb = new Firebase(firebaseURL + "users/"+ user.$id)
       sync = $firebase(fb).$asObject()

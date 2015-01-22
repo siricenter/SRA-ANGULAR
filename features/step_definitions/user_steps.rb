@@ -12,9 +12,6 @@ Capybara.register_driver :poltergeist do |app|
 	Capybara::Poltergeist::Driver.new(app, options)
 end
 
-Given /^that I am logged in as an administrator$/ do
-end
-
 When /^I visit the users page$/ do
 	visit 'http://localhost:9000/#/admin/users'
 end

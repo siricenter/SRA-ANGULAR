@@ -13,10 +13,6 @@ window.app = angular.module("sraAngularApp", [
 ])
 
 window.app.run ($rootScope, $firebase, firebaseURL) ->
-	ref = undefined
-	regionsArr = undefined
-	regions = undefined
-	onArrLoad = undefined
 	$rootScope.currentUser = {}
 	$rootScope.firebaseSession = localStorage["firebase:session::intense-inferno-7741"]
 	ref = new Firebase(firebaseURL + "organizations/sra/regions")

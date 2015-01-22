@@ -1,28 +1,9 @@
 window.app.service "orgBuilder", ($firebase, $rootScope) ->
-	@orgCache = (ref) ->
-		fireRef = new Firebase(ref + "organizations/sra")
-		org = $firebase(fireRef).$asObject()
-		org.$loaded().then (data) ->
-			sra = {}
-			sra.id = data.$id
-			sra.Countries = []
-			sra.Countries = data.countries
-			sra["Question Sets"] = data["Question Sets"]
-			sra.Roles = data.roles
-			sra.Users = data.users
-			localStorage.setItem "SRA", JSON.stringify(sra)
+	@userCache = (user) ->
+		$rootScope.currentUser = user
+		sessionStorage.setItem "userId", JSON.stringify(user.$id)
 
-	@userCache = (obj) ->
-		user = {}
-		user.email = obj.email
-		user.firstName = obj["first name"]
-		user.lastName = obj["last name"]
-		user.organizations = obj.organizations.sra
-		sessionStorage.setItem "user", JSON.stringify(user)
-		storedUser = sessionStorage.getItem("user")
-		$rootScope.currentUser = {}
-		$rootScope.currentUser = JSON.parse(storedUser)
-		return
+		return user
 
 	@getAreasFromRegion = (region) ->
 		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/sra/countries/" + region.country + "/regions/" + region.name + "/Areas")
