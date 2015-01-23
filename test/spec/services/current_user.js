@@ -18,9 +18,9 @@ describe( 'Service: currentUser', function() {
 			expect(subject.currentUser).toBeDefined();
 		});
 
-		it( 'returns nil if there is no current user', function() {
+		it( 'returns null if there is no current user', function() {
 			$rootScope.currentUser = undefined;
-			spyOn( sessionStorage, 'getItem' ).and.returnValue(undefined);
+			//spyOn( sessionStorage, 'getItem' ).and.returnValue(undefined);
 			expect( subject.currentUser() ).not.toBeDefined();
 		});
 

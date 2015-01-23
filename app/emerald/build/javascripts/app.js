@@ -4,7 +4,6 @@
 
   window.app.run(function($rootScope, $firebase, firebaseURL) {
     var onArrLoad, ref, regions, regionsArr;
-    $rootScope.currentUser = {};
     $rootScope.firebaseSession = localStorage["firebase:session::intense-inferno-7741"];
     ref = new Firebase(firebaseURL + "organizations/sra/regions");
     regionsArr = $firebase(ref).$asArray();

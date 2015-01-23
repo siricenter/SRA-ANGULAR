@@ -16,7 +16,8 @@ Given /^that I am logged in as an admin$/ do
 	fill_in 'password', with: 'admin1234'
 
 	click_button 'Login'
-	sleep 3 # The login process takes so long that we have to do this
+
+	sleep 2
 end
 
 When(/^I visit the admin dashboard page$/) do

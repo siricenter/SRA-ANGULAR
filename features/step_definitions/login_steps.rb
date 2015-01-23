@@ -24,7 +24,7 @@ When /^fill out the login form$/ do
 	fill_in 'password', with: 'admin1234'
 
 	click_button 'Login'
-	sleep 3
+	sleep 2
 end
 
 Then /^I should be on the admin dashboard page$/ do

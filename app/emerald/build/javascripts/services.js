@@ -1,10 +1,15 @@
 (function() {
   window.app.service("currentUser", function($rootScope) {
     this.currentUser = function() {
+      var stored;
       if ($rootScope.currentUser != null) {
         return $rootScope.currentUser;
       }
-      return sessionStorage.getItem('userId');
+      stored = sessionStorage.getItem('userId');
+      if (stored != null) {
+        return stored;
+      }
+      return void 0;
     };
   });
 
