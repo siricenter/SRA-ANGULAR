@@ -1,12 +1,13 @@
 window.app.service "orgBuilder", ($firebase, $rootScope) ->
 	@userCache = (user) ->
 		$rootScope.currentUser = user
-		sessionStorage.setItem "userId", JSON.stringify(user.$id)
+		id = user.$id
+		sessionStorage.setItem "userId", id
 
 		return user
 
 	@getAreasFromRegion = (region) ->
-		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/sra/countries/" + region.country + "/regions/" + region.name + "/Areas")
+		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/sra/countries/" + region.country + "/regions/" + region.name + "/areas")
 		sync = $firebase(ref).$asArray().then()
 		sync.$loaded().then (data) ->
 			data

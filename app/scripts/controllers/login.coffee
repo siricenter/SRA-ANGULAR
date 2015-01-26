@@ -1,51 +1,25 @@
-window.app.controller "LoginController", ($scope, $location, $rootScope, $firebase, firebaseURL, $firebaseAuth, orgBuilder, currentUser) ->
+window.app.controller "LoginController", ($scope, $location, $rootScope, currentUser) ->
 
 	$rootScope.title = "Login"
 
 	loginFunction = ->
 		email = $scope.user.email
 		password = $scope.user.password
-		ref = new Firebase(firebaseURL)
-		$scope.authObj = $firebaseAuth(ref)
-		$scope.authObj.$authWithPassword(
-			email: email
-			password: password
-		).then(authFunction(email))
-		.catch (error) ->
-			console.error "Authentication Failed:", error
-			return
 
-	authFunction = (email) ->
-		() ->
-			node = email.split("@")
-			userRef = new Firebase(firebaseURL + "users/" + node[0])
-			userObj = $firebase(userRef).$asObject()
-			userObj.$loaded().then (userData)->
-				orgBuilder.userCache(userData)
-				user = currentUser.currentUser()
-				try
-					if user.organizations.sra.roles.name is "admin"
-						$location.path "/admin/dashboard"
-					else if $rootScope.currentUser.organizations.sra.roles.name is "developer"
-						$location.path "/dashboard"
-					else
-						$location.path "/dashboard"
-					return
-				catch error
-					console.log 'Error thrown'
-					throw error
+		currentUser.authenticate(email, password)
 
 	$scope.submit = loginFunction
 	return
 
-window.app.controller "DashboardController", ($scope, $location, $firebase, $rootScope) ->
-	$rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
+window.app.controller "DashboardController", ($scope, $location, $rootScope, currentUser) ->
 	$rootScope.title = "Dashboard"
 
-	$scope.user = $rootScope.currentUser
-	$scope.areas = $rootScope.currentUser.areas
-	$scope.firstname = $rootScope.currentUser.firstName
-	$scope.lastName = $rootScope.currentUser.lastName
+	user = currentUser.currentUser()
 
-	$location.path "/admin/dashboard" if $rootScope.currentUser.roles is "Admin"
+	$scope.user = user
+	$scope.areas = user.areas
+	$scope.firstname = user.firstName
+	$scope.lastName = user.lastName
+
+	$location.path "/admin/dashboard" if user.roles is "Admin"
 	return

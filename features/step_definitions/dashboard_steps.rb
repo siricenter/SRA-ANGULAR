@@ -17,7 +17,7 @@ Given /^that I am logged in as an admin$/ do
 
 	click_button 'Login'
 
-	sleep 2
+	sleep 3
 end
 
 When(/^I visit the admin dashboard page$/) do

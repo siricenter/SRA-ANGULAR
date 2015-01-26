@@ -1,15 +1,68 @@
 (function() {
-  window.app.service("currentUser", function($rootScope) {
+  window.app.service("currentUser", function($rootScope, $location, $firebase, $firebaseAuth, firebaseURL, orgBuilder) {
     this.currentUser = function() {
       var stored;
+      stored = sessionStorage.getItem("userId");
       if ($rootScope.currentUser != null) {
-        return $rootScope.currentUser;
+        return new Promise(function(resolve, reject) {
+          return resolve($rootScope.currentUser);
+        });
+      } else if (stored != null) {
+        return this.getUser(stored);
+      } else {
+        return new Promise(function(resolve, reject) {
+          return reject(Error("No current user"));
+        });
       }
-      stored = sessionStorage.getItem('userId');
-      if (stored != null) {
-        return stored;
+    };
+    this.authenticate = function(email, password) {
+      var authObj, authed, ref;
+      authed = this.authed(email);
+      ref = new Firebase(firebaseURL);
+      authObj = $firebaseAuth(ref);
+      return authObj.$authWithPassword({
+        email: email,
+        password: password
+      }).then(authed)["catch"](function(error) {
+        console.error("Authentication Failed:", error);
+      });
+    };
+    this.getUser = function(userName) {
+      var ref, url, userObj;
+      url = "" + firebaseURL + "/users/" + userName;
+      ref = new Firebase(url);
+      userObj = $firebase(ref).$asObject();
+      return userObj.$loaded().then(function(user) {
+        return $rootScope.currentUser = user;
+      });
+    };
+    this.authed = function(email) {
+      var currentUser, getUser, loginRedirect;
+      currentUser = this;
+      getUser = this.getUser;
+      loginRedirect = this.loginRedirect;
+      return function() {
+        var userName;
+        userName = email.split("@").shift();
+        return getUser(userName).then(function(userData) {
+          orgBuilder.userCache(userData);
+          return currentUser.currentUser().then(loginRedirect);
+        });
+      };
+    };
+    this.loginRedirect = function(user) {
+      var error;
+      try {
+        if (user.organizations.sra.roles.name === "admin") {
+          $location.path("/admin/dashboard");
+        } else {
+          $location.path("/dashboard");
+        }
+      } catch (_error) {
+        error = _error;
+        console.log("Error thrown");
+        throw error;
       }
-      return void 0;
     };
   });
 
@@ -19,13 +72,15 @@
   window.app.service("orgBuilder", function($firebase, $rootScope) {
     var flatten;
     this.userCache = function(user) {
+      var id;
       $rootScope.currentUser = user;
-      sessionStorage.setItem("userId", JSON.stringify(user.$id));
+      id = user.$id;
+      sessionStorage.setItem("userId", id);
       return user;
     };
     this.getAreasFromRegion = function(region) {
       var ref, sync;
-      ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/sra/countries/" + region.country + "/regions/" + region.name + "/Areas");
+      ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/sra/countries/" + region.country + "/regions/" + region.name + "/areas");
       sync = $firebase(ref).$asArray().then();
       return sync.$loaded().then(function(data) {
         return data;

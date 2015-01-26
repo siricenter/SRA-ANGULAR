@@ -1,12 +1,13 @@
 "use strict"
-window.app.controller "HouseholdsController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
-  $rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
-  regions = $scope.currentUser.regions
+window.app.controller "HouseholdsController", ($scope, $routeParams, $firebase, firebaseURL, currentUser) ->
+
+  regions = currentUser.currentUser().regions
   area = $routeParams.area
   $scope.households = []
-  loaded = (data) ->
-    if data.Resources isnt `undefined`
-      $scope.households.push data
+
+  loaded = (area) ->
+    if area.resources?
+      $scope.households.push area
       for family of $scope.households
         $scope.households.families = Object.keys($scope.households[family].resources)
         familia = []
