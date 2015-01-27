@@ -80,8 +80,8 @@
     }).when("/admin/assign/area/:region", {
       templateUrl: "views/admin/area-assignment.html",
       controller: "AreasUsersController"
-    }).when("/admin/areas/new", {
-      templateUrl: "views/areas/region.html",
+    }).when("/areas/new", {
+      templateUrl: "views/areas/new.html",
       controller: "AreasNewController"
     }).when("/areas/show/:name", {
       templateUrl: "views/areas/show.html",

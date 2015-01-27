@@ -87,22 +87,13 @@
       });
     };
     this.getRegionsFromCountry = function(country) {
-      var ref, sync;
-      ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/sra/countries/" + country + "/regions");
-      sync = $firebase(ref).$asArray();
-      return sync.$loaded().then(function(data) {
-        return data;
-      });
+      return country.regions;
     };
     this.getCountriesFromOrg = function() {
-      var countries, ref, sync;
+      var countries, ref;
       countries = {};
       ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/sra/countries");
-      sync = $firebase(ref).$asArray();
-      countries.data = sync.$loaded().then(function(data) {
-        return data;
-      });
-      return countries;
+      return $firebase(ref).$asArray().$loaded();
     };
     flatten = function(array) {
       return [].concat.apply([], array);

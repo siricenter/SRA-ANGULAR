@@ -13,19 +13,16 @@ window.app.service "orgBuilder", ($firebase, $rootScope) ->
 			data
 
 	@getRegionsFromCountry = (country) ->
-		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/sra/countries/" + country + "/regions")
-		sync = $firebase(ref).$asArray()
-		sync.$loaded().then (data) ->
-			data
+		country.regions
+		#ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/sra/countries/" + country + "/regions")
+		#sync = $firebase(ref).$asArray()
+		#sync.$loaded().then (data) ->
+		#	data
 
 	@getCountriesFromOrg = ->
 		countries = {}
 		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/sra/countries")
-		sync = $firebase(ref).$asArray()
-		countries.data = sync.$loaded().then((data) ->
-			data
-		)
-		countries
+		$firebase(ref).$asArray().$loaded()
 	
 	flatten = (array) ->
 		return [].concat.apply([], array) # flatten array
