@@ -389,7 +389,7 @@
           </li>
         </ul>
       </nav>
-      <div class="container-fluid turbo-cols-static turbo-grid-wrap" ng-controller="AreasUsersController" data-ng-init="regionInit()">
+      <div class="container-fluid turbo-cols-static turbo-grid-wrap" ng-controller="AreasUsersController">
         <div class="turbo-grid">
           <!-- ngView:  -->
           <div class="row ng-scope" rel="panels">
@@ -398,13 +398,14 @@
                 <div class="panel panel-success">
                   <div class="panel-heading">
                     <div class="panel-title text-center">
-                      Assign user to Region:
+                      <h2>Are you sure you want to delete {{name}}?</h2>
                     </div>
                   </div>
                   <div class="panel-body no-padding-top">
-                    <div class="vpadded" ng-repeat="region in regions">
-                    <a href = "#/admin/assign/area/{{region.name}}"ng-click="regionAssign()"><h2>{{region.name}}</h2></a>
-       
+                    <div class="vpadded">
+                       
+                        <button type="button" class="btn btn-primary btn-xs" ng-click="deleteUser()">Delete</button>
+
                         </br>
                         
                       </div>
