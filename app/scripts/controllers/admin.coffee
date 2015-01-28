@@ -82,10 +82,10 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
   $scope.updateRole = ->
     roles = $scope.userRoles
     for role in roles 
-    userRef = new Firebase(firebaseURL + "/users/"+$scope.name+"/organizations/sra/roles")
-    userSync = $firebase(userRef)
-    userSync.$update({name:role})
-    return
+      userRef = new Firebase(firebaseURL + "/users/"+$scope.name+"/organizations/sra/roles")
+      userSync = $firebase(userRef)
+      userSync.$update({name:role}) 
+      return
   return
 
 window.app.controller "DeleteUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
