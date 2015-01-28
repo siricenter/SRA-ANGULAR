@@ -158,6 +158,8 @@ window.app.controller "AreasEditController", ($scope, $location, $firebase, $rou
 	return
 
 window.app.controller "AdminHouseholdsController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder, currentUser) ->
+	$rootScope.title = "Households Index"
 	currentUser.requireLogin()
-	$scope.fromService = orgBuilder.getHouseholdsFromOrg();
+	orgBuilder.getHouseholdsFromOrg()
+
 	return
