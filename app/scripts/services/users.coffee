@@ -1,14 +1,8 @@
 window.app.service "User", ($firebase, $firebaseAuth, firebaseURL) ->
-	@all = ($scope) ->
-		$scope.users = []
-		User = this
-		ref = new Firebase("#{firebaseURL}organizations/sra/users")
+	@all = () ->
+		ref = new Firebase("#{firebaseURL}users")
 		users = $firebase(ref).$asArray()
-		users.$loaded().then (data) ->
-			for user in data
-				User.find(user.$id).then (userObj) ->
-					if(userObj.email != undefined)
-						$scope.users.push userObj
+		return users.$loaded()
 	
 	@find = (id) ->
 		url = "#{firebaseURL}users/#{id}"

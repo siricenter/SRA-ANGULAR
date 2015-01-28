@@ -32,7 +32,8 @@ window.app.controller "AdminUsersController", ($scope, $rootScope, currentUser, 
 	$rootScope.title = "Users Index"
 	currentUser.requireLogin()
 
-	User.all($scope)
+	User.all().then (users) ->
+		$scope.users = users
 
 	return
 
