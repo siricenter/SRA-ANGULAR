@@ -57,7 +57,6 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
 		return
  
 
-<<<<<<< HEAD
 	$scope.updateUser = ->
 		console.log("hi")
 		fname = $scope.user.fname
@@ -75,35 +74,11 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
 	$scope.updateRole = ->
 		roles = $scope.userRoles
 		for role in roles 
-		userRef = new Firebase(firebaseURL + "/users/"+$scope.name+"/organizations/sra/roles")
-		userSync = $firebase(userRef)
-		userSync.$update({name:role})
-		return
+			userRef = new Firebase(firebaseURL + "/users/"+$scope.name+"/organizations/sra/roles")
+			userSync = $firebase(userRef)
+			userSync.$update({name:role}) 
+			return
 	return
-=======
-  $scope.updateUser = ->
-    console.log("hi")
-    fname = $scope.user.fname
-    lname = $scope.user.lname
-    ref = new Firebase(firebaseURL + "organizations/sra/users/" + $scope.name)
-    sync = $firebase(ref)
-    sync.$update({firstname: fname, lastname: lname}).then ->
-      xref = new Firebase(firebaseURL + "/users/" + $scope.name)
-      xsync = $firebase(xref)
-      xsync.$update({firstName: fname, lastName: lname}).then ->
-        $location.path('/admin/users')
-        return
-      return
-
-  $scope.updateRole = ->
-    roles = $scope.userRoles
-    for role in roles 
-      userRef = new Firebase(firebaseURL + "/users/"+$scope.name+"/organizations/sra/roles")
-      userSync = $firebase(userRef)
-      userSync.$update({name:role}) 
-      return
-  return
->>>>>>> fixed a compile issue
 
 window.app.controller "DeleteUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
 	$rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
