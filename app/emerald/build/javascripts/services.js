@@ -1,5 +1,18 @@
 (function() {
   window.app.service("currentUser", function($rootScope, $location, $firebase, $firebaseAuth, firebaseURL, orgBuilder) {
+    this.requireLogin = function() {
+      var currentUser;
+      currentUser = this;
+      return new Promise(function(resolve, reject) {
+        return currentUser.currentUser().then(function(currentUser) {
+          return resolve(currentUser);
+        })["catch"](function() {
+          return $rootScope.$apply(function() {
+            return $location.path("/login");
+          });
+        });
+      });
+    };
     this.currentUser = function() {
       var stored;
       stored = sessionStorage.getItem("userId");
@@ -157,6 +170,39 @@
         return console.log($rootScope.households);
       };
       return sync.$loaded().then(callback);
+    };
+  });
+
+}).call(this);
+
+(function() {
+  window.app.service("User", function($firebase, $firebaseAuth, firebaseURL) {
+    this.all = function($scope) {
+      var User, ref, users;
+      $scope.users = [];
+      User = this;
+      ref = new Firebase("" + firebaseURL + "organizations/sra/users");
+      users = $firebase(ref).$asArray();
+      return users.$loaded().then(function(data) {
+        var user, _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = data.length; _i < _len; _i++) {
+          user = data[_i];
+          _results.push(User.find(user.$id).then(function(userObj) {
+            if (userObj.email !== void 0) {
+              return $scope.users.push(userObj);
+            }
+          }));
+        }
+        return _results;
+      });
+    };
+    this.find = function(id) {
+      var ref, url, user;
+      url = "" + firebaseURL + "users/" + id;
+      ref = new Firebase(url);
+      user = $firebase(ref).$asObject();
+      return user.$loaded();
     };
   });
 
