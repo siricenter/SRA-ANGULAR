@@ -389,33 +389,36 @@
           </li>
         </ul>
       </nav>
-      <div class="container-fluid turbo-cols-static turbo-grid-wrap" ng-controller="DeleteUsersController">
+      <div class="container-fluid turbo-cols-static turbo-grid-wrap" ng-controller="EditUsersController">
         <div class="turbo-grid">
           <!-- ngView:  -->
           <div class="row ng-scope" rel="panels">
-            <div class="col-md-5" >
+            <div class="col-md-8">
               <div class="turbo-card turbo-toggle">
                 <div class="panel panel-success">
                   <div class="panel-heading">
                     <div class="panel-title text-center">
-                      <h2>Are you sure you want to delete {{name}}?</h2>
+                      Username: {{name}}
                     </div>
                   </div>
                   <div class="panel-body no-padding-top">
                     <div class="vpadded">
-                       
-                        <button type="button" class="btn btn-primary btn-xs" ng-click="deleteUser()">Delete</button>
+                      <div style="height: 186px;" class="text-center padded-top">
+                        <form>
+                        New First name:<br>
+                        <input type="text" name="firstname" ng-model = "user.fname">
+                        <br>
+                        New Last name:<br>
+                        <input type="text" name="lastname" ng-model ="user.lname"></br>
 
-                        </br>
-                        
+                        <button type="button" class="btn btn-primary btn-xs" ng-click="updateUser()">Update</button>
+
+                        </form> 
                       </div>
-                      <div class="row">
-                        <div class="col-xs-12">
-                          <div>
-                            
-                          </div>
-                        </div>
-                      </div>
+                    </div>
+                    <div class="row">
+                      <a href = "#/roles/{{name}}">Edit Users Roles</a>
+                      
                     </div>
                   </div>
                 </div>
@@ -426,9 +429,10 @@
       </div>
     </div>
   </div>
-  <!-- Needed by BSE.Mq.screen() helper in utils.js -->
-  <div id="mq">
-  </div>
-  <!-- Needed by EmVars helper in _emerald.js -->
-  <div id="emvars">
-  </div>
+</div>
+<!-- Needed by BSE.Mq.screen() helper in utils.js -->
+<div id="mq">
+</div>
+<!-- Needed by EmVars helper in _emerald.js -->
+<div id="emvars">
+</div>
