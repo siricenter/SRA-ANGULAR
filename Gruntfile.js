@@ -180,7 +180,7 @@ module.exports = function (grunt) {
 					'<%= yeoman.dist %>/emerald/build/javascripts/{,*/}*.js',
 					'<%= yeoman.dist %>/styles/{,*/}*.css',
 					'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-					'<%= yeoman.dist %>/styles/fonts/*'
+						'<%= yeoman.dist %>/styles/fonts/*'
 				]
 			}
 		},
@@ -220,27 +220,27 @@ module.exports = function (grunt) {
 			// By default, your `index.html`'s <!-- Usemin block --> will take care of
 			// minification. These next options are pre-configured if you do not wish
 			// to use the Usemin blocks.
-			cssmin: {
-			  dist: {
-			    files: {
-			      '<%= yeoman.dist %>/styles/main.css': [
-			        '.tmp/styles/{,*/}*.css'
-			      ]
-			    }
-			  }
-			},
-			uglify: {
-			  dist: {
-			    files: {
-			      '<%= yeoman.dist %>/scripts/scripts.js': [
-			        '<%= yeoman.dist %>/scripts/scripts.js'
-			      ]
-			    }
-			  }
-			},
-			concat: {
-			  dist: {}
-			},
+		cssmin: {
+			dist: {
+				files: {
+					'<%= yeoman.dist %>/styles/main.css': [
+						'.tmp/styles/{,*/}*.css'
+					]
+				}
+			}
+		},
+		uglify: {
+			dist: {
+				files: {
+					'<%= yeoman.dist %>/scripts/scripts.js': [
+						'<%= yeoman.dist %>/scripts/scripts.js'
+					]
+				}
+			}
+		},
+		concat: {
+			dist: {}
+		},
 		imagemin: {
 			dist: {
 				files: [{
@@ -347,7 +347,7 @@ module.exports = function (grunt) {
 				'compass:dist',
 				'coffee',
 				'imagemin',
-				'svgmin'
+					'svgmin'
 			]
 		},
 			// Test settings
@@ -364,9 +364,20 @@ module.exports = function (grunt) {
 					'app/emerald/build/javascripts/app.js': 'app/scripts/app.coffee',
 					'app/emerald/build/javascripts/main.js': 'app/scripts/main.coffee',
 					'app/emerald/build/javascripts/services.js': 'app/scripts/services/*.coffee',
-					'app/emerald/build/javascripts/controllers.js': 'app/scripts/controllers/*.coffee',
+					'app/emerald/build/javascripts/controllers.js': 'app/scripts/controllers/*.coffee'
 				}
 			},
+		},
+		middleman: {
+			options: {
+				useBundle: true
+			},
+			server: {},
+			build: {
+				options: {
+					command: 'build'
+				}
+			}
 		}
 	});
 	grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {

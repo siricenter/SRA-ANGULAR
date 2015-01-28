@@ -27,7 +27,7 @@
       </div>
       <div class="row text-center vpadded-row">
         <div class="col-sm-4">
-          <a href="#/admin/users">
+          <a href="/admin/users">
             <div class="jump-to-element padded text-gradient-white text-component-shadow">
               <i class="icm icm-user icm-4x">
               </i>
@@ -145,7 +145,8 @@
             <li class="dropdown">
               <a href="#dropdownUserSidebar" class="collapsed" data-toggle="collapse" data-parent="#collapseAvatarLeft">
                 <div class="media">
-                  <img class="img-circle media-object pull-left" src="../images/faker/avatars/48/Faces_Users-23.png">
+                  <img class="img-circle media-object pull-left"
+				  src="/emerald/source/images/faker/avatars/48/Faces_Users-23.png">
                   <div class="media-body">
                     <h4 class="media-heading ng-binding">
                     </h4>
@@ -345,7 +346,7 @@
         <ul class="nav navbar-nav navbar-right pull-right hidden-xs">
           <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="navbar-img-link">
-              <img class="img-circle" src="../images/faker/avatars/48/Faces_Users-11.png">
+              <img class="img-circle" src="/emerald/source/images/faker/avatars/48/Faces_Users-11.png">
               <span class="hidden-xs hidden-sm hidden-md ng-binding">
               </span>
               <b class="caret">
@@ -403,16 +404,15 @@
                   </div>
                   <div class="panel-body no-padding-top">
                     <div class="vpadded">
-                    <ul>
-                    <li>Email: {{user.email}}</li>
-                    Organizations: 
-                    <ul> 
+                    <span>Email: {{user.email}}</span>
+					<span>Organizations: </span>
+					<ul>
                     <li ng-repeat = "(key, value) in user.organizations">{{key}}</li>
                     </ul>
-                    Roles:
+                    <!-- Roles:
                     <ul>
                     <li ng-repeat = "role in user.organizations.sra.roles">{{role}}</li>
-                    </ul>
+					</ul> -->
 
                     </ul>
                     </br>
