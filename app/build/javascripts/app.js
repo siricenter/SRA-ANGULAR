@@ -4,6 +4,11 @@
 
   window.app.run(function($rootScope, $firebase, firebaseURL) {
     var onArrLoad, ref, regions, regionsArr;
+    ref = void 0;
+    regionsArr = void 0;
+    regions = void 0;
+    onArrLoad = void 0;
+    $rootScope.currentUser = {};
     $rootScope.firebaseSession = localStorage["firebase:session::intense-inferno-7741"];
     ref = new Firebase(firebaseURL + "organizations/sra/regions");
     regionsArr = $firebase(ref).$asArray();
@@ -24,10 +29,10 @@
 
   window.app.config(function($routeProvider) {
     $routeProvider.when("/", {
-      templateUrl: "/views/login/login.html",
+      templateUrl: "/build/login.html",
       controller: "LoginController"
     }).when("/login", {
-      templateUrl: "/views/login/login.html",
+      templateUrl: "/build/login.html",
       controller: "LoginController"
     }).when("/admin/regions", {
       templateUrl: "views/regions/index.html",
@@ -56,8 +61,8 @@
     }).when("/admin/users", {
       templateUrl: "views/admin/users.html",
       controller: "AdminUsersController"
-    }).when("/admin/users/:id/edit", {
-      templateUrl: "views/admin/edit_user.html",
+    }).when("/admin/users/edit/:id", {
+      templateUrl: "views/users/edit.html",
       controller: "EditUsersController"
     }).when("/admin/users/areas/:id", {
       templateUrl: "views/users/region.html",
@@ -71,9 +76,6 @@
     }).when("/admin/users/:id/country-assignment", {
       templateUrl: "views/admin/country-assignment.html",
       controller: "AreasUsersController"
-    }).when("/admin/users/:name/destroy", {
-      templateUrl: "views/admin/delete_user.html",
-      controller: "DeleteUsersController"
     }).when("/admin/assign/country/:country", {
       templateUrl: "views/admin/region-assignment.html",
       controller: "AreasUsersController"
@@ -83,8 +85,8 @@
     }).when("/admin/assign/area/:region", {
       templateUrl: "views/admin/area-assignment.html",
       controller: "AreasUsersController"
-    }).when("/areas/new", {
-      templateUrl: "views/areas/new.html",
+    }).when("/admin/areas/new", {
+      templateUrl: "views/areas/region.html",
       controller: "AreasNewController"
     }).when("/areas/show/:name", {
       templateUrl: "views/areas/show.html",
@@ -95,15 +97,15 @@
     }).when("/users/areas/assignment/:area", {
       templateUrl: "views/areas/static.html",
       controller: "AreasUsersController"
+    }).when("/:area/households", {
+      templateUrl: "views/households/index.html",
+      controller: "HouseholdsController"
     }).when("/admin/householdsindex", {
       templateUrl: "views/admin/households.html",
       controller: "AdminHouseholdsController"
     }).when("/households/:id", {
       templateUrl: "views/households/show.html",
       controller: "HouseholdsController"
-    }).when("/roles/:id", {
-      templateUrl: "views/admin/user_roles.html",
-      controller: "EditUsersController"
     }).otherwise({
       redirectTo: "/"
     });
