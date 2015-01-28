@@ -1,6 +1,7 @@
 "use strict"
 
 window.app.controller "AdminAreasController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
+	currentUser.requireLogin()
 	regions = JSON.parse(localStorage.regions)
 	if regions isnt `undefined`
 		
@@ -21,86 +22,84 @@ window.app.controller "AdminAreasController", ($scope, $location, $firebase, $ro
 			i++
 	return
 
-window.app.controller "AdminDashboardController", ($scope, $location, $rootScope, currentUser) ->
+window.app.controller "AdminDashboardController", ($scope, $location, $firebase, $routeParams, $rootScope, orgBuilder) ->
 	$rootScope.title = "Dashboard"
 
 	currentUser.requireLogin()
 
 	return
 
-window.app.controller "AdminUsersController", ($scope, $rootScope, currentUser, User) ->
+window.app.controller "AdminUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
 	$rootScope.title = "Users Index"
 	currentUser.requireLogin()
-
+	
 	User.all().then (users) ->
 		$scope.users = users
-
+	
 	return
 
 window.app.controller "EditUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
-	$scope.username = $routeParams.id
-	$scope.UpdateUser = ->
+	currentUser.requireLogin()
+	$scope.name = $routeParams.id
+	$scope.userRoles = []
+	userRef = new Firebase(firebaseURL + "/users/"+$scope.name+"/organizations/sra/roles")
+	userSync = $firebase(userRef).$asArray()
+	userSync.$loaded().then (roles)->
+		for role in roles
+			$scope.userRoles.push(role.$value)
+
+		return
+	
+	rolesref = new Firebase(firebaseURL + "organizations/sra/roles")
+	rolessync = $firebase(rolesref).$asArray()
+	rolessync.$loaded().then (data)->
+		$scope.roles = data
+		return
+ 
+
+	$scope.updateUser = ->
+		console.log("hi")
 		fname = $scope.user.fname
 		lname = $scope.user.lname
-		ref = new Firebase(firebaseURL + "organizations/sra/users/" + $scope.username)
+		ref = new Firebase(firebaseURL + "organizations/sra/users/" + $scope.name)
 		sync = $firebase(ref)
-		sync.$update(
-			FirstName: fname
-			LastName: lname
-		).then ((ref) ->
-			ref.key() # bar
-			return
-		), (error) ->
+		sync.$update({firstname: fname, lastname: lname}).then ->
+			xref = new Firebase(firebaseURL + "/users/" + $scope.name)
+			xsync = $firebase(xref)
+			xsync.$update({firstName: fname, lastName: lname}).then ->
+				$location.path('/admin/users')
+				return
 			return
 
+	$scope.updateRole = ->
+		roles = $scope.userRoles
+		for role in roles 
+		userRef = new Firebase(firebaseURL + "/users/"+$scope.name+"/organizations/sra/roles")
+		userSync = $firebase(userRef)
+		userSync.$update({name:role})
+		return
+	return
+
+window.app.controller "DeleteUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
+	$rootScope.currentUser = JSON.parse(sessionStorage.getItem("user"))
+	$scope.name = $routeParams.name
+	$scope.deleteUser = ->
+		console.log($scope.name)
+		ref = new Firebase(firebaseURL + "organizations/sra/users/")
+		sync = $firebase(ref).$asArray()
+		sync.$loaded().then (data) ->
+			for i in [0...data.length] by 1
+				console.log(data[i].$id)
+				if data[i].$id == $scope.name
+					item = data[i]
+					sync.$remove(item).then (ref) ->
+						$location.path("/admin/users")
+						return
 		return
 
 	return
 
 window.app.controller "AreasUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
-
-	localStorage.regionParam = $routeParams.region	if $routeParams.region isnt `undefined`
-	localStorage.usernameParam = $routeParams.id	if $routeParams.id isnt `undefined`
-	localStorage.areaParam = $routeParams.area	if $routeParams.area isnt `undefined`
-	localStorage.countryParam = $routeParams.country if $routeParams.country isnt 'undefined'
-	$scope.region = localStorage.regionParam
-	$scope.username = localStorage.usernameParam
-	$scope.area = localStorage.areaParam
-	$scope.country = localStorage.countryParam
-	$scope.areaNames = []
-	$scope.areas = []
-
-	countryRef = new Firebase(firebaseURL + "organizations/sra/countries")
-	countries = $firebase(countryRef).$asArray()
-	countries.$loaded().then (data) ->
-		$scope.countries = data
-		return
-	$scope.regionInit = ->
-		ref = new Firebase(firebaseURL + "organizations/sra/countries/" + $scope.country + "/regions")
-		regions = $firebase(ref).$asArray()
-		regions.$loaded().then (data) ->
-			$scope.regions = data
-			return
-
-	$scope.regionAssign = ->
-		ref = new Firebase(firebaseURL + "organizations/sra/countries/" + $scope.country + "/regions/" + $scope.region + "/areas")
-		sync = $firebase(ref).$asArray()
-		sync.$loaded().then (data) ->
-			$scope.areas = data
-			return
-		return
-
-
-	 
-
-	$scope.areaAssignment = ->
-		ref = new Firebase(firebaseURL + "users/" + $scope.username + "/organizations/sra/countries/"+$scope.country+"/regions")
-		sync = $firebase(ref).$asArray()
-		sync.$loaded().then (data) ->
-			return
-		
-		return
-
 	return
 
 window.app.controller "NewUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, $firebaseAuth, firebaseURL) ->

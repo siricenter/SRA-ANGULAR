@@ -56,8 +56,8 @@
     }).when("/admin/users", {
       templateUrl: "views/admin/users.html",
       controller: "AdminUsersController"
-    }).when("/admin/users/edit/:id", {
-      templateUrl: "views/users/edit.html",
+    }).when("/admin/users/:id/edit", {
+      templateUrl: "views/admin/edit_user.html",
       controller: "EditUsersController"
     }).when("/admin/users/areas/:id", {
       templateUrl: "views/users/region.html",
@@ -71,6 +71,9 @@
     }).when("/admin/users/:id/country-assignment", {
       templateUrl: "views/admin/country-assignment.html",
       controller: "AreasUsersController"
+    }).when("/admin/users/:name/destroy", {
+      templateUrl: "views/admin/delete_user.html",
+      controller: "DeleteUsersController"
     }).when("/admin/assign/country/:country", {
       templateUrl: "views/admin/region-assignment.html",
       controller: "AreasUsersController"
@@ -101,6 +104,9 @@
     }).when("/households/:id", {
       templateUrl: "views/households/show.html",
       controller: "HouseholdsController"
+    }).when("/roles/:id", {
+      templateUrl: "views/admin/user_roles.html",
+      controller: "EditUsersController"
     }).otherwise({
       redirectTo: "/"
     });
