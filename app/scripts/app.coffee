@@ -102,9 +102,6 @@ window.app.config ($routeProvider) ->
 	).when("/users/areas/assignment/:area",
 		templateUrl: "views/areas/static.html"
 		controller: "AreasUsersController"
-	).when("/:area/households",
-		templateUrl: "views/households/index.html"
-		controller: "HouseholdsController"
 	).when("/admin/householdsindex",
 		templateUrl: "views/admin/households.html"
 		controller: "AdminHouseholdsController"

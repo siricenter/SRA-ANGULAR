@@ -1,6 +1,6 @@
 "use strict"
 
-window.app.controller "AdminAreasController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
+window.app.controller "AdminAreasController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL, currentUser) ->
 	currentUser.requireLogin()
 	regions = JSON.parse(localStorage.regions)
 	if regions isnt `undefined`
@@ -22,14 +22,14 @@ window.app.controller "AdminAreasController", ($scope, $location, $firebase, $ro
 			i++
 	return
 
-window.app.controller "AdminDashboardController", ($scope, $location, $firebase, $routeParams, $rootScope, orgBuilder) ->
+window.app.controller "AdminDashboardController", ($scope, $rootScope, currentUser) ->
 	$rootScope.title = "Dashboard"
 
 	currentUser.requireLogin()
 
 	return
 
-window.app.controller "AdminUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
+window.app.controller "AdminUsersController", ($scope, $rootScope, currentUser, User) ->
 	$rootScope.title = "Users Index"
 	currentUser.requireLogin()
 	
@@ -157,6 +157,7 @@ window.app.controller "AreasEditController", ($scope, $location, $firebase, $rou
 
 	return
 
-window.app.controller "AdminHouseholdsController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder) ->
+window.app.controller "AdminHouseholdsController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder, currentUser) ->
+	currentUser.requireLogin()
 	$scope.fromService = orgBuilder.getHouseholdsFromOrg();
 	return
