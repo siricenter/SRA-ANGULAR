@@ -9,3 +9,4 @@ app/styles/*.css
 test/protractor/build/*.js
 sra_angular.sublime-project
 sra_angular.sublime-workspace
+tags
