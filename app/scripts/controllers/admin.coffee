@@ -24,25 +24,16 @@ window.app.controller "AdminAreasController", ($scope, $location, $firebase, $ro
 window.app.controller "AdminDashboardController", ($scope, $location, $rootScope, currentUser) ->
 	$rootScope.title = "Dashboard"
 
-	currentUser.currentUser().catch(() ->
-		$location.path "/login"
-	)
+	currentUser.requireLogin()
+
 	return
 
-window.app.controller "AdminUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
-	$scope.users = []
-	ref = new Firebase(firebaseURL + "organizations/sra/users")
-	users = $firebase(ref).$asArray()
-	users.$loaded().then (data) ->
-		for user in data
-			fb = new Firebase(firebaseURL + "users/"+ user.$id)
-			sync = $firebase(fb).$asObject()
-			
-			sync.$loaded().then (userObj) ->
-				if(userObj.email != undefined)
-					$scope.users.push userObj
-				
-		return
+window.app.controller "AdminUsersController", ($scope, $rootScope, currentUser, User) ->
+	$rootScope.title = "Users Index"
+	currentUser.requireLogin()
+
+	User.all($scope)
+
 	return
 
 window.app.controller "EditUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->

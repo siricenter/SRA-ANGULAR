@@ -1,4 +1,16 @@
 window.app.service "currentUser", ($rootScope, $location, $firebase, $firebaseAuth, firebaseURL, orgBuilder) ->
+	@requireLogin = () ->
+		currentUser = this
+		return new Promise((resolve, reject) ->
+			currentUser.currentUser().then((currentUser) ->
+				resolve(currentUser)
+			).catch(() ->
+				$rootScope.$apply(() ->
+					$location.path("/login")
+				)
+			)
+		)
+
 	@currentUser = () ->
 			stored = sessionStorage.getItem("userId")
 
