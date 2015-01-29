@@ -398,23 +398,26 @@
                 <div class="panel panel-success">
                   <div class="panel-heading">
                     <div class="panel-title text-center">
-                      New Role
+                      Username: {{name}}
                     </div>
                   </div>
                   <div class="panel-body no-padding-top">
                     <div class="vpadded">
                       <div style="height: 186px;" class="text-center padded-top">
-                        <form>
-                        Role Title:<br>
-                        <input type="text" name="firstname" ng-model = "roletitle">
-                        <br>
-                        <button type="submit" class="btn btn-primary" ng-click = "addRole(roletitle)">Add Permissions</button>
+                       
+                      
+                        Add permissions for {{roleName}}:</br>
+                         <label ng-repeat="permission in permissions">
+                        <input type="checkbox"  checklist-model="role_permissions" checklist-value="permission">{{permission['permission code']}}: {{permission['permission description']}}&nbsp<br/>
+                        </label></br>
+                        <button type="button" class="btn btn-primary btn-xs" ng-click="createRole(role_permissions)">Create Role</button>
+                        {{permission}}
 
-                        </form> 
+
                       </div>
                     </div>
                     <div class="row">
-                      
+                     
                       
                     </div>
                   </div>

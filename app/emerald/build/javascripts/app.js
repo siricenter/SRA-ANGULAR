@@ -104,6 +104,15 @@
     }).when("/roles/:id", {
       templateUrl: "views/admin/user_roles.html",
       controller: "EditUsersController"
+    }).when("/admin/roles/new", {
+      templateUrl: "views/admin/new_role.html",
+      controller: "AdminSecurityController"
+    }).when("/admin/roles/new/permissions/:title", {
+      templateUrl: "views/admin/add_permissions.html",
+      controller: "AdminSecurityController"
+    }).when("/admin/security", {
+      templateUrl: "views/admin/security.html",
+      controller: "AdminSecurityController"
     }).otherwise({
       redirectTo: "/"
     });

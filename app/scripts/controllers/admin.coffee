@@ -78,6 +78,9 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
 			userSync = $firebase(userRef)
 			userSync.$update({name:role}) 
 			return
+	$scope.createPermission = ->
+		permissions = $scope.permissions
+
 	return
 
 window.app.controller "DeleteUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
@@ -161,5 +164,29 @@ window.app.controller "AdminHouseholdsController", ($scope, $rootScope, $locatio
 	$rootScope.title = "Households Index"
 	currentUser.requireLogin()
 	orgBuilder.getHouseholdsFromOrg()
+	return
+window.app.controller "AdminSecurityController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder, currentUser) ->
+	rolesref = new Firebase(firebaseURL + "organizations/sra/roles")
+	rolessync = $firebase(rolesref).$asArray()
+	rolessync.$loaded().then (data)->
+		$scope.roles = data
+		return
+	console.log($routeParams.title)
+	$scope.roleName = $routeParams.title
+	$scope.role_permissions = []
+	permishref = new Firebase(firebaseURL + "/permissions")
+	permishSync = $firebase(permishref).$asArray()
+	permishSync.$loaded().then (permissions) ->
+		$scope.permissions = permissions
+	$scope.addRole = (title) ->
+		console.log title
+		$location.path("/admin/roles/new/permissions/#{title}")
+		return
+	$scope.createRole = (permissions)->
+		console.log(permissions)
+		console.log($scope.roleName)
+		
+	
+
 
 	return
