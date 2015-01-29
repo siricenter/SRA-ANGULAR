@@ -405,6 +405,7 @@
                   <div class="panel-body no-padding-top">
                     <div class="vpadded">
                     <span>Email: {{user.email}}</span>
+					<br>
 					<span>Organizations: </span>
 					<ul>
                     <li ng-repeat = "(key, value) in user.organizations">{{key}}</li>
@@ -421,8 +422,9 @@
                     <div class="row">
                       <div class="col-xs-12">
                         <div>
-                          <a href = "#/admin/users/{{user.$id}}">Show</a>--
-                          <a href = "#/admin/users/{{user.$id}}/country-assignment">Assign To Area</a>--
+                          <!-- <a href = "#/admin/users/{{user.$id}}">Show</a>--
+                          <a href = "#/admin/users/{{user.$id}}/country-assignment">Assign To Area</a>
+						  -->
                           <a href = "#/admin/users/{{user.$id}}/destroy">Delete User</a>--
                           <a href = "#/admin/users/{{user.$id}}/edit">Edit User</a>
                         </div>
