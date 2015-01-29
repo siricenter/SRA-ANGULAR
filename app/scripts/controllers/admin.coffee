@@ -38,7 +38,7 @@ window.app.controller "AdminUsersController", ($scope, $rootScope, currentUser, 
 	
 	return
 
-window.app.controller "EditUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
+window.app.controller "EditUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL,currentUser) ->
 	currentUser.requireLogin()
 	$scope.name = $routeParams.id
 	$scope.userRoles = []
