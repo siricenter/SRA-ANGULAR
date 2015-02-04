@@ -1,0 +1,36 @@
+<div class="row">
+ 
+</div>
+<div class="row">
+  <h1>
+  </h1>
+</div>
+
+<div class="row btn-toolbar">
+  
+</div>
+
+  <div class="row">
+    <% @people.each do |person| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <%= "#{person.given_name} #{person.family_name}" %>
+            </h3>
+            <%= link_to 'X', person, method: :delete, id: "#{person.id}_remove" %>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <li class="alabel">
+                <%= person.gender %>
+              </li>
+              <li class="alabel">
+                <%= "Born #{person.birthday}" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>
+

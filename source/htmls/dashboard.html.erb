@@ -1,0 +1,81 @@
+---
+title: Dashboard
+---
+
+<%# @no_breadcrumbs = true %>
+
+<div class="container-fluid turbo-cols-static turbo-grid-wrap">
+  <div class="turbo-grid">
+
+    <div class="row" rel="panels">
+      <div class="col-md-6 panels" id="<%= rid() %>">
+        <%= partial 'htmls/widgets/chart_horizontal' %>
+      </div>
+
+      <div class="col-md-3 col-sm-6 panels" id="<%= rid() %>">
+        <%= partial 'htmls/widgets/carousel_stats.html' %>
+      </div>
+
+      <div class="col-md-3 col-sm-6 panels" id="<%= rid() %>">
+        <%= partial 'htmls/widgets/carousel_stats2.html' %>
+      </div>
+    </div>
+
+    <div class="row" rel="panels">
+      <div class="col-md-9 panels" id="<%= rid() %>">
+        <%= partial 'htmls/widgets/chart_horizontal2.html' %>
+      </div>
+      <div class="col-md-3 panels" id="<%= rid() %>">
+        <%= partial 'htmls/widgets/nav_justify_up' %>
+      </div>
+    </div>
+
+    <div class="row" rel="panels">
+
+      <div class="col-lg-3 col-md-6 col-sm-6 panels" id="<%= rid() %>">
+        <%= partial 'htmls/widgets/carousel_images.html' %>
+        <%= partial 'htmls/widgets/carousel_tweets.html' %>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 panels" id="<%= rid() %>">
+        <%= partial 'htmls/widgets/user_box_stats.html' %>
+      </div>
+
+      <div class="col-lg-6 col-md-12 col-sm-12 panels" id="<%= rid() %>">
+
+        <div class="panel panel-default">
+          <div class="panel-header panel-colorize">
+
+            <div class="panel-title panel-header-title">
+              <i class="icm icm-eye4"></i> <span class="hidden-xs">Overview</span>
+            </div>
+
+            <ul class="nav nav-tabs pull-right">
+              <li class="active">
+                <a href="#calendar" data-toggle="tab"><i class="icm icm-calendar2"></i> <span>Calendar</span></a></li>
+              <li><a href="#planning" data-toggle="tab"><i class="icm icm-clock6"></i> <span>Planning</span></a></li>
+            </ul>
+          </div>
+
+          <div class="tab-content">
+            <div class="panel-body tab-pane fade in active" id="calendar">
+              <div class="row">
+                <div class="col-md-12">
+
+                  <div rel="fullcalendar"></div>
+
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="planning">
+              <%= partial 'htmls/tables/table', locals: {
+                      klass: 'table', checkable: true, label: true, row_count: 9} %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

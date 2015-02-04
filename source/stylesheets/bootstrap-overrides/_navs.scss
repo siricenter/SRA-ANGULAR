@@ -1,0 +1,56 @@
+.nav > li a {
+  @include transition(background .3s, color .3s);
+}
+
+.nav-tabs[rel=tabdrop] {
+  
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $nav-link-hover-bg;
+      border-color: $nav-tabs-active-link-hover-border-color;
+    }
+  }
+
+}
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.nav-tabs > li {
+  margin-right: 3px;
+
+  > a {
+    border: none;
+    border-top-left-radius: $border-radius-large;
+    border-top-right-radius: $border-radius-large;
+  }
+
+  &.active > a {
+    &, &:hover, &:focus {
+      border: none;
+    }
+  }
+}
+
+.nav-tabs > li {
+  > a {
+    background: rgba($brand-white, .5);
+    color: dkerize($brand-light);
+
+    &:hover {
+      color: $text-color;
+      background: $brand-white;
+    }
+  }
+
+  &.active > a {
+    &, &:hover, &:focus {
+      background: $brand-white;
+    }
+  }
+}
+

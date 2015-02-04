@@ -1,0 +1,16 @@
+.table {
+  > thead > tr > th {
+    border-bottom: none;
+    font-weight: 600;
+  }
+}
+
+.table-full {
+  width: 100%;
+}
+
+tr.row-mid {
+  th, td {
+    vertical-align: middle !important;
+  }
+}

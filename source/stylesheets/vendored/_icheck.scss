@@ -1,0 +1,70 @@
+/* iCheck plugin flat skin
+----------------------------------- */
+.icheckbox,
+.iradio {
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  margin: 0 .3em 0 0;
+  padding: 0;
+  width: 1.4em;
+  height: 1.4em;
+  cursor: pointer;
+  border: 1px solid ltize($gray-light);
+  @include transition(border 0.2s linear 0s, color 0.2s linear 0s);
+  
+  input[type=checkbox],
+  input[type=radio] {
+    display: none;
+  }
+  
+  &.checked::before {
+    font-family: 'FontAwesome';
+    content: "\F00C";
+    color: #fff;
+    position: absolute;
+    top: -1px;
+    left: 2px;
+    font-size: 0.9em;
+    //@include transform(scale(0.9));
+  }
+  
+  &.disabled {
+    opacity: 0.65;
+    background-color: ltize($gray-lighter);
+    cursor: default;
+  }
+  
+  &.checked.disabled {
+    background-color: $gray-lighter;
+  }
+  
+  &.checked {
+    background-color: $brand-white;
+    color: $gray;
+    &:before {
+      color: $gray;
+    }
+  }
+
+  @each $pair in $emerald-colors {
+    &.checkable-#{nth($pair,1)}.checked {
+      background-color: nth($pair, 2);
+      color: nth($pair, 3);
+      border-color: nth($pair, 2);
+
+      &:before {
+        color: nth($pair, 3);
+      }
+    }
+  }
+  
+}
+
+.icheckbox {
+  @include border-radius(4px);
+}
+
+.iradio {
+  @include border-radius(50%);
+}

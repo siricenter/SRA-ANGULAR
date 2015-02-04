@@ -1,0 +1,24 @@
+<h5>Single select</h5>
+<select class="form-control" rel="selectize">
+  <% 10.times do |i| %>
+    <option value="<%= i %>"><%= lorem.word %></option>
+  <% end %>
+</select>
+<br>
+
+<h5>Multiple select</h5>
+<select multiple class="form-control" rel="selectize">
+  <option value="-2" selected>fancy</option>
+  <option value="-1" selected>selectize</option>
+  <% 10.times do |i| %>
+    <option value="<%= i %>"><%= lorem.word %></option>
+  <% end %>
+</select>
+<br>
+
+<h5>Remote source with template</h5>
+<select class="selectize-select-movie" placeholder="Find a movie..."></select>
+<br>
+
+<h5>Multiple columns select</h5>
+<select id="select-car" placeholder="Select a car..." ></select>

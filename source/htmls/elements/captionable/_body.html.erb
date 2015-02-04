@@ -1,0 +1,22 @@
+<%
+classes = %w(primary info success warning danger)
+kind = 'Card' if !defined?(kind) || kind.nil?
+%>
+
+<% if kind == 'heart' %>
+   <div class="vpadded">
+     <div style="height: 186px;" class="text-center padded-top">
+       <i class="icm icm-html52 icm-4x text-<%= classes.sample %>"
+          style="font-size: 128px;"></i>
+     </div>
+   </div>
+<% else %>
+  <% percent = rand(100) %>
+  <div class="padded">
+    <div class="vpadded easy-pie-chart easy-pie-chart-normal" 
+         data-percent="<%= percent %>" data-color="<%= classes.sample %>">
+      <span><%= percent %>%</span>
+    </div>
+  </div>
+<% end %>
+<%= partial 'htmls/elements/captionable/actions' %>

@@ -1,0 +1,17 @@
+.breadcrumb {
+
+  > li {
+    + li:before {
+      font-family: FontAwesome;
+      content: "\f105";
+    }
+  }
+
+  > .active {
+    color: $text-muted;
+  }
+}
+
+.breadcrumb-top {
+  margin-bottom: 12px;
+}

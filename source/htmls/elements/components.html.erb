@@ -1,0 +1,42 @@
+<div class="container-fluid">
+
+  <div class="row" rel="panels">
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <% panel 'Dropdowns',
+        kind: 'panel-info panel-colorize',
+        body_class: 'no-padding-top' do %>
+        <%= partial 'htmls/elements/components/dropdowns' %>
+      <% end %>
+
+      <% panel 'Crumbs, pagers',
+        kind: 'panel-success panel-colorize' do %>
+        <%= partial 'htmls/elements/components/paging' %>
+      <% end %>
+
+      <% panel 'Progress bars',
+        kind: 'panel-success panel-colorize' do %>
+        <%= partial 'htmls/elements/components/progress' %>
+      <% end %>
+      
+    </div>
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <% panel 'Alerts',
+        kind: 'panel-info panel-colorize' do %>
+        <%= partial 'htmls/elements/components/alerts' %>
+      <% end %>
+
+      <% panel 'Labels, badges',
+        kind: 'panel-info panel-colorize' do %>
+        <%= partial 'htmls/elements/components/labels' %>
+      <% end %>
+
+      <% panel 'List group',
+        kind: 'panel-info panel-colorize' do %>
+        <%= partial 'htmls/elements/components/group' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

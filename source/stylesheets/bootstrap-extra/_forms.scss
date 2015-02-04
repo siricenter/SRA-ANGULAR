@@ -1,0 +1,45 @@
+label {
+  font-weight: normal;
+}
+
+// Form control header
+//
+// Apply contextual and semantic states to individual form controls.
+
+.has-header {
+  // Enable absolute positioning
+  position: relative;
+  
+  // Ensure icons don't overlap text
+  .form-control {
+    padding-left: $input-height-base;
+  }
+  
+  // Feedback icon (requires .glyphicon classes)
+  .form-control-header {
+    color: $input-color;
+    position: absolute;
+    top: 0; // Height of the `label` and its margin
+    left: 0;
+    display: block;
+    width: $input-height-base;
+    height: $input-height-base;
+    line-height: $input-height-base;
+    text-align: center;
+    z-index: $oc-zindex-content + 10;
+  }
+}
+
+.form-control.transparent {
+  &, &:focus, &:hover {
+    background: transparent;
+  }
+}
+
+textarea.non-resizable {
+  resize: none;
+}
+
+.form-control.text-lg {
+  font-size: 24px;
+}

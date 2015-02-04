@@ -1,0 +1,28 @@
+<div class="panel img-fill-vertical" style="background-image: url('<%= image_path('forest800x600.jpg')%>')">
+  <div class="row no-margin">
+    <div class="col-sm-7 panel-body-white">
+      <h1 class="base-header padded">An article</h1>
+
+      <p class="vpadded">
+        <%= lorem.paragraph %>...
+      </p>
+
+      <ul class="list-inline v-mid-row">
+        <li><%= image_tag lorem.avatar(24), class: 'img-responsive img-circle' %></li>
+        <li><a href="#"><%= lorem.name %></a></li>
+      </ul>
+
+      <div class="clearfix vpadded">
+        <a href="#" class="btn btn-success-lt">View More</a>
+
+        <ul class="list-inline v-mid-row pull-right">
+          <li><a href="#" title="Like this" rel="tooltip"><i class="fa fa-heart-o"></i></a></li>
+          <li><a href="#" title="Comment" rel="tooltip"><i class="fa fa-comment"></i> 21</a></li>
+        </ul>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>

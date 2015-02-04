@@ -1,0 +1,11 @@
+.selectize-search {
+  .selectize-input > input {
+    margin-left: 16px !important;
+  }
+  .selectize-dropdown-content {
+    padding: 0;
+    overflow-y: hidden;
+    z-index: $zindex-dropdown;
+    max-height: 400px;
+  }
+}

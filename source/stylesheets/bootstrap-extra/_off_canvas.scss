@@ -1,0 +1,226 @@
+// off canvas
+$oc-width: 250px !default;
+$oc-partial-width: 50px !default;
+$oc-duration: 0.3s !default;
+$oc-sidebar-bottom-border: none !default;
+$oc-nav-bottom-border: none !default;
+$oc-sidebar-shadow: none !default;
+$oc-nav-shadow: none !default;
+
+$oc-left-width: $oc-width !default;
+$oc-left-duration: $oc-duration !default;
+
+$oc-right-width: $oc-width !default;
+$oc-right-duration: $oc-duration !default;
+
+$oc-zindex-hidden: 1000 !default;
+$oc-zindex-content: 1200 !default;
+$oc-zindex-visible: 1400 !default;
+
+// oc layout
+
+@import "compass/css3/transform";
+@import "compass/css3/border-radius";
+
+$screens: xs sm md lg;
+$effects: squeeze push;
+@each $screen in $screens {
+  @each $effect1 in $effects {
+    @each $effect2 in $effects {
+      .oc-#{$screen}-#{$effect1}-#{$effect2} {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.oc-wrapper {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  height: 100%;
+}
+
+.oc-sidebar {
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  height: 100%;
+}
+
+.oc-sidebar-left {
+  left: 0;
+  width: $oc-left-width;
+  @include transition(all $oc-left-duration);
+}
+
+.oc-sidebar-right {
+  right: 0;
+  width: $oc-right-width;
+  @include transition(all $oc-right-duration, width 0);
+}
+
+.oc-container {
+  min-height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  z-index: $oc-zindex-content;
+  @include transition(
+  all $oc-duration,
+  margin-left $oc-left-duration,
+  margin-right $oc-right-duration
+  );
+}
+
+.oc-push {
+  position: relative;
+  height: 100%;
+  @include transition(all $oc-duration);
+}
+
+.oc-sidebar-fixed {
+  overflow: hidden;
+  position: fixed;
+}
+
+.oc-sidebar-free {
+  height: auto;
+}
+
+.oc-scroll {
+  overflow: auto;
+}
+
+@mixin oc-squeeze(
+$screen,
+$position,
+$x: -100%,
+$width: $oc-width,
+$duration: $oc-duration
+) {
+  .oc-#{$screen}-#{$position}-squeeze {
+    > .oc-sidebar-#{$position},
+    > .oc-push > .oc-sidebar-#{$position} {
+      visibility: visible;
+    }
+    &.oc-#{$screen}-open-#{$position} {
+      > .oc-sidebar-#{$position},
+      > .oc-push > .oc-sidebar-#{$position} {
+        visibility: visible;
+        @include transform(translateX(0));
+      }
+      > .oc-container,
+      > .oc-push > .oc-container {
+        margin-#{$position}: $width;
+      }
+    }
+    &.oc-#{$screen}-partial-#{$position} {
+      > .oc-container,
+      > .oc-push > .oc-container {
+        margin-#{$position}: $oc-partial-width;
+      }
+      .oc-partial-hidden {
+        max-height: 0;
+        opacity: 0;
+        @include transition(opacity .35s, max-height .35s);
+      }
+      .oc-partial-rotate {
+        @include transition-duration(0.35s);
+        @include transition-property(transform);
+        @include transform(rotate(-90deg));
+      }
+      .oc-sidebar-fixed {
+        position: absolute;
+        overflow: visible;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.oc-partial-hidden {
+  @include transition(opacity .35s, max-height .35s);
+}
+.oc-partial-rotate {
+  display: inline-block;
+  @include transition-duration(0.35s);
+  @include transition-property(transform);
+}
+
+@mixin oc-push(
+$screen, $position,
+$x: -100%, $width: $oc-width,
+$duration: $oc-duration,
+$toggle: "> .oc-push"
+) {
+  .oc-#{$screen}-#{$position}-push {
+    > .oc-sidebar-#{$position},
+    > .oc-push > .oc-sidebar-#{$position} {
+      @include transform(translateX($x));
+    }
+    &.oc-#{$screen}-open-#{$position} {
+      > .oc-sidebar-#{$position},
+      > .oc-push > .oc-sidebar-#{$position} {
+        @if $position == 'left' {
+          width: $oc-left-width;
+          } @else {
+          width: $oc-right-width;
+        }
+        visibility: visible;
+        @include transform(translateX(0));
+      }
+      #{$toggle} {
+        @include transform(translateX($width));
+      }
+    }
+  }
+}
+
+// per screen definitions
+
+@mixin oc-effects($screen: lg) {
+  .oc-#{$screen}-squeeze-push {
+    @include oc-squeeze($screen, left, -100%, $oc-left-width, $oc-left-duration);
+    @include oc-push($screen, right, 100%, -$oc-right-width, $oc-right-duration);
+  }
+  .oc-#{$screen}-push-squeeze {
+    @include oc-squeeze($screen, right, -100%, $oc-left-width, $oc-left-duration);
+    @include oc-push($screen, left, 100%, -$oc-right-width, $oc-right-duration);
+  }
+  .oc-#{$screen}-squeeze-squeeze {
+    @include oc-squeeze($screen, left, -100%, $oc-left-width, $oc-left-duration);
+    @include oc-squeeze($screen, right, 100%, $oc-right-width, $oc-right-duration);
+  }
+  .oc-#{$screen}-push-push {
+    @include oc-push($screen, left, -100%, $oc-left-width, $oc-left-duration, 
+    "> .oc-push > .oc-container");
+    @include oc-push($screen, right, 100%, -$oc-right-width, $oc-right-duration);
+  }
+}
+
+// visible-xs
+@media (max-width: $screen-xs-max) {
+  @include oc-effects(xs);
+}
+
+// visible-sm
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  @include oc-effects(sm);
+}
+
+// visible-md
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  @include oc-effects(md);
+}
+
+// visible-lg
+@media (min-width: $screen-lg-min) {
+  @include oc-effects(lg);
+}
+
+@media (max-width: $screen-sm-max) {
+  .oc-sidebar-right {
+    width: 0;
+  }
+}

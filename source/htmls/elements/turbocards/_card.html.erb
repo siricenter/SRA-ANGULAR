@@ -1,0 +1,17 @@
+<%
+kind = 'panel-default' if !defined?(kind) || kind.nil?
+i = 0 if !defined?(i) || i.nil?
+j = 0 if !defined?(j) || j.nil?
+%>
+
+<div class="turbo-card turbo-toggle"
+     data-back-class="bg-info"
+     data-turbo-url="<%= url_for('/htmls/elements/turbocards/body.html') %>"
+     >
+  <%= partial 'htmls/elements/captionable/panel',locals: {
+    title: lorem.name,
+    klass: 'panel-success',
+    kind: (i*3+j) % 2 == 0 ? 'heart' : nil
+  } %>
+</div>
+

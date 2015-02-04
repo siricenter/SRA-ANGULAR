@@ -1,0 +1,35 @@
+.dd-list {
+  list-style-type: none;
+}
+
+.dd-content {
+  padding: .5em;
+  margin-top: .5em;
+  background-color: $brand-light;
+  margin-bottom: .5em;
+}
+
+button.dd-handle.pull-left {
+  margin-right: .5em;
+  & + .dd-toggle {
+    margin-right: .5em;
+    position: relative;
+    left: -0.5em;
+    margin-right: 0;
+  }
+}
+
+
+.dd-toggle {
+  cursor: pointer;
+  float: left;
+  margin-right: .5em;
+  &::before {
+    font-family: FontAwesome;
+    content: '\f068';
+  }
+  &.collapsed::before {
+    content: '\f067';
+  }
+}
+

@@ -1,0 +1,51 @@
+.table-line {
+  
+  padding-left: $panel-body-padding;
+  padding-right: $panel-body-padding;
+  
+  @include headers {
+    margin: 0;
+    line-height: 30px;
+  }
+  
+  > .table-line-row {
+    padding: $panel-body-padding;
+    background: $brand-white;
+    margin-bottom: 20px;
+    @include border-radius($border-radius-base);
+    @include box-shadow($panel-shadow);
+    padding-left: 15px;
+    padding-right: 15px;
+    
+    border-right: 3px solid transparent;
+    @include transition(border-color .3s);
+    
+    &:hover {
+      border-right: 3px solid $brand-primary;
+    }
+  }
+}
+
+.list-group-connected {
+  margin-bottom: 0;
+  
+  .list-group-item {
+    border-width: 1px 0;
+    border-radius: 0;
+  }
+  
+  // Add border top radius for first one
+  &:first-child {
+    .list-group-item:first-child {
+      border-top: 0;
+      border-radius: 0;
+    }
+  }
+  // Add border bottom radius for last one
+  &:last-child {
+    .list-group-item:last-child {
+      border-bottom: 0;
+      border-radius: 0;
+    }
+  }
+}

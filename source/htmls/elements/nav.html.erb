@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  
+  <%= partial 'htmls/elements/nav/tabs_plain' %>
+  
+  <div class="row clearfix" rel="panels">
+    <div class="col-md-6 panels " id="<%= rid() %>">
+
+      <%= partial 'htmls/elements/nav/tabs', locals: {
+        kind: 'nav-tabs', attrs: 'rel="tabdrop"', box_class: 'box-primary',
+        title: "Tabdrop makes a dropdown out of tabs that don't fit." } %>
+
+      <%= partial 'htmls/elements/nav/justified-all' %>
+      <%= partial 'htmls/widgets/nav_justify_up' %>
+
+    </div>
+    <div class="col-md-6 panels " id="<%= rid() %>">
+
+
+      <%= partial 'htmls/widgets/nav_menu' %>
+
+
+
+      <%= partial 'htmls/elements/nav/tabs', locals: {
+        kind: 'nav-tabs', box_class: 'box-primary',
+        tabs_number: 3, title: "Tabs" } %>
+      
+      <%= partial 'htmls/elements/nav/justified-all', locals: {
+        actions: true } %>
+
+
+
+    </div>
+  </div>
+</div>

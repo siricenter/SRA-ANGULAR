@@ -1,0 +1,20 @@
+<% panel 'DataTables', klass: 'panel-none' do %>
+    <table class="table table-clean datatable" data-scroll=".oc-scroll" id="<%= rid() %>">
+      <thead>
+      <tr>
+        <th>Some</th>
+        <th>header</th>
+        <th>title</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% 30.times do %>
+          <tr>
+            <% 3.times do %>
+                <td><%= lorem.word %></td>
+            <% end %>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>

@@ -1,0 +1,26 @@
+<%
+title = lorem.name if !defined?(title) || title.nil?
+classes = %w(primary info success warning danger).map {|c| "badge-#{c}-lt"}
+panel_bg_class = nil unless defined?(panel_bg_class)
+badge_class = nil unless defined?(badge_class)
+timeline_class = nil unless defined?(timeline_class)
+%>
+
+<li class="<%= timeline_class %>">
+  <div class="timeline-badge"></div>
+  <div class="panel <%= panel_bg_class %>">
+    <div class="panel-heading panel-colorize">
+
+      <div class="panel-title">
+        <a href="#" class="v-mid badge <%= badge_class || classes.sample %> badge-rounded badge-empty badge-grow"></a>
+        <span class="mid"><%= title %></span>
+      </div>
+      <span class="pull-right text-semi"><i class="icm icm-clock"></i> <span>8m ago</span></span>
+    </div>
+
+    <div class="panel-body panel-colorize">
+      <p><%= lorem.paragraph %></p>
+    </div>
+
+  </div>
+</li>

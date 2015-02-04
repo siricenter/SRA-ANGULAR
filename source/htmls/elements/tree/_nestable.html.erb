@@ -1,0 +1,74 @@
+<ol class='nestable dd-list list-unstyled'>
+  <li class="dd-item">
+    <div class="dd-content dd-handle">
+      <%= lorem.word.capitalize %>
+    </div>
+  </li>
+  <li class="dd-item">
+    <div class="dd-content dd-handle">
+      <%= lorem.word.capitalize %>
+    </div>
+  </li>
+  <li class="dd-item">
+    <% uid1 = uid() %>
+    <button class="btn btn-default dd-toggle" data-toggle="collapse" 
+            data-target="#<%= uid1 %>">
+    </button>
+    <div class="dd-content dd-handle">
+      <%= lorem.word.capitalize %>
+    </div>
+    <ol class="dd-list collapse in" id="<%= uid1 %>">
+      <li class="dd-item">
+        <div class="dd-content dd-handle">
+          <%= lorem.word.capitalize %>
+        </div>
+      </li>
+      <li class="dd-item">
+        <div class="dd-content dd-handle">
+          <%= lorem.word.capitalize %>
+        </div>
+      </li>
+      <li class="dd-item">
+        <% uid2 = uid() %>
+        <button class="btn btn-default dd-toggle" data-toggle="collapse" 
+                data-target="#<%= uid2 %>">
+        </button>
+        <div class="dd-content dd-handle">
+          <%= lorem.word.capitalize %>
+        </div>
+        <ol class="dd-list collapse in" id="<%= uid2 %>">
+          <li class="dd-item">
+            <div class="dd-content dd-handle">
+              <%= lorem.word.capitalize %>
+            </div>
+          </li>
+          <li class="dd-item">
+            <div class="dd-content dd-handle">
+              <%= lorem.word.capitalize %>
+            </div>
+          </li>
+          <li class="dd-item">
+            <div class="dd-content dd-handle">
+              <%= lorem.word.capitalize %>
+            </div>
+          </li>
+        </ol>
+      </li>
+      <li class="dd-item">
+        <div class="dd-content dd-handle">
+          <%= lorem.word.capitalize %>
+        </div>
+      </li>
+    </ol>
+  </li>
+  <li class="dd-item">
+    <div class="dd-content dd-handle">
+      <%= lorem.word.capitalize %>
+    </div>
+  </li>
+  <li class="dd-item">
+    <div class="dd-content dd-handle">
+      <%= lorem.word.capitalize %>
+    </div>
+  </li>
+</ol>

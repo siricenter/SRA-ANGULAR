@@ -1,0 +1,47 @@
+<% kind = '' if !defined?(kind) || kind.nil? %>
+<% title = 'Panel' if !defined?(title) || title.nil? %>
+<% actions = 'default' if !defined?(actions) || actions.nil? %>
+<% attrs = {} if !defined?(attrs) || attrs.nil? %>
+<% body_class = '' if !defined?(body_class) || body_class.nil? %>
+<% panel_actions = {} if !defined?(panel_actions) || panel_actions.nil? %>
+<% content = lorem.paragraph if !defined?(content) || content.nil? %>
+<% compact = false if !defined?(compact) || compact.nil? %>
+
+<% content_tag :div, attrs.merge(:class => "panel #{kind} gradient-diag1", id: rid()) do %>
+  <div class="panel-heading panel-handle panel-colorize">
+    <% if actions == 'hover' %>
+        <div class="panel-actions pull-right panel-actions-reveal">
+            <span class="panel-actions-reveal-hide animated fadeInRight">
+                <%= partial 'htmls/panels/actions', locals: panel_actions %>
+            </span>
+            &nbsp;&nbsp;
+            <i class="fa fa-bars panel-actions-reveal-icon"></i>
+        </div>
+    <% else %>
+    <div class="panel-actions pull-right">
+      <% if attrs['data-url'] %>
+        <span class="panel-action panel-refresh">
+          <i class="fa fa-refresh animated"></i>
+        </span>
+      <% end %>
+      <%= partial 'htmls/panels/actions', locals: panel_actions %>
+    </div>
+    <% end %>
+    <div class="panel-title">
+      <span class="panel-title-edtitable" data-type="text">
+        <%= title %>
+      </span>
+    </div>
+  </div>
+  <div class="panel-body-collapse collapse in">
+    <% unless compact %>
+      <div class="panel-body <%= body_class %>">
+    <% end %>
+
+      <%= content %>
+
+    <% unless compact %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

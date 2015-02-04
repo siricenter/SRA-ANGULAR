@@ -1,0 +1,10 @@
+<div ng-controller="regionsCtrl">
+  <input type="text" ng-model="name"/> {{ name }}
+  <button ng-click="createRegion()">Submit</button>
+  <button ng-click="getRegion('Region')">get</button>
+  <table>
+  <tr ng-repeat="x in regions">
+    <td>{{ x.Name }}</td>
+  </tr>
+</table>
+</div>

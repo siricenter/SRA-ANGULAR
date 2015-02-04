@@ -1,0 +1,17 @@
+.img-responsive {
+  margin: 0 auto;
+}
+
+a {
+  &, &:hover {
+    text-decoration: none;
+  }
+}
+
+.thumbnail {
+  background: $brand-white;
+}
+
+a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
+  border-color: $gray-light;
+}

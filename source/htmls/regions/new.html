@@ -1,0 +1,14 @@
+<h1>New region</h1>
+
+<br/>
+<ul>
+  <li ng-repeat="error in errors">
+    {{ error }}
+  </li>
+</ul>
+
+<div class="formBox">
+  <lable for="name">Name: </lable><input id="name" type="text" ng-model="newName"/> {{newName}}
+  <br/>
+  <button ng-click="submit()">Submit</button>
+</div>

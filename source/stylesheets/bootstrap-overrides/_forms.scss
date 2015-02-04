@@ -1,0 +1,49 @@
+.form-control {
+  &, &:focus {
+    border: none;
+    @include box-shadow(none);
+  }
+}
+
+@mixin form-control-validation-reset($bg) {
+  // Set the border and box shadow on specific inputs to match
+  .form-control {
+    background-color: $bg;
+    color: #fff;
+    @include box-shadow(none);
+    &:focus,
+    &:hover {
+      border: none;
+      background-color: $bg;
+      color: #fff;
+      @include box-shadow(none);
+    }
+    @include placeholder(#fff);
+  }
+}
+
+.has-success {
+  @include form-control-validation-reset($state-success-bg);
+}
+.has-warning {
+  @include form-control-validation-reset($state-warning-bg);
+}
+.has-error {
+  @include form-control-validation-reset($state-danger-bg);
+}
+
+
+.form-control {
+  @include transition(background-color .35s ease);
+  &:focus, &:hover {
+    background-color: $brand-light;
+  }
+}
+
+.jvFloat .placeHolder {
+  color: $text-color;
+  font-weight: 700;
+  &.required:before {
+    content: "* ";
+  }
+}

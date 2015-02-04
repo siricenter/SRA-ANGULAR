@@ -1,0 +1,48 @@
+<%
+  klass = '' if !defined?(klass) || klass.nil?
+  colors = false if !defined?(colors) || colors.nil?
+  refresh = false if !defined?(refresh) || refresh.nil?
+  collapse = true if !defined?(collapse) || collapse.nil?
+  fullscreen = true if !defined?(fullscreen) || fullscreen.nil?
+%>
+
+<div class="panel-actions pull-right panel-actions-reveal <%= klass %>">
+  <span class="panel-actions-reveal-hide animated fadeInRight">
+    <% if refresh %>
+      <span class="panel-action panel-refresh">
+        <i class="fa fa-refresh animated"></i>
+      </span>
+    <% end %>
+    <% if colors %>
+    <span class="panel-action panel-classify">
+      <select rel="classselector">
+        <option>panel-white</option>
+        <option>panel-light</option>
+        <option>panel-dark</option>
+        <option>panel-black</option>
+        <option>panel-inverse</option>
+        <option>panel-primary</option>
+        <option>panel-info</option>
+        <option>panel-success</option>
+        <option>panel-warning</option>
+        <option>panel-danger</option>
+      </select>
+    </span>
+    <% end %>
+    <% if fullscreen %>
+      <span class="panel-action panel-fullscreen">
+        <i class="fa fa-expand"></i>
+      </span>
+    <% end %>
+    <% if collapse %>
+      <span class="panel-action panel-collapse">
+        <i class="fa fa-minus"></i>
+      </span>
+    <% end %>
+    <span class="panel-action panel-close">
+      <i class="fa fa-times"></i>
+    </span>
+  </span>
+  &nbsp;&nbsp;
+  <i class="fa fa-bars panel-actions-reveal-icon"></i>
+</div>

@@ -1,0 +1,69 @@
+<%
+   row_count = rand(3..5) if !defined?(row_count) || row_count.nil?
+   checkable = false if !defined?(checkable) || checkable.nil?
+   colors = %w(primary-lt danger-lt success-lt warning-lt info-lt).shuffle * 10
+   row_colors = colors[0...row_count]
+   email = false if !defined?(email) || email.nil?
+   label = false if !defined?(label) || label.nil?
+%>
+<table class="<%= klass %>">
+  <thead>
+  <tr class="row-mid">
+    <% if checkable %>
+        <th>
+          <label>
+            <input type="checkbox" rel="icheck" class="table-checkable">
+          </label>
+        </th>
+    <% end %>
+
+    <th>Name</th>
+    <% if email %>
+        <th>Email</th>
+    <% end %>
+    <th>Revenue</th>
+    <% unless email %>
+        <th>Spark</th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% row_colors.each_with_index do |color, i| %>
+
+      <tr class="row-mid">
+
+        <% if checkable %>
+            <td style="width: 30px">
+              <label>
+                <input type="checkbox" rel="icheck" class="table-checkable-row">
+              </label>
+            </td>
+        <% end %>
+
+        <td>
+          <%= lorem.name %>
+          <% if label && i == 1 %>
+              <span class="hpadded">
+                <span class="label label-danger-lt">ALERT!</span>
+              </span>
+          <% end %>
+        </td>
+
+        <% if email %>
+            <td><%= lorem.email %></td>
+        <% end %>
+
+        <td class="text-muted">$<%= rand(5000..8000) %></td>
+
+        <% unless email %>
+            <td>
+              <div class="sparkline-bar" data-color="<%= color %>"><!--<%= [16,7,23,13,12,11,15,4,19].shuffle.join(',') %>--></div>
+            </td>
+        <% end %>
+      </tr>
+
+  <% end %>
+
+  </tbody>
+</table>

@@ -1,0 +1,11 @@
+.progress.flat-progress {
+  background: rgba(#000, .15);
+  border-radius: 0;
+  @include box-shadow(none);
+  height: 7px;
+
+  .progress-bar {
+    background: white;
+    @include box-shadow(none);
+  }
+}

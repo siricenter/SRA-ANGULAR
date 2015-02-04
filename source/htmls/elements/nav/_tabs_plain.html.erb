@@ -1,0 +1,33 @@
+<%
+tabs_number = 6 unless defined?(tabs_number) && !tabs_number.nil?
+box_class = '' unless defined?(box_class) && !box_class.nil?
+attrs = '' unless defined?(attrs) && !attrs.nil?
+title = '' unless defined?(title) && !title.nil?
+kind = 'nav-tabs' unless defined?(kind) && !kind.nil?
+
+id = uid()
+ids = (1 .. tabs_number - 1).map { uid() }
+%>
+
+
+<ul class="nav <%= kind %> nav-justified-only" <%= attrs %>>
+  <li class="active">
+    <%= link_to lorem.word.capitalize, '#' + id, 'data-toggle' => 'tab' %>
+  </li>
+  <% ids.each_with_index do |id, i| %>
+    <li>
+      <%= link_to lorem.word.capitalize, '#' + id, 'data-toggle' => 'tab' %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="tab-content bg-white padded margin-bottom">
+  <div class="tab-pane fade in active" id="<%= id %>">
+    <p><%= lorem.paragraph %></p>
+  </div>
+  <% ids.each_with_index do |id, i| %>
+    <div class="tab-pane fade in" id="<%= id %>">
+      <p><%= lorem.paragraph %></p>
+    </div>
+  <% end %>
+</div>

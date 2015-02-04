@@ -1,0 +1,24 @@
+@include keyframes(popover-grow) {
+    0% {
+      @include transform(scale3d(0, 0, 0));
+    }
+    100% {
+      @include transform(scale3d(1, 1, 1));
+    }
+}
+@include keyframes(popover-shrink) {
+    100% {
+      @include transform(scale3d(0, 0, 0));
+    }
+    0% {
+      @include transform(scale3d(1, 1, 1));
+    }
+}
+
+.popover-grow-shrink {
+  @include transform-origin(center, top, 0);
+  @include animation(popover-shrink .2s ease-out .01s);
+  &.in {
+    @include animation(popover-grow .2s ease-out .01s);
+  }
+}

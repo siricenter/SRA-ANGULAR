@@ -1,0 +1,31 @@
+<% links = active_level_links(sidebar_menu) %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 class="em-page-header v-mid-row thin">
+        <i class="<%= links.first['icon'] %> text-gradient-info-dk"></i>
+        <% last = links.last %>
+        <span class="text-gradient-info-dk">
+          <%= last['text'] %>
+          <% if last['tip'] %>
+            <small>(<%= last['tip'] %>)</small>
+          <% end %>
+        </span>
+      </h3>      
+    </div>
+    <div class="col-sm-6 text-right-sm text-right-md text-right-lg">
+      <ul class="breadcrumb breadcrumb-top">
+        <li><i class="fa fa-home"></i> Home</li>
+        <% links.each_with_index do |v,i| %>
+            <li class="<%= 'active' if i == links.size - 1 %>">
+              <% if v['href'].present? && i != links.size - 1 %>
+                  <%= link_to v['text'], v['href'] %>
+              <% else %>
+                  <%= v['text'] %>
+              <% end %>
+            </li>
+        <% end %>
+      </ul>      
+    </div>
+  </div>
+</div>

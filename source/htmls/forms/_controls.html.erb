@@ -1,0 +1,54 @@
+<form>
+  <label class="string" for="form-control-header">
+    Input header
+  </label>
+  <div class="form-group has-header string">
+    <span class="form-control-header">
+      <i class="fa fa-align-right"></i>
+    </span>
+    <input aria-required="true" class="string form-control" id="form-control-header"
+           maxlength="255" name="user[full_name]"="required" size="255" type="text">
+  </div>
+
+  <div class="form-group has-feedback string">
+    <label class="string" for="form-control-feedback">
+      Input feedback
+    </label>
+    <input aria-required="true" class="string form-control" id="form-control-feedback"
+           maxlength="255" name="user[full_name]"="required" size="255" type="text">
+    <span class="form-control-feedback">
+      <i class="fa fa-align-left"></i>
+    </span>
+  </div>
+
+  <div class="form-group string">
+    <label class="string">
+      Input add-on left
+    </label>
+    <div class="input-group">
+      <span class="input-group-addon">@</span>
+      <input type="text" class="form-control" placeholder="Username">
+    </div>
+  </div>
+
+  <div class="form-group number">
+    <label class="string">
+      Input add-on right
+    </label>
+    <div class="input-group">
+      <input type="text" class="form-control">
+      <span class="input-group-addon">.00</span>
+    </div>
+  </div>
+
+  <div class="form-group number">
+    <label class="string">
+      Input add-on both
+    </label>
+    <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <input type="text" class="form-control">
+      <span class="input-group-addon">.00</span>
+    </div>
+  </div>
+</form>

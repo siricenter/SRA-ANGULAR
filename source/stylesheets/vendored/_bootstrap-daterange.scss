@@ -1,0 +1,108 @@
+$range-bg: $brand-light;
+$range-border: none;
+$range-text: $text-color;
+
+$range-active-bg: ltize($brand-primary);
+$range-active-border: none;
+$range-active-text: $brand-light;
+
+$range-input-mini-bg: $brand-light;
+$range-input-mini-border: none;
+$range-input-mini-text: $text-color;
+
+$calendar-date-bg: #fff;
+$calendar-date-border: 1px solid $brand-light;
+
+$calendar-date-cell-off-text: $text-muted;
+$calendar-date-available-bg: dkize($brand-light);
+
+$in-range-bg: $brand-light;
+
+.reportrange {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.panel-title + .reportrange {
+  padding-left: $panel-body-padding;
+}
+
+.daterangepicker {
+
+  background: #fff;
+  @include border-radius($border-radius-base);
+
+  &.opensleft, &.opensright {
+    &:before {
+      border-bottom-color: #fff;
+    }
+  }
+
+  .calendar {
+    th, td {
+      font-family: $font-family-sans-serif;
+    }
+  }
+  .daterangepicker_start_input label, .daterangepicker_end_input label {
+    color: $range-input-mini-text;
+    text-shadow: #fff 1px 1px 0px;
+  }
+  .ranges {
+    .input-mini {
+      background-color: $range-input-mini-bg;
+      border: $range-input-mini-border;
+      color: $range-input-mini-text;
+    }
+    li {
+      background: $range-bg;
+      border: $range-border;
+      color: $range-text;
+      @include border-radius($border-radius-base);
+      &.active, &:hover {
+        background: $range-active-bg;
+        border: $range-active-border;
+        color: $range-active-text;
+      }
+    }
+  }
+  .calendar-date {
+    background: $calendar-date-bg;
+    border: $calendar-date-border;
+    @include border-radius($border-radius-base);
+  }
+
+  td, th {
+    @include border-radius($border-radius-base);
+  }
+  td {
+    &.off, &.disabled {
+      color: $calendar-date-cell-off-text;
+    }
+    &.available:hover {
+      background: $calendar-date-available-bg;
+    }
+  }
+  th.available:hover {
+    background: $calendar-date-available-bg;
+  }
+  td {
+    &.in-range {
+      background: $in-range-bg;
+    }
+    &.active {
+      &, &:hover {
+        background-color: $range-active-bg;
+        border-color: $range-active-border;
+        color: $range-active-text;
+      }
+    }
+    &.week {
+      color: $range-text;
+    }
+  }
+  th.week {
+    color: $range-text;
+  }
+
+}
+

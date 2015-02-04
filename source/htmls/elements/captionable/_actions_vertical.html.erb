@@ -1,0 +1,30 @@
+<%
+kind = '' if !defined?(kind) || kind.nil?
+%>
+
+<ul class="list-unstyled text-center vertical-justify <%= kind %>">
+  <li>
+    <div>
+      <i class="icm icm-heart7 text-danger"></i>
+    </div>
+    <div>
+      <%= number_with_delimiter lorem.number(4) %>
+    </div>
+  </li>
+  <li>
+    <div>
+      <i class="icm icm-star4 text-warning"></i>
+    </div>
+    <div>
+      <%= number_with_delimiter lorem.number(4) %>
+    </div>
+  </li>
+  <li>
+    <div>
+      <i class="icm icm-radio-unchecked text-primary"></i>
+    </div>
+    <div>
+      <%= number_with_delimiter lorem.number(4) %>
+    </div>
+  </li>
+</ul>

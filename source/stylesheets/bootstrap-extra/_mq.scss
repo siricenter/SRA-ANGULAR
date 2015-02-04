@@ -1,0 +1,44 @@
+// push sass knowledge into DOM to access it via JS
+
+%hideit {
+  visibility: hidden;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  height: 0px;
+}
+
+#mq {
+  @extend %hideit;
+  &::after {
+    @extend %hideit;
+    
+    // visible-xs
+    @media (max-width: $screen-xs-max) {
+      content: 'xs';
+    }
+    
+    // visible-sm
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      content: 'sm';
+    }
+    
+    // visible-md
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      content: 'md';
+    }
+    
+    // visible-lg
+    @media (min-width: $screen-lg-min) {
+      content: 'lg';
+    }
+  }
+}
+
+#emvars {
+  @extend %hideit;
+  &::after {
+    @extend %hideit;
+    content: vars-to-json();
+  }
+}

@@ -1,0 +1,79 @@
+<div class="oc-sidebar-header chat-sidebar-header">
+  <ul class="nav nav-tabs-oc nav-justified-all">
+    <li class="active">
+      <a href="#chat-users" class="btn-nav" data-toggle="tab"
+         rel="tooltip" data-placement="bottom" title="Users">
+        <i class="icm icm-users2"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#chat-recent" class="btn-nav" data-toggle="tab"
+         rel="tooltip" data-placement="bottom" title="Recent">
+        <i class="icm icm-clock"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#chat-favorites" class="btn-nav" data-toggle="tab"
+         rel="tooltip" data-placement="bottom" title="Favorites">
+        <i class="icm icm-star3"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#chat-settings" class="btn-nav" data-toggle="tab"
+         rel="tooltip" data-placement="bottom" title="Settings">
+        <i class="icm icm-cog2"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Tab panes -->
+<div class="tab-content oc-sidebar-content">
+  <div class="tab-pane high active fade in" id="chat-users">
+    <%= partial 'htmls/components/chat/contacts', locals: { oc_id: "oc-wrapper-chat-1" } %>
+  </div>
+  <div class="tab-pane fade high" id="chat-recent">
+    <%= partial 'htmls/components/chat/contacts', locals: { oc_id: "oc-wrapper-chat-2" } %>
+  </div>
+  <div class="tab-pane fade high" id="chat-favorites">
+    <%= partial 'htmls/components/chat/contacts', locals: { oc_id: "oc-wrapper-chat-3" } %>
+  </div>
+  <div class="tab-pane fade high" id="chat-settings">
+    <form class="oc-header oc-form" role="search">
+      <div class="form-group has-header">
+        <span class="icm icm-bubble form-control-header"></span>
+        <input type="text" class="form-control" placeholder="Status message">
+      </div>
+    </form>
+    <div class="oc-inner switch-label">
+      <p>Chat always on</p>
+      <div class="switch switch-primary switch-medium pull-right">
+        <input type="checkbox" checked rel="switch">
+      </div>
+    </div>
+    <div class="oc-inner switch-label">
+      <p>Notify incoming chat messages</p>
+      <div class="switch switch-success switch-medium pull-right">
+        <input type="checkbox" checked rel="switch">
+      </div>
+    </div>
+    <div class="oc-inner switch-label">
+      <p>Notify contacts online status</p>
+      <div class="switch switch-info switch-medium pull-right">
+        <input type="checkbox" checked rel="switch">
+      </div>
+    </div>
+    <div class="oc-inner switch-label">
+      <p>Do not message me when invisible</p>
+      <div class="switch switch-warning switch-medium pull-right">
+        <input type="checkbox" checked rel="switch">
+      </div>
+    </div>
+    <div class="oc-inner switch-label">
+      <p>Do not accept messages from banned users</p>
+      <div class="switch switch-danger switch-medium pull-right">
+        <input type="checkbox" checked rel="switch">
+      </div>
+    </div>
+  </div>
+</div>

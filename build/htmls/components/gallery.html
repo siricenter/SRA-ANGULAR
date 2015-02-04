@@ -1,0 +1,2459 @@
+<!doctype html>
+<html lang="en" class="high">
+<head>
+  
+<meta charset="utf-8">
+
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+<meta name="viewport" content="width=device-width, minimal-ui, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+
+<!-- Apple Touch -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../images/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../images/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../images/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../../images/apple-touch-icon-57-precomposed.png">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="../../images/favicon.png">
+
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>Emerald</title>
+
+<script type="text/javascript">
+    var polyfilter_scriptpath = "/emerald/source/polyfills/filters/";
+    window.polyfilter_skip_stylesheets = true
+</script>
+
+  <link href="../../stylesheets/application.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 9]>
+<link href="../../stylesheets/application_split2.css" rel="stylesheet" type="text/css" /><link href="../../stylesheets/application_split3.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+  <script src="../../javascripts/application.js" type="text/javascript"></script>
+  <script src="../../javascripts/demo.js" type="text/javascript"></script>
+  <script src="../../javascripts/init.js" type="text/javascript"></script>
+
+
+</head>
+
+<body class="high emerald-default htmls htmls_components htmls_components_gallery">
+
+<div class="modal blur jump-to-modal" id="jump-to-menu">
+  <div class="modal-dialog modal-lg">
+    <div class="clearfix">
+      <button type="button" class="close pull-right text-white-dk" 
+            data-dismiss="modal" aria-hidden="true">&times;</button>
+    </div>
+    <div class="container-fluid">
+<div class="row text-center vpadded-row">        <div class="col-sm-4">
+<a href="../dashboard.html">            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+              <i class="icm icm-screen4 icm-4x"></i>
+              <h5>Dashboard</h5>
+            </div>
+</a>        </div>
+        <div class="col-sm-4">
+<a href="../widgets.html">            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+              <i class="icm icm-grid icm-4x"></i>
+              <h5>Widgets</h5>
+            </div>
+</a>        </div>
+        <div class="col-sm-4">
+<a href="../elements/cards/turbocards.html">            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+              <i class="icm icm-html5 icm-4x"></i>
+              <h5>UI Elements</h5>
+            </div>
+</a>        </div>
+</div><div class="row text-center vpadded-row">        <div class="col-sm-4">
+<a href="../charts.html">            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+              <i class="icm icm-chart icm-4x"></i>
+              <h5>Charts</h5>
+            </div>
+</a>        </div>
+        <div class="col-sm-4">
+<a href="../forms.html">            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+              <i class="icm icm-clipboard3 icm-4x"></i>
+              <h5>Forms</h5>
+            </div>
+</a>        </div>
+        <div class="col-sm-4">
+<a href="../tables.html">            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+              <i class="icm icm-table2 icm-4x"></i>
+              <h5>Tables</h5>
+            </div>
+</a>        </div>
+</div><div class="row text-center vpadded-row">        <div class="col-sm-4">
+<a href="../panels.html">            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+              <i class="icm icm-insert-template icm-4x"></i>
+              <h5>Panels</h5>
+            </div>
+</a>        </div>
+        <div class="col-sm-4">
+<a href="timeline.html">            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+              <i class="icm icm-calendar2 icm-4x"></i>
+              <h5>Components</h5>
+            </div>
+</a>        </div>
+        <div class="col-sm-4">
+<a href="../pages/sign_in.html">            <div class="jump-to-element padded text-gradient-white text-component-shadow">
+              <i class="icm icm-stack2 icm-4x"></i>
+              <h5>Pages</h5>
+            </div>
+</a>        </div>
+</div></div>    </div>
+    
+  </div>
+</div>
+<div class="modal fade" id="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        Cupiditate quod dignissimos velit nobis consequatur ipsum dolore et rerum provident illo hic provident et. autem aspernatur tempore enim numquam accusantium quam qui quos aut distinctio. quis ullam est voluptas id voluptatem qui rerum. est voluptas quia corporis autem. aut assumenda a est tempora veniam distinctio et animi voluptas aut est. quia consequatur optio et aut nobis commodi nostrum est. eaque hic fugiat dolor aut corrupti iure adipisci omnis sint veniam ex quasi
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="node-dialog-container"></div>
+
+
+<div class="oc-xs-push-push oc-sm-squeeze-push oc-md-squeeze-push oc-lg-squeeze-push 
+     modal-blur-content">
+
+  <div id="oc-wrapper" class="oc-wrapper
+       oc-lg-open-left oc-md-partial-left oc-sm-partial-left
+       oc-lg-left-squeeze oc-md-left-squeeze oc-sm-left-squeeze oc-xs-left-push
+       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push
+       ">
+
+    <div class="oc-push oc-scroll">
+      <aside id="main-oc-sidebar-left" class="oc-sidebar oc-sidebar-left oc-sidebar-fixed nano">
+        <div class="nano-content">
+          <script type="text/template" id="bigdrop">
+  <div class="panel panel-success no-margin-bottom">
+
+    <div class="tab-content">
+      <div class="padded tab-pane active fade in" id="uid9cc00e12bdcf63c6d288be88a101dc82">
+        <ul class="list-group list-group-connected">
+            <li class="list-group-item">
+              <a href="#">Impedit ut distinctio</a> <br>
+              <small class="text-muted">Fri Nov 11, 1994</small>
+              <i class="icm icm-star6 pull-right text-info"></i>
+            </li>
+            <li class="list-group-item">
+              <a href="#">Fugit est necessitatibus</a> <br>
+              <small class="text-muted">Fri Oct 15, 2004</small>
+              <i class="icm icm-star6 pull-right text-info"></i>
+            </li>
+            <li class="list-group-item">
+              <a href="#">Est aut consequatur</a> <br>
+              <small class="text-muted">Thu Jul 16, 1998</small>
+              <i class="icm icm-star6 pull-right text-info"></i>
+            </li>
+            <li class="list-group-item">
+              <a href="#">At eum facilis</a> <br>
+              <small class="text-muted">Thu May 04, 2000</small>
+              <i class="icm icm-star6 pull-right text-info"></i>
+            </li>
+            <li class="list-group-item">
+              <a href="#">Qui provident et</a> <br>
+              <small class="text-muted">Wed Aug 09, 1995</small>
+              <i class="icm icm-star6 pull-right text-info"></i>
+            </li>
+        </ul>
+        <div class="padded-top text-center">
+          <a class="btn btn-default btn-xs" href="#">Show all events</a>
+        </div>
+      </div>
+      <div class="padded tab-pane fade" id="uidee8bf69c028721e14e727fd5cf817133">
+        <ul class="list-group list-group-connected">
+            <li class="list-group-item">
+              <a href="#">Mitzi Bender</a> <br>
+              <small class="text-muted">bonitahoyle@gmail.com</small>
+            </li>
+            <li class="list-group-item">
+              <a href="#">Clinton Thornton</a> <br>
+              <small class="text-muted">patrick-branch@me.com</small>
+            </li>
+            <li class="list-group-item">
+              <a href="#">Mitzi Harvey</a> <br>
+              <small class="text-muted">rogelio_morgan@me.com</small>
+            </li>
+            <li class="list-group-item">
+              <a href="#">inn Steele</a> <br>
+              <small class="text-muted">judith-siegel@email.com</small>
+            </li>
+            <li class="list-group-item">
+              <a href="#">Melinda Carver</a> <br>
+              <small class="text-muted">vanessa_gross@hotmail.com</small>
+            </li>
+        </ul>
+        <div class="padded-top text-center">
+          <a class="btn btn-default btn-xs" href="#">Show all leads</a>
+        </div>
+      </div>
+      <div class="padded tab-pane fade" id="uidcc27e3e0d391cdbb023c5d1cf8414df1">
+        <ul class="list-group list-group-connected">
+            <li class="list-group-item">
+              <input type="checkbox" rel="icheck" class="table-checkable">
+              <a href="#">Accusantium et ullam</a>
+            </li>
+            <li class="list-group-item">
+              <input type="checkbox" rel="icheck" class="table-checkable">
+              <a href="#">Consectetur repellendus autem</a>
+            </li>
+            <li class="list-group-item">
+              <input type="checkbox" rel="icheck" class="table-checkable">
+              <a href="#">Aut dolores dignissimos</a>
+            </li>
+            <li class="list-group-item">
+              <input type="checkbox" rel="icheck" class="table-checkable">
+              <a href="#">Nisi sequi voluptas</a>
+            </li>
+            <li class="list-group-item">
+              <input type="checkbox" rel="icheck" class="table-checkable">
+              <a href="#">Ea quaerat vero</a>
+            </li>
+            <li class="list-group-item">
+              <input type="checkbox" rel="icheck" class="table-checkable">
+              <a href="#">Nihil quam culpa</a>
+            </li>
+            <li class="list-group-item">
+              <input type="checkbox" rel="icheck" class="table-checkable">
+              <a href="#">Porro qui et</a>
+            </li>
+        </ul>
+        <div class="padded-top text-center">
+          <a class="btn btn-default btn-xs" href="#">Show all tasks</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-colorize gradient-diag1">
+      <ul class="nav nav-justified-all nav-arrow-top">
+        <li class="active">
+          <a href="#uid9cc00e12bdcf63c6d288be88a101dc82" data-toggle="tab">
+            <i class="icm icm-location"></i>
+            <div>Events</div>
+          </a>
+        </li>
+        <li>
+          <a href="#uidee8bf69c028721e14e727fd5cf817133" data-toggle="tab">
+            <i class="icm icm-users"></i>
+            <div>Leads</div>
+          </a>
+        </li>
+        <li>
+          <a href="#uidcc27e3e0d391cdbb023c5d1cf8414df1" data-toggle="tab">
+            <i class="icm icm-list"></i>
+            <div>Tasks</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</script>
+
+<div class="oc-sidebar-header">
+  <ul class="nav nav-justified-all">
+    <li>
+      <a id="oc-left-toggle" href="#oc-wrapper"
+         class="btn-nav" style="width: 50px;"
+         data-toggle="offcanvas" data-control="left"
+         data-states="open,partial"
+         data-persist="lg,md,sm"
+         data-parent="body" data-sibling="right">
+        <i class="icm icm-menu6 oc-partial-rotate"></i>
+      </a>
+    </li>
+    <li>
+<a class="btn-nav" data-toggle="modal" href="#jump-to-menu">        <i class="icm icm-arrow-right6"></i>
+</a>    </li>
+    <li>
+      <a class="btn-nav" href="#" rel="popover-click"
+         data-toggle="popover"
+         data-container="body"
+         data-placement="bottom">
+        <i class="icm icm-bubbles5 has-corner-badge animated tada">
+          <span class="badge badge-corner badge-corner-top-right badge-info-dk">
+            <i class="fa fa-exclamation"></i>
+          </span>
+        </i>
+      </a>
+    </li>
+    <li>
+<a href="../pages/inbox.html">          <i class="icm icm-envelope3 has-corner-badge">
+            <span class="badge badge-corner badge-corner-top-right badge-primary-dk">4</span>
+          </i>
+</a>    </li>
+  </ul>
+</div>
+
+<div class="oc-sidebar-content" id="collapseAvatarLeft">
+  <ul class="nav nav-stacked oc-sidebar-nav visible-xs">
+    <li>
+      <form class="oc-header oc-search" role="search">
+        <div class="form-group has-header">
+          <span class="icm icm-search3 form-control-header"></span>
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+      </form>
+    </li>
+    <li class="dropdown">
+      <a href="#dropdownUserSidebar" class="collapsed"  data-toggle="collapse" data-parent="#collapseAvatarLeft">
+        <div class="media">
+          <img class="img-circle media-object pull-left" src="../../images/faker/avatars/48/Faces_Users-05.png" />
+          <div class="media-body">
+            <h4 class="media-heading">Amy R. Hofstadter</h4>
+            Exercitationem vel et qui autem voluptatem comm...
+          </div>
+        </div>
+      </a>
+      <ul class="collapse dropdown-menu" id="dropdownUserSidebar">
+        <li>
+          <a href="#"><i class="icm icm-user"></i> Profile</a>
+        </li>
+        <li>
+          <a href="#"><i class="icm icm-cog"></i> Settings</a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="icm icm-switch text-danger"></i> <span class="text-danger">Sign out</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  
+<form class="oc-header oc-search oc-partial-hidden oc-filter" role="search">
+  <div class="form-group has-header oc-reveal collapsed">
+    <span class="icm icm-filter3 form-control-header"></span>
+    <input type="text" class="form-control oc-menu-filter"
+           placeholder="Filter menu" data-toggle="listfilter" data-target="#collapseNavbarLeft2">
+  </div>
+</form>
+
+<ul class="nav nav-stacked oc-sidebar-nav" id="collapseNavbarLeft2">
+    <li class="">
+<a class="collapsed" rel="popover-sidebar" data-container="body" data-placement="right" data-content="A mashup of components, mainly visual indicators.
+" href="../dashboard.html">          <i class="oc-partial-icon icm icm-screen4"></i>
+        <span class="oc-partial-menu-item">
+          Dashboard
+        </span>
+</a>    </li>
+    <li class="">
+<a class="collapsed" rel="popover-sidebar" data-container="body" data-placement="right" data-content="A mashup of components that you can easily drop in your project.
+" href="../widgets.html">          <i class="oc-partial-icon icm icm-grid"></i>
+        <span class="oc-partial-menu-item">
+          Widgets
+        </span>
+</a>        <span class='badge badge-primary oc-nav-caption'>18</span>
+    </li>
+    <li class=" dropdown">
+<a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We styled the Bootstrap elements beautifuly, and added several of our own!
+" href="#uid0eccf59c2d4f304a2efd000412aa3c0e">          <i class="oc-partial-icon icm icm-html5"></i>
+        <span class="oc-partial-menu-item">
+          UI Elements
+            <b class="caret"></b>
+        </span>
+</a>        <ul class="collapse dropdown-menu " id="uid0eccf59c2d4f304a2efd000412aa3c0e">
+            
+<li class=" dropdown">
+<a class="collapsed" data-toggle="collapse" data-parent="#uid0eccf59c2d4f304a2efd000412aa3c0e" href="#uidd2b26e7a9469476d8b7a487059c4b834">    Motion cards
+      <b class="caret"></b>
+</a>    <span class='label label-inverse oc-nav-caption'>New</span>
+    <ul class="collapse dropdown-menu " id="uidd2b26e7a9469476d8b7a487059c4b834">
+        
+<li class="">
+<a class="collapsed" href="../elements/cards/turbocards.html">    Turbo cards
+</a></li>
+        
+<li class="">
+<a class="collapsed" href="../elements/cards/captionable.html">    Captionable cards
+</a>    <span class='badge badge-info oc-nav-caption'>12</span>
+</li>
+        
+<li class="">
+<a class="collapsed" href="../elements/cards/actionable.html">    Actionable card
+</a></li>
+    </ul>
+</li>
+            
+<li class=" dropdown">
+<a class="collapsed" data-toggle="collapse" data-parent="#uid0eccf59c2d4f304a2efd000412aa3c0e" href="#uidfac0de80a2d03eaeefd1f1536147b54c">    Offcanvas
+      <b class="caret"></b>
+</a>    <ul class="collapse dropdown-menu " id="uidfac0de80a2d03eaeefd1f1536147b54c">
+        
+<li class="">
+<a class="collapsed" href="../elements/offcanvas/squeeze-squeeze.html">    Squeeze squeeze
+</a></li>
+        
+<li class="">
+<a class="collapsed" href="../elements/offcanvas/squeeze-push.html">    Squeeze push
+</a></li>
+    </ul>
+</li>
+            
+<li class="">
+<a class="collapsed" href="../elements/typography.html">    Typography
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="../elements/buttons.html">    Buttons
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="../elements/nav.html">    Navigation
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="../elements/icons.html">    Icons
+</a>    <span class='label label-danger oc-nav-caption'>New</span>
+</li>
+            
+<li class="">
+<a class="collapsed" href="../elements/modal.html">    Modals & Notifications
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="../elements/tree.html">    Trees and nesting
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="../elements/components.html">    Other components
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="../elements/jquery-ui.html">    JQuery UI
+</a></li>
+            
+<li class=" dropdown">
+<a class="collapsed" data-toggle="collapse" data-parent="#uid0eccf59c2d4f304a2efd000412aa3c0e" href="#uid486a20fd56f9f45104c2c5a6c2f53ad8">    Multi level menu
+      <b class="caret"></b>
+</a>    <ul class="collapse dropdown-menu " id="uid486a20fd56f9f45104c2c5a6c2f53ad8">
+        
+<li class=" dropdown">
+<a class="collapsed" data-toggle="collapse" data-parent="#uid486a20fd56f9f45104c2c5a6c2f53ad8" href="#uid943e521f994ed500f5673547cf9f3c28">    Multi level menu
+      <b class="caret"></b>
+</a>    <ul class="collapse dropdown-menu " id="uid943e521f994ed500f5673547cf9f3c28">
+        
+<li class=" dropdown">
+<a class="collapsed" data-toggle="collapse" data-parent="#uid943e521f994ed500f5673547cf9f3c28" href="#uid05c7806e58987734e2552f40afa8583d">    Multi level menu
+      <b class="caret"></b>
+</a>    <ul class="collapse dropdown-menu " id="uid05c7806e58987734e2552f40afa8583d">
+        
+<li class=" dropdown">
+<a class="collapsed" data-toggle="collapse" data-parent="#uid05c7806e58987734e2552f40afa8583d" href="#uid2af713ce28b9089fb7f0c8b275a4750b">    Multi level menu
+      <b class="caret"></b>
+</a>    <ul class="collapse dropdown-menu " id="uid2af713ce28b9089fb7f0c8b275a4750b">
+        
+<li class=" dropdown">
+<a class="collapsed" data-toggle="collapse" data-parent="#uid2af713ce28b9089fb7f0c8b275a4750b" href="#uid3a78b986430d7fbc20fd0f588d68a49b">    Multi level menu
+      <b class="caret"></b>
+</a>    <ul class="collapse dropdown-menu " id="uid3a78b986430d7fbc20fd0f588d68a49b">
+        
+<li class="">
+<a class="collapsed" href="#">    Multi level menu
+</a></li>
+    </ul>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+        </ul>
+    </li>
+    <li class="">
+<a class="collapsed" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Visual indicators like charts and graphs, bars, pies, gauges and more.
+" href="../charts.html">          <i class="oc-partial-icon icm icm-chart"></i>
+        <span class="oc-partial-menu-item">
+          Charts
+        </span>
+</a>    </li>
+    <li class="">
+<a class="collapsed" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Forms and inputs, validations, form extensions and custom controll
+for all your data needs, easy peasy.
+" href="../forms.html">          <i class="oc-partial-icon icm icm-clipboard3"></i>
+        <span class="oc-partial-menu-item">
+          Forms
+        </span>
+</a>        <i class='icm icm-star6 text-warning oc-nav-caption'></i>
+    </li>
+    <li class="">
+<a class="collapsed" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Beautifully crafted tables including responsive and dynamic extensions.
+" href="../tables.html">          <i class="oc-partial-icon icm icm-table2"></i>
+        <span class="oc-partial-menu-item">
+          Tables
+        </span>
+</a>    </li>
+    <li class="">
+<a class="collapsed" rel="popover-sidebar" data-container="body" data-placement="right" data-content="Panel widgets with dynamic portal-like behaviors.
+Move them, toggle them, swap tehm, you name it.
+" href="../panels.html">          <i class="oc-partial-icon icm icm-insert-template"></i>
+        <span class="oc-partial-menu-item">
+          Panels
+        </span>
+</a>        <span class='label label-success oc-nav-caption'>New</span>
+    </li>
+    <li class=" dropdown active">
+<a data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="A series of ready-made great looking components that 
+you may need in your projects.
+" href="#uid6edec7cd429d7c84c124e6a4ffd2208b">          <i class="oc-partial-icon icm icm-calendar2"></i>
+        <span class="oc-partial-menu-item">
+          Components
+            <b class="caret"></b>
+        </span>
+</a>        <ul class="collapse dropdown-menu in" id="uid6edec7cd429d7c84c124e6a4ffd2208b">
+            
+<li class="">
+<a class="collapsed" href="timeline.html">    Timeline
+</a></li>
+            
+<li class="">
+<a class="collapsed" id="oc-open-chat" data-toggle="offcanvas" data-control="right" data-states="open,hidden" href="#oc-wrapper">    Chat
+</a></li>
+            
+<li class=" active">
+<a href="gallery.html">    Gallery
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="calendar.html">    Calendar
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="wizard.html">    Wizard
+</a></li>
+        </ul>
+    </li>
+    <li class=" dropdown">
+<a class="collapsed" data-toggle="collapse" data-parent="#collapseNavbarLeft2" rel="popover-sidebar" data-container="body" data-placement="right" data-content="We built all common page layouts so you don't have to.
+You will use these in your next project for sure.
+" href="#uid05bf710bfc98693aa69693e77bebc6ae">          <i class="oc-partial-icon icm icm-stack2"></i>
+        <span class="oc-partial-menu-item">
+          Pages
+            <b class="caret"></b>
+        </span>
+</a>        <ul class="collapse dropdown-menu " id="uid05bf710bfc98693aa69693e77bebc6ae">
+            
+<li class="">
+<a class="collapsed" data-no-turbolink="true" href="../pages/sign_in.html">    Sign In
+</a></li>
+            
+<li class="">
+<a class="collapsed" data-no-turbolink="true" href="../pages/sign_up.html">    Sign Up
+</a></li>
+            
+<li class="">
+<a class="collapsed" data-no-turbolink="true" href="../pages/lockscreen.html">    Lock Screen
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="../pages/profile.html">    User Profile
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="../pages/albums.html">    Albums
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="../pages/invoice.html">    Invoice
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="../pages/pricing.html">    Pricing
+</a></li>
+            
+<li class="">
+<a class="collapsed" href="../pages/inbox.html">    Inbox
+</a></li>
+        </ul>
+    </li>
+</ul>
+
+  
+  <div class="oc-partial-hidden">
+
+    <div class="padded">
+      <button class="btn btn-black-dk btn-block" rel="popover" id="reset-localstorage"
+              data-toggle="popover" data-placement="top" 
+              data-content="Resets widgets states to original">
+        <span class="text-dark-lt">Reset local storage</span>
+      </button>
+    </div>
+
+    <div class="padded">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="easy-pie-chart easy-pie-chart-normal"
+               data-percent="40"
+               data-color="black-dk"
+               data-size="80"
+               data-line-width="8"
+               data-scale-color="false"
+               data-track-color="rgba(255,255,255,.05)">
+            <span>40%</span>
+          </div>
+          <p class="text-center">Income</p>
+        </div>
+        <div class="col-xs-6">
+          <div class="easy-pie-chart easy-pie-chart-normal"
+               data-percent="25"
+               data-color="black-dk"
+               data-size="80"
+               data-line-width="8"
+               data-scale-color="false"
+               data-track-color="rgba(255,255,255,.05)">
+            <span>25%</span>
+          </div>
+          <p class="text-center">Sales</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</div>
+
+        </div>
+      </aside>
+
+      <div id="main-oc-container" class="oc-container">
+        <nav class="navbar navbar-default navbar-static-top navbar-inplace" role="navigation">
+  <ul class="nav navbar-nav navbar-left pull-left hidden-sm hidden-md hidden-lg">
+    <li>
+      <a id="oc-left-toggle-xs" href="#oc-wrapper"
+         class="btn-nav pull-left "
+         data-toggle="offcanvas" data-control="left"
+         data-states="open,hidden"
+         data-persist="lg,md,sm"
+         data-parent="body" data-sibling="right">
+        <i class="icm icm-menu6"></i>
+      </a>
+    </li>
+  </ul>
+<a class="navbar-brand" href="../dashboard.html">    <img src="../../images/emerald_flat.png" />
+    <span class="text-gradient-success-dk">Emerald</span>
+</a>  <ul class="nav navbar-nav navbar-right pull-right">
+    <li id="oc-right-toggle-container">
+      <a id="oc-right-toggle" href="#oc-wrapper" class="btn-nav sidebar-toggle-right"
+         
+         rel="tooltip" title="Toggle chat"
+         data-placement="bottom" 
+         data-container="#oc-right-toggle-container" 
+         
+         data-toggle="offcanvas" data-control="right"
+         data-states="open,hidden"
+         data-persist="lg,md,sm">
+        <i class="fa fa-lg fa-comments has-corner-badge">
+          <span class="badge badge-corner badge-corner-top-right badge-info">3</span>
+        </i>
+      </a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right pull-right hidden-xs">
+    <li class="dropdown">
+      <a href="#" data-toggle="dropdown" class="navbar-img-link">
+        <img class="img-circle" src="../../images/faker/avatars/48/Faces_Users-06.png" />
+        <span class="hidden-xs hidden-sm hidden-md">Amy R. Hofstadter</span>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu animated fadeIn fast">
+        <li>
+<a href="../pages/profile.html">            <i class="fa fa-user"></i> Profile
+</a>        </li>
+        <li>
+<a href="../pages/profile.html">            <i class="fa fa-cog"></i> Settings
+</a>        </li>
+        <li>
+          <a href="#">
+<a href="../pages/sign_in.html">              <i class="fa fa-power-off text-danger"></i>
+              <span class="text-danger">Sign out</span>
+</a>          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav nav-center hidden-xs">
+    <li>
+      <form class="navbar-form-inplace navbar-form-search navbar-right" role="search">
+        <div class="form-group has-header selectize-search no-margin-bottom">
+          <span class="fa fa-search form-control-header"></span>
+          <input type="text" class="form-control selectize-search-movie" placeholder="Search">
+        </div>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+
+            <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 class="em-page-header v-mid-row thin">
+        <i class="icm icm-calendar2 text-gradient-info-dk"></i>
+        <span class="text-gradient-info-dk">
+          Gallery
+        </span>
+      </h3>      
+    </div>
+    <div class="col-sm-6 text-right-sm text-right-md text-right-lg">
+      <ul class="breadcrumb breadcrumb-top">
+        <li><i class="fa fa-home"></i> Home</li>
+            <li class="">
+                  Components
+            </li>
+            <li class="active">
+                  Gallery
+            </li>
+      </ul>      
+    </div>
+  </div>
+</div>
+
+        <div class="container-fluid">
+  <div class="superbox" data-scroller=".oc-scroll">
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-1.jpg" src="../../images/superbox/superbox-thumb-1.jpg" />
+              <div class="superbox-list-content">
+                <h2>Ab</h2>
+                <p>Maxime quo molestias fuga molestiae hic consequatur alias quidem repellat enim eaque. quia consequatur nostrum facere excepturi odio autem totam rem quasi neque. placeat adipisci reprehenderit qui velit sed quia sed et fugiat quo consequatur. sit similique voluptas ullam repellat non iste nihil quia debitis amet. voluptatum distinctio deserunt quos</p>
+                <a href="/images/superbox/superbox-full-1.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-2.jpg" src="../../images/superbox/superbox-thumb-2.jpg" />
+              <div class="superbox-list-content">
+                <h2>Temporibus</h2>
+                <p>Numquam iste quasi eveniet eius dolorem exercitationem consequuntur id incidunt aliquid dolor hic vero. cum quia iusto nostrum nihil ipsum quia dicta sapiente libero labore. ut minima aut sapiente sint quisquam eaque aut nostrum est labore quam rerum culpa eveniet. fugit culpa quia quam sint quia dignissimos porro nostrum fugit ut in. vel dicta placeat modi fuga dignissimos voluptas quae quia enim. officiis ut sit dicta voluptas rem quod</p>
+                <a href="/images/superbox/superbox-full-2.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-3.jpg" src="../../images/superbox/superbox-thumb-3.jpg" />
+              <div class="superbox-list-content">
+                <h2>Temporibus</h2>
+                <p>Amet pariatur voluptatem sit et laudantium tenetur autem ipsa ipsum qui dolores cum. id est iusto consequatur asperiores quod quia aperiam mollitia cupiditate saepe eum dolorem iste. cupiditate ut quae impedit numquam quisquam omnis et non alias voluptatem harum magni. incidunt voluptas quaerat harum dolore suscipit deleniti et ea natus accusamus debitis. non architecto voluptatum est enim. occaecati ipsam aspernatur fuga rerum illum quaerat. voluptatem incidunt nisi reiciendis tempora nulla fuga exercitationem earum unde quod qui</p>
+                <a href="/images/superbox/superbox-full-3.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-4.jpg" src="../../images/superbox/superbox-thumb-4.jpg" />
+              <div class="superbox-list-content">
+                <h2>Nulla</h2>
+                <p>Optio aut qui iusto excepturi voluptas consequatur eligendi sed ad ut. eos nihil et rem voluptatem. dignissimos ratione commodi ipsam. consequuntur reiciendis vel aperiam eius optio delectus ad dignissimos maiores nemo</p>
+                <a href="/images/superbox/superbox-full-4.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-5.jpg" src="../../images/superbox/superbox-thumb-5.jpg" />
+              <div class="superbox-list-content">
+                <h2>Saepe</h2>
+                <p>Iste unde omnis vero provident minus doloremque quis minima voluptate. illum facere sequi porro mollitia amet dolor reiciendis at perspiciatis deserunt quam. autem quia amet optio. sed est aut tenetur assumenda cumque corporis ut autem sit qui iusto. suscipit in perferendis nihil aut enim non quasi adipisci ad est est qui sed mollitia. voluptas impedit velit sed consequatur. neque qui dolorem cumque quod sed consequuntur est minima</p>
+                <a href="/images/superbox/superbox-full-5.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-6.jpg" src="../../images/superbox/superbox-thumb-6.jpg" />
+              <div class="superbox-list-content">
+                <h2>Corporis</h2>
+                <p>Officia esse rerum earum unde ea eius. assumenda rem alias ut deleniti maiores ducimus omnis laboriosam libero in perspiciatis asperiores doloremque doloremque. vitae error suscipit est dolor quasi velit molestiae inventore natus id. qui est distinctio esse et impedit voluptatem soluta ea delectus. nihil architecto et omnis ipsa aut eligendi voluptas quia est nemo labore. iste ipsum est id dolorem corporis veniam qui. modi sequi deleniti veritatis tenetur omnis laborum quia sit animi occaecati laborum modi rerum a</p>
+                <a href="/images/superbox/superbox-full-6.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-7.jpg" src="../../images/superbox/superbox-thumb-7.jpg" />
+              <div class="superbox-list-content">
+                <h2>Beatae</h2>
+                <p>Voluptatem velit fuga id ab in alias voluptatem sint. quae officia quos aut. accusantium qui reprehenderit nulla cupiditate asperiores et accusamus architecto iusto voluptatum autem omnis rerum. vero possimus voluptas repellendus velit quia qui voluptatem ex tempore officiis error. voluptas autem et animi doloribus odio ea voluptatem</p>
+                <a href="/images/superbox/superbox-full-7.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-8.jpg" src="../../images/superbox/superbox-thumb-8.jpg" />
+              <div class="superbox-list-content">
+                <h2>Aut</h2>
+                <p>Ad dicta adipisci omnis adipisci aspernatur aut quaerat voluptatibus provident mollitia at eos. earum ut quia eos natus et id. a iste reprehenderit ratione sunt minima eum amet at quod atque labore. cupiditate et alias cupiditate. nisi consequatur velit quod in provident ut ad consequatur dolorem aspernatur sed est consequatur in</p>
+                <a href="/images/superbox/superbox-full-8.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-9.jpg" src="../../images/superbox/superbox-thumb-9.jpg" />
+              <div class="superbox-list-content">
+                <h2>Et</h2>
+                <p>Consequuntur molestiae exercitationem ad repudiandae nulla libero. et ut expedita officiis sequi omnis occaecati rerum aut dicta. ea assumenda et qui voluptas fugit qui omnis</p>
+                <a href="/images/superbox/superbox-full-9.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-10.jpg" src="../../images/superbox/superbox-thumb-10.jpg" />
+              <div class="superbox-list-content">
+                <h2>Harum</h2>
+                <p>Sunt non alias perspiciatis vel assumenda porro aliquam beatae rerum. velit tempore fugit quis dolor voluptatibus debitis totam non nam magnam quaerat tempora. voluptatem repellendus reiciendis neque voluptas fuga et. ad eligendi et aut qui. totam quos sint sint nihil ut voluptas ea vero ab aut qui. dolorem qui soluta dolores quo labore quisquam deleniti quas deleniti blanditiis dolorem est ut ratione. quisquam aut sed et ut commodi</p>
+                <a href="/images/superbox/superbox-full-10.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-11.jpg" src="../../images/superbox/superbox-thumb-11.jpg" />
+              <div class="superbox-list-content">
+                <h2>Hic</h2>
+                <p>Asperiores minima rerum molestias dolorem laborum tenetur asperiores quae. quaerat quia vitae optio et pariatur. voluptatem est eos delectus rem provident saepe. sunt autem minus similique sunt expedita ipsa reiciendis in perferendis nisi illum. eveniet saepe quia vero eveniet vero molestiae quia beatae dolores facere. amet consequuntur eos voluptas est qui eum. at et inventore eius</p>
+                <a href="/images/superbox/superbox-full-11.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-12.jpg" src="../../images/superbox/superbox-thumb-12.jpg" />
+              <div class="superbox-list-content">
+                <h2>Voluptas</h2>
+                <p>Harum laborum fugiat magni error repudiandae. exercitationem neque dolorem aut delectus voluptas ut quia. molestiae et accusamus illo repellat dicta esse architecto aspernatur quos in aperiam qui. molestias aut sed cupiditate temporibus et aut</p>
+                <a href="/images/superbox/superbox-full-12.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-13.jpg" src="../../images/superbox/superbox-thumb-13.jpg" />
+              <div class="superbox-list-content">
+                <h2>Voluptatem</h2>
+                <p>Ab voluptatem quod temporibus nesciunt sapiente vel et distinctio fuga odio sed eveniet. itaque nulla veritatis doloribus in quidem. quisquam aut incidunt atque possimus eaque dolorem in et quod sunt exercitationem et. nam autem omnis voluptas ex non omnis perspiciatis quidem enim fugit corrupti. pariatur velit omnis sit deleniti aliquam consectetur ullam qui unde quia sit voluptates ipsa assumenda. ut illum reprehenderit quo dolor. repellat sit corporis culpa ducimus quis hic</p>
+                <a href="/images/superbox/superbox-full-13.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-14.jpg" src="../../images/superbox/superbox-thumb-14.jpg" />
+              <div class="superbox-list-content">
+                <h2>Esse</h2>
+                <p>Sequi aliquid dignissimos eveniet nobis nulla nostrum delectus et non et quod magnam quia. in dolor omnis nobis sed. velit tempore velit iure eaque molestiae iste voluptatem quibusdam nihil repellendus cumque veniam asperiores omnis. pariatur est fuga necessitatibus possimus ut nisi. cumque dolores beatae placeat facilis sed a sequi. voluptatum occaecati praesentium est</p>
+                <a href="/images/superbox/superbox-full-14.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-15.jpg" src="../../images/superbox/superbox-thumb-15.jpg" />
+              <div class="superbox-list-content">
+                <h2>Nihil</h2>
+                <p>Eaque possimus quidem et et nam officiis. sed exercitationem dolore laborum velit cumque dolores et et voluptas ratione omnis. vel nobis sit quas maiores quam et. ut nostrum ea error dolore. ratione vel minima hic in voluptas nesciunt voluptas iure hic ut qui eos odio aut. error dolore ea exercitationem eum numquam sit mollitia quaerat</p>
+                <a href="/images/superbox/superbox-full-15.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-16.jpg" src="../../images/superbox/superbox-thumb-16.jpg" />
+              <div class="superbox-list-content">
+                <h2>Assumenda</h2>
+                <p>Ducimus voluptas vero aut et praesentium occaecati voluptas reprehenderit qui quia vel repudiandae. et reprehenderit sunt qui. rerum porro magni qui et aut delectus ut et veritatis repudiandae voluptatem sit inventore. veritatis excepturi culpa mollitia nobis aperiam nesciunt facere et ipsum harum est qui</p>
+                <a href="/images/superbox/superbox-full-16.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-17.jpg" src="../../images/superbox/superbox-thumb-17.jpg" />
+              <div class="superbox-list-content">
+                <h2>Molestias</h2>
+                <p>Sequi odit rerum saepe quasi aliquam vel. facilis eos quos corrupti non possimus praesentium itaque dolorem consequuntur consequatur error exercitationem. maiores non laborum illum minima. illum est voluptatem voluptatibus dolorum quia</p>
+                <a href="/images/superbox/superbox-full-17.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-18.jpg" src="../../images/superbox/superbox-thumb-18.jpg" />
+              <div class="superbox-list-content">
+                <h2>Est</h2>
+                <p>Ipsam incidunt voluptates et aliquam ut ad ut voluptates. a aut id at quibusdam omnis vel eligendi soluta debitis. doloremque aut aut aut quas. sint ut vitae quasi esse</p>
+                <a href="/images/superbox/superbox-full-18.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-19.jpg" src="../../images/superbox/superbox-thumb-19.jpg" />
+              <div class="superbox-list-content">
+                <h2>Velit</h2>
+                <p>Itaque pariatur fugit perferendis voluptatum aut et qui quas praesentium consequatur vel ut quidem. molestias asperiores voluptas quos id qui iusto tempore illo reiciendis ea et perferendis earum. dolores sint aut dolores dignissimos. sed repellendus animi consequatur. iure occaecati ex qui labore consequatur voluptatem ab. aut voluptatum est eveniet voluptas eveniet consectetur id quos sint iste rerum</p>
+                <a href="/images/superbox/superbox-full-19.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-20.jpg" src="../../images/superbox/superbox-thumb-20.jpg" />
+              <div class="superbox-list-content">
+                <h2>Voluptatem</h2>
+                <p>Dicta harum eaque culpa omnis deserunt molestiae ex quis. ut veritatis quibusdam earum. eos et facere et vero eaque nisi. amet adipisci aperiam dolores eius</p>
+                <a href="/images/superbox/superbox-full-20.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-21.jpg" src="../../images/superbox/superbox-thumb-21.jpg" />
+              <div class="superbox-list-content">
+                <h2>Saepe</h2>
+                <p>Occaecati sed nisi eum quasi non quia architecto debitis dolorem minima doloremque id ipsam enim. ea repudiandae vel voluptatem molestiae dolorum aut. consectetur at placeat sint recusandae sed ut aut illo molestiae aut unde. aut facilis repudiandae aut et dolorem quaerat consequatur</p>
+                <a href="/images/superbox/superbox-full-21.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-22.jpg" src="../../images/superbox/superbox-thumb-22.jpg" />
+              <div class="superbox-list-content">
+                <h2>Deleniti</h2>
+                <p>Quasi excepturi placeat quibusdam quae suscipit. praesentium est neque ea ad eaque sit. rem quis nulla non aut nulla fugiat omnis. ipsam unde sed vero. porro facilis deleniti accusantium sapiente tenetur laudantium quibusdam. exercitationem quis quia consequuntur fuga at iure neque illo dignissimos laudantium vel</p>
+                <a href="/images/superbox/superbox-full-22.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-23.jpg" src="../../images/superbox/superbox-thumb-23.jpg" />
+              <div class="superbox-list-content">
+                <h2>Facere</h2>
+                <p>Atque placeat quaerat quis sit reprehenderit quo amet quis reiciendis ratione. est eligendi maxime facere quas sit minus perspiciatis incidunt dolorem consequuntur. deleniti qui et consequuntur dicta sit nostrum non. deleniti ab laboriosam nemo sapiente asperiores soluta eius provident nihil et nobis quo error sapiente. commodi provident quia omnis aut. aperiam impedit qui possimus nihil minus praesentium porro et temporibus adipisci. quia ipsa blanditiis omnis provident officiis impedit accusantium alias ut quia aut quasi facilis maxime</p>
+                <a href="/images/superbox/superbox-full-23.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-24.jpg" src="../../images/superbox/superbox-thumb-24.jpg" />
+              <div class="superbox-list-content">
+                <h2>Ducimus</h2>
+                <p>Sed ut excepturi quia rerum quia dolores exercitationem saepe ut est fuga porro. dolore dolor voluptatem laboriosam. omnis in rerum quia dolore dolor itaque consequatur pariatur. voluptas suscipit rerum consequuntur eveniet tenetur voluptatem optio rem neque maxime repudiandae delectus fuga</p>
+                <a href="/images/superbox/superbox-full-24.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-1.jpg" src="../../images/superbox/superbox-thumb-1.jpg" />
+              <div class="superbox-list-content">
+                <h2>Dicta</h2>
+                <p>Repudiandae delectus laudantium similique sed fuga tempora quis. nam aut in cumque illum cum similique nihil cum provident error minima. consequatur molestias sit ipsum explicabo. est placeat est doloremque eligendi modi. alias occaecati quia voluptatibus velit optio optio voluptas iste tempora. modi dolores esse atque perferendis dolorum fugiat at laboriosam ea ea. aliquam itaque quisquam occaecati et</p>
+                <a href="/images/superbox/superbox-full-1.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-2.jpg" src="../../images/superbox/superbox-thumb-2.jpg" />
+              <div class="superbox-list-content">
+                <h2>Optio</h2>
+                <p>Sed cumque est at error. quis adipisci occaecati delectus et non. sed qui accusamus veritatis totam inventore error inventore laborum consectetur vero non aut deleniti. vel aut laborum molestias error commodi dolores est eaque animi praesentium sint sit</p>
+                <a href="/images/superbox/superbox-full-2.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-3.jpg" src="../../images/superbox/superbox-thumb-3.jpg" />
+              <div class="superbox-list-content">
+                <h2>Magnam</h2>
+                <p>Ut culpa doloremque quae rem amet facere iure odio et officia est sequi quos. quo animi et et provident magni similique vero autem facilis. officia neque repellat voluptas. a et maiores quaerat libero labore quo et et nihil omnis amet enim cumque accusantium. libero in dignissimos cum consectetur neque voluptatem aut perspiciatis sint fuga</p>
+                <a href="/images/superbox/superbox-full-3.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-4.jpg" src="../../images/superbox/superbox-thumb-4.jpg" />
+              <div class="superbox-list-content">
+                <h2>Nihil</h2>
+                <p>Facere harum vel ea earum voluptate nostrum et aut. pariatur totam ut vel id quisquam et id quos pariatur magni labore. et qui beatae aut minus est eum et accusantium aspernatur. odio ut ut ex quidem tempore excepturi rerum id aut in reprehenderit rerum. tempore sapiente aperiam recusandae nostrum nam praesentium rerum maiores exercitationem totam est. neque iste dolorem et error et commodi asperiores omnis veritatis assumenda velit quo. ut laborum magnam odit eligendi nihil voluptas exercitationem blanditiis at et incidunt numquam</p>
+                <a href="/images/superbox/superbox-full-4.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-5.jpg" src="../../images/superbox/superbox-thumb-5.jpg" />
+              <div class="superbox-list-content">
+                <h2>Impedit</h2>
+                <p>Enim est sed dolor. quam beatae facilis aut voluptates cumque. sed blanditiis quo cumque sit consequatur illum in voluptatem. quod ut et eos sed ullam ab nesciunt explicabo libero debitis unde ducimus corporis commodi. in et et cupiditate et impedit omnis possimus rerum magnam repellendus eaque voluptatem et quas. magnam ipsum quaerat officia et suscipit officia in veritatis temporibus</p>
+                <a href="/images/superbox/superbox-full-5.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-6.jpg" src="../../images/superbox/superbox-thumb-6.jpg" />
+              <div class="superbox-list-content">
+                <h2>Optio</h2>
+                <p>Veniam maxime possimus omnis voluptatem nisi quasi consequatur expedita non autem ipsam dolorem. incidunt temporibus non tempora beatae veniam sunt sit pariatur rerum reiciendis excepturi. saepe aliquid culpa voluptatem et fugiat doloremque porro. earum ullam voluptatem sed beatae. voluptate ducimus qui et eligendi asperiores praesentium. et earum illo quas ut laudantium sint eveniet hic sit eum nobis reprehenderit</p>
+                <a href="/images/superbox/superbox-full-6.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-7.jpg" src="../../images/superbox/superbox-thumb-7.jpg" />
+              <div class="superbox-list-content">
+                <h2>Cum</h2>
+                <p>Necessitatibus adipisci rerum ut ut et molestias nam eligendi qui repudiandae dicta voluptates nesciunt. quos veritatis beatae natus est sunt autem iure. atque minima voluptas occaecati nulla qui vero. est pariatur tenetur quia accusamus provident voluptatem alias reiciendis facilis eum aut tempore. est quia impedit sit expedita possimus at laudantium</p>
+                <a href="/images/superbox/superbox-full-7.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-8.jpg" src="../../images/superbox/superbox-thumb-8.jpg" />
+              <div class="superbox-list-content">
+                <h2>Quasi</h2>
+                <p>Et nostrum ratione sequi fugiat itaque quia sapiente rerum ad rem cupiditate ad atque odit. doloribus consequatur earum ipsum architecto quo nostrum. iste quia ut eligendi nam deserunt praesentium. in sunt nam consequuntur. nulla distinctio molestiae placeat dicta. blanditiis numquam nemo nesciunt mollitia et ut labore et aspernatur inventore</p>
+                <a href="/images/superbox/superbox-full-8.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-9.jpg" src="../../images/superbox/superbox-thumb-9.jpg" />
+              <div class="superbox-list-content">
+                <h2>Tenetur</h2>
+                <p>Porro et excepturi amet enim quasi. perspiciatis eius suscipit quia hic enim. aut qui dolor in voluptatem. provident aut enim similique nihil ad hic</p>
+                <a href="/images/superbox/superbox-full-9.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-10.jpg" src="../../images/superbox/superbox-thumb-10.jpg" />
+              <div class="superbox-list-content">
+                <h2>Incidunt</h2>
+                <p>Voluptatem facilis repellat earum non impedit tenetur. minus non pariatur exercitationem asperiores sunt provident velit. magnam sint asperiores est explicabo ipsam omnis at. ut quia beatae sit iusto eos veniam pariatur necessitatibus fugiat sed. ullam quia rerum quasi dolorum id et non quas et veniam minus doloremque ab odio. aut molestiae tempora fuga aut impedit. quia nulla hic et consectetur architecto at officiis voluptatem</p>
+                <a href="/images/superbox/superbox-full-10.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-11.jpg" src="../../images/superbox/superbox-thumb-11.jpg" />
+              <div class="superbox-list-content">
+                <h2>Hic</h2>
+                <p>Facere et ipsa vero nobis ut molestiae est. perferendis praesentium sunt magnam adipisci maxime nulla id amet consequatur sed quam. quos cumque est cum voluptatem suscipit vero quia. nobis veniam necessitatibus voluptates vero</p>
+                <a href="/images/superbox/superbox-full-11.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-12.jpg" src="../../images/superbox/superbox-thumb-12.jpg" />
+              <div class="superbox-list-content">
+                <h2>Cupiditate</h2>
+                <p>Molestiae accusantium itaque aut repellat repellendus nobis qui nemo assumenda asperiores deserunt. id nam non assumenda ut pariatur atque explicabo velit a omnis. sunt doloribus ex quia ipsam eos ad itaque dolores magnam quis expedita et quia illum</p>
+                <a href="/images/superbox/superbox-full-12.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-13.jpg" src="../../images/superbox/superbox-thumb-13.jpg" />
+              <div class="superbox-list-content">
+                <h2>Neque</h2>
+                <p>Vitae vel architecto nihil soluta dicta eum eum facilis aut velit nam rem. aut eius explicabo aliquam voluptate unde non nostrum laborum et et cumque repellat esse aut. quia molestiae id esse culpa in. et perspiciatis quibusdam autem ab non recusandae optio. voluptatem porro autem temporibus. commodi officia ut ea impedit earum</p>
+                <a href="/images/superbox/superbox-full-13.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-14.jpg" src="../../images/superbox/superbox-thumb-14.jpg" />
+              <div class="superbox-list-content">
+                <h2>Natus</h2>
+                <p>Aut autem corrupti voluptatum aut aut cumque cum incidunt. laborum quos accusamus doloribus dignissimos. rem beatae assumenda eum vel et blanditiis ut aut libero molestiae et sunt quae. qui magni ab sunt eum ut modi eum. ut voluptatem aut molestias enim animi sunt rem non maiores tempora illo facere quod corporis</p>
+                <a href="/images/superbox/superbox-full-14.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-15.jpg" src="../../images/superbox/superbox-thumb-15.jpg" />
+              <div class="superbox-list-content">
+                <h2>Aut</h2>
+                <p>Sunt iusto cum accusamus tenetur ut ut consequatur omnis sed quae beatae. labore soluta totam sit eos assumenda itaque sint dolor voluptatem quam et incidunt quod alias. perspiciatis ut minima autem minus iure fugit sed nihil est necessitatibus eligendi. commodi illo rerum voluptatem architecto velit nisi voluptas sed dolore et totam voluptates. quis dolor commodi sunt ut voluptatem ex qui atque dolorem autem itaque earum. fuga et qui magni sit sint similique repellendus. rem nemo quia dolor numquam sint voluptas ducimus quo consequatur vel voluptate</p>
+                <a href="/images/superbox/superbox-full-15.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-16.jpg" src="../../images/superbox/superbox-thumb-16.jpg" />
+              <div class="superbox-list-content">
+                <h2>Ut</h2>
+                <p>Eaque autem in numquam mollitia est neque nesciunt et placeat et laboriosam. et rerum nesciunt reiciendis consectetur delectus dolorem a in quis est assumenda. dignissimos et non possimus perspiciatis corporis iusto aut quia repellendus natus atque enim quod aliquam</p>
+                <a href="/images/superbox/superbox-full-16.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-17.jpg" src="../../images/superbox/superbox-thumb-17.jpg" />
+              <div class="superbox-list-content">
+                <h2>Reprehenderit</h2>
+                <p>Ipsa et aliquam sint voluptatem tempore libero est. voluptatem minus delectus distinctio vel et ducimus. eum corrupti eligendi eius repellendus nihil. officiis at dolores saepe rerum officia maiores reprehenderit a. laboriosam voluptas et consectetur possimus quia aut</p>
+                <a href="/images/superbox/superbox-full-17.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-18.jpg" src="../../images/superbox/superbox-thumb-18.jpg" />
+              <div class="superbox-list-content">
+                <h2>Reprehenderit</h2>
+                <p>Eos omnis voluptatem eos asperiores et quasi eos inventore sit labore natus ab enim. vero quas dolores earum expedita animi possimus. laboriosam recusandae magnam numquam voluptatem animi ut molestiae nobis nemo voluptas cum ut quisquam in. pariatur odit magnam reprehenderit fuga beatae officiis dolor ut esse error incidunt qui et quidem</p>
+                <a href="/images/superbox/superbox-full-18.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-19.jpg" src="../../images/superbox/superbox-thumb-19.jpg" />
+              <div class="superbox-list-content">
+                <h2>Voluptatum</h2>
+                <p>Qui doloribus et nihil et. aperiam autem excepturi ut accusantium quia minus. sint explicabo quo magnam voluptas ipsum odio labore. cumque placeat natus dicta minus est sed rerum. quia aut dignissimos molestias molestias maxime et. mollitia quod vitae delectus qui quos. iusto consequatur dolorum illum distinctio</p>
+                <a href="/images/superbox/superbox-full-19.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-20.jpg" src="../../images/superbox/superbox-thumb-20.jpg" />
+              <div class="superbox-list-content">
+                <h2>Rerum</h2>
+                <p>Commodi et possimus sunt veritatis in esse at molestiae ipsam vel reiciendis facilis unde alias. non fugiat debitis nihil ut quod aut omnis. veritatis et illum repellat ipsam aut. aut rem est non. et iste numquam rerum exercitationem fugiat est eligendi</p>
+                <a href="/images/superbox/superbox-full-20.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-21.jpg" src="../../images/superbox/superbox-thumb-21.jpg" />
+              <div class="superbox-list-content">
+                <h2>Blanditiis</h2>
+                <p>Magni aliquam eos vel est qui eveniet cum sequi adipisci minus quos qui ipsam molestias. mollitia quia ut magni est. consequatur corporis quasi dicta. vitae aut eius aspernatur voluptas ab similique. amet sapiente quam enim nesciunt libero officiis quia eveniet rerum ipsa odit ut</p>
+                <a href="/images/superbox/superbox-full-21.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-22.jpg" src="../../images/superbox/superbox-thumb-22.jpg" />
+              <div class="superbox-list-content">
+                <h2>Eius</h2>
+                <p>Tenetur quam neque iste odit pariatur unde quas excepturi iure totam alias corporis ex inventore. debitis inventore consequatur quia. quia doloremque sit deserunt autem consequatur. qui qui sed minus velit sapiente animi quidem. ut quam occaecati veritatis facere nulla et excepturi nihil necessitatibus molestiae maiores et. quae ut tenetur nostrum voluptas quia saepe</p>
+                <a href="/images/superbox/superbox-full-22.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-23.jpg" src="../../images/superbox/superbox-thumb-23.jpg" />
+              <div class="superbox-list-content">
+                <h2>Ipsam</h2>
+                <p>Illum quibusdam voluptatem ipsam maxime fuga non numquam recusandae eveniet. sint omnis dolorum corrupti quia sit ut qui culpa adipisci ut. ipsa eos sint quia incidunt nostrum odit et ut velit. ut quos aut architecto vel velit voluptate ratione. sequi consequatur libero neque omnis eum quaerat neque nisi culpa quia occaecati facere doloribus</p>
+                <a href="/images/superbox/superbox-full-23.jpg">Download</a>
+              </div>
+            </div>
+            <div class="superbox-list">
+              <img class="superbox-img" data-img="../../images/superbox/superbox-full-24.jpg" src="../../images/superbox/superbox-thumb-24.jpg" />
+              <div class="superbox-list-content">
+                <h2>Optio</h2>
+                <p>Ex velit nostrum qui id dignissimos ab iste. possimus non animi eius natus dolor consectetur ducimus assumenda dolores. et consequatur minima numquam sint praesentium sint iusto itaque quo dolorum at. saepe dolores beatae facere modi quisquam eos voluptatum ipsum dignissimos. praesentium molestiae soluta quidem voluptatem nihil dolores pariatur quo aut vel quod saepe quisquam hic. occaecati itaque beatae sunt occaecati harum rem ut aut</p>
+                <a href="/images/superbox/superbox-full-24.jpg">Download</a>
+              </div>
+            </div>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+
+    <aside class="oc-sidebar oc-sidebar-right oc-sidebar-fixed">
+      <div class="oc-sidebar-header chat-sidebar-header">
+  <ul class="nav nav-tabs-oc nav-justified-all">
+    <li class="active">
+      <a href="#chat-users" class="btn-nav" data-toggle="tab"
+         rel="tooltip" data-placement="bottom" title="Users">
+        <i class="icm icm-users2"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#chat-recent" class="btn-nav" data-toggle="tab"
+         rel="tooltip" data-placement="bottom" title="Recent">
+        <i class="icm icm-clock"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#chat-favorites" class="btn-nav" data-toggle="tab"
+         rel="tooltip" data-placement="bottom" title="Favorites">
+        <i class="icm icm-star3"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#chat-settings" class="btn-nav" data-toggle="tab"
+         rel="tooltip" data-placement="bottom" title="Settings">
+        <i class="icm icm-cog2"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Tab panes -->
+<div class="tab-content oc-sidebar-content">
+  <div class="tab-pane high active fade in" id="chat-users">
+    
+<div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
+  <div id="oc-wrapper-chat-1" class="oc-wrapper chat-oc-wrapper
+       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push">
+
+    <div class="oc-push">
+      <div class="oc-container chat-oc-container" style="z-index: 1100;">
+
+        <form class="oc-header oc-search" role="search">
+          <div class="form-group has-header">
+            <span class="icm icm-filter3 form-control-header"></span>
+            <input type="text" class="form-control" placeholder="Filter contacts"
+                   data-toggle="listfilter" data-target="#uidd363887a0824e766f878e699be7ed8c2">
+          </div>
+        </form>
+
+        <div class="nano">
+          <ul class="nav nav-stacked nano-content" id="uidd363887a0824e766f878e699be7ed8c2">
+              <li class="chat-contact unread">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-07.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Alexis Love
+        <small class="last-message-date">23, Jul</small>
+      </div>
+      <small class="last-message">
+        Error numquam omnis optio l...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact unread">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-08.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Kerry Morgan
+        <small class="last-message-date">07, Sep</small>
+      </div>
+      <small class="last-message">
+        Assumenda et nobis consequa...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact unread">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-09.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Abel Wu
+        <small class="last-message-date">04, Apr</small>
+      </div>
+      <small class="last-message">
+        Voluptatem officia ut occae...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact ">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-10.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Eoin Stout
+        <small class="last-message-date">20, May</small>
+      </div>
+      <small class="last-message">
+        Esse eaque veniam et simili...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact ">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-11.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Skylar Mangum
+        <small class="last-message-date">17, Jun</small>
+      </div>
+      <small class="last-message">
+        Iure et ea et libero nam fuga
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact ">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-12.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Brock Woods
+        <small class="last-message-date">26, Jan</small>
+      </div>
+      <small class="last-message">
+        Aut possimus debitis ut asp...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-13.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Freya Snyder
+        <small class="last-message-date">02, Dec</small>
+      </div>
+      <small class="last-message">
+        Doloribus perferendis ducim...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-14.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Davion Parks
+        <small class="last-message-date">11, Feb</small>
+      </div>
+      <small class="last-message">
+        Repudiandae et sunt volupta...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-20.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Abel Alexander
+        <small class="last-message-date">06, Oct</small>
+      </div>
+      <small class="last-message">
+        Et nemo mollitia autem ut a...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-21.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Pete Ross
+        <small class="last-message-date">01, Apr</small>
+      </div>
+      <small class="last-message">
+        Tempore reiciendis at et qu...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-22.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Kerry Chandler
+        <small class="last-message-date">18, May</small>
+      </div>
+      <small class="last-message">
+        Quis facere aut voluptatum ...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-23.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Dora Pickett
+        <small class="last-message-date">11, Apr</small>
+      </div>
+      <small class="last-message">
+        Omnis dolor laudantium cons...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-01.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Lynette Joseph
+        <small class="last-message-date">25, Mar</small>
+      </div>
+      <small class="last-message">
+        Architecto asperiores conse...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-1" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-02.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Beth Byrd
+        <small class="last-message-date">17, Jul</small>
+      </div>
+      <small class="last-message">
+        Cupiditate iste rerum animi...
+      </small>
+    </div>
+  </a>
+</li>
+          </ul>
+        </div>
+
+      </div>      
+    </div>
+
+    <aside class="oc-sidebar oc-sidebar-right">
+      <div class="chat-conversation" id="uidbfed44f6bc5bb9a1444f758ba283e287">
+
+  <div class="chat-contact unread">
+    <div class="media">
+      <a href="#oc-wrapper-chat-1" class="close" aria-hidden="true"
+         data-toggle="offcanvas" data-control="right"
+         data-states="open,hidden"
+         >&times;</a>
+         <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-03.png" />
+      <div class="media-body">
+        <div class="media-heading">
+          Ty Desai
+        </div>
+        <small class="last-message">
+          Be right back, on phone
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-messages nano">
+    <div class="nano-content">
+      <p class="text-center text-info small">
+        User went online <span class="text-muted">at Sat Aug 24, 1991</span>
+      </p>
+
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-13.png" />
+    Placeat quis eum et et esse deserunt eaque qui non
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-14.png" />
+    Earum distinctio perferendis eaque optio enim quam dolor sunt dolorum beatae nemo illo commodi dolor
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-20.png" />
+    Autem magnam sequi quod eos vel magnam
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-21.png" />
+    Praesentium ab dolorem velit explicabo tempore animi consectetur
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-22.png" />
+    Repellat voluptatibus commodi laboriosam saepe odio numquam laborum fugiat
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-23.png" />
+    Dolor quam quia odio optio quasi dolor dolorem soluta qui quia modi est sed
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-01.png" />
+    Quisquam dolor dolorem expedita
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-02.png" />
+    Suscipit quibusdam necessitatibus velit voluptatum
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-03.png" />
+    Nemo vel quidem quia porro corrupti magni animi rem voluptatem molestias
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-04.png" />
+    Molestiae voluptate rerum aut corrupti sequi molestias nihil odit deleniti quod
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-05.png" />
+    Qui enim fugit eveniet ut quasi dolor itaque voluptatibus sint provident earum soluta laudantium
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-06.png" />
+    Ut voluptas similique quis quo aut
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-07.png" />
+    Et voluptatem voluptas aliquam quasi culpa ut harum aperiam
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-08.png" />
+    Qui dolores fugiat soluta et harum quia nostrum sed
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-09.png" />
+    Sunt et commodi qui sit
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-10.png" />
+    Totam libero nihil ipsam iusto impedit
+  </p>
+</div>
+
+      <p class="text-center text-warning small">
+        User went offline <span class="text-muted">at Thu May 22, 2008</span>
+      </p>
+    </div>
+  </div>
+
+  <form role="form" class="chat-sender">
+    <textarea class="form-control" rows="2" placeholder="Type message..."></textarea>
+  </form>
+
+</div>
+
+<script type="text/template" id="chat-bubble-right-template">
+    <div class="clearfix">
+      <p class="chat-bubble chat-bubble-right">
+        <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-11.png" />
+        <%= this.message %>
+      </p>
+    </div>
+</script>
+
+<script type="text/javascript">
+  new ChatView({ el: $('#uidbfed44f6bc5bb9a1444f758ba283e287') });
+</script>
+
+    </aside>
+
+  </div>
+</div>
+  </div>
+  <div class="tab-pane fade high" id="chat-recent">
+    
+<div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
+  <div id="oc-wrapper-chat-2" class="oc-wrapper chat-oc-wrapper
+       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push">
+
+    <div class="oc-push">
+      <div class="oc-container chat-oc-container" style="z-index: 1100;">
+
+        <form class="oc-header oc-search" role="search">
+          <div class="form-group has-header">
+            <span class="icm icm-filter3 form-control-header"></span>
+            <input type="text" class="form-control" placeholder="Filter contacts"
+                   data-toggle="listfilter" data-target="#uid6eee394c524a1c0b5f00947566cf4962">
+          </div>
+        </form>
+
+        <div class="nano">
+          <ul class="nav nav-stacked nano-content" id="uid6eee394c524a1c0b5f00947566cf4962">
+              <li class="chat-contact unread">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-04.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Rogelio Lawrence
+        <small class="last-message-date">03, Nov</small>
+      </div>
+      <small class="last-message">
+        Eaque aliquid et fuga atque...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact unread">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-05.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Zoe Hanna
+        <small class="last-message-date">09, Dec</small>
+      </div>
+      <small class="last-message">
+        Laudantium eum ut expedita ...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact unread">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-06.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Clinton Graves
+        <small class="last-message-date">05, Mar</small>
+      </div>
+      <small class="last-message">
+        Occaecati et ut cumque magn...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact ">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-07.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Collin Atkins
+        <small class="last-message-date">22, Jun</small>
+      </div>
+      <small class="last-message">
+        Amet omnis voluptatem velit...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact ">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-08.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        inley Pittman
+        <small class="last-message-date">20, Apr</small>
+      </div>
+      <small class="last-message">
+        Sequi accusamus atque nulla...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact ">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-09.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Darius Fischer
+        <small class="last-message-date">10, Jan</small>
+      </div>
+      <small class="last-message">
+        Doloribus unde exercitation...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-10.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Raul Solomon
+        <small class="last-message-date">14, Jan</small>
+      </div>
+      <small class="last-message">
+        Dolores praesentium et non
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-11.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Fatima Heath
+        <small class="last-message-date">22, Dec</small>
+      </div>
+      <small class="last-message">
+        Porro dolorum aspernatur qu...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-12.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Ruben Rich
+        <small class="last-message-date">02, Mar</small>
+      </div>
+      <small class="last-message">
+        Sit sint iste dolor architecto
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-13.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Skylar Song
+        <small class="last-message-date">10, Feb</small>
+      </div>
+      <small class="last-message">
+        Deserunt ut molestiae et do...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-14.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Dwayne Hewitt
+        <small class="last-message-date">15, Nov</small>
+      </div>
+      <small class="last-message">
+        Facere quia et mollitia bea...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-20.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Raul Butler
+        <small class="last-message-date">25, Jul</small>
+      </div>
+      <small class="last-message">
+        Minima ad sequi sed
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-21.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Beau Watts
+        <small class="last-message-date">08, Apr</small>
+      </div>
+      <small class="last-message">
+        Sequi molestias voluptas ex
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-2" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-22.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Ciara Merritt
+        <small class="last-message-date">19, Sep</small>
+      </div>
+      <small class="last-message">
+        Aliquid odit sed officia li...
+      </small>
+    </div>
+  </a>
+</li>
+          </ul>
+        </div>
+
+      </div>      
+    </div>
+
+    <aside class="oc-sidebar oc-sidebar-right">
+      <div class="chat-conversation" id="uid6e53654ecc831449e014cdc6565a0fea">
+
+  <div class="chat-contact unread">
+    <div class="media">
+      <a href="#oc-wrapper-chat-2" class="close" aria-hidden="true"
+         data-toggle="offcanvas" data-control="right"
+         data-states="open,hidden"
+         >&times;</a>
+         <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-23.png" />
+      <div class="media-body">
+        <div class="media-heading">
+          Bonnie James
+        </div>
+        <small class="last-message">
+          Be right back, on phone
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-messages nano">
+    <div class="nano-content">
+      <p class="text-center text-info small">
+        User went online <span class="text-muted">at Sun Aug 06, 2006</span>
+      </p>
+
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-12.png" />
+    Aut officia rem ab
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-13.png" />
+    Qui amet incidunt provident amet laboriosam doloremque consequatur qui sapiente et omnis facere
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-14.png" />
+    Aut veritatis culpa accusamus illum et porro fugit nobis dolores
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-20.png" />
+    Et ratione praesentium aut cupiditate optio consequatur iusto molestiae quis
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-21.png" />
+    Velit dolorum voluptatem delectus doloribus
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-22.png" />
+    Pariatur sequi nihil minima minima
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-23.png" />
+    Sunt et porro sequi non temporibus molestias sint accusamus omnis magni
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-01.png" />
+    Veritatis sit amet quod aut nemo eum et sunt nihil id beatae iste
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-02.png" />
+    Ratione reiciendis dolorum aut eaque iste aut laborum corporis et consequatur nisi
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-03.png" />
+    Delectus culpa a molestiae asperiores in est impedit maxime et eaque ad
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-04.png" />
+    Consequuntur quia modi est repellat iste ducimus voluptas delectus explicabo et eius et porro
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-05.png" />
+    Quos sed perferendis dolorem molestiae consequatur dolor velit incidunt
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-06.png" />
+    Alias laboriosam possimus quasi sed nam eos aut
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-07.png" />
+    Ut et placeat esse veritatis veniam
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-08.png" />
+    Ducimus molestiae qui soluta voluptatem voluptatum sunt omnis architecto et repellendus velit
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-09.png" />
+    Dolorem porro mollitia id quo fugit fuga quia fuga
+  </p>
+</div>
+
+      <p class="text-center text-warning small">
+        User went offline <span class="text-muted">at Sat Jan 11, 1997</span>
+      </p>
+    </div>
+  </div>
+
+  <form role="form" class="chat-sender">
+    <textarea class="form-control" rows="2" placeholder="Type message..."></textarea>
+  </form>
+
+</div>
+
+<script type="text/template" id="chat-bubble-right-template">
+    <div class="clearfix">
+      <p class="chat-bubble chat-bubble-right">
+        <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-10.png" />
+        <%= this.message %>
+      </p>
+    </div>
+</script>
+
+<script type="text/javascript">
+  new ChatView({ el: $('#uid6e53654ecc831449e014cdc6565a0fea') });
+</script>
+
+    </aside>
+
+  </div>
+</div>
+  </div>
+  <div class="tab-pane fade high" id="chat-favorites">
+    
+<div class="oc-xs-push-push oc-sm-push-push oc-md-push-push oc-lg-push-push">
+  <div id="oc-wrapper-chat-3" class="oc-wrapper chat-oc-wrapper
+       oc-lg-right-push oc-md-right-push oc-sm-right-push oc-xs-right-push">
+
+    <div class="oc-push">
+      <div class="oc-container chat-oc-container" style="z-index: 1100;">
+
+        <form class="oc-header oc-search" role="search">
+          <div class="form-group has-header">
+            <span class="icm icm-filter3 form-control-header"></span>
+            <input type="text" class="form-control" placeholder="Filter contacts"
+                   data-toggle="listfilter" data-target="#uid5cf461ff59b68be3b4c44b5e09103718">
+          </div>
+        </form>
+
+        <div class="nano">
+          <ul class="nav nav-stacked nano-content" id="uid5cf461ff59b68be3b4c44b5e09103718">
+              <li class="chat-contact unread">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-01.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Michelle Sykes
+        <small class="last-message-date">27, Jan</small>
+      </div>
+      <small class="last-message">
+        Quis in rerum quasi volupta...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact unread">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-02.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Ida Carver
+        <small class="last-message-date">26, Jun</small>
+      </div>
+      <small class="last-message">
+        Dicta aut vero sed
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact unread">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-03.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Carla Christensen
+        <small class="last-message-date">26, Jun</small>
+      </div>
+      <small class="last-message">
+        Maxime sint accusamus enim ...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact ">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-04.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Shirley Whitehead
+        <small class="last-message-date">20, Nov</small>
+      </div>
+      <small class="last-message">
+        Aut non dolore a aspernatur...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact ">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-05.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Jared Holmes
+        <small class="last-message-date">23, Jul</small>
+      </div>
+      <small class="last-message">
+        Molestias saepe aut ut solu...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact ">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-06.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Lorie O'Brien
+        <small class="last-message-date">02, Jan</small>
+      </div>
+      <small class="last-message">
+        Dolorem dolore eaque cupidi...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-07.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Margarita Finch
+        <small class="last-message-date">10, May</small>
+      </div>
+      <small class="last-message">
+        Aspernatur voluptatem quam ...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-08.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Katherine Neal
+        <small class="last-message-date">30, Dec</small>
+      </div>
+      <small class="last-message">
+        Ratione natus nisi deserunt...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-09.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Harrison Chung
+        <small class="last-message-date">05, Dec</small>
+      </div>
+      <small class="last-message">
+        Qui aut et ipsa eveniet con...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-10.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Hudson Harvey
+        <small class="last-message-date">28, Jun</small>
+      </div>
+      <small class="last-message">
+        Dolor aut quo architecto de...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-11.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Eliza Palmer
+        <small class="last-message-date">11, Dec</small>
+      </div>
+      <small class="last-message">
+        At ut qui ut voluptatem eum...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-12.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Angelina Harvey
+        <small class="last-message-date">05, Aug</small>
+      </div>
+      <small class="last-message">
+        Iure eum adipisci sapiente ...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-13.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Ruby Christensen
+        <small class="last-message-date">07, Jun</small>
+      </div>
+      <small class="last-message">
+        Tempore quod qui eum atque ...
+      </small>
+    </div>
+  </a>
+</li>
+              <li class="chat-contact offline">
+  <a href="#oc-wrapper-chat-3" class="media"
+     data-toggle="offcanvas" data-control="right"
+     data-states="open,hidden"
+     >
+    <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-14.png" />
+    <div class="media-body">
+      <div class="media-heading">
+        Danielle Terrell
+        <small class="last-message-date">03, Oct</small>
+      </div>
+      <small class="last-message">
+        Autem voluptate ullam offic...
+      </small>
+    </div>
+  </a>
+</li>
+          </ul>
+        </div>
+
+      </div>      
+    </div>
+
+    <aside class="oc-sidebar oc-sidebar-right">
+      <div class="chat-conversation" id="uidf95daf006f437d20d76a0f3d7f41094f">
+
+  <div class="chat-contact unread">
+    <div class="media">
+      <a href="#oc-wrapper-chat-3" class="close" aria-hidden="true"
+         data-toggle="offcanvas" data-control="right"
+         data-states="open,hidden"
+         >&times;</a>
+         <img class="media-object pull-left img-circle" src="../../images/faker/avatars/48/Faces_Users-20.png" />
+      <div class="media-body">
+        <div class="media-heading">
+          Kaylin Bowling
+        </div>
+        <small class="last-message">
+          Be right back, on phone
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-messages nano">
+    <div class="nano-content">
+      <p class="text-center text-info small">
+        User went online <span class="text-muted">at Wed Dec 14, 2005</span>
+      </p>
+
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-11.png" />
+    Non quis qui itaque fugit voluptas qui deserunt reiciendis
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-12.png" />
+    Omnis nobis voluptatibus ut omnis consequatur
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-13.png" />
+    Voluptatem vel rerum veritatis similique
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-14.png" />
+    Neque consequatur ratione mollitia tempore numquam consequatur accusamus ad eligendi et ut est
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-20.png" />
+    Corrupti voluptatem temporibus ipsam explicabo pariatur vel dolore
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-21.png" />
+    Est quas voluptatibus ipsa dolores
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-22.png" />
+    Earum vel et et maxime distinctio ipsam velit explicabo aperiam adipisci unde ex et veniam
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-23.png" />
+    Ut fugit eaque tempora aspernatur
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-01.png" />
+    Libero in qui occaecati autem rerum qui dolores exercitationem doloribus veniam similique adipisci
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-02.png" />
+    Quia amet quidem maiores id aut ratione laboriosam atque nisi rem
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-03.png" />
+    Quas reiciendis perspiciatis magni possimus accusantium odit fugiat sint velit et
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-04.png" />
+    Et perferendis et eligendi facilis quia delectus omnis et nemo commodi veniam consequatur omnis
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-05.png" />
+    Officia quis autem optio quod illum molestiae aliquid in doloremque esse
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-06.png" />
+    Mollitia mollitia fugiat ad minus ipsum repellendus
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-left">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-left" src="../../images/faker/avatars/24/Faces_Users-07.png" />
+    Adipisci est minima rerum
+  </p>
+</div>
+        <div class="clearfix">
+  <p class="chat-bubble chat-bubble-right">
+    <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-08.png" />
+    Nemo rerum nihil consequatur
+  </p>
+</div>
+
+      <p class="text-center text-warning small">
+        User went offline <span class="text-muted">at Sat Jan 14, 2006</span>
+      </p>
+    </div>
+  </div>
+
+  <form role="form" class="chat-sender">
+    <textarea class="form-control" rows="2" placeholder="Type message..."></textarea>
+  </form>
+
+</div>
+
+<script type="text/template" id="chat-bubble-right-template">
+    <div class="clearfix">
+      <p class="chat-bubble chat-bubble-right">
+        <img class="img-circle chat-bubble-avatar chat-bubble-avatar-right" src="../../images/faker/avatars/24/Faces_Users-09.png" />
+        <%= this.message %>
+      </p>
+    </div>
+</script>
+
+<script type="text/javascript">
+  new ChatView({ el: $('#uidf95daf006f437d20d76a0f3d7f41094f') });
+</script>
+
+    </aside>
+
+  </div>
+</div>
+  </div>
+  <div class="tab-pane fade high" id="chat-settings">
+    <form class="oc-header oc-form" role="search">
+      <div class="form-group has-header">
+        <span class="icm icm-bubble form-control-header"></span>
+        <input type="text" class="form-control" placeholder="Status message">
+      </div>
+    </form>
+    <div class="oc-inner switch-label">
+      <p>Chat always on</p>
+      <div class="switch switch-primary switch-medium pull-right">
+        <input type="checkbox" checked rel="switch">
+      </div>
+    </div>
+    <div class="oc-inner switch-label">
+      <p>Notify incoming chat messages</p>
+      <div class="switch switch-success switch-medium pull-right">
+        <input type="checkbox" checked rel="switch">
+      </div>
+    </div>
+    <div class="oc-inner switch-label">
+      <p>Notify contacts online status</p>
+      <div class="switch switch-info switch-medium pull-right">
+        <input type="checkbox" checked rel="switch">
+      </div>
+    </div>
+    <div class="oc-inner switch-label">
+      <p>Do not message me when invisible</p>
+      <div class="switch switch-warning switch-medium pull-right">
+        <input type="checkbox" checked rel="switch">
+      </div>
+    </div>
+    <div class="oc-inner switch-label">
+      <p>Do not accept messages from banned users</p>
+      <div class="switch switch-danger switch-medium pull-right">
+        <input type="checkbox" checked rel="switch">
+      </div>
+    </div>
+  </div>
+</div>
+
+    </aside>
+
+  </div>
+
+</div>
+
+  
+<!-- Needed by BSE.Mq.screen() helper in utils.js -->
+<div id="mq"></div>
+
+<!-- Needed by EmVars helper in _emerald.js -->
+<div id="emvars"></div>
+
+</body>
+</html>

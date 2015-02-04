@@ -1,0 +1,15 @@
+$open-sans-types:
+  LightItalic 300 italic,
+  Light 300 normal,
+  Regular normal normal,
+  Italic normal italic,
+  Semibold 600 normal
+  SemiboldItalic 600 italic
+  Bold bold normal
+  BoldItalic bold italic
+  ExtraBold 900 normal
+  ExtraBoldItalic 900 italic;
+
+@each $pair in $open-sans-types {
+  @include em-font-face('Open Sans', 'open-sans/OpenSans-#{nth($pair, 1)}-webfont', 'OpenSans#{nth($pair, 1)}', nth($pair, 2), nth($pair, 3));
+}

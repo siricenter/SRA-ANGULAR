@@ -1,0 +1,55 @@
+<div class="table-line">
+
+  <div class="row push-bottom">
+    <div class="col-sm-3 text-center-xs">
+      <h4>Unit</h4>
+    </div>
+    <div class="col-sm-2 text-center">
+      <h4>Status</h4>
+    </div>
+    <div class="col-sm-2 text-center">
+      <h4>Activity</h4>
+    </div>
+    <div class="col-sm-2 text-center">
+      <h4>Monitoring</h4>
+    </div>
+  </div>
+
+  <% 4.times do |i| %>
+    <div class="row table-line-row">
+      <div class="col-sm-3 push-bottom-xs text-center-xs">
+        <h4>Server droplet</h4>
+        <div class="text-muted">
+          <i class="fa fa-clock-o"></i> Created <%= rand(3..8) %> hours ago
+        </div>
+      </div>
+      <div class="col-sm-2 text-center push-bottom-xs">
+        <% if i == 1 %>
+          <i class="fa fa-circle-o fa-2x text-danger"></i>
+          <div>powered off</div>
+        <% else %>
+          <i class="fa fa-circle-o fa-2x text-success"></i>
+          <div>powered on</div>
+        <% end %>
+      </div>
+      <div class="col-sm-2 text-center push-bottom-xs">
+        <h3 class="text-info"><%= rand(8..17) %>k</h3>
+        <div>visitors</div>
+      </div>
+      <div class="col-sm-2 text-center">
+        <% if i == 1 %>
+          <h3>
+            <i class="fa fa-arrow-down text-danger v-mid"></i> <span><%= rand(18..25) %>%</span>
+          </h3>
+          <div>traffic decrease</div>
+        <% else %>
+          <h3>
+            <i class="fa fa-arrow-up text-success v-mid"></i> <span><%= rand(9..17) %>%</span>
+          </h3>
+          <div>traffic increase</div>
+        <% end %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

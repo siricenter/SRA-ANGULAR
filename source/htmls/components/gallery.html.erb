@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="superbox" data-scroller=".oc-scroll">
+    <% 2.times do %>
+        <% 24.times do |i| %>
+            <div class="superbox-list">
+              <%= image_tag "superbox/superbox-thumb-#{i+1}.jpg",
+                            :class => 'superbox-img',
+                            'data-img' => url_for("/images/superbox/superbox-full-#{i+1}.jpg")
+              %>
+              <div class="superbox-list-content">
+                <h2><%= lorem.word.capitalize %></h2>
+                <p><%= lorem.paragraph %></p>
+                <a href="<%= "/images/superbox/superbox-full-#{i+1}.jpg" %>">Download</a>
+              </div>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>

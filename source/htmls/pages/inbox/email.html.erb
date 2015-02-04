@@ -1,0 +1,73 @@
+<% @no_breadcrumbs = true %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <% link_to '/htmls/pages/inbox/compose.html', class: 'btn btn-primary btn-block' do %>
+        <i class="fa fa-pencil"></i> Compose
+      <% end %>
+      <%= partial 'htmls/pages/inbox/folders' %>
+    </div>
+    <div class="col-sm-10">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="btn-group pull-right">
+            <button type="button" class="btn btn-default">
+              <i class="fa fa-reply"></i>
+            </button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#"><i class="fa fa-reply pull-right"></i> Reply</a></li>
+              <li><a href="#"><i class="fa fa-arrow-right pull-right"></i> Forward</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Mark as unread</a></li>
+              <li><a href="#">Delete</a></li>
+              <li><a href="#">Print</a></li>
+            </ul>
+          </div>
+          <%= image_tag lorem.avatar(48), class: 'pull-left margin-right img-circle' %>
+          <h3 class="no-margin-top thin"><%= lorem.words(3).capitalize %></h3>
+          <p>
+            <% date = lorem.time %>
+            <span class="pull-right"><%= date.strftime('%e %b') %> (<%= time_ago_in_words(date) %> ago)</span>
+            <h5><%= lorem.name %> <small>&lt;<%= lorem.email %>&gt;</small></h5>
+          </p>
+          <div>
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+            <p><%= lorem.paragraph %></p>
+          </div>
+          <div class="clearfix">
+            <% 6.times do %>
+              <a href="#" class="pull-left margin-right">
+                <%= image_tag lorem.image(100), class: 'thumbnail' %>
+              </a>
+            <% end %>
+          </div>
+
+          <hr class="no-margin-top">
+          
+          <% reply_id = rid() %>
+          <form id="<%= reply_id %>">
+            <div class="stack-parent clearfix">
+              <textarea class="form-control stack-float reply-textarea"></textarea>
+              <p class="stack-child reply-trigger-container">
+                &nbsp;
+                Click here to <%= link_to 'Reply', '#', class: 'reply-trigger' %> 
+                or <%= link_to 'Forward', '#', class: 'reply-trigger' %>
+              </p>
+            </div>
+          </form>
+          <script type="text/javascript">
+            new ReplyView({ el: $('#<%= reply_id %>') });
+          </script>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

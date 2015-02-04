@@ -1,0 +1,46 @@
+<div class="chat-box-timeline">
+  <%= image_tag lorem.avatar(48), class: 'img-responsive img-circle avatar' %>
+
+  <div class="message">
+    <div class="panel panel-light">
+      <div class="panel-body panel-colorize panel-arrow-left">
+
+        <div class="chat-box-timeline-title">
+          <span class="label label-success-lt">COMMENT</span>
+          <strong><%= lorem.name.split.first %></strong>
+
+          <div class="pull-right text-semi">
+            <i class="fa fa-clock-o"></i> 4m ago
+          </div>
+        </div>
+
+        <div class="chat-box-timeline-content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem doloribus eaque explicabo nihil obcaecati saepe. Animi doloremque eaque eius fuga, magni mollitia nam placeat quas quos repudiandae suscipit vel velit.
+        </div>
+
+        <div class="chat-box-timeline-footer">
+
+          <form>
+            <div class="media">
+              <a class="pull-left" href="#">
+                <div class="media-object">
+                  <%= image_tag lorem.avatar(48), class: 'img-responsive img-circle avatar-input' %>
+                </div>
+              </a>
+              <div class="media-body">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Add Comment">
+                  <span class="input-group-addon">
+                    <button class="btn btn-xs btn-success">Reply</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

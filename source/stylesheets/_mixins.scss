@@ -1,0 +1,227 @@
+@mixin headers() {
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    @content;
+  }
+}
+
+@mixin btn-nav() {
+  max-height: 50px;
+  padding: 16px;
+  border: none;
+  line-height: 16px;
+}
+
+@mixin nest($selector, $level: 6) {
+  #{$selector} { @content; }
+  @for $i from 1 through $level {
+    $selector: $selector + " " + $selector;
+    #{$selector} { @content; }
+  }
+}
+
+$arrow-positions:
+  top bottom left right,
+  left right top bottom,
+  bottom top left right,
+  right left top bottom;
+
+//usage:
+//send position to tilt the arrow on the side of the box. if you dont set position it will center itself
+//send arrow-border-color to give a border to the arrow
+//send offset when not using position, to tilt the arrow on the side of the box, relative to the center
+//send opposite to shift the arrow into the inner side of the box, on the opposite side (ex:  <[ ] goes to [ <] )
+@mixin arrow($arrow-position: left, $arrow-color: #fff, $arrow-size: 7px, $position: 0, $position-opposite: 0, $arrow-border-color: 0, $offset: 0, $opposite: false) {
+
+  &:before, &:after {
+    position: absolute;
+    border: solid transparent;
+    top: auto;
+    left: auto;
+    height: 0;
+    width: 0;
+    margin: 0;
+    border-width: $arrow-size;
+    pointer-events: none;
+  }
+
+  &:after {
+    content: " ";
+
+    @each $pair in $arrow-positions {
+      $pair-arrow-position: nth($pair, 1);
+      $pair-border-direction: nth($pair, 2);
+      $pair-offset-direction: nth($pair, 3);
+      $pair-offset-opposite-direction: nth($pair, 4);
+
+      @if $arrow-position == $pair-arrow-position {
+
+        border-#{$pair-border-direction}-color: $arrow-color;
+
+        $position-side: $pair-offset-direction;
+        @if $position-opposite != 0 { $position-side: $pair-offset-opposite-direction; }
+
+        @if $position != 0 {
+          #{$position-side}: $position;
+        } @else {
+          margin-#{$position-side}: (-$arrow-size+$offset);
+          #{$position-side}: 50%;
+        }
+
+        @if $opposite {
+          #{$pair-border-direction}: 0;
+        } @else {
+          #{$pair-border-direction}: 100%;
+        }
+      }
+    }
+  }
+
+  @if $arrow-border-color == 0 {
+    &:before {
+      content: none;
+    }
+  } @else {
+    &:before {
+      content: " ";
+
+      @each $pair in $arrow-positions {
+        $pair-arrow-position: nth($pair, 1);
+        $pair-border-direction: nth($pair, 2);
+        $pair-offset-direction: nth($pair, 3);
+        $pair-offset-opposite-direction: nth($pair, 4);
+
+        @if $arrow-position == $pair-arrow-position {
+          border-#{$pair-border-direction}-color: $arrow-border-color;
+
+          $position-side: $pair-offset-direction;
+          @if $position-opposite != 0 { $position-side: $pair-offset-opposite-direction; }
+
+          @if $position != 0 {
+            #{$position-side}: $position;
+          } @else {
+            margin-#{$position-side}: (-$arrow-size+$offset);
+            #{$position-side}: 50%;
+          }
+
+          @if $opposite {
+            #{$pair-border-direction}: 1px;
+          } @else {
+            #{$pair-border-direction}: 100%;
+            #{$pair-arrow-position}: -(2 * $arrow-size + 1);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@mixin em-color-variants($prefix, $include-text-color: true) {
+
+  @each $pair in $emerald-colors {
+
+    $name: nth($pair, 1);
+    $bg: nth($pair, 2);
+    $txt: nth($pair, 3);
+
+    #{$prefix}-#{$name} {
+      background: $bg;
+
+      @if $include-text-color {
+        &, &:hover, &:focus {
+          color: $txt;
+        }
+      }
+    }
+  }
+}
+
+@mixin absolute-center($w, $h) {
+  position: absolute;
+  width: $w;
+  height: $h;
+  top: 50%;
+  left: 50%;
+  margin-top: - ceil($w/2);
+  margin-left: - ceil($h/2);
+}
+
+@mixin em-font-face($name, $path, $svg_hash, $weight, $style) {
+  // http://driftmgmt.com/blog/design/2013/09/font-face-best-practices-guide/
+  //should be svg ttf woff in this order for chrome to pick up svg first
+  //unfortunately this breaks alot of the boostrap elements so we do the default
+
+  @include font-face($name,
+    font-files(
+        "#{$path}.woff",
+        "#{$path}.ttf",
+        "#{$path}.svg##{$svg_hash}"
+    ),  "#{$path}.eot", $weight, $style
+  );
+
+//  forces SVG on webkit - fonts should look better on windows. unfortunately this messes with line heights on bootstrap
+//  @media screen and (-webkit-min-device-pixel-ratio:0) {
+//    @font-face {
+//      font-family: $name;
+//      src: font-url('#{$path}.svg##{$svg_hash}') format('svg');
+//      font-weight: $weight;
+//      font-style: $style;
+//    }
+//  }
+}
+
+@function gradient-diag1-light($color) {
+  @return lighten($color, 4%);
+}
+
+@function gradient-diag1-dark($color) {
+  @return adjust_hue(darken($color, 3%), 20);
+}
+
+@function gradient-diag1-inverse-dark($color) {
+  @return adjust_hue(darken($color, 3%), -15);
+}
+
+@mixin gradient-diag1-linear($light, $dark) {
+  background-image: -moz-linear-gradient(-65deg, $light 40%, $dark); /* FF3.6+ */
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(40%, $light), color-stop(100%, $dark)); /* Chrome,Safari4+ */
+  background-image: -webkit-linear-gradient(-65deg, $light 40%, $dark); /* Chrome10+,Safari5.1+ */
+  background-image: -o-linear-gradient(-65deg, $light 40%, $dark); /* Opera 11.10+ */
+  background-image: -ms-linear-gradient(-65deg, $light 40%, $dark); /* IE10+ */
+  background-image: linear-gradient(155deg, $light 40%, $dark); /* W3C */
+}
+
+@mixin gradient-diag1($color) {
+  $light: gradient-diag1-light($color);
+  $dark: gradient-diag1-dark($color);
+  @include gradient-diag1-linear($light, $dark);
+}
+
+@mixin gradient-diag1-inverse($color) {
+  $light: gradient-diag1-light($color);
+  $dark: gradient-diag1-inverse-dark($color);
+  @include gradient-diag1-linear($light, $dark);
+}
+
+@mixin bg-gradients($color) {
+  &.gradient-diag1 {
+    @include gradient-diag1($color);
+  }
+  &.gradient-diag1-inverse {
+    @include gradient-diag1-inverse($color);
+  }
+}
+
+@mixin bg-gradients-content {
+  &.gradient-diag1 {
+    @content;
+  }
+  &.gradient-diag1-inverse {
+    @content;
+  }
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes $name { @content }
+  @keyframes $name { @content }
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" class="high">
+  
+<!-- This file is just for demo pourposes, can be safely ignored -->
+  
+<head>
+  <%= partial 'layouts/head', locals: { skip_assets: true } %>
+  <%= stylesheet_link_tag "splash" %>
+</head>
+
+<body class="high emerald-default <%= page_classes %>">
+<%= yield_content :top %>
+
+<%= yield %>
+  
+<!--[if lte IE 9]>
+<script type="text/javascript">
+  window.ltie9 = true;
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+    if(window.Loaded) {
+        var cb = function(){
+            Turbolinks.visit('<%= url_for("/htmls/dashboard.html") %>');
+        };
+        setTimeout(cb, 2000);
+    }
+    window.onload = function(){
+        var protocol = window.location.protocol ||  document.location.protocol;
+        if('file:' == protocol){
+            window.location.href = '<%= url_for("htmls/dashboard.html") %>';
+        }
+        <% if environment == :development %>
+        var css = <%= stylesheets("application").to_json %>;
+        var js = <%= javascripts("application").to_json %>;
+        <% else %>
+        if(window.ltie9){
+          var css = [
+            "<%= url_for('stylesheets/application.css') %>",
+            "<%= url_for('stylesheets/application_split2.css') %>",
+            "<%= url_for('stylesheets/application_split3.css') %>"
+          ];
+        } else {
+          var css = ["<%= url_for('stylesheets/application.css') %>"];
+        }
+        var js = [
+          "<%= url_for('javascripts/application.js') %>",
+          "<%= url_for('javascripts/demo.js') %>",
+          "<%= url_for('javascripts/init.js') %>"
+        ];
+        <% end %>
+        var head = document.getElementsByTagName('head')[0];
+        var i = 0;
+        var node;
+        var nodes = [];
+        for(i = 0; i < css.length; i++) {
+            node = document.createElement('link');
+            node.setAttribute("rel", 'stylesheet');
+            node.setAttribute("type", 'text/css');
+            node.setAttribute("href", css[i]);
+            head.appendChild(node);
+        }
+        for(i = 0; i < js.length; i++) {
+            node = document.createElement('script');
+            node.setAttribute("rel", 'stylesheet');
+            node.setAttribute("type", 'text/javascript');
+            node.setAttribute("src", js[i]);
+            nodes.push(node);
+        }
+        for(i = 0; i < nodes.length - 1; i++) {
+            (function(i) {
+                nodes[i].onload = function() {
+                    head.appendChild(nodes[i+1]);
+                };
+            })(i);
+        }
+        head.appendChild(nodes[0]);
+        function changeBg(){
+          var css = "<style> body { background-image: none !important; } </style>";
+          $css = $(css);
+          head.appendChild($css[0]);
+        }
+        function redirect() {
+            if(window.Loaded) {
+                // var $document = $(document);
+                // var $body = $('html');
+                // $document.one('page:fetch', function() {
+                //   $body.addClass('warp-speed');
+                // });
+                if(window.ltie9){
+                  Turbolinks.visit('<%= url_for('/htmls/dashboard.html') %>');
+                  setTimeout(changeBg, 1000);
+                } else {
+                  $('.gauge').one(
+                          'webkitAnimationEnd oanimationend msAnimationEnd animationend',
+                          function(){
+                              Turbolinks.visit('<%= url_for('/htmls/dashboard.html') %>');
+                              setTimeout(changeBg, 1000);
+                          });
+                  $('.gauge').addClass('animated bounceOutUp');
+                }
+            } else {
+                setTimeout(redirect, 100);
+            }
+        }
+        if(!window.location.href.match(/\?keep/)) {
+            redirect();
+        }
+    };
+</script>
+<%= yield_content :bottom %>
+
+<div id="mq"></div>
+<div id="emvars"></div>
+
+</body>
+</html>
+

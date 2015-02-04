@@ -1,0 +1,109 @@
+/*
+  Todd Motto Labs
+  URL: www.toddmotto.com
+*/
+
+/*------------------------------------*\
+  SuperBox
+\*------------------------------------*/
+
+.superbox {
+  font-size: 0;
+}
+
+/* SuperBox */
+.superbox-list {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  width: 12.5%;
+  padding-top: 4px;
+  padding-right: 4px;
+  position: relative;
+  &.active::before {
+    content: "\f0d8";
+    font-family: FontAwesome;
+    display: block;
+    position: absolute;
+    left: 43%;
+    bottom: -24px;
+    z-index: 2;
+    text-align: center;
+    font-size: 28px;
+    color: $gray-light;
+  }
+}
+.superbox-img {
+  max-width: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.superbox-list-content {
+  display: none;
+}
+.superbox-show {
+  font-size: $font-size-base;
+  margin-top: 4px;
+  background-color: $gray-light;
+  position: relative;
+  width: 100%;
+  width: calc(100% - 4px);
+  float: left;
+  padding: 25px;
+  display: none;
+  @include clearfix();
+  .superbox-list-content {
+    display: block;
+  }
+}
+.superbox-current-img {
+  max-width: 100%;
+  float: left;
+  margin-right: 25px;
+}
+.superbox-img:hover {
+  opacity: 0.8;
+}
+.superbox-float {
+  float: left;
+}
+.superbox-close {
+  cursor: pointer;
+  &::after {
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    font-family: 'FontAwesome';
+    font-size: 20px;
+    content: '\f00d';
+    opacity: 0.7;
+    cursor: pointer;
+    position: absolute;
+    cursor: pointer;
+  }
+}
+.superbox-close:hover {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 320px) {
+  .superbox-list {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 486px) {
+  .superbox-list {
+    width: 25%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .superbox-list {
+    width: 16.66666667%;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .superbox-list {
+    width: 12.5%;
+  }
+}

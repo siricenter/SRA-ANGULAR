@@ -1,0 +1,32 @@
+.carousel.vertical {
+  .carousel-inner {
+    height: 100%;
+    border-radius: $border-radius-base;
+  }
+  .item {
+    @include transition(top ease-out .6s);
+  }
+  .active {
+    top: 0;
+  }
+  .next {
+    top: 100%;
+  }
+  .prev {
+    top: -100%;
+  }
+  .next.left, .prev.right {
+    top: 0;
+  }
+  .active {
+    &.left {
+      top: -100%;
+    }
+    &.right {
+      top: 100%;
+    }
+  }
+  .item {
+    left: 0;
+  }
+}

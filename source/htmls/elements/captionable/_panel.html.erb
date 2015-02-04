@@ -1,0 +1,16 @@
+<%
+title = 'Card' if !defined?(title) || title.nil?
+kind = 'Card' if !defined?(kind) || kind.nil?
+klass = 'panel-default' if !defined?(klass) || klass.nil?
+%>
+
+<div class="panel <%= klass %>">
+  <div class="panel-heading">
+    <div class="panel-title text-center">
+      <%= title %>
+    </div>
+  </div>
+  <div class="panel-body no-padding-top">
+    <%= partial 'htmls/elements/captionable/body', locals: { kind: kind } %>
+  </div>
+</div>

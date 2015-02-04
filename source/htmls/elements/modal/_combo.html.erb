@@ -1,0 +1,14 @@
+<%
+# renders both the button and modal linked together
+btn_class = '' if !defined? btn_class
+%>
+
+
+<button class="btn <%= btn_class %>" 
+        data-toggle="modal" data-target="#<%= id %>">
+  <%= btn_text %>
+</button>
+
+<% content_for :top do %>
+  <%= partial 'htmls/elements/modal/modal', locals: locals %>
+<% end %>

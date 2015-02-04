@@ -1,0 +1,24 @@
+.jump-to-element {
+  display: inline-block;
+}
+
+/* jump-to-modal */
+.jump-to-modal {
+  
+  &.modal {
+    @include perspective(1300px);
+  }
+
+  .modal-dialog {
+    @include transform-style(preserve-3d);
+    @include transform(translate3d(0, 0, -200px));
+    @include transition(transform .20s ease-in-out .07s);
+  }
+
+  &.in {
+    .modal-dialog {
+      @include transform(translate3d(0, 0, 0));
+    }
+  }
+  
+}

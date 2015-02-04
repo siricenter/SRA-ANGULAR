@@ -1,0 +1,39 @@
+.box-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  .box-cell {
+    display: table-cell;
+  }
+
+  .box-row {
+    display: table-row;
+  }
+
+  .box-row-mid {
+    .box-cell {
+      vertical-align: middle;
+    }
+  }
+
+  .row [class*="col-"] {
+    min-height: 1px;
+  }
+
+  .mid-bordered {
+    .box-cell {
+      padding-left: 10px;
+      padding-right: 10px;
+      border-right: 1px solid rgba(#000, .05);
+
+      &:last-child {
+        border: none;
+      }
+    }
+
+    + .box-row {
+      margin-top: 15px;
+    }
+  }
+}

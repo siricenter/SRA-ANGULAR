@@ -1,0 +1,53 @@
+<% ajax_url = url_for('/htmls/panels/panel-body.html') %>
+
+<div class="container-fluid">
+  <div class="row" rel="panels">
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <%= partial 'htmls/panels/panel', locals: {
+              kind: 'panel-primary',
+              title: 'Header colorization',
+              body_class: 'no-padding-top',
+              attrs: {'data-url' => ajax_url}
+      } %>
+      <%= partial 'htmls/panels/panel', locals: {
+              title: 'Collapsed, actions on hover',
+              actions: 'hover',
+              kind: 'panel-default',
+              attrs: {'data-collapse' => true}
+      } %>
+      <%= partial 'htmls/panels/panel',
+                  locals: {kind: 'panel-dark'
+                  } %>
+      <%= partial 'htmls/panels/panel', locals: {
+              kind: 'panel-danger panel-colorize',
+              title: 'Panel with actions on hover',
+              actions: 'hover',
+              body_class: 'no-padding-top panel-colorize',
+      } %>
+
+    </div>
+    <div class="col-md-6 panels" id="<%= rid() %>">
+
+      <%= partial 'htmls/panels/panel', locals: {
+              kind: 'panel-success panel-colorize',
+              title: 'Panel with actions on hover',
+              actions: 'hover',
+              body_class: 'no-padding-top panel-colorize'
+      } %>
+      <%= partial 'htmls/panels/panel', locals: {
+              attrs: {'data-url' => ajax_url},
+              kind: 'panel-info',
+              body_class: 'no-padding-top'
+      } %>
+      <%= partial 'htmls/panels/panel', locals: {
+              kind: 'panel-colorize',
+              title: 'Full colorization, actions on hover',
+              actions: 'hover',
+              body_class: 'no-padding-top',
+              panel_actions: {colors: false}
+      } %>
+
+    </div>
+  </div>
+</div>

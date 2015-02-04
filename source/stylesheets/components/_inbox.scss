@@ -1,0 +1,54 @@
+.inbox-row {
+  cursor: pointer;
+}
+
+.inbox-toggles {
+  min-width: 66px;
+  label {
+    margin-bottom: 0;
+  }
+}
+
+.inbox-name,
+.inbox-email,
+.inbox-info {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inbox-email {
+  height: 37px;
+  > a {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    > span {
+      position: absolute;
+      margin-left: 8px;
+      width: 100%
+    }
+  }
+  // sm md lg
+  @media (min-width: 640px) {
+    width: 60%;
+  }
+}
+
+
+.tablesaw-stack tbody td.inbox-toggles {
+  clear: none;
+  width: 66px;
+}
+.tablesaw-stack tbody td.inbox-name {
+  padding-top: 9px;
+  clear: none;
+  width: calc(100% - 66px);
+}
+
+.tablesaw-stack > tbody > tr {
+  border-bottom: 0;
+  > td {
+    border-top: 0;
+  }
+}

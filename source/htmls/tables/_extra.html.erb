@@ -1,0 +1,32 @@
+<div class="row " rel="panels">
+  <div class="col-md-12 panels " id="<%= rid() %>">
+
+    <% panel 'Table with floating header', compact: true do %>
+        <table class="table table-striped" rel="floathead" data-scroll=".oc-scroll" id="<%= rid() %>">
+          <thead>
+          <tr class="bg-primary">
+            <th>I am a</th>
+            <th>floating</th>
+            <th>header</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% 30.times do %>
+              <tr>
+                <% 3.times do %>
+                    <td><%= lorem.word %></td>
+                <% end %>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+    <% end %>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= partial 'htmls/tables/data_tables' %>
+  </div>
+</div>
