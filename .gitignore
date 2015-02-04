@@ -5,6 +5,8 @@ dist/
 .junk
 bower_components
 app/emerald/build/javascripts/*.js
+app/emerald/build/javascripts/*.map
+app/emerald/build/javascripts/*.coffee
 app/styles/*.css
 test/protractor/build/*.js
 sra_angular.sublime-project

@@ -7,6 +7,6 @@ Feature: User creates an area
 	Scenario: Admin creates area
 		Given that I am logged in as an admin
 		When I visit the create area page
-		And I fill out the new area form
-		Then I should be on the area's page
-		And I should see the area's name
+		And I create an area called "The Bronx" in the region of "New York"
+		Then I should be on the area's page called "The Bronx"
+		And I should see "The Bronx"'s name

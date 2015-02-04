@@ -72,7 +72,7 @@ window.app.config ($routeProvider) ->
 	).when("/users/area-assignment/:name",
 		templateUrl: "views/users/area.html"
 		controller: "AreasUsersController"
-	).when("/areas/region-assignment/:name",
+	).when("/areas/new",
 		templateUrl: "views/areas/new.html"
 		controller: "AreasNewController"
 	).when("/admin/users/:id/country-assignment",
@@ -90,9 +90,6 @@ window.app.config ($routeProvider) ->
 	).when("/admin/assign/area/:region",
 		templateUrl: "views/admin/area-assignment.html"
 		controller: "AreasUsersController"
-	).when("/areas/new",
-		templateUrl: "views/areas/new.html"
-		controller: "AreasNewController"
 	).when("/areas/show/:name",
 		templateUrl: "views/areas/show.html"
 		controller: "AreasShowController"
