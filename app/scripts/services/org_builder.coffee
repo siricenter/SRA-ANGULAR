@@ -39,20 +39,12 @@ window.app.service "orgBuilder", ($firebase, $rootScope) ->
 		flatten(for name, region of country.regions
 			@getHouseholdsFromRegion(region))
 
-	@getHouseholdsFromOrg = ($scope) ->
-		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/sra/countries")
+	@getHouseholdsFromOrg = (org) ->
+		ref = new Firebase("https://intense-inferno-7741.firebaseio.com/organizations/#{org}/countries")
 		sync = $firebase(ref).$asArray()
 		orgBuilder = this
 
-		callback = (countries) ->
-			households = (orgBuilder.getHouseholdsFromCountry(country) for country in countries)
+		sync.$loaded().then (countries) ->
+			flatten (orgBuilder.getHouseholdsFromCountry(country) for country in countries)
 
-			$rootScope.households = flatten households
-			console.log($rootScope.households)
-			
-		sync.$loaded().then callback
-		# If @return isn't here, then @entire function is evaluated 
-			# as just countriesCallback.
-	
-
-	return 
+	return

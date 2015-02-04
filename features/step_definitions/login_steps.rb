@@ -11,9 +11,9 @@ When /^I fill out the login form$/ do
 
 	click_button 'Login'
 
-	sleep 3
+	sleep 2
 end
 
 Then /^I should be on the admin dashboard page$/ do
-	expect(current_path).to eq('/admin/dashboard')
+	expect(current_url).to eq("#{app_host}/admin/dashboard")
 end

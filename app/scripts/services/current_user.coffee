@@ -1,13 +1,12 @@
-window.app.service "currentUser", ($rootScope, $location, $firebase, $firebaseAuth, firebaseURL, orgBuilder) ->
+window.app.service "currentUser", ($rootScope, $location, $firebase, $firebaseAuth, firebaseURL, orgBuilder, $q) ->
 	@requireLogin = () ->
 		currentUser = this
-		return new Promise((resolve, reject) ->
-			currentUser.currentUser().then((currentUser) ->
-				resolve(currentUser)
+		return $q((resolve, reject) ->
+			currentUser.currentUser().then((user) ->
+				$rootScope.currentUser = user
+				resolve(user)
 			).catch(() ->
-				$rootScope.$apply(() ->
-					$location.path("/login")
-				)
+				$location.path("/login")
 			)
 		)
 
@@ -15,13 +14,13 @@ window.app.service "currentUser", ($rootScope, $location, $firebase, $firebaseAu
 			stored = sessionStorage.getItem("userId")
 
 			if $rootScope.currentUser?
-				return new Promise((resolve, reject) ->
+				return $q((resolve, reject) ->
 					resolve($rootScope.currentUser)
 				) # Return the new promise
 			else if stored?
 				@getUser(stored) # return the promise from @getUser
 			else
-				return new Promise((resolve, reject) ->
+				return $q((resolve, reject) ->
 					reject(Error("No current user"))
 				) # Return the new promise
 	
@@ -39,7 +38,7 @@ window.app.service "currentUser", ($rootScope, $location, $firebase, $firebaseAu
 		# Returns promise
 	
 	@getUser = (userName) ->
-		url = "#{firebaseURL}/users/#{userName}"
+		url = "#{firebaseURL}users/#{userName}"
 		ref = new Firebase(url)
 		userObj = $firebase(ref).$asObject()
 		userObj.$loaded().then((user) ->

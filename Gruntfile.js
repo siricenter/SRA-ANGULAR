@@ -361,10 +361,11 @@ module.exports = function (grunt) {
 		coffee: {
 			compile: {
 				files: {
-					'app/emerald/build/javascripts/app.js': 'app/scripts/app.coffee',
-					'app/emerald/build/javascripts/main.js': 'app/scripts/main.coffee',
-					'app/emerald/build/javascripts/services.js': 'app/scripts/services/*.coffee',
-					'app/emerald/build/javascripts/controllers.js': 'app/scripts/controllers/*.coffee'
+					'app/emerald/build/javascripts/app.js': ['app/scripts/app.coffee', 'app/scripts/main.coffee', 'app/scripts/services/*.coffee', 'app/scripts/directives/*.coffee', 'app/scripts/controllers/*.coffee'],
+				},
+				options: {
+					sourceMap: true,
+					sourceMapDir: 'app/emerald/build/javascripts/'
 				}
 			},
 		},

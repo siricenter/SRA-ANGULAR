@@ -38,7 +38,7 @@ window.app.controller "AdminUsersController", ($scope, $rootScope, currentUser, 
 	
 	return
 
-window.app.controller "EditUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL,currentUser) ->
+window.app.controller "EditUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL, currentUser) ->
 	currentUser.requireLogin()
 	$scope.name = $routeParams.id
 	$scope.userRoles = []
@@ -131,24 +131,6 @@ window.app.controller "NewUsersController", ($scope, $location, $firebase, $rout
 
 	return
 
-window.app.controller "AreasNewController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
-	$scope.regions = JSON.parse(localStorage.getItem("regions"))
-	region = $routeParams.name
-	$scope.region = $routeParams.name
-	ref = new Firebase(firebaseURL + "organizations/sra/regions/" + region + "/areas")
-	areasRef = new Firebase(firebaseURL + "organizations/sra/regions/" + region)
-	areas = $firebase(areasRef).$asArray()
-	areas.$loaded ->
-		$scope.areas = areas[0]
-		return
-
-	$scope.CreateArea = ->
-		name = $scope.area.name
-		ref.push ref.child(name).set(Name: name)
-		return
-
-	return
-
 window.app.controller "AreasEditController", ($scope, $location, $firebase, $routeParams, firebaseURL) ->
 	$scope.area = $routeParams.name
 	$scope.region = $routeParams.region
@@ -160,11 +142,12 @@ window.app.controller "AreasEditController", ($scope, $location, $firebase, $rou
 
 	return
 
-window.app.controller "AdminHouseholdsController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder, currentUser) ->
+window.app.controller "AdminHouseholdsController", ($scope, $rootScope, currentUser, Household) ->
 	$rootScope.title = "Households Index"
 	currentUser.requireLogin()
 	orgBuilder.getHouseholdsFromOrg()
 	return
+
 window.app.controller "AdminSecurityController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder, currentUser) ->
 	rolesref = new Firebase(firebaseURL + "organizations/sra/roles")
 	rolessync = $firebase(rolesref).$asArray()
@@ -185,8 +168,4 @@ window.app.controller "AdminSecurityController", ($scope, $rootScope, $location,
 	$scope.createRole = (permissions)->
 		console.log(permissions)
 		console.log($scope.roleName)
-		
-	
-
-
 	return
