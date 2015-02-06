@@ -19,7 +19,7 @@ window.app.controller "HouseholdsController", ($scope, $routeParams, $firebase, 
 		i = 0
 
 		while i < regions.length
-			ref = new Firebase(firebaseURL + "organizations/sra/regions/" + regions[i] + "/areas/" + area)
+			ref = new Firebase("#{firebaseURL}/organizations/sra/regions/#{regions[i]}/areas/#{area}")
 			sync = $firebase(ref).$asObject()
 			sync.$loaded().then loaded
 			i++

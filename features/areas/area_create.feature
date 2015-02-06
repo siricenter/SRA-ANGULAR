@@ -3,7 +3,7 @@ Feature: User creates an area
 	I want to create a new area
 	So I can begin working with resources in that area
 
-	@wip
+	@javascript
 	Scenario: Admin creates area
 		Given that I am logged in as an admin
 		When I visit the create area page

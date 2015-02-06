@@ -1,5 +1,5 @@
 window.app.directive('newArea', () ->
 	return {
-		templateUrl: 'views/areas/_form.html'
+		templateUrl: 'source/views/areas/_form.html'
 	}
 )

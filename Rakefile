@@ -13,3 +13,5 @@ namespace :cucumber do
 end
 
 task :default => 'cucumber:wip'
+require 'jasmine'
+load 'jasmine/tasks/jasmine.rake'

@@ -2,7 +2,7 @@ Given /^that I am a registered user$/ do
 end
 
 When /^I visit the login page$/ do
-	visit 'http://localhost:9000/#/login'
+	visit "#{app_host}/login"
 end
 
 When /^I fill out the login form$/ do

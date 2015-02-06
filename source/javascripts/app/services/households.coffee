@@ -3,7 +3,7 @@ window.app.service "Household", ($firebase, $firebaseAuth, firebaseURL, orgBuild
 		orgBuilder.getHouseholdsFromOrg(org)
 	
 	@find = (id) ->
-		url = "#{firebaseURL}users/#{id}"
+		url = "#{firebaseURL}/users/#{id}"
 		ref = new Firebase(url)
 		household = $firebase(ref).$asObject()
 		household.$loaded()

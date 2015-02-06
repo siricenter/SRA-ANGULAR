@@ -3,6 +3,7 @@ Feature: Login
 	I want to login
 	So that I can use the service
 
+	@wip
 	@javascript
 	Scenario:
 		Given that I am a registered user

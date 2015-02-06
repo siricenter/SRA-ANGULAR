@@ -7,6 +7,12 @@ gem "middleman", "~> 3.3.3"
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.3.4"
 
+gem 'cucumber', '~> 1.3.18'
+gem 'capybara', '~> 2.4.4'
+gem 'poltergeist', '~> 1.6.0'
+gem 'rspec', '~> 3.2.0'
+gem 'middleman-jasmine', '~> 0.5.1'
+
 # For faster file watcher updates on Windows:
 gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 

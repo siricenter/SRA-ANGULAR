@@ -3,7 +3,7 @@ require 'capybara/poltergeist'
 
 Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
-Capybara.app_host = 'http://localhost:9000/#'
+Capybara.app_host = 'http://localhost:4567/#'
 
 def app_host
 	return Capybara.app_host

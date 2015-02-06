@@ -11,34 +11,29 @@ module.exports = function(config) {
     autoWatch: true,
 
     // base path, that will be used to resolve files and exclude
-    basePath: '../',
+    basePath: './',
 
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'bower_components/angular-animate/angular-animate.js',
-      'bower_components/angular-aria/angular-aria.js',
-      'bower_components/angular-cookies/angular-cookies.js',
-      'bower_components/angular-messages/angular-messages.js',
-      'bower_components/angular-resource/angular-resource.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-sanitize/angular-sanitize.js',
-      'bower_components/angular-touch/angular-touch.js',
-	  'bower_components/firebase/firebase.js',
-	  'bower_components/angularfire/dist/angularfire.js',
-	  'bower_components/checklist-model/checklist-model.js',
+      'vendor/assets/bower_components/angular/angular.js',
+      'vendor/assets/bower_components/angular-mocks/angular-mocks.js',
+      'vendor/assets/bower_components/angular-animate/angular-animate.js',
+      'vendor/assets/bower_components/angular-aria/angular-aria.js',
+      'vendor/assets/bower_components/angular-cookies/angular-cookies.js',
+      'vendor/assets/bower_components/angular-messages/angular-messages.js',
+      'vendor/assets/bower_components/angular-resource/angular-resource.js',
+      'vendor/assets/bower_components/angular-route/angular-route.js',
+      'vendor/assets/bower_components/angular-sanitize/angular-sanitize.js',
+      'vendor/assets/bower_components/angular-touch/angular-touch.js',
+	  'vendor/assets/bower_components/firebase/firebase.js',
+	  'vendor/assets/bower_components/angularfire/dist/angularfire.js',
 
-      'app/emerald/build/javascripts/app.js',
-      'app/emerald/build/javascripts/main.js',
-	  'app/emerald/build/javascripts/services.js',
-	  'app/emerald/build/javascripts/controllers.js',
+	  'build/javascripts/app/**/*.js',
 
-      'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'spec/**/*.js'
     ],
 
     // list of files / patterns to exclude

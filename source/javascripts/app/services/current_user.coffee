@@ -37,8 +37,9 @@ window.app.service "currentUser", ($rootScope, $location, $firebase, $firebaseAu
 			return # Void
 		# Returns promise
 	
+	# Retrieves the user information from the firebase instance
 	@getUser = (userName) ->
-		url = "#{firebaseURL}users/#{userName}"
+		url = "#{firebaseURL}/users/#{userName}"
 		ref = new Firebase(url)
 		userObj = $firebase(ref).$asObject()
 		userObj.$loaded().then((user) ->
@@ -78,5 +79,11 @@ window.app.service "currentUser", ($rootScope, $location, $firebase, $firebaseAu
 			console.log "Error thrown"
 			throw error
 
+
+	############################################################################
+	#
+	# End of private functions for currentUser service
+	#
+	############################################################################
 	return # End of service
 

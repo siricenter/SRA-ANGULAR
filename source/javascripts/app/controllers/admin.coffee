@@ -15,7 +15,7 @@ window.app.controller "AdminAreasController", ($scope, $location, $firebase, $ro
 		i = 0
 
 		while i < regions.length
-			ref = new Firebase(firebaseURL + "Organizations/sra/regions/" + regions[i] + "/areas")
+			ref = new Firebase("#{firebaseURL}/organizations/sra/regions/#{regions[i]}/areas")
 			sync = $firebase(ref).$asArray()
 			areasArr = []
 			sync.$loaded().then callMe #Maybe?
@@ -42,7 +42,7 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
 	currentUser.requireLogin()
 	$scope.name = $routeParams.id
 	$scope.userRoles = []
-	userRef = new Firebase(firebaseURL + "/users/"+$scope.name+"/organizations/sra/roles")
+	userRef = new Firebase("#{firebaseURL}/users/#{$scope.name}/organizations/sra/roles")
 	userSync = $firebase(userRef).$asArray()
 	userSync.$loaded().then (roles)->
 		for role in roles
@@ -50,7 +50,7 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
 
 		return
 	
-	rolesref = new Firebase(firebaseURL + "organizations/sra/roles")
+	rolesref = new Firebase("#{firebaseURL}/organizations/sra/roles")
 	rolessync = $firebase(rolesref).$asArray()
 	rolessync.$loaded().then (data)->
 		$scope.roles = data
@@ -61,10 +61,10 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
 		console.log("hi")
 		fname = $scope.user.fname
 		lname = $scope.user.lname
-		ref = new Firebase(firebaseURL + "organizations/sra/users/" + $scope.name)
+		ref = new Firebase("#{firebaseURL}organizations/sra/users/#{$scope.name}")
 		sync = $firebase(ref)
 		sync.$update({firstname: fname, lastname: lname}).then ->
-			xref = new Firebase(firebaseURL + "/users/" + $scope.name)
+			xref = new Firebase("#{firebaseURL}/users/#{$scope.name}")
 			xsync = $firebase(xref)
 			xsync.$update({firstName: fname, lastName: lname}).then ->
 				$location.path('/admin/users')
@@ -73,10 +73,10 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
 
 	$scope.updateRole = ->
 		roles = $scope.userRoles
-		for role in roles 
-			userRef = new Firebase(firebaseURL + "/users/"+$scope.name+"/organizations/sra/roles")
+		for role in roles
+			userRef = new Firebase("#{firebaseURL}/users/#{$scope.name}/organizations/sra/roles")
 			userSync = $firebase(userRef)
-			userSync.$update({name:role}) 
+			userSync.$update({name:role})
 			return
 	$scope.createPermission = ->
 		permissions = $scope.permissions
@@ -88,7 +88,7 @@ window.app.controller "DeleteUsersController", ($scope, $location, $firebase, $r
 	$scope.name = $routeParams.name
 	$scope.deleteUser = ->
 		console.log($scope.name)
-		ref = new Firebase(firebaseURL + "organizations/sra/users/")
+		ref = new Firebase("#{firebaseURL}/organizations/sra/users/")
 		sync = $firebase(ref).$asArray()
 		sync.$loaded().then (data) ->
 			for i in [0...data.length] by 1
@@ -102,12 +102,12 @@ window.app.controller "DeleteUsersController", ($scope, $location, $firebase, $r
 
 	return
 
-window.app.controller "AreasUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
+window.app.controller "AreasUsersController", ($scope) ->
 	return
 
 window.app.controller "NewUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, $firebaseAuth, firebaseURL) ->
 	$scope.CreateUser = ->
-		userNode = new Firebase(firebaseURL + "organizations/sra/users")
+		userNode = new Firebase("#{firebaseURL}/organizations/sra/users")
 		email = $scope.user.email
 		password = $scope.user.password
 		fname = $scope.user.fname
@@ -135,7 +135,7 @@ window.app.controller "AreasEditController", ($scope, $location, $firebase, $rou
 	$scope.area = $routeParams.name
 	$scope.region = $routeParams.region
 	$scope.UpdateArea = ->
-		ref = new Firebase(firebaseURL + "organizations/sra/regions/" + $scope.region + "/areas/" + $scope.area)
+		ref = new Firebase("#{firebaseURL}/organizations/sra/regions/#{$scope.region}/areas/#{$scope.area}")
 		name = $scope.area.name
 		ref.set name
 		return
@@ -150,7 +150,7 @@ window.app.controller "AdminHouseholdsController", ($scope, $rootScope, currentU
 	return
 
 window.app.controller "AdminSecurityController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder, currentUser) ->
-	rolesref = new Firebase(firebaseURL + "organizations/sra/roles")
+	rolesref = new Firebase("#{firebaseURL}/organizations/sra/roles")
 	rolessync = $firebase(rolesref).$asArray()
 	rolessync.$loaded().then (data)->
 		$scope.roles = data
@@ -158,7 +158,7 @@ window.app.controller "AdminSecurityController", ($scope, $rootScope, $location,
 	console.log($routeParams.title)
 	$scope.roleName = $routeParams.title
 	$scope.role_permissions = []
-	permishref = new Firebase(firebaseURL + "/permissions")
+	permishref = new Firebase("#{firebaseURL}/permissions")
 	permishSync = $firebase(permishref).$asArray()
 	permishSync.$loaded().then (permissions) ->
 		$scope.permissions = permissions

@@ -1,4 +1,5 @@
 "use strict"
+
 window.app = angular.module("sraAngularApp", [
 	"ngAria"
 	"ngCookies"
@@ -9,23 +10,6 @@ window.app = angular.module("sraAngularApp", [
 	"ngTouch"
 	"firebase"
 ])
-
-window.app.run ($rootScope, $firebase, firebaseURL) ->
-	$rootScope.firebaseSession = localStorage["firebase:session::intense-inferno-7741"]
-	ref = new Firebase(firebaseURL + "organizations/sra/regions")
-	regionsArr = $firebase(ref).$asArray()
-	regions = []
-	onArrLoad = ->
-		for region of regionsArr
-			regions.push regionsArr[region].$id	if regionsArr[region].$id isnt `undefined`
-		regions = JSON.stringify(regions)
-		localStorage.setItem "regions", regions
-		$rootScope.regions = JSON.parse(localStorage.getItem("regions"))
-		return
-
-	regionsArr.$loaded().then onArrLoad
-	return
-
 
 window.app.config ($routeProvider) ->
 	$routeProvider.when("/",

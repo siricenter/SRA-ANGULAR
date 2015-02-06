@@ -10,7 +10,7 @@ window.app.controller "AreasIndexController", ($scope, $location, $firebase, $ro
 
 window.app.controller "AreasShowController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
 	name = $routeParams.name
-	ref = new Firebase(firebaseURL + "organizations/sra/regions/South%20Africa/areas/" + name)
+	ref = new Firebase("#{firebaseURL}/organizations/sra/regions/South%20Africa/areas/#{name}")
 	area = $firebase(ref).$asObject()
 	area.$loaded().then (area) ->
 		Household = (family, members) ->
