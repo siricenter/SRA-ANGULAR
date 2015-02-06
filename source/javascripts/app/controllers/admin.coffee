@@ -105,20 +105,17 @@ window.app.controller "DeleteUsersController", ($scope, $location, $firebase, $r
 window.app.controller "AreasUsersController", ($scope) ->
 	return
 
-window.app.controller "NewUsersController", ($scope, $rootScope, firebase, Organization, User) ->
+window.app.controller "NewUsersController", ($scope, $rootScope, User, currentUser) ->
 	$rootScope.title = "Create User"
-	$scope.createUser = ->
-		firebase.createUser($scope.user)
-			.then((userRef) ->
-				User.find( userRef.key() ))
-			.then ( user ) ->
-				Organization.find('sra').then(( org ) ->
-					Organization.addUser( org, user ))
-			.then () ->
-				$scope.user = {}
 
+	currentUser.requireLogin().then () ->
+		createUser = () ->
+			User.create($scope.user).then(() ->
+				$scope.user = {})
 
-		return
+			return
+
+		$scope.createUser = createUser
 
 	return
 

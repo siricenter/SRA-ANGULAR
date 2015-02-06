@@ -2,11 +2,11 @@
 
 describe( 'Controller: LoginController', function () {
 
-	var subject, scope, setup, email, password;
+	var setup, subject, scope, email, password;
 
 	// load the controller's module
 	beforeEach( function () {
-		module( 'sraAngularApp', function($provide){
+		module( 'sraAngularApp', function($provide) {
 			// Creating a mock object to replace the currentUser service in our
 			// tests.
 			var currentUser = {
@@ -37,13 +37,13 @@ describe( 'Controller: LoginController', function () {
 	};
 
 	// Initialize the controller and a mock scope
-	beforeEach(inject(setup));
+	beforeEach( inject( setup ) );
 
 	it( 'has the login function', function () {
 		// After the controller executes, its scope should have a function
 		// called submit.
-		expect( scope.submit ).not.toBeNull();
 		expect( scope.submit ).not.toBeUndefined();
+		expect( scope.submit ).not.toBeNull();
 	});
 
 	it( 'collects the email and password and sends it for auth' , function () {
