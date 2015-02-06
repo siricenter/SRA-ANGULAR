@@ -60,7 +60,7 @@
     "jquery.flot.orderBars": "https://raw.githubusercontent.com/emmerich/flot-orderBars/master/js/jquery.flot.orderBars.js",
     "powerange": "~0.0.1",
     "jquery.floatThead": "https://raw.githubusercontent.com/mkoryak/floatThead/master/jquery.floatThead.js",
-    "filament-tablesaw": "https://github.com/filamentgroup/tablesaw.git#~0.1.3",
+    "filament-tablesaw": "https://github.com/filamentgroup/tablesaw.git#0.1.3",
     "fullcalendar": "~2.0.1",
     "growl": "~1.1.8",
     "gmaps": "~0.4.13",
