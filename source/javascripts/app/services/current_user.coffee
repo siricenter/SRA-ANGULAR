@@ -1,4 +1,4 @@
-window.app.service "currentUser", ($rootScope, $location, $firebase, $firebaseAuth, firebaseURL, orgBuilder, $q) ->
+window.app.service "currentUser", ($rootScope, $location, firebase, firebaseURL, orgBuilder, $q) ->
 	@requireLogin = () ->
 		currentUser = this
 		return $q((resolve, reject) ->
@@ -11,38 +11,33 @@ window.app.service "currentUser", ($rootScope, $location, $firebase, $firebaseAu
 		)
 
 	@currentUser = () ->
-			stored = sessionStorage.getItem("userId")
+		stored = sessionStorage.getItem("userId")
 
-			if $rootScope.currentUser?
-				return $q((resolve, reject) ->
-					resolve($rootScope.currentUser)
-				) # Return the new promise
-			else if stored?
-				@getUser(stored) # return the promise from @getUser
-			else
-				return $q((resolve, reject) ->
-					reject(Error("No current user"))
-				) # Return the new promise
+		if $rootScope.currentUser?
+			return $q((resolve, reject) ->
+				resolve($rootScope.currentUser)
+			) # Return the new promise
+		else if stored?
+			@getUser(stored) # return the promise from @getUser
+		else
+			return $q((resolve, reject) ->
+				reject(Error("No current user"))
+			) # Return the new promise
 	
 	@authenticate = (email, password) ->
-		authed = @authed(email)
-		ref = new Firebase(firebaseURL)
-		authObj = $firebaseAuth(ref)
-		authObj.$authWithPassword(
-			email: email
-			password: password
-		).then(authed)
+		authPromise = firebase.auth(email, password)
+		.then(@authed(email))
 		.catch (error) ->
+			# We really should do something better on failure, like post a
+			# notification on the login page.
 			console.error "Authentication Failed:", error
 			return # Void
-		# Returns promise
+		return authPromise
 	
 	# Retrieves the user information from the firebase instance
 	@getUser = (userName) ->
 		url = "#{firebaseURL}/users/#{userName}"
-		ref = new Firebase(url)
-		userObj = $firebase(ref).$asObject()
-		userObj.$loaded().then((user) ->
+		firebase.queryObject( url ).then((user) ->
 			$rootScope.currentUser = user
 		)
 
