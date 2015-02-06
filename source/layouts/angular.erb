@@ -1,20 +1,29 @@
 <!doctype html>
 <html lang="en" class="high" ng-app="sraAngularApp">
-<head>
-<%= partial 'layouts/head' %>
-</head>
+	<head>
+		<%= partial 'layouts/head' %>
+	</head>
 
-<body class="high emerald-default <%= page_classes %>">
-<%= yield_content :top %>
-<%= partial 'layouts/jump_to' %>
-<%= yield %>
-<%= yield_content :bottom %>
+	<body class="high emerald-default <%= page_classes %>">
+		<div class="container">
 
-<!-- Needed by BSE.Mq.screen() helper in utils.js -->
-<div id="mq"></div>
+			<div class="container">
+				<%= yield_content :top %>
+				<%= partial 'layouts/jump_to' %>
 
-<!-- Needed by EmVars helper in _emerald.js -->
-<div id="emvars"></div>
+				<div class="oc-xs-push-push oc-sm-squeeze-push oc-md-squeeze-push oc-lg-squeeze-push
+				modal-blur-content" ng-view="">
+					<%= yield %>
+				</div>
+				<%= yield_content :bottom %>
+			</div>
+		</div>
 
-</body>
+		<!-- Needed by BSE.Mq.screen() helper in utils.js -->
+		<div id="mq"></div>
+
+		<!-- Needed by EmVars helper in _emerald.js -->
+		<div id="emvars"></div>
+
+	</body>
 </html>

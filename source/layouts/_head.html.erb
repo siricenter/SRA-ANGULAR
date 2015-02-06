@@ -17,7 +17,7 @@
 <link rel="shortcut icon" href="<%= image_path 'favicon.png' %>">
 
 <!-- Use title if it's in the page YAML frontmatter -->
-<title><%= current_page.data.title || "Emerald" %></title>
+<title data-ng-bind="title"><%= current_page.data.title || "Emerald" %></title>
 
 <script type="text/javascript">
     var polyfilter_scriptpath = "<%= @polyfilter_demo_url || url_for('/polyfills/filters/') %>";

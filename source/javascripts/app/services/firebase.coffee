@@ -8,6 +8,29 @@ window.app.service "firebase", ($firebase, $firebaseAuth, firebaseURL) ->
 		ref = new Firebase(url)
 		onLoadPromise = $firebase( ref ).$asArray().$loaded()
 		return onLoadPromise
+
+	@createUser = (userData) ->
+		url = firebaseURL
+
+		credentials =
+			email: 		userData.email
+			password: 	userData.password
+
+		users = new Firebase(url)
+		authObj = $firebaseAuth(users)
+		authObj.$createUser(credentials)
+			.then((userID) ->
+				user =
+					firstName: 	userData.fname
+					lastName: 	userData.lname
+					email:		userData.email
+
+				usersURL = "#{firebaseURL}/users"
+				usersCollection = new Firebase(usersURL)
+				$firebase(usersCollection).$push(user))
+			.catch((data) ->
+				console.log "Failed: #{data}")
+
 		
 	@auth = ( email, password ) ->
 		ref = new Firebase(firebaseURL)

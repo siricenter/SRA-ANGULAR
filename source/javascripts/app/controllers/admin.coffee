@@ -105,27 +105,18 @@ window.app.controller "DeleteUsersController", ($scope, $location, $firebase, $r
 window.app.controller "AreasUsersController", ($scope) ->
 	return
 
-window.app.controller "NewUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, $firebaseAuth, firebaseURL) ->
-	$scope.CreateUser = ->
-		userNode = new Firebase("#{firebaseURL}/organizations/sra/users")
-		email = $scope.user.email
-		password = $scope.user.password
-		fname = $scope.user.fname
-		lname = $scope.user.lname
-		ref = new Firebase(firebaseURL)
-		$scope.authObj = $firebaseAuth(ref)
-		$scope.authObj.$createUser(email, password).then(->
-			userNode.push userNode.child(email.split("@")[0]).set(
-				FirstName: fname
-				LastName: lname
-			)
-			$scope.authObj.$authWithPassword
-				email: email
-				password: email
+window.app.controller "NewUsersController", ($scope, $rootScope, firebase, Organization, User) ->
+	$rootScope.title = "Create User"
+	$scope.createUser = ->
+		firebase.createUser($scope.user)
+			.then((userRef) ->
+				User.find( userRef.key() ))
+			.then ( user ) ->
+				Organization.find('sra').then(( org ) ->
+					Organization.addUser( org, user ))
+			.then () ->
+				$scope.user = {}
 
-		).catch (error) ->
-			console.error "Error: ", error
-			return
 
 		return
 
