@@ -1,5 +1,4 @@
 "use strict"
-
 window.app.controller "AdminAreasController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL, currentUser) ->
 	currentUser.requireLogin()
 	regions = JSON.parse(localStorage.regions)
@@ -157,4 +156,11 @@ window.app.controller "AdminSecurityController", ($scope, $rootScope, $location,
 	$scope.createRole = (permissions)->
 		console.log(permissions)
 		console.log($scope.roleName)
+		
+		#ref = new Firebase("#{firebaseURL}/organizations/sra/roles")
+		#ref.child($scope.roleName).child("name").set($scope.roleName)
+		#for permission in permissions
+		#	ref.child($scope.roleName).child("permissions").child(permission.name).child(permission.$id).set(permission.code)
+
+
 	return
