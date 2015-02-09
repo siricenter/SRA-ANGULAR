@@ -157,10 +157,13 @@ window.app.controller "AdminSecurityController", ($scope, $rootScope, $location,
 		console.log(permissions)
 		console.log($scope.roleName)
 		
-		#ref = new Firebase("#{firebaseURL}/organizations/sra/roles")
-		#ref.child($scope.roleName).child("name").set($scope.roleName)
-		#for permission in permissions
-		#	ref.child($scope.roleName).child("permissions").child(permission.name).child(permission.$id).set(permission.code)
+		ref = new Firebase("#{firebaseURL}/organizations/sra/roles")
+		ref.child($scope.roleName).child("name").set($scope.roleName)
+		for permission in permissions
+			console.log("hi")
+			role = new Firebase("#{firebaseURL}/organizations/sra/roles/#{$scope.roleName}")
+			role.child("permissions").child(permission.$$hashKey).set(permission["permission code"])
+			$location.path("/admin/roles/security")
 
 
 	return
