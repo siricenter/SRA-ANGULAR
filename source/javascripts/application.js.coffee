@@ -7,7 +7,7 @@
 #= require jquery
 #= require turbolinks.js/index
 #= require underscore
-#= require json2/json2
+#= require json3
 #= require store
 #= require moment
 #= require modernizr/modernizr
@@ -80,8 +80,6 @@
 #= require angular/angular.js
 #= require angular-aria/angular-aria.js
 #= require angular-cookies/angular-cookies.js
-#= require angular-messages/angular-messages.js
-#= require angular-resource/angular-resource.js
 #= require angular-route/angular-route.js
 #= require angular-sanitize/angular-sanitize.js
 #= require angular-touch/angular-touch.js
