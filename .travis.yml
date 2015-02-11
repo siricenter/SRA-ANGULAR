@@ -4,7 +4,7 @@ rvm: 2.1
 
 before_script:
     - npm install
-    - middleman server
+    - bundle exec middleman build
 
 script:
     - bundle exec rake
