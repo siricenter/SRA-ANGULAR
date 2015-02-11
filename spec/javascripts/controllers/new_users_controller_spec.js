@@ -27,7 +27,7 @@ describe( 'Controller: NewUsersController', function () {
 		rootScope = $rootScope;
 
 		subject = $controller( 'NewUsersController', {
-			'$scope': scope,
+			$scope: scope
 		});
 
 		scope.user = {};

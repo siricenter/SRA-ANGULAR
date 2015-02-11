@@ -1,6 +1,7 @@
 "use strict"
 
 window.app = angular.module("sraAngularApp", [
+	"ngAnimate"
 	"ngAria"
 	"ngCookies"
 	"ngMessages"
@@ -30,6 +31,9 @@ window.app.config ($routeProvider) ->
 	).when("/admin/users/:id/edit",
 		templateUrl: "htmls/admin/edit_user.html"
 		controller: "EditUsersController"
+	).when("/admin/users/new",
+		templateUrl: "htmls/users/new.html",
+		controller: "NewUsersController"
 	).when("/roles/:id",
 		templateUrl: "htmls/admin/user_roles.html"
 		controller: "EditUsersController"
@@ -46,5 +50,6 @@ window.app.config ($routeProvider) ->
 		templateUrl: "htmls/admin/add_permissions.html"
 		controller: "AdminSecurityController"
 	).otherwise redirectTo: "/"
+	
 	return
 

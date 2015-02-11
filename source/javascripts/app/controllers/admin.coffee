@@ -3,7 +3,7 @@ window.app.controller "AdminAreasController", ($scope, $location, $firebase, $ro
 	currentUser.requireLogin()
 	regions = JSON.parse(localStorage.regions)
 	if regions isnt `undefined`
-		
+
 		# Don't define functions inside a loop. It's a performance killer.
 		callMe = (areaData) ->
 			areasArr.push areaData
@@ -31,10 +31,10 @@ window.app.controller "AdminDashboardController", ($scope, $rootScope, currentUs
 window.app.controller "AdminUsersController", ($scope, $rootScope, currentUser, User) ->
 	$rootScope.title = "Users Index"
 	currentUser.requireLogin()
-	
+
 	User.all().then (users) ->
 		$scope.users = users
-	
+
 	return
 
 window.app.controller "EditUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL, currentUser) ->
@@ -47,14 +47,14 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
 		for role in roles
 			$scope.userRoles.push(role.$value)
 
-		return
-	
+			return
+
 	rolesref = new Firebase("#{firebaseURL}/organizations/sra/roles")
 	rolessync = $firebase(rolesref).$asArray()
 	rolessync.$loaded().then (data)->
 		$scope.roles = data
 		return
- 
+
 
 	$scope.updateUser = ->
 		console.log("hi")
@@ -114,7 +114,7 @@ window.app.controller "NewUsersController", ($scope, $rootScope, User, currentUs
 
 			return
 
-		$scope.createUser = createUser
+	$scope.createUser = createUser
 
 	return
 
@@ -156,7 +156,7 @@ window.app.controller "AdminSecurityController", ($scope, $rootScope, $location,
 	$scope.createRole = (permissions)->
 		console.log(permissions)
 		console.log($scope.roleName)
-		
+
 		ref = new Firebase("#{firebaseURL}/organizations/sra/roles")
 		ref.child($scope.roleName).child("name").set($scope.roleName)
 		for permission in permissions
