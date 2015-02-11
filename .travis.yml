@@ -9,3 +9,6 @@ before_script:
 script:
     - bundle exec rake
     - npm test
+
+notifications:
+    slack: rbdcwd:YlEyWW15VqWi9a314zutByrA
