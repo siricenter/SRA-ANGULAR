@@ -81,6 +81,8 @@
 #= require angular-aria/angular-aria.js
 #= require angular-cookies/angular-cookies.js
 #= require angular-route/angular-route.js
+#= require angular-resource/angular-resource.js
+#= require angular-messages/angular-messages.js
 #= require angular-sanitize/angular-sanitize.js
 #= require angular-touch/angular-touch.js
 #= require angular-ui-router/release/angular-ui-router.js
