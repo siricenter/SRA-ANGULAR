@@ -98,10 +98,8 @@ configure :build do
   set :relative_links, true
   set :debug_assets, false
 
-  @polyfilter_demo_url = 'source/polyfills/filters/'
+  @polyfilter_demo_url = 'polyfills/filters/'
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
-
-activate :jasmine
