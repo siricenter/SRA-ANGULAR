@@ -8,7 +8,6 @@ before_script:
     - bundle exec middleman build
 
 script:
-    - bundle exec rake
     - npm test
 
 notifications:
