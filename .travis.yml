@@ -2,13 +2,8 @@ language: ruby
 
 rvm: 2.1
 
-before_script:
-    - npm install
-    - bower install
-    - bundle exec middleman build
-
 script:
-    - npm test
+    - rake test
 
 notifications:
     slack: rbdcwd:YlEyWW15VqWi9a314zutByrA
