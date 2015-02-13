@@ -49,6 +49,9 @@ window.app.config ($routeProvider) ->
 	).when("/admin/roles/new/permissions/:title",
 		templateUrl: "htmls/admin/add_permissions.html"
 		controller: "AdminSecurityController"
+	).when("/questionsManager",
+		templateUrl: "htmls/admin/questionsAdmin.html"
+		controller: "QuestionsAdminController"
 	).otherwise redirectTo: "/"
 	
 	return

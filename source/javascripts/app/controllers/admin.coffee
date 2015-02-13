@@ -167,3 +167,20 @@ window.app.controller "AdminSecurityController", ($scope, $rootScope, $location,
 
 
 	return
+window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder, currentUser) ->
+ 	$scope.types = ["Areas","Households"]
+ 	$scope.questionTypes = ["Single Use","Multi-Use"]
+ 	console.log($scope.question_type)
+ 	$scope.questions = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/question sets")).$asArray()
+ 	$scope.responseTypes = ["Date","Text","Number","Multi-Choice","Single-Choice"]
+ 	console.log($scope.questions)
+ 	$scope.buildForm = (value) ->
+ 		console.log(value)
+ 		if value == '1'
+ 			$scope.body= '"<h1>hi</h1>"'
+ 		else if value == '0'
+ 			$scope.body= '"<h1>hi</h1>"'
+ 			
+
+	
+	return	
