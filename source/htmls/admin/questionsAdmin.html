@@ -1,0 +1,57 @@
+<div>
+<script>
+function duplicateElement(){
+	var element = document.getElementById('question');
+	var copy = element.cloneNode(true);
+	var destination = document.getElementById('placeholder');
+	destination.appendChild(copy);
+
+}
+
+
+</script>
+
+Survey Title:<br/>
+
+<input type="text" ng-model="surveyTitle"></input>
+Select Type:
+<select name="" id="" ng-model="survey_type" ng-options="k as v for (k , v) in types">
+  <option value="{{v}}">Choose a type</option>
+  
+</select><br/>
+Question Title:<br/>
+  <input type="text" ng-model="questionTitle"></input>
+Select type:
+<select name="" id="" ng-model="question_type" ng-options="k as v for (k , v) in questionTypes">
+  <option value="{{v}}">Choose a type</option>  
+</select><br/>
+Create Questions:<br/>
+<div id="question">
+<input type="text" ng-model="dataPoints">
+<select ng-model="types" ng-options="k as v for (k , v) in responseTypes"
+	<option value="{{v}}"></option>
+
+
+</select>
+</div>
+<div id="placeholder"></div><br/>
+<button type="submit" class="btn btn-primary" onclick = "duplicateElement()">+</button><br/>
+<br/>
+<button type="submit" class="btn btn-primary" onclick = "duplicateElement()">Build Survey</button><br/>
+Existing Surveys:
+<ul ng-repeat="question in questions">
+<li >{{question.name}}</li>
+<ul ng-repeat="questions in question.questions">
+<li>name: {{questions.name}}</li>
+<li>Multi-Use: {{questions.multiUse}}</li>
+<ul ng-repeat="dataPoint in questions.dataPoints">
+<li>Label: {{dataPoint.label}}</li>
+<li>Type: {{dataPoint.type}}</li>
+</ul>
+</ul>
+</ul>
+
+
+
+
+</div>
