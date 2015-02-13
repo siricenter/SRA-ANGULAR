@@ -2,40 +2,41 @@
 
 describe( 'Controller: QuestionsAdminController', function () {
 
-	// var setup, subject, scope, rootScope;
+	 var setup, subject, scope, rootScope;
 
-	// beforeEach( function () {
-	// 	module( 'sraAngularApp', function( $provide ) {
-	// 		
+	 beforeEach( function () {
+	 	module( 'sraAngularApp', function( $provide ) {
+	 		
 
-	// 		
-	// 	});
-	// });
+	 		
+	 	});
+	 });
 
-	// setup = function ( $controller, $rootScope ) {
-	// 	scope = $rootScope.$new();
+	 setup = function ( $controller, $rootScope ) {
+	 	scope = $rootScope.$new();
 
-	// 	rootScope = $rootScope;
+	 	rootScope = $rootScope;
 
-	// 	subject = $controller( 'QuestionsAdminController', {
-	// 		'$scope': scope,
-	// 	});
+	 	subject = $controller( 'QuestionsAdminController', {
+	 		'$scope': scope,
+	 	});
 
-	// 	scope.questionSet = {};
+	 	scope.questionSet = {};
 
-	// 	scope.questionSet.name = "Hydration";
-	// 	scope.questionSet.questions = [];
-	// 	scope.questionSet.type = "HOUSEHOLD";
-	// 	
-	// };
+	 	scope.questionSet.name = "Hydration";
+	 	scope.questionSet.questions = [];
+	 	scope.questionSet.type = "HOUSEHOLD";
+	 	
+	 };
 
-	// beforeEach( inject( setup ) );
+	 beforeEach( inject( setup ) );
 
-	// it( 'has a createQuestionSet function', function() {
-	// 	expect(scope.questionSet.name).not.toBeUndefined();
-	// 	expect(scope.questionSet.type).not.toBeUndefined();
-	// 	
-	// });
+	 it( 'has a an array of types', function() {
+	 	expect(scope.types).not.toBeUndefined();
+	 	expect(scope.questionTypes).not.toBeUndefined();
+	 	
+	 });
+	 
 
 	
 });

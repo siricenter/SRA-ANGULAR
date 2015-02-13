@@ -1,0 +1,209 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/bin/npm', 'install' ]
+info using npm@1.1.4
+info using node@v0.6.12
+verbose config file /home/andrew/.npmrc
+verbose config file /usr/etc/npmrc
+verbose config file /usr/share/npm/npmrc
+verbose caching /home/andrew/sra/SRA-ANGULAR/package.json
+verbose loadDefaults sraangular@0.0.0
+verbose readDependencies: using package.json deps
+verbose where, deps [ '/home/andrew/sra/SRA-ANGULAR',
+verbose where, deps   [ 'coffee-script',
+verbose where, deps     'bower',
+verbose where, deps     'connect-modrewrite',
+verbose where, deps     'imagemin-svgo',
+verbose where, deps     'jasmine-core',
+verbose where, deps     'jshint-stylish',
+verbose where, deps     'karma',
+verbose where, deps     'karma-chrome-launcher',
+verbose where, deps     'karma-jasmine',
+verbose where, deps     'karma-phantomjs-launcher' ] ]
+verbose from cache /home/andrew/sra/SRA-ANGULAR/package.json
+info preinstall sraangular@0.0.0
+verbose from cache /home/andrew/sra/SRA-ANGULAR/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'coffee-script@~1.6.3', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'coffee-script@~1.6.3',
+silly cache add: name, spec, args   [ 'coffee-script@~1.6.3', null ] ]
+verbose parsed url { pathname: 'coffee-script@~1.6.3',
+verbose parsed url   path: 'coffee-script@~1.6.3',
+verbose parsed url   href: 'coffee-script@~1.6.3' }
+silly cache add: name, spec, args [ 'coffee-script', '~1.6.3', [ 'coffee-script', '~1.6.3' ] ]
+verbose parsed url { pathname: '~1.6.3', path: '~1.6.3', href: '~1.6.3' }
+verbose addNamed [ 'coffee-script', '~1.6.3' ]
+verbose addNamed [ null, '>=1.6.3- <1.7.0-' ]
+silly name, range, hasData [ 'coffee-script', '>=1.6.3- <1.7.0-', false ]
+verbose cache add [ 'bower@1.3.12', null ]
+silly cache add: name, spec, args [ undefined, 'bower@1.3.12', [ 'bower@1.3.12', null ] ]
+verbose parsed url { pathname: 'bower@1.3.12',
+verbose parsed url   path: 'bower@1.3.12',
+verbose parsed url   href: 'bower@1.3.12' }
+silly cache add: name, spec, args [ 'bower', '1.3.12', [ 'bower', '1.3.12' ] ]
+verbose parsed url { pathname: '1.3.12', path: '1.3.12', href: '1.3.12' }
+verbose addNamed [ 'bower', '1.3.12' ]
+verbose addNamed [ '1.3.12', '1.3.12' ]
+verbose cache add [ 'connect-modrewrite@^0.7.9', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'connect-modrewrite@^0.7.9',
+silly cache add: name, spec, args   [ 'connect-modrewrite@^0.7.9', null ] ]
+verbose parsed url { pathname: 'connect-modrewrite@^0.7.9',
+verbose parsed url   path: 'connect-modrewrite@^0.7.9',
+verbose parsed url   href: 'connect-modrewrite@^0.7.9' }
+silly cache add: name, spec, args [ 'connect-modrewrite',
+silly cache add: name, spec, args   '^0.7.9',
+silly cache add: name, spec, args   [ 'connect-modrewrite', '^0.7.9' ] ]
+verbose parsed url { pathname: '^0.7.9', path: '^0.7.9', href: '^0.7.9' }
+verbose addNamed [ 'connect-modrewrite', '^0.7.9' ]
+verbose addNamed [ null, null ]
+info addNameTag [ 'connect-modrewrite', '^0.7.9' ]
+verbose cache add [ 'imagemin-svgo@^4.0.0', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'imagemin-svgo@^4.0.0',
+silly cache add: name, spec, args   [ 'imagemin-svgo@^4.0.0', null ] ]
+verbose parsed url { pathname: 'imagemin-svgo@^4.0.0',
+verbose parsed url   path: 'imagemin-svgo@^4.0.0',
+verbose parsed url   href: 'imagemin-svgo@^4.0.0' }
+silly cache add: name, spec, args [ 'imagemin-svgo', '^4.0.0', [ 'imagemin-svgo', '^4.0.0' ] ]
+verbose parsed url { pathname: '^4.0.0', path: '^4.0.0', href: '^4.0.0' }
+verbose addNamed [ 'imagemin-svgo', '^4.0.0' ]
+verbose addNamed [ null, null ]
+info addNameTag [ 'imagemin-svgo', '^4.0.0' ]
+verbose cache add [ 'jasmine-core@^2.1.3', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'jasmine-core@^2.1.3',
+silly cache add: name, spec, args   [ 'jasmine-core@^2.1.3', null ] ]
+verbose parsed url { pathname: 'jasmine-core@^2.1.3',
+verbose parsed url   path: 'jasmine-core@^2.1.3',
+verbose parsed url   href: 'jasmine-core@^2.1.3' }
+silly cache add: name, spec, args [ 'jasmine-core', '^2.1.3', [ 'jasmine-core', '^2.1.3' ] ]
+verbose parsed url { pathname: '^2.1.3', path: '^2.1.3', href: '^2.1.3' }
+verbose addNamed [ 'jasmine-core', '^2.1.3' ]
+verbose addNamed [ null, null ]
+info addNameTag [ 'jasmine-core', '^2.1.3' ]
+verbose cache add [ 'jshint-stylish@^0.2.0', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'jshint-stylish@^0.2.0',
+silly cache add: name, spec, args   [ 'jshint-stylish@^0.2.0', null ] ]
+verbose parsed url { pathname: 'jshint-stylish@^0.2.0',
+verbose parsed url   path: 'jshint-stylish@^0.2.0',
+verbose parsed url   href: 'jshint-stylish@^0.2.0' }
+silly cache add: name, spec, args [ 'jshint-stylish', '^0.2.0', [ 'jshint-stylish', '^0.2.0' ] ]
+verbose parsed url { pathname: '^0.2.0', path: '^0.2.0', href: '^0.2.0' }
+verbose addNamed [ 'jshint-stylish', '^0.2.0' ]
+verbose addNamed [ null, null ]
+info addNameTag [ 'jshint-stylish', '^0.2.0' ]
+verbose cache add [ 'karma@^0.12.31', null ]
+silly cache add: name, spec, args [ undefined, 'karma@^0.12.31', [ 'karma@^0.12.31', null ] ]
+verbose parsed url { pathname: 'karma@^0.12.31',
+verbose parsed url   path: 'karma@^0.12.31',
+verbose parsed url   href: 'karma@^0.12.31' }
+silly cache add: name, spec, args [ 'karma', '^0.12.31', [ 'karma', '^0.12.31' ] ]
+verbose parsed url { pathname: '^0.12.31', path: '^0.12.31', href: '^0.12.31' }
+verbose addNamed [ 'karma', '^0.12.31' ]
+verbose addNamed [ null, null ]
+info addNameTag [ 'karma', '^0.12.31' ]
+verbose cache add [ 'karma-chrome-launcher@^0.1.7', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'karma-chrome-launcher@^0.1.7',
+silly cache add: name, spec, args   [ 'karma-chrome-launcher@^0.1.7', null ] ]
+verbose parsed url { pathname: 'karma-chrome-launcher@^0.1.7',
+verbose parsed url   path: 'karma-chrome-launcher@^0.1.7',
+verbose parsed url   href: 'karma-chrome-launcher@^0.1.7' }
+silly cache add: name, spec, args [ 'karma-chrome-launcher',
+silly cache add: name, spec, args   '^0.1.7',
+silly cache add: name, spec, args   [ 'karma-chrome-launcher', '^0.1.7' ] ]
+verbose parsed url { pathname: '^0.1.7', path: '^0.1.7', href: '^0.1.7' }
+verbose addNamed [ 'karma-chrome-launcher', '^0.1.7' ]
+verbose addNamed [ null, null ]
+info addNameTag [ 'karma-chrome-launcher', '^0.1.7' ]
+verbose raw, before any munging coffee-script
+verbose url resolving [ 'https://registry.npmjs.org/', './coffee-script' ]
+verbose url resolved https://registry.npmjs.org/coffee-script
+http GET https://registry.npmjs.org/coffee-script
+verbose raw, before any munging connect-modrewrite
+verbose url resolving [ 'https://registry.npmjs.org/', './connect-modrewrite' ]
+verbose url resolved https://registry.npmjs.org/connect-modrewrite
+http GET https://registry.npmjs.org/connect-modrewrite
+verbose raw, before any munging bower/1.3.12
+verbose url resolving [ 'https://registry.npmjs.org/', './bower/1.3.12' ]
+verbose url resolved https://registry.npmjs.org/bower/1.3.12
+http GET https://registry.npmjs.org/bower/1.3.12
+verbose raw, before any munging imagemin-svgo
+verbose url resolving [ 'https://registry.npmjs.org/', './imagemin-svgo' ]
+verbose url resolved https://registry.npmjs.org/imagemin-svgo
+http GET https://registry.npmjs.org/imagemin-svgo
+verbose raw, before any munging jasmine-core
+verbose url resolving [ 'https://registry.npmjs.org/', './jasmine-core' ]
+verbose url resolved https://registry.npmjs.org/jasmine-core
+http GET https://registry.npmjs.org/jasmine-core
+verbose raw, before any munging jshint-stylish
+verbose url resolving [ 'https://registry.npmjs.org/', './jshint-stylish' ]
+verbose url resolved https://registry.npmjs.org/jshint-stylish
+http GET https://registry.npmjs.org/jshint-stylish
+verbose raw, before any munging karma
+verbose url resolving [ 'https://registry.npmjs.org/', './karma' ]
+verbose url resolved https://registry.npmjs.org/karma
+http GET https://registry.npmjs.org/karma
+verbose raw, before any munging karma-chrome-launcher
+verbose url resolving [ 'https://registry.npmjs.org/', './karma-chrome-launcher' ]
+verbose url resolved https://registry.npmjs.org/karma-chrome-launcher
+http GET https://registry.npmjs.org/karma-chrome-launcher
+verbose cache add [ 'karma-jasmine@^0.3.2', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'karma-jasmine@^0.3.2',
+silly cache add: name, spec, args   [ 'karma-jasmine@^0.3.2', null ] ]
+verbose parsed url { pathname: 'karma-jasmine@^0.3.2',
+verbose parsed url   path: 'karma-jasmine@^0.3.2',
+verbose parsed url   href: 'karma-jasmine@^0.3.2' }
+silly cache add: name, spec, args [ 'karma-jasmine', '^0.3.2', [ 'karma-jasmine', '^0.3.2' ] ]
+verbose parsed url { pathname: '^0.3.2', path: '^0.3.2', href: '^0.3.2' }
+verbose addNamed [ 'karma-jasmine', '^0.3.2' ]
+verbose addNamed [ null, null ]
+info addNameTag [ 'karma-jasmine', '^0.3.2' ]
+verbose cache add [ 'karma-phantomjs-launcher@^0.1.4', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'karma-phantomjs-launcher@^0.1.4',
+silly cache add: name, spec, args   [ 'karma-phantomjs-launcher@^0.1.4', null ] ]
+verbose parsed url { pathname: 'karma-phantomjs-launcher@^0.1.4',
+verbose parsed url   path: 'karma-phantomjs-launcher@^0.1.4',
+verbose parsed url   href: 'karma-phantomjs-launcher@^0.1.4' }
+silly cache add: name, spec, args [ 'karma-phantomjs-launcher',
+silly cache add: name, spec, args   '^0.1.4',
+silly cache add: name, spec, args   [ 'karma-phantomjs-launcher', '^0.1.4' ] ]
+verbose parsed url { pathname: '^0.1.4', path: '^0.1.4', href: '^0.1.4' }
+verbose addNamed [ 'karma-phantomjs-launcher', '^0.1.4' ]
+verbose addNamed [ null, null ]
+info addNameTag [ 'karma-phantomjs-launcher', '^0.1.4' ]
+verbose raw, before any munging karma-jasmine
+verbose url resolving [ 'https://registry.npmjs.org/', './karma-jasmine' ]
+verbose url resolved https://registry.npmjs.org/karma-jasmine
+http GET https://registry.npmjs.org/karma-jasmine
+verbose raw, before any munging karma-phantomjs-launcher
+verbose url resolving [ 'https://registry.npmjs.org/', './karma-phantomjs-launcher' ]
+verbose url resolved https://registry.npmjs.org/karma-phantomjs-launcher
+http GET https://registry.npmjs.org/karma-phantomjs-launcher
+ERR! Error: failed to fetch from registry: coffee-script
+ERR!     at /usr/share/npm/lib/utils/npm-registry-client/get.js:139:12
+ERR!     at cb (/usr/share/npm/lib/utils/npm-registry-client/request.js:31:9)
+ERR!     at Request._callback (/usr/share/npm/lib/utils/npm-registry-client/request.js:136:18)
+ERR!     at Request.callback (/usr/lib/nodejs/request/main.js:119:22)
+ERR!     at Request.<anonymous> (/usr/lib/nodejs/request/main.js:212:58)
+ERR!     at Request.emit (events.js:88:20)
+ERR!     at ClientRequest.<anonymous> (/usr/lib/nodejs/request/main.js:412:12)
+ERR!     at ClientRequest.emit (events.js:67:17)
+ERR!     at HTTPParser.onIncoming (http.js:1261:11)
+ERR!     at HTTPParser.onHeadersComplete (http.js:102:31)
+ERR! You may report this log at:
+ERR!     <http://bugs.debian.org/npm>
+ERR! or use
+ERR!     reportbug --attach /home/andrew/sra/SRA-ANGULAR/npm-debug.log npm
+ERR! 
+ERR! System Linux 3.2.0-51-generic
+ERR! command "node" "/usr/bin/npm" "install"
+ERR! cwd /home/andrew/sra/SRA-ANGULAR
+ERR! node -v v0.6.12
+ERR! npm -v 1.1.4
+ERR! message failed to fetch from registry: coffee-script
+verbose exit [ 1, true ]

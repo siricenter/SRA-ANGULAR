@@ -176,10 +176,7 @@ window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location
  	console.log($scope.questions)
  	$scope.buildForm = (value) ->
  		console.log(value)
- 		if value == '1'
- 			$scope.body= '"<h1>hi</h1>"'
- 		else if value == '0'
- 			$scope.body= '"<h1>hi</h1>"'
+ 		
  			
 
 	
