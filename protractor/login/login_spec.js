@@ -1,11 +1,6 @@
 describe('Login', function() {
 	describe('Not logged in', function() {
-		it('Has the title: Login', function() {
-			browser.get('http://localhost:3000');
-			expect(browser.getTitle()).toEqual('Login');
-		})
-
-		it('Lets me log in', function() {
+		login = function() {
 			browser.get('http://localhost:3000');
 
 			browser.ignoreSynchronization = true;
@@ -19,10 +14,26 @@ describe('Login', function() {
 
 			submit.submit();
 
-			browser.sleep(4000);
+			browser.sleep(5000);
+		};
+
+		it('Has the title: Login', function() {
+			browser.get('http://localhost:3000');
+			expect(browser.getTitle()).toEqual('Login');
+		});
+
+		it('Lets me log in', function() {
+			login();
 			expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/admin/dashboard');
-
-
-		})
+		});
 	})
+
+	describe('Logged in', function() {
+		it('redirects to dashboard', function() {
+			login();
+			browser.get('http://localhost:3000/#/login');
+			browser.sleep(2000);
+			expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/admin/dashboard');
+		});
+	});
 })
