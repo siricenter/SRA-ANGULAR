@@ -7,3 +7,7 @@ script:
 
 notifications:
     slack: rbdcwd:YlEyWW15VqWi9a314zutByrA
+
+deploy:
+    provider: heroku
+    app: SRA-ANGULAR
