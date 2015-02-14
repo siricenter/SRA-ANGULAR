@@ -27,10 +27,13 @@ task :build => [:npm, :bower] do
 	sh 'bundle exec middleman build --verbose'
 end
 
-desc "Builds the application and runs the test"
-task :test => :build do
+desc "Runs the unit tests"
+task :unit => :build do
 	sh 'npm test'
 end
+
+desc "Builds the application and runs the test"
+task :test => [:unit]
 
 desc "Sets up a local server"
 task :serve => :build do
