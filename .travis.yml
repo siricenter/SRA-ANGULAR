@@ -10,4 +10,4 @@ notifications:
 
 deploy:
     provider: heroku
-    app: SRA-ANGULAR
+    app: sra-angular
