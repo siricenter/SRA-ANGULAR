@@ -23,13 +23,18 @@ task :bower => :npm do
 end
 
 desc "Builds the application"
-task :build => [:clean, :npm, :bower] do
+task :build => [:npm, :bower] do
 	sh 'bundle exec middleman build --verbose'
 end
 
 desc "Builds the application and runs the test"
 task :test => :build do
 	sh 'npm test'
+end
+
+desc "Sets up a local server"
+task :serve => :build do
+	sh 'rackup'
 end
 
 namespace :assets do
