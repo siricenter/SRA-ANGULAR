@@ -33,7 +33,5 @@ task :test => :build do
 end
 
 namespace :assets do
-	task :precompile do
-		sh 'middleman build'
-	end
+	task :precompile => :build
 end
