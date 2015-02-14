@@ -13,6 +13,6 @@ run lambda{|env|
 			'Content-Type' => 'text/html',
 			'CacheControl' => 'public, max-age=86400'
 		},
-		File.open('build/index.html', FILE::RDONLY)
+		`cat index.html`
 	]
 }

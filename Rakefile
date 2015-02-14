@@ -17,9 +17,15 @@ task :npm do
 	sh 'npm install'
 end
 
+desc "Does any setup not taken care of by other setup tasks"
+task :setup do
+	sh './setup/setup.sh'
+	sleep 3
+end
+
 desc "Installs bower components"
 task :bower => :npm do
-	sh 'bower install'
+	sh 'node_modules/bower/bin/bower install'
 end
 
 desc "Builds the application"
@@ -28,17 +34,26 @@ task :build => [:npm, :bower] do
 end
 
 desc "Runs the unit tests"
-task :unit => :build do
+task :unit do
 	sh 'npm test'
 end
 
-desc "Builds the application and runs the test"
-task :test => [:unit]
+desc "Sets up the functional tests"
+task :function => [:setup] do
+	sh './node_modules/protractor/bin/protractor conf.js;'
+end
 
 desc "Sets up a local server"
-task :serve => :build do
-	sh 'rackup'
+task :serve do# => :build do
+	is_running = `ps aux | grep thin | grep -v "grep"`
+	sh 'bundle exec thin start -p $PORT -d' if is_running.empty?
 end
+
+desc "Builds the application and runs the test"
+task :test => [:build, :unit, :serve, :function]
+
+desc "Runs the tests, but doesn't build the app"
+task :testlocal => [:unit, :serve, :function]
 
 namespace :assets do
 	task :precompile => :build

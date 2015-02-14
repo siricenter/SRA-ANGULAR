@@ -10,3 +10,4 @@ sra_angular.sublime-project
 sra_angular.sublime-workspace
 tags
 *.log
+tmp/
