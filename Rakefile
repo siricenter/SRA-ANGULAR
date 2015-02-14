@@ -6,9 +6,9 @@ desc "Cleans build. Optional to also clean bower_components & node_modules."
 task :clean, :all do |_, args|
 	args.with_default(all: false)
 	options = ""
-	
+
 	options = "vendor/assets/bower_components node_modules" if args[:all]
-	
+
 	sh   "rm -rf build #{options}"
 end
 
@@ -30,4 +30,10 @@ end
 desc "Builds the application and runs the test"
 task :test => :build do
 	sh 'npm test'
+end
+
+namespace :assets do
+	task :precompile do
+		sh 'middleman build'
+	end
 end
