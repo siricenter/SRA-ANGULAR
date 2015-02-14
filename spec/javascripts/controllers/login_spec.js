@@ -16,6 +16,17 @@ describe( 'Controller: LoginController', function () {
 					// passes to the currentUser service.
 					email = _email;
 					password = _password;
+				},
+				currentUser: function(user) {
+					return {
+						then: function(callback) {
+							return {
+								catch: function() {
+									return;
+								}
+							}
+						}
+					}
 				}
 			};
 
