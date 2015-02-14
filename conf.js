@@ -3,6 +3,6 @@ exports.config = {
 	specs: ['protractor/**/*.js'],
 
 	capabilities: {
-		'browserName': 'firefox' // or 'safari'
-	},
+		'browserName': 'firefox'
+	}
 };
