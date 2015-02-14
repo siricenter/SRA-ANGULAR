@@ -1,13 +1,13 @@
 language: ruby
-
 rvm: 2.1
-
 script:
-    - rake test
-
+  - rake test
 notifications:
-    slack: rbdcwd:YlEyWW15VqWi9a314zutByrA
-
+  slack: rbdcwd:YlEyWW15VqWi9a314zutByrA
 deploy:
-    provider: heroku
-    app: sra-angular
+  provider: heroku
+  api_key:
+    secure: GinK9pKn/y5be09MEwP4i2X6giUtBR2hHHUsAfgbazjnfaxOsndU2UmO2zGjBTiqN6wLcFinJlByyrFpDO1tBgB1edeUoohghpZzj5P3DGKh0IiiJaTyNHfFX48fGzssHrN0lIi6d2cR/jRVSINpJ1JBTmLWeTBpUSukfhP+dgM=
+  app: sra-angular
+  on:
+    repo: siricenter/sra-angular
