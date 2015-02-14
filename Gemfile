@@ -25,3 +25,6 @@ gem 'css_splitter', '~> 0.4.0', github: 'zweilove/css_splitter'
 # faster
 #gem 'therubyracer', '~> 0.12.1'
 #gem 'oj', '~> 2.9.9'
+
+gem 'thin', '~> 1.6.3'
+gem 'rack-contrib'
