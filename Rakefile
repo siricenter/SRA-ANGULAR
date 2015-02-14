@@ -46,7 +46,7 @@ end
 desc "Sets up a local server"
 task :serve do# => :build do
 	is_running = `ps aux | grep thin | grep -v "grep"`
-	sh 'bundle exec thin start -p $PORT -d' if is_running.empty?
+	sh 'bundle exec thin start -d' if is_running.empty?
 end
 
 desc "Builds the application and runs the test"
