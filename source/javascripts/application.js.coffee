@@ -78,6 +78,7 @@
 #= require CSS-Filters-Polyfill/lib/cssParser
 #= require CSS-Filters-Polyfill/lib/css-filters-polyfill
 #= require angular/angular.js
+#= require angular-animate/angular-animate.js
 #= require angular-aria/angular-aria.js
 #= require angular-cookies/angular-cookies.js
 #= require angular-route/angular-route.js
