@@ -1,10 +1,12 @@
-window.app.controller "NewCountryController", ( $scope, Country, currentUser ) ->
+window.app.controller "NewCountryController", ( $scope, Country, currentUser, $location ) ->
 	currentUser.requireLogin().then () ->
 		submitFunction = () ->
 			countryData =
-				name: $scope['new-country-form']['new-country-name']
-			Country.create( countryData ).then ( country ) ->
-				$location.path = "/countries/#{ country._id }"
+				name: $scope.country.name
+			Country.create( 'sra', countryData ).then ( countryRef ) ->
+				newPath = "/countries/#{ countryRef.key() }"
+				$location.path( newPath )
+		$scope.submit = submitFunction
 
 window.app.controller "CountriesIndexController", ( $scope, Country, currentUser ) ->
 	currentUser.requireLogin().then () ->

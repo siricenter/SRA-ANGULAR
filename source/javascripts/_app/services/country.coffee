@@ -8,5 +8,9 @@ window.app.service "Country", ( firebase, firebaseURL ) ->
 		url = "#{ firebaseURL }/organizations/#{ orgId }/countries/#{ countryId }"
 		onLoadPromise = firebase.queryObject( url )
 		return onLoadPromise
+
+	@create = ( orgId, countryData ) ->
+		url = "#{ firebaseURL }/organizations/#{ orgId }/countries"
+		firebase.create( url, countryData )
 	return
 

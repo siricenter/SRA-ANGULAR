@@ -14,6 +14,11 @@ window.app.service "firebase", ($firebase, $firebaseAuth, firebaseURL) ->
 		onLoadPromise = $firebase( ref ).$asArray().$loaded()
 		return onLoadPromise
 
+	@create = ( url, data ) ->
+		console.log url
+		collection = new Firebase( url )
+		$firebase( collection ).$push( data )
+
 	@createUser = ( userData ) ->
 		url = firebaseURL
 
