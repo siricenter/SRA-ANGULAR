@@ -52,6 +52,15 @@ window.app.config ($routeProvider) ->
 	).when("/questionsManager",
 		templateUrl: "htmls/admin/questionsAdmin.html"
 		controller: "QuestionsAdminController"
+	).when("/countries",
+		templateUrl: "htmls/countries/index.html"
+		controller: "CountriesIndexController"
+	).when("/countries/new",
+		templateUrl: "htmls/countries/new.html"
+		controller: "NewCountryController"
+	).when("/countries/:countryId",
+		templateUrl: "htmls/countries/show.html"
+		controller: "ShowCountryController"
 	).otherwise redirectTo: "/"
 	
 	return

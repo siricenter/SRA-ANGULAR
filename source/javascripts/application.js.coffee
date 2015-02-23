@@ -93,6 +93,6 @@
 #= require ./bootstrap-extra/_bootstrap-extra
 #= require_tree ./bootstrap-overrides
 #= require_tree ./components
-#= require_tree ./app
+#= require_tree ./_app
 #= require_self
 window.Loaded = true
