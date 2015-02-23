@@ -28,8 +28,7 @@ countries:
     data-placement: "right"
     data-content: |
       Country Management
-  children:
-    children: 
-      create:
-        text: New Country
-        href: /#/countries/new
+  children: 
+    create:
+      text: New Country
+      href: /#/countries/new
