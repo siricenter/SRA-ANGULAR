@@ -1,28 +1,26 @@
+<h1>
+{{ area.name }}
+</h1>
+<div class="padded">
+	<h2>
+		Households in {{ area.name }}
+	</h2>
 
-<p>
-  <b>
-    Name:{{name}}
-  </b>
-
-</p>
-<h2>
-  
-</h2>
-<div ng-repeat = "household in households" class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-           {{household.family}}
-          </h3>
-        </div>
-        <div class="panel-body">
-        <ul>
-          <li ng-repeat = "members in household.members">{{members}}</li>
-        </div>
-      </div>
-    </div>
-
+	<div ng-repeat = "household in households" class="row">
+		<div class="col-sm-6 col-md-4">
+			<div class="panel panel-primary">
+				<div class="panel-heading panel-handle panel-colorize">
+					<h3 class="panel-title">
+						<a ng-href="#/resources/{{ household.$id }}">
+							{{ household.name }}
+						</a>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<ul>
+						<li ng-repeat = "member in household.members">{{ member.name }}</li>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
-

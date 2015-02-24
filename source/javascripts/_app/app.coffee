@@ -73,6 +73,12 @@ window.app.config ($routeProvider) ->
 	).when("/areas",
 		templateUrl: "htmls/areas/index.html"
 		controller: "AreasIndexController"
+	).when("/areas/new",
+		templateUrl: "htmls/areas/new.html"
+		controller: "NewAreaController"
+	).when("/areas/:areaId",
+		templateUrl: "htmls/areas/show.html"
+		controller: "ShowAreaController"
 	).otherwise redirectTo: "/"
 	
 	return
