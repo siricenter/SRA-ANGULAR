@@ -40,6 +40,9 @@ window.app.config ($routeProvider) ->
 	).when("/households",
 		templateUrl: "htmls/households/index.html"
 		controller: "HouseholdsIndexController"
+	).when("/households/:householdId",
+		templateUrl: "htmls/households/show.html"
+		controller: "ShowHouseholdController"
 	).when("/admin/security",
 		templateUrl: "htmls/admin/security.html"
 		controller: "AdminSecurityController"

@@ -10,7 +10,7 @@ window.app.service "Household", ( firebase, firebaseURL, orgBuilder ) ->
 		return onLoadPromise
 	
 	@find = ( orgId, householdId ) ->
-		url = "#{ firebaseURL }/organizations/#{ orgId }/#{ householdId }"
+		url = "#{ firebaseURL }/organizations/#{ orgId }/resources/#{ householdId }"
 		firebase.queryObject( url )
 	
 	return

@@ -5,4 +5,9 @@ window.app.controller "HouseholdsIndexController", ( $scope, currentUser, Househ
 			.then ( households ) ->
 				$scope.households = households
 
+window.app.controller "ShowHouseholdController", ( $scope, currentUser, $routeParams, Household ) ->
+	currentUser.currentUser().then ( user ) ->
+		Household.find( 'sra', $routeParams.householdId )
+	.then ( household ) ->
+		$scope.household = household
 
