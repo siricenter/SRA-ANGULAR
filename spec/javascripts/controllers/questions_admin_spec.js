@@ -34,9 +34,10 @@ describe( 'Controller: QuestionsAdminController', function () {
 	 it( 'has a an array of types', function() {
 	 	expect(scope.types).not.toBeUndefined();
 	 	expect(scope.questionTypes).not.toBeUndefined();
+	 	expect(scope.responseTypes).not.toBeUndefined();
 	 	
 	 });
-	 
+
 
 	
 });

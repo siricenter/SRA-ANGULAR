@@ -398,26 +398,26 @@
                 <div class="panel panel-success">
                   <div class="panel-heading">
                     <div class="panel-title text-center">
-                      Username: {{name}}
+                      Editing Role: {{roleName}}
                     </div>
                   </div>
                   <div class="panel-body no-padding-top">
                     <div class="vpadded">
                       <div style="height: 186px;" class="text-center padded-top">
-                       
-                      {{newRole.permissions}}
-                        Add permissions for {{roleName}}:</br>
+                       Current Permissions:
+                       <ul><li ng-repeat="permission in role_permissions">{{permission}}</li></ul>
+
+                        Available Permissions:</br>
                          <label ng-repeat="permission in permissions">
-                        <input type="checkbox"  checklist-model="newRole.permissions" checklist-value="permission">{{permission['permission code']}}: {{permission['permission description']}}&nbsp<br/>
+                        <input type="checkbox"  checklist-model="role_permissions" checklist-value="permission">{{permission['permission code']}}({{permission['permission description']}})
                         </label></br>
-                        <button type="button" class="btn btn-primary btn-xs" ng-click="createRole(newRole.permissions)">Create Role</button>
-                        {{permission}}
+                        <button type="button" class="btn btn-primary btn-xs" ng-click="editRole(role_permissions)">Assign</button>
 
 
                       </div>
                     </div>
                     <div class="row">
-                     
+                      <a href = "#/admin/users/{{name}}/edit">Edit Users Info</a>
                       
                     </div>
                   </div>

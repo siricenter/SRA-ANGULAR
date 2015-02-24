@@ -137,47 +137,122 @@ window.app.controller "AdminHouseholdsController", ($scope, $rootScope, currentU
 	return
 
 window.app.controller "AdminSecurityController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder, currentUser) ->
-	rolesref = new Firebase("#{firebaseURL}/organizations/sra/roles")
+	rolesref = new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles")
 	rolessync = $firebase(rolesref).$asArray()
 	rolessync.$loaded().then (data)->
 		$scope.roles = data
 		return
 	console.log($routeParams.title)
 	$scope.roleName = $routeParams.title
-	$scope.role_permissions = []
-	permishref = new Firebase("#{firebaseURL}/permissions")
+	$scope.role = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles/#{$scope.roleName}")).$asObject()
+	$scope.role.$loaded().then (data)->	
+		$scope.role_permissions = data.permissions
+	permishref = new Firebase("https://testrbdc.firebaseio.com/permissions")
 	permishSync = $firebase(permishref).$asArray()
-	permishSync.$loaded().then (permissions) ->
-		$scope.permissions = permissions
+	permishSync.$loaded().then (x) ->
+		$scope.permissions = x
+		
+
+	$scope.editRole = (permissionData)->
+		obj = new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles/#{$scope.roleName}")
+		console.log(permissionData)
+		#for permission in permissions
+		#	obj.child('permissions').child(permission.$$hashKey).set(permission['permission code'])
+
+
+
+
 	$scope.addRole = (title) ->
 		console.log title
 		$location.path("/admin/roles/new/permissions/#{title}")
 		return
-	$scope.createRole = (permissions)->
-		console.log(permissions)
+	$scope.createRole = ->
+		console.log($scope.newRole.permissions)
 		console.log($scope.roleName)
 
-		ref = new Firebase("#{firebaseURL}/organizations/sra/roles")
-		ref.child($scope.roleName).child("name").set($scope.roleName)
-		for permission in permissions
-			console.log("hi")
-			role = new Firebase("#{firebaseURL}/organizations/sra/roles/#{$scope.roleName}")
-			role.child("permissions").child(permission.$$hashKey).set(permission["permission code"])
-			$location.path("/admin/roles/security")
 
+		#ref = new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles")
+		#ref.child($scope.roleName).child("name").set($scope.roleName)
+		#for permission in permissions
+		#	console.log("hi")
+		#	role = new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles/#{$scope.roleName}")
+		##s	$location.path("/admin/roles/security")
 
 	return
+
 window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder, currentUser) ->
+ 	
  	$scope.types = ["Areas","Households"]
  	$scope.questionTypes = ["Single Use","Multi-Use"]
- 	console.log($scope.question_type)
+ 	
+ 	$scope.question = []
  	$scope.questions = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/question sets")).$asArray()
  	$scope.responseTypes = ["Date","Text","Number","Multi-Choice","Single-Choice"]
- 	console.log($scope.questions)
- 	$scope.buildForm = (value) ->
- 		console.log(value)
+ 	$scope.points = []
+
+	   
+ 	$scope.buildSurvey = ->
+ 		
+ 		if $scope.survey_type == '1'
+ 			$scope.survey_type = "HOUSEHOLD"
+ 		else if $scope.survey_type == '0'
+ 			$scope.survey_type = "AREA"
+
+ 		if $scope.quest.type == '4'
+ 			$scope.quest.type = 'TRUE'
+ 		else if $scope.quest.type == '3'
+ 			$scope.quest.type = 'FALSE'
+ 		else if $scope.quest.type == undefined
+ 			$scope.quest.type = 'FALSE'
+
+ 		dataPoint = {
+ 			label: $scope.points,
+ 			singleAnswer:$scope.quest.type,
+ 			type:$scope.types,
+ 			answer:[]
+ 		}
+
+ 		dataPointsArray = []
+ 		dataPointsArray.push(dataPoint)
+
+ 		questions = {
+ 			name: $scope.questionTitle,
+ 			multiUse:$scope.quest.type,
+ 			dataPoints:dataPointsArray
+ 		}
+
+ 		questionsArray = []
+ 		questionsArray.push(questions)
+
+ 		questionSet = {
+ 			name: $scope.surveyTitle,
+ 			type: $scope.survey_type,
+ 			questions: questionsArray
+
+ 		}
+ 		
+ 		
+ 		
+ 		
+
+ 		
+
+ 		
+ 		
+ 		console.log(questionSet)
+ 		console.log(questions)
+ 		console.log(dataPoint)
+ 		ref = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/question%20sets")).$asArray()
+ 		console.log(ref)
+ 		ref.$add(questionSet)
+ 		console.log
+
+
+
+
  		
  			
 
 	
 	return	
+ 		
