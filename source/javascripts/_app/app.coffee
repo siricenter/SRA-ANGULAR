@@ -61,6 +61,9 @@ window.app.config ($routeProvider) ->
 	).when("/countries/:countryId",
 		templateUrl: "htmls/countries/show.html"
 		controller: "ShowCountryController"
+	).when("/regions",
+		templateUrl: "htmls/regions/index.html"
+		controller: "RegionsIndexController"
 	).otherwise redirectTo: "/"
 	
 	return
