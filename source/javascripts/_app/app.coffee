@@ -67,6 +67,9 @@ window.app.config ($routeProvider) ->
 	).when("/regions/new",
 		templateUrl: "htmls/regions/new.html"
 		controller: "NewRegionController"
+	).when("/regions/:regionId",
+		templateUrl: "htmls/regions/show.html"
+		controller: "ShowRegionController"
 	).otherwise redirectTo: "/"
 	
 	return

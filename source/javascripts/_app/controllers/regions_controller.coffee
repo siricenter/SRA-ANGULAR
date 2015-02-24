@@ -21,3 +21,13 @@ window.app.controller "NewRegionController", ( $scope, Country, Region, currentU
 				$location.path( newPath )
 
 		$scope.submit = submitFunction
+
+window.app.controller "ShowRegionController", ( $scope, Region, Area, currentUser, $routeParams ) ->
+	currentUser.requireLogin().then () ->
+		Region.find( 'sra', $routeParams[ 'regionId' ] )
+			.then ( region ) ->
+				$scope.region = region
+			.then ( region ) ->
+				Area.inRegion( 'sra', region.$id )
+			.then ( areas ) ->
+				$scope.areas = areas

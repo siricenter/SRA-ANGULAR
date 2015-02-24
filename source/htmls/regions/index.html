@@ -1,21 +1,21 @@
 <h1>Listing regions</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<tr>
+		<th>Name</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
 
-  <tr ng-repeat="region in regions">
-	  <td>{{ region.name }}</td>
-    <td><a ng-href="#/admin/regions/show/{{ encode(region.$id) }}">Show</a><!--<%= link_to 'Show', region %>--></td>
-    <td><a ng-href="#/admin/regions/edit/{{ encode(region.$id) }}">Edit</a><!--<%= link_to 'Edit', edit_region_path(region) %>--></td>
-    <td><!--<%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %>--></td>
-  </tr>
+	<tr ng-repeat="region in regions">
+		<td>
+			<a href="#/regions/{{ region.$id }}">
+				{{ region.name }}
+			</a></td>
+	</tr>
 </table>
-<a ng-href="#/admin/regions/new">New Region</a>
+<a ng-href="#/regions/new">New Region</a>
 
 <br />
 
