@@ -1,5 +1,6 @@
 "use strict"
 
+
 window.app = angular.module("sraAngularApp", [
 	"ngAnimate"
 	"ngAria"
@@ -19,6 +20,9 @@ window.app.config ($routeProvider) ->
 	).when( "/admin/dashboard",
 		templateUrl: "/htmls/dashboard/admin.html",
 		controller: "AdminDashboardController"
+	).when( "/admin/edit/role/:title",
+		templateUrl: "/htmls/admin/edit_role.html",
+		controller: "AdminSecurityController"
 	).when("/admin/dashboard",
 		templateUrl: "/htmls/dashboard/admin.html"
 		controller: "AdminDashboardController"

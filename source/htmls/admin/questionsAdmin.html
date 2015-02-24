@@ -1,12 +1,25 @@
 <div>
 <script>
 function duplicateElement(){
-	var element = document.getElementById('question');
-	var copy = element.cloneNode(true);
-	var destination = document.getElementById('placeholder');
-	destination.appendChild(copy);
+	var count = JSON.parse(localStorage.getItem('increment'));
+	console.log(count)
+	if( count == undefined){
+		count = 0;
+	}else{
+		count=localStorage.getItem("increment")*1;
+	}
+	
+	count++;
+	localStorage.setItem('increment',JSON.stringify(count));
+	console.log(count);
+	var element = document.createElement('div');
+		element.id = "question"
+		element.innerHTML = "<input type='text' ng-model='points["+ count +"]'><select ng-model='quest.type' ng-options='k as v for (k , v) in responseTypes'><option value='{{v}}'></option></select>"
+	var destination = document.getElementById("placeholder");
+	destination.appendChild(element);
 
-}
+
+};
 
 
 </script>
@@ -26,18 +39,109 @@ Select type:
   <option value="{{v}}">Choose a type</option>  
 </select><br/>
 Create Questions:<br/>
+Data Point 1:
 <div id="question">
-<input type="text" ng-model="dataPoints">
-<select ng-model="types" ng-options="k as v for (k , v) in responseTypes"
+<input type="text" ng-model="points[0]">
+<select ng-model="quest.type" ng-options="k as v for (k , v) in responseTypes"
+	<option value="{{v}}"></option>
+
+
+</select>
+</div>
+Data Point 2:
+<div id="question">
+<input type="text" ng-model="points[1]">
+<select ng-model="quest.type" ng-options="k as v for (k , v) in responseTypes"
+	<option value="{{v}}"></option>
+
+
+</select>
+</div>
+Data Point 3:
+<div id="question">
+<input type="text" ng-model="points[2]">
+<select ng-model="quest.type" ng-options="k as v for (k , v) in responseTypes"
+	<option value="{{v}}"></option>
+
+
+</select>
+</div>
+Data Point 4:
+<div id="question">
+<input type="text" ng-model="points[3]">
+<select ng-model="quest.type" ng-options="k as v for (k , v) in responseTypes"
+	<option value="{{v}}"></option>
+
+
+</select>
+</div>
+Data Point 5:
+<div id="question">
+<input type="text" ng-model="points[4]">
+<select ng-model="quest.type" ng-options="k as v for (k , v) in responseTypes"
+	<option value="{{v}}"></option>
+
+
+</select>
+</div>
+Data Point 6:
+<div id="question">
+<input type="text" ng-model="points[5]">
+<select ng-model="quest.type" ng-options="k as v for (k , v) in responseTypes"
+	<option value="{{v}}"></option>
+
+
+</select>
+</div>
+Data Point 7:
+<div id="question">
+<input type="text" ng-model="points[6]">
+<select ng-model="quest.type" ng-options="k as v for (k , v) in responseTypes"
+	<option value="{{v}}"></option>
+
+
+</select>
+</div>
+Data Point 8:
+<div id="question">
+<input type="text" ng-model="points[7]">
+<select ng-model="quest.type" ng-options="k as v for (k , v) in responseTypes"
+	<option value="{{v}}"></option>
+
+
+</select>
+</div>
+Data Point 9:
+<div id="question">
+<input type="text" ng-model="points[8]">
+<select ng-model="quest.type" ng-options="k as v for (k , v) in responseTypes"
+	<option value="{{v}}"></option>
+
+
+</select>
+</div>
+Data Point 10:
+<div id="question">
+<input type="text" ng-model="points[9]">
+<select ng-model="quest.type" ng-options="k as v for (k , v) in responseTypes"
+	<option value="{{v}}"></option>
+
+
+</select>
+</div>
+Data Point 11:
+<div id="question">
+<input type="text" ng-model="points[11]">
+<select ng-model="quest.type" ng-options="k as v for (k , v) in responseTypes"
 	<option value="{{v}}"></option>
 
 
 </select>
 </div>
 <div id="placeholder"></div><br/>
-<button type="submit" class="btn btn-primary" onclick = "duplicateElement()">+</button><br/>
+<button type="submit" class="btn btn-primary" ng-click = "createList()">+</button><br/>
 <br/>
-<button type="submit" class="btn btn-primary" onclick = "buildSurvery()">Build Survey</button><br/>
+<button type="submit" class="btn btn-primary" ng-click = "buildSurvey()">Build Survey</button><br/>
 Existing Surveys:
 <ul ng-repeat="question in questions">
 <li >{{question.name}}</li>
