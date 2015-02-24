@@ -94,5 +94,7 @@
 #= require_tree ./bootstrap-overrides
 #= require_tree ./components
 #= require_tree ./_app
+#= require ./demo.js
+#= require ./init.js
 #= require_self
 window.Loaded = true

@@ -215,7 +215,7 @@ $document.popover(selector: '[rel="popover-sidebar"]', trigger: 'hover', delay: 
 $document.popover(selector: '[rel=popover]', trigger: 'hover')
 $document.on 'click', (e) ->
   $target = $(e.target)
-  if $target.data('toggle') != 'popover' && 
+  if $target.data('toggle') != 'popover' &&
      $target.parents('[data-toggle="popover"]').length == 0 &&
      $target.parents('.popover.in').length == 0
     $('[data-toggle="popover"]').popover('hide')
