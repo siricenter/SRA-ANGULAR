@@ -50,7 +50,7 @@ task :serve do# => :build do
 end
 
 desc "Builds the application and runs the test"
-task :test => [:build, :unit, :serve, :function]
+task :test => [:build, :serve, :function]
 
 desc "Runs the tests, but doesn't build the app"
 task :testlocal => [:unit, :serve, :function]
