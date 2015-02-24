@@ -37,9 +37,9 @@ window.app.config ($routeProvider) ->
 	).when("/roles/:id",
 		templateUrl: "htmls/admin/user_roles.html"
 		controller: "EditUsersController"
-	).when("/admin/householdsindex",
-		templateUrl: "htmls/admin/households.html"
-		controller: "AdminHouseholdsController"
+	).when("/households",
+		templateUrl: "htmls/households/index.html"
+		controller: "HouseholdsIndexController"
 	).when("/admin/security",
 		templateUrl: "htmls/admin/security.html"
 		controller: "AdminSecurityController"

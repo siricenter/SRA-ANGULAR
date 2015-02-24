@@ -1,24 +1,19 @@
 <h1>
-  Households 
+Households 
 </h1>
-<div class="row btn-toolbar">
-  <ul  ng-repeat = "household in households">
-  <li><a href = "#/households/{{household.$id}}">{{household.$id}}</a></li>
- 	 <ul>
- 		 <li ng-repeat = "(key, value) in household.Resources">
- 		 {{key}}
- 		 <ul>
- 		 	<li ng-repeat = "family in household.families">
- 		 		{{family}}
- 		 	</li>
- 		 </ul>
-  		</li>
-  		
-  		<button ng-click = "AddMember()">Add Member</button><input ng-model = "member.name" type = "text"/>
-  	 </ul>
-  </ul>
-</div>
-<div class="row">
-  
-</div>
-
+  <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="household in households">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+			{{ household.name }}
+        </h3>
+      </div>
+      <div class="panel-body index">
+          <ul>
+			  <li ng-repeat = "member in household.members">
+				 {{ member.name }}
+			  </li>
+          </ul>
+      </div>
+    </div>
+  </div>
