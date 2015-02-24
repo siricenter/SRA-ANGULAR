@@ -189,11 +189,10 @@ window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location
  	$scope.questions = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/question sets")).$asArray()
  	$scope.responseTypes = ["Date","Text","Number","Multi-Choice","Single-Choice"]
  	$scope.points = []
- 	$scope.createList = ->
- 		console.log($scope.points)
+
 	   
- 	$scope.buildSurvey = (value) ->
- 		console.log(value)
+ 	$scope.buildSurvey = ->
+ 		
  		if $scope.survey_type == '1'
  			$scope.survey_type = "HOUSEHOLD"
  		else if $scope.survey_type == '0'
@@ -211,23 +210,29 @@ window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location
  			singleAnswer:$scope.quest.type,
  			type:$scope.types,
  			answer:[]
-
  		}
+
+ 		dataPointsArray = []
+ 		dataPointsArray.push(dataPoint)
 
  		questions = {
  			name: $scope.questionTitle,
  			multiUse:$scope.quest.type,
- 			dataPoints:[]
+ 			dataPoints:dataPointsArray
  		}
+
+ 		questionsArray = []
+ 		questionsArray.push(questions)
 
  		questionSet = {
  			name: $scope.surveyTitle,
  			type: $scope.survey_type,
- 			questions: questions
+ 			questions: questionsArray
 
  		}
-
- 		questionSet.questions.dataPoints = dataPoint 
+ 		
+ 		
+ 		
  		
 
  		
