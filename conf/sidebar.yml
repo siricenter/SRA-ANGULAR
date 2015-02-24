@@ -28,7 +28,43 @@ countries:
     data-placement: "right"
     data-content: |
       Country Management
-  children: 
-    create:
-      text: New Country
-      href: /#/countries/new
+regions:
+  text: Regions
+  icon: "icm icm-location2"
+  href: /#/regions
+  attrs:
+    rel: "popover-sidebar"
+    data-container: "body"
+    data-placement: "right"
+    data-content: |
+      Region Management
+areas:
+  text: Areas
+  icon: "icm icm-office"
+  href: /#/areas
+  attrs:
+    rel: "popover-sidebar"
+    data-container: "body"
+    data-placement: "right"
+    data-content: |
+      Area Management
+households:
+  text: Households
+  icon: "icm icm-home3"
+  href: /#/households
+  attrs:
+    rel: "popover-sidebar"
+    data-container: "body"
+    data-placement: "right"
+    data-content: |
+      Household Management
+securitys:
+  text: Security
+  icon: "icm icm-lock"
+  href: /#/admin/security
+  attrs:
+    rel: "popover-sidebar"
+    data-container: "body"
+    data-placement: "right"
+    data-content: |
+      Security Management
