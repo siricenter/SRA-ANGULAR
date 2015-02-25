@@ -1,3 +1,7 @@
 <h1> {{ region.name }} </h1>
 
-<area-panel data-ng-repeat="area in areas" area="area"></area-panel>
+<div class="padded">
+	<h2> Areas in {{ region.name }} </h2>
+
+	<area-panel data-ng-repeat="area in areas" area="area"></area-panel>
+</div>

@@ -1,5 +1,9 @@
 <panel title="area.name" href="'/areas/' + area.$id">
 	<ul>
-		<li data-ng-repeat="household in households"> {{ household.name }} </li>
+		<li data-ng-repeat="household in households"> 
+			<a data-ng-href="/households/{{ household.$id }}">
+				{{ household.name }}
+			</a> 
+		</li>
 	</ul>
 </panel>
