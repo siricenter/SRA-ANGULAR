@@ -17,20 +17,21 @@ window.app.controller "ShowAreaController", ( $scope, $routeParams, currentUser,
 
 
 window.app.controller "NewAreaController", ( $scope, currentUser, $location, Area, Region ) ->
+	$scope.area = {}
 	currentUser.requireLogin()
 		.then () ->
 			Region.all( "sra" )
 		.then ( regions ) ->
 			$scope.regions = regions
+			$scope.area.region = regions[0]
 		.then ( regions ) ->
 			areaSubmitFunction = () ->
-				Region.find( "sra", $scope.area.region )
-					.then ( region ) ->
-						areaData =
-							country: region.country
-							region: region.$id
-							name: $scope.area.name
-						Area.create( "sra", areaData )
+				region = $scope.area.region
+				areaData =
+					country: region.country
+					region: region.$id
+					name: $scope.area.name
+				Area.create( "sra", areaData )
 					.then ( areaRef ) ->
 						$location.path("/areas/#{ areaRef.key() }")
-			$scope.areaSubmit = areaSubmitFunction
+			$scope.submit = areaSubmitFunction
