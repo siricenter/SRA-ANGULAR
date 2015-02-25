@@ -5,17 +5,5 @@
 
 <h2>Members of the {{ household.name }} Family</h2>
 
-<div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="member in household.members">
-	<div class="panel panel-primary">
-		<div class="panel-heading">
-			<h3 class="panel-title">
-				{{ member.name }} {{ Household.name }}
-			</h3>
-		</div>
-		<div class="panel-body index">
-			<p> Relationship: {{ member.relationship }} </p>
-		</div>
-	</div>
-</div>
-
-</div>
+<member-panel data-ng-repeat="member in household.members" member="member">
+</member-panel>
