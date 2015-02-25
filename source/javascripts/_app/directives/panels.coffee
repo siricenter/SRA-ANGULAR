@@ -1,3 +1,11 @@
+window.app.directive "householdPanel", () ->
+	return {
+		restrict: "E"
+		scope:
+			household: "="
+		templateUrl: "htmls/households/panel.html"
+	}
+
 window.app.directive "areaPanel", ( Household ) ->
 	return {
 		restrict: "E"
