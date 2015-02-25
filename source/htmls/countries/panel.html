@@ -1,5 +1,9 @@
 <panel title="country.name" href="'#/countries/' + country.$id">
 <ul>
-	<li data-ng-repeat="region in regions"> {{ region.name }} </li>
+	<li data-ng-repeat="region in regions"> 
+		<a data-ng-href="#/regions/{{ region.$id }}">
+			{{ region.name }}
+		</a> 
+	</li>
 </ul>
 </panel>
