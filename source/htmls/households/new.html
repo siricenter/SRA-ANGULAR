@@ -1,9 +1,56 @@
-<div class="row">
-  <h1>
-    New household
-  </h1>
+<div class="em-page-center-parent">
+<div class="em-page-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+				<div class="actionable" id="actionable-sign-in">
+					<div class="actionable-front component-shadow">
+						<div class="panel">
+							<div class="panel-body">
+								<div class="text-center">
+									<h3>
+										New Household
+									</h3>
+								</div>
+								<div class="padded">
+									<form role="form" data-ng-submit="submit()">
+										<div class="padded">
+											<div class="form-group">
+												<label for="area"> Area </label>
+												<select class="string form-control required" data-ng-model="household.area" data-ng-options="area.$id as area.name for area in areas"> 
+													<option data-ng-repeat="area in areas" value="area.$id"> 
+												</select>
+											</div>
+											<div class="form-group">
+												<label for="name"> Name </label>
+												<input type="text" class="string email form-control required" name="name" placeholder="Household's Name" data-ng-model="household.name"/>
+											</div>
+											<div class="form-group">
+												<input type="submit" class="submit btn-success" value="Create Household" />
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="actionable-back component-shadow bg-white padded">
+						<%= partial 'htmls/elements/actionable/success' %>
+					</div>
+				</div>
+				<div class="text-center">
+					&copy; 2014 Emerald Inc. All Rights Reserved
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<div class="main row">
-  <%= render 'form' %>
 </div>
 
+<script type="text/javascript">
+$('#actionable-sign-in').on('acted.actionable', function(){
+	var url = $('#form-sign-in-demo').attr('action');
+	function go() { Turbolinks.visit(url); }
+	setTimeout(go, 1000);
+});
+</script>

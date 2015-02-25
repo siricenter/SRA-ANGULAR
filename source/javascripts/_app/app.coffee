@@ -41,6 +41,9 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/households",
 		templateUrl: "htmls/households/index.html"
 		controller: "HouseholdsIndexController"
+	).when("/households/new",
+		templateUrl: "htmls/households/new.html"
+		controller: "NewHouseholdController"
 	).when("/households/:householdId",
 		templateUrl: "htmls/households/show.html"
 		controller: "ShowHouseholdController"
