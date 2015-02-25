@@ -2,12 +2,20 @@
 <div class="panel panel-success">
 	<div class="panel-heading">
 		<div class="panel-title text-center">
-			{{ title }}
+			<div ng-if="href === null || href === undefined">
+				{{ title }}
+			</div>
+			<div ng-if="href !== null && href !== undefined">
+				<a href="{{ href }}">
+					{{ title }}
+				</a>
+			</div>
+
 		</div>
 	</div>
 	<div class="panel-body no-padding-top">
 		<div class="padded" data-ng-transclude>
-			
+
 		</div>
 	</div>
 </div>

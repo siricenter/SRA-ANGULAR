@@ -1,4 +1,10 @@
-.submit {
+.submit 
+{
 	@extend .btn;
 	@extend .btn-primary;
+}
+
+.panel-title a:visited
+{
+	color: white;
 }

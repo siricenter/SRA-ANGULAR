@@ -29,6 +29,7 @@ window.app.directive "panel", () ->
 		restrict: "E"
 		scope:
 			title: "="
+			href: "="
 		templateUrl: "htmls/components/panel.html"
 		transclude: true
 	}
