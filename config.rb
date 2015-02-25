@@ -8,6 +8,11 @@ require 'lib/jump_to_helper'
 require 'active_support/all'
 require 'css_splitter/splitter'
 require 'css_splitter/sprockets_engine'
+require 'rack/rewrite'
+
+use Rack::Rewrite do
+	rewrite %r{^(?!.*(api|\.)).*$}, '/index.html'
+end
 
 ###
 # Compass

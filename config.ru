@@ -1,6 +1,6 @@
 require 'rack'
 require 'rack/contrib/try_static'
-
+require 'rack/rewrite'
 
 use Rack::TryStatic,
 	root: 'build',
@@ -13,6 +13,6 @@ run lambda{|env|
 			'Content-Type' => 'text/html',
 			'CacheControl' => 'public, max-age=86400'
 		},
-		`cat index.html`
+		File.open('build/index.html', File::RDONLY)
 	]
 }

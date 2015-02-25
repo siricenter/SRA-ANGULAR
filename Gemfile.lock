@@ -110,6 +110,7 @@ GEM
       rack (>= 0.9.1)
     rack-livereload (0.3.15)
       rack
+    rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (10.4.2)
@@ -158,6 +159,7 @@ DEPENDENCIES
   middleman-bower (~> 1.0.2)
   middleman-livereload (~> 3.3.4)
   rack-contrib
+  rack-rewrite
   rake (~> 10.4.2)
   thin (~> 1.6.3)
   wdm (~> 0.1.0)

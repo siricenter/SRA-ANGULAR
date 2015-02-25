@@ -2,12 +2,12 @@ window.app.service "currentUser", ($rootScope, $location, firebase, firebaseURL,
 	@requireLogin = () ->
 		currentUser = this
 		return $q((resolve, reject) ->
-			currentUser.currentUser().then((user) ->
-				$rootScope.currentUser = user
-				resolve(user)
-			).catch(() ->
-				$location.path("/login")
-			)
+			currentUser.currentUser()
+				.then ( user ) ->
+					$rootScope.currentUser = user
+					resolve(user)
+				.catch () ->
+					$location.path "/login"
 		)
 
 	@currentUser = () ->
@@ -63,12 +63,9 @@ window.app.service "currentUser", ($rootScope, $location, firebase, firebaseURL,
 				currentUser.currentUser()
 					.then(loginRedirect)
 	
-	@loginRedirect = (user) ->
+	@loginRedirect = ( user ) ->
 		try # If one of the required keys is missing, it"ll throw an error
-			if user.organizations.sra.roles.name is "admin"
-				$location.path "/admin/dashboard"
-			else
-				$location.path "/dashboard"
+			$location.path "/dashboard"
 			return
 		catch error
 			console.log "Error thrown"

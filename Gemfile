@@ -28,5 +28,6 @@ gem 'css_splitter', '~> 0.4.0', github: 'zweilove/css_splitter'
 
 gem 'thin', '~> 1.6.3'
 gem 'rack-contrib'
+gem 'rack-rewrite'
 
 ruby '2.1.5'

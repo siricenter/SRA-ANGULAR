@@ -13,29 +13,26 @@ window.app = angular.module("sraAngularApp", [
 	"firebase"
 ])
 
-window.app.config ($routeProvider) ->
+window.app.config ( $routeProvider, $locationProvider ) ->
 	$routeProvider.when("/",
 		templateUrl: "/htmls/login/login.html"
 		controller: "LoginController"
-	).when( "/admin/dashboard",
+	).when( "/dashboard",
 		templateUrl: "/htmls/dashboard/admin.html",
 		controller: "AdminDashboardController"
-	).when( "/admin/edit/role/:title",
+	).when( "/edit/role/:title",
 		templateUrl: "/htmls/admin/edit_role.html",
 		controller: "AdminSecurityController"
-	).when("/admin/dashboard",
-		templateUrl: "/htmls/dashboard/admin.html"
-		controller: "AdminDashboardController"
-	).when("/admin/users",
+	).when("/users",
 		templateUrl: "htmls/admin/users.html"
 		controller: "AdminUsersController"
-	).when("/admin/users/:name/destroy",
+	).when("/users/:name/destroy",
 		templateUrl: "htmls/admin/delete_user.html"
 		controller: "DeleteUsersController"
-	).when("/admin/users/:id/edit",
+	).when("/users/:id/edit",
 		templateUrl: "htmls/admin/edit_user.html"
 		controller: "EditUsersController"
-	).when("/admin/users/new",
+	).when("/users/new",
 		templateUrl: "htmls/users/new.html",
 		controller: "NewUsersController"
 	).when("/roles/:id",
@@ -47,13 +44,13 @@ window.app.config ($routeProvider) ->
 	).when("/households/:householdId",
 		templateUrl: "htmls/households/show.html"
 		controller: "ShowHouseholdController"
-	).when("/admin/security",
+	).when("/security",
 		templateUrl: "htmls/admin/security.html"
 		controller: "AdminSecurityController"
-	).when("/admin/roles/new",
+	).when("/roles/new",
 		templateUrl: "htmls/admin/new_role.html"
 		controller: "AdminSecurityController"
-	).when("/admin/roles/new/permissions/:title",
+	).when("/roles/new/permissions/:title",
 		templateUrl: "htmls/admin/add_permissions.html"
 		controller: "AdminSecurityController"
 	).when("/questionsManager",
@@ -87,6 +84,7 @@ window.app.config ($routeProvider) ->
 		templateUrl: "htmls/areas/show.html"
 		controller: "ShowAreaController"
 	).otherwise redirectTo: "/"
+
+	$locationProvider.html5Mode(true)
 	
 	return
-

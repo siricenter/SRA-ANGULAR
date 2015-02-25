@@ -1,8 +1,8 @@
-<panel title="region.name">
+<panel title="region.name" href="'/regions/' + region.$id">
 <h5>Areas</h5>
 <ul>
 	<li data-ng-repeat="area in areas"> 
-		<a data-ng-href="#/areas/{{ area.$id }}">
+		<a data-ng-href="/areas/{{ area.$id }}">
 			{{ area.name }}
 		</a> 
 	</li>

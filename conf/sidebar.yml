@@ -1,7 +1,7 @@
 dashboard:
   text: Dashboard
   icon: "icm icm-screen4"
-  href: /#/admin/dashboard
+  href: /dashboard
   attrs:
     rel: "popover-sidebar"
     data-container: "body"
@@ -11,7 +11,7 @@ dashboard:
 users:
   text: Users
   icon: "icm icm-users"
-  href: /#/admin/users
+  href: /users
   attrs:
     rel: "popover-sidebar"
     data-container: "body"
@@ -21,7 +21,7 @@ users:
 countries:
   text: Countries
   icon: "icm icm-library"
-  href: /#/countries
+  href: /countries
   attrs:
     rel: "popover-sidebar"
     data-container: "body"
@@ -31,7 +31,7 @@ countries:
 regions:
   text: Regions
   icon: "icm icm-location2"
-  href: /#/regions
+  href: /regions
   attrs:
     rel: "popover-sidebar"
     data-container: "body"
@@ -41,7 +41,7 @@ regions:
 areas:
   text: Areas
   icon: "icm icm-office"
-  href: /#/areas
+  href: /areas
   attrs:
     rel: "popover-sidebar"
     data-container: "body"
@@ -51,7 +51,7 @@ areas:
 households:
   text: Households
   icon: "icm icm-home3"
-  href: /#/households
+  href: /households
   attrs:
     rel: "popover-sidebar"
     data-container: "body"
@@ -61,7 +61,7 @@ households:
 securitys:
   text: Security
   icon: "icm icm-lock"
-  href: /#/admin/security
+  href: /security
   attrs:
     rel: "popover-sidebar"
     data-container: "body"

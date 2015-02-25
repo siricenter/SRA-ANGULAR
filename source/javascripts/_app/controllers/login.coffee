@@ -2,8 +2,8 @@ window.app.controller "LoginController", ($scope, $location, $rootScope, current
 
 	$rootScope.title = "Login"
 
-	currentUser.currentUser().then (user) ->
-			$location.path('/admin/dashboard')
+	currentUser.currentUser().then ( user ) ->
+			$location.path('/dashboard')
 
 	loginFunction = ->
 		email = $scope.user.email
@@ -23,5 +23,5 @@ window.app.controller "DashboardController", ($scope, $location, $rootScope, cur
 		$scope.firstname = user.firstName
 		$scope.lastName = user.lastName
 
-	$location.path "/admin/dashboard" if user.roles is "Admin"
+	$location.path "/dashboard" if user.roles is "Admin"
 	return
