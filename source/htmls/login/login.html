@@ -1,21 +1,90 @@
-<div class="container text-center">
-<h1>Welcome To Self-Reliant Agriculture</h1>
-<h2>Please Sign-in</h2>
-<div class="panel-body-collapse collapse in">
-	<div class="panel-body ">
-		<form role="form" data-ng-submit="submit()">
-			<div class="form-group">
-				<label for="email">Email address</label>
-				<input type="email"  id="email" placeholder="Enter email" data-ng-model="user.email">
+<div class="em-page-center-parent">
+	<div class="em-page-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+
+					<div class="actionable" id="actionable-sign-in">
+						<div class="actionable-front component-shadow">
+							<div class="panel">
+								<div class="panel-body">
+									<div class="text-center">
+										<img src="../../images/emerald64.png" />
+										<h3>
+											<strong>SRA</strong> <span class="thin">LOGIN</span>
+										</h3>
+									</div>
+
+									<div class="padded">
+										<form role="form" data-ng-submit="submit()" >
+											<div class="form-group email required">
+												<input class="string email required form-control" maxlength="255" name="email" placeholder="User"  data-ng-model="user.email" rel="jvfloat">
+											</div>
+											<div class="form-group password required">
+												<input class="password required form-control" name="password" placeholder="Password" data-ng-model="user.password" type="password" rel="jvfloat">
+											</div>
+
+											<div class="form-group actions">
+												<input type="submit" value="Let's do this!" class="btn btn-success-lt btn-block actionable-action"/>
+											</div>
+
+											<div class="form-group">
+												<div class="row">
+													<div class="col-xs-6">
+														<label class="checkbox-inline no-padding">
+															<input type="checkbox" value="1" rel="icheck" class="checkable-success"> Remember Me
+														</label>
+													</div>
+													<div class="col-xs-6 text-right">
+														<a href="#">Forgot password?</a>
+													</div>
+												</div>
+											</div>
+
+										</form>
+									</div>
+
+									<div class="text-center form-group">
+										Don't have an account?
+										<a href="sign_up.html">                    <strong>Sign Up</strong>
+										</a>                </div>
+								</div>
+							</div>
+						</div>
+						<div class="actionable-back component-shadow bg-white padded">
+							<div class="actionable-contain">
+								<button type="button" class="close pull-right">&times;</button>
+								<br><br>
+								<h1 class="thin text-success text-center actionable-animated-fadeInLeftSmall">
+									Success!
+								</h1>
+								<br><br>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped active"
+			  style="width: 100%">
+									</div>
+								</div>
+								<br><br>
+								<p class="text-center actionable-animated-fadeInRightSmall">
+								Redirecting to your dashboard...
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="text-center">
+						&copy; 2014 Emerald Inc. All Rights Reserved
+					</div>
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="password">Password</label>
-				<input type="password" id="password" placeholder="Password" data-ng-model="user.password">
-			</div>
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary" id="login">Login</button>
-			</div>
-		</form>
+		</div>
 	</div>
 </div>
-</div>
+
+<script type="text/javascript">
+$('#actionable-sign-in').on('acted.actionable', function(){
+	var url = $('#form-sign-in-demo').attr('action');
+	function go() { Turbolinks.visit(url); }
+	setTimeout(go, 1000);
+});
+</script>
