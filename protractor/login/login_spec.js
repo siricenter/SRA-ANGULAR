@@ -15,7 +15,7 @@ describe('Login', function() {
 
 		it('Lets me log in', function() {
 			login();
-			expect(browser.getCurrentUrl()).toEqual(path('/admin/dashboard'));
+			expect(browser.getCurrentUrl()).toEqual(path('/dashboard'));
 		});
 	})
 
@@ -28,7 +28,7 @@ describe('Login', function() {
 			login();
 			browser.get(path('/login'));
 			browser.sleep(2000);
-			expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/admin/dashboard');
+			expect(browser.getCurrentUrl()).toEqual(path('/dashboard'));
 		});
 	});
 })

@@ -1,6 +1,6 @@
 module.exports = {
 	path: function(path) {
-		return 'http://localhost:3000/#' + path;
+		return 'http://localhost:3000' + path;
 	},
 
 	clearStorage: function () {
