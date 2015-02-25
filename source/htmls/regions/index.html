@@ -1,21 +1,4 @@
 <h1>Listing regions</h1>
 
-<table>
-	<tr>
-		<th>Name</th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>
-
-	<tr ng-repeat="region in regions">
-		<td>
-			<a href="#/regions/{{ region.$id }}">
-				{{ region.name }}
-			</a></td>
-	</tr>
-</table>
-<a ng-href="#/regions/new">New Region</a>
-
-<br />
-
+<region-panel data-ng-repeat="region in regions" region="region">
+</region-panel>
