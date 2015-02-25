@@ -1,8 +1,6 @@
 require 'rack'
 require 'rack/contrib/try_static'
 require 'rack/rewrite'
-
-use Rack::TryStatic,
 	root: 'build',
 	urls: %w[/],
 	try: ['index.html', '/index.html']
