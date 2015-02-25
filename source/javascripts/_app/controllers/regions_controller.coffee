@@ -9,6 +9,7 @@ window.app.controller "NewRegionController", ( $scope, Country, Region, currentU
 	currentUser.requireLogin().then () ->
 		Country.all( 'sra' ).then ( countries ) ->
 			$scope.countries = countries
+			$scope.region.country = countries[0].$id
 		
 		submitFunction = () ->
 

@@ -1,21 +1,59 @@
-<h1>New region</h1>
-
-<br/>
-<ul>
-	<li ng-repeat="error in errors">
-		{{ error }}
-	</li>
-</ul>
-
-<form role="form" data-ng-submit="submit()">
-	
-</form>
-	<label for="country">Country</label>
-	<select name="country" ng-model="region.country">
-		<option ng-repeat="country in countries" value="{{ country.$id }}"> {{ country.name }} </option>
-	</select>
-	<label for="name">Name: </label>
-	<input id="name" type="text" ng-model="region.name" />
-	<br/>
-	<button ng-click="submit()">Submit</button>
+<div class="em-page-center-parent">
+<div class="em-page-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+				<div class="actionable" id="actionable-sign-in">
+					<div class="actionable-front component-shadow">
+						<div class="panel">
+							<div class="panel-body">
+								<div class="text-center">
+									<h3>
+										New Region
+									</h3>
+								</div>
+								<div class="padded">
+									<form role="form" data-ng-submit="submit()">
+										<div class="padded">
+											<div class="form-group">
+												<label for="country"> Country </label>
+<select class="string form-control required" data-ng-model="region.country"
+	data-ng-options="country.$id as country.name for country in countries">
+													<option data-ng-repeat="country in countries" value="country.$id">
+													{{ country.name }}
+													</option>
+												</select>
+											</div>
+											<div class="form-group">
+												<label for="name"> Name </label>
+												<input type="text" class="string email form-control required" name="name" placeholder="Region's Name" data-ng-model="region.name"/>
+											</div>
+											<div class="form-group">
+												<input type="submit" class="submit btn-success" value="Create Country" />
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="actionable-back component-shadow bg-white padded">
+						<%= partial 'htmls/elements/actionable/success' %>
+					</div>
+				</div>
+				<div class="text-center">
+					&copy; 2014 Emerald Inc. All Rights Reserved
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+</div>
+
+<script type="text/javascript">
+$('#actionable-sign-in').on('acted.actionable', function(){
+	var url = $('#form-sign-in-demo').attr('action');
+	function go() { Turbolinks.visit(url); }
+	setTimeout(go, 1000);
+});
+</script>
