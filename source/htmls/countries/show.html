@@ -1,9 +1,14 @@
 <h1>{{ country.name }}</h1>
 
-<ul>
-	<li ng-repeat="region in regions"> 
-		<a ng-href="#/regions/{{ region.$id }}">
-			{{ region.name }}
-		</a> 
-	</li>
-</ul>
+<div class="padded">
+	<h2>
+		Regions in {{ country.name }}
+	</h2>
+
+	<region-panel data-ng-repeat="region in regions" region="region">
+	<h3>Areas</h3>
+	<ul>
+		<li data-ng-repeat="area in areas">{{ area.name }}</li>
+	</ul>
+	</region-panel>
+</div>
