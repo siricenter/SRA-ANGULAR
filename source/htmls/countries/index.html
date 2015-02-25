@@ -1,4 +1,3 @@
-<ul>
-<li ng-repeat="country in countries"> <a
-		ng-href="/#/countries/{{ country.$id }}"> {{ country.name }} </a></li>
-</ul>
+<h1> Countries </h1>
+<country-panel data-ng-repeat="country in countries" country="country"> 
+</country-panel>

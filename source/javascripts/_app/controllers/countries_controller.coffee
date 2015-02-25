@@ -10,8 +10,9 @@ window.app.controller "NewCountryController", ( $scope, Country, currentUser, $l
 
 window.app.controller "CountriesIndexController", ( $scope, Country, currentUser ) ->
 	currentUser.requireLogin().then () ->
-		Country.all( 'sra' ).then ( countries ) ->
-			$scope.countries = countries
+		Country.all( 'sra' )
+	.then ( countries ) ->
+		$scope.countries = countries
 
 window.app.controller "ShowCountryController", ( $scope, Country, Region, currentUser, $routeParams ) ->
 	id = $routeParams.countryId
