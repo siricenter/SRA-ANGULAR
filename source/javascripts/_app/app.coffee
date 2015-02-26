@@ -11,6 +11,7 @@ window.app = angular.module("sraAngularApp", [
 	"ngSanitize"
 	"ngTouch"
 	"firebase"
+	"checklist-model"
 ])
 
 window.app.config ( $routeProvider, $locationProvider ) ->
@@ -35,6 +36,12 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/users/new",
 		templateUrl: "htmls/users/new.html",
 		controller: "NewUsersController"
+	).when("/roles/new",
+		templateUrl: "htmls/admin/new_role.html"
+		controller: "AdminSecurityController"
+	).when("/roles/new/permissions/:title",
+		templateUrl: "htmls/admin/add_permissions.html"
+		controller: "AdminSecurityController"
 	).when("/roles/:id",
 		templateUrl: "htmls/admin/user_roles.html"
 		controller: "EditUsersController"
@@ -49,12 +56,6 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 		controller: "ShowHouseholdController"
 	).when("/security",
 		templateUrl: "htmls/admin/security.html"
-		controller: "AdminSecurityController"
-	).when("/roles/new",
-		templateUrl: "htmls/admin/new_role.html"
-		controller: "AdminSecurityController"
-	).when("/roles/new/permissions/:title",
-		templateUrl: "htmls/admin/add_permissions.html"
 		controller: "AdminSecurityController"
 	).when("/questionsManager",
 		templateUrl: "htmls/admin/questions_admin.html"

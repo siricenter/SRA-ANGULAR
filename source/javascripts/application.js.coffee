@@ -96,5 +96,7 @@
 #= require_tree ./_app
 #= require ./demo.js
 #= require ./init.js
+#= require checklist-model/checklist-model.js
 #= require_self
+
 window.Loaded = true

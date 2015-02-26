@@ -14,12 +14,12 @@
 						<div class="vpadded">
 							<div style="height: 186px;" class="text-center padded-top">
 
-								{{newRole.permissions}}
+								{{rolePermissions}}
 								Add permissions for {{roleName}}:</br>
 								<label ng-repeat="permission in permissions">
-									<input type="checkbox"  checklist-model="newRole.permissions" checklist-value="permission">{{permission['permission code']}}: {{permission['permission description']}}&nbsp<br/>
+									<input type="checkbox"  checklist-model="rolePermissions" checklist-value="permission">{{permission['permission code']}}: {{permission['permission description']}}&nbsp<br/>
 								</label></br>
-								<button type="button" class="btn btn-primary btn-xs" ng-click="createRole(newRole.permissions)">Create Role</button>
+								<button type="button" class="btn btn-primary btn-xs" ng-click="createRole(newRolepermissions)">Create Role</button>
 								{{permission}}
 
 

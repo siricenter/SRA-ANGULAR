@@ -151,6 +151,7 @@ window.app.controller "AdminSecurityController", ($scope, $rootScope, $location,
 	permishSync = $firebase(permishref).$asArray()
 	permishSync.$loaded().then (x) ->
 		$scope.permissions = x
+	$scope.rolePermissions = []
 		
 
 	$scope.editRole = (permissionData)->
@@ -164,21 +165,20 @@ window.app.controller "AdminSecurityController", ($scope, $rootScope, $location,
 
 	$scope.addRole = (title) ->
 		console.log title
-		$location.path("/admin/roles/new/permissions/#{title}")
+		$location.path("/roles/new/permissions/#{title}")
 		return
-	$scope.createRole = ->
-		console.log($scope.newRole.permissions)
-		console.log($scope.roleName)
+	$scope.createRole =  ->
+		console.log($scope.rolePermissions)
 
+		ref = new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles")
+		ref.child($scope.roleName).child("name").set($scope.roleName)
+		for permission in $scope.rolePermissions
+			console.log("hi")
+			role = new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles/#{$scope.roleName}")
+			role.child("permissions").child("#{permission.$id}").set(permission["permission code"])
+			$location.path("/admin/roles/security")
 
-		#ref = new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles")
-		#ref.child($scope.roleName).child("name").set($scope.roleName)
-		#for permission in permissions
-		#	console.log("hi")
-		#	role = new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles/#{$scope.roleName}")
-		##s	$location.path("/admin/roles/security")
-
-	return
+		return
 
 window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder, currentUser) ->
  	
@@ -223,25 +223,6 @@ window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location
    				datapoint.answers = [""]
    				dataPointsArray.push(datapoint)
 
-
-   		
-
-
-
-
-
-
-
- 		#dataPoint = {
- 		#	label: $scope.points,
- 		#	singleAnswer:$scope.quest.type,
- 		#	type:$scope.types,
- 		#	answer:[]
- 		#}
-
- 		
- 		
-
  		questions = {
  			name: $scope.questionTitle,
  			multiUse:$scope.quest.type,
@@ -259,12 +240,6 @@ window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location
 
  		}
 
- 		
- 		console.log(questionSet)
- 		console.log(questions)
- 		
- 		
-  		#list.$indexFor(id); // returns location in the array
 
  		ref = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/question%20sets")).$asArray()
  		console.log(ref)
