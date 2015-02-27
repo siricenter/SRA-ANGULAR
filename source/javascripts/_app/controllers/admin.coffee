@@ -136,7 +136,7 @@ window.app.controller "AdminHouseholdsController", ($scope, $rootScope, currentU
 			$scope.households = households
 	return
 
-window.app.controller "AdminSecurityController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, orgBuilder, currentUser) ->
+window.app.controller "AdminSecurityController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, currentUser) ->
 	rolesref = new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles")
 	rolessync = $firebase(rolesref).$asArray()
 	rolessync.$loaded().then (data)->
