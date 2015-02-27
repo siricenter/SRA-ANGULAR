@@ -21,7 +21,7 @@ window.app.service "currentUser", ( $rootScope, $location, firebase, firebaseURL
 			return $q(( resolve, reject ) ->
 				promise = currentUser.getUser( stored )
 					.then ( user ) ->
-						$rootScope.currentUser = user
+						currentUser.cacheUser( user )
 						return user
 				resolve( promise )
 			)
@@ -50,7 +50,11 @@ window.app.service "currentUser", ( $rootScope, $location, firebase, firebaseURL
 		User.findByEmail( email )
 			.then ( users ) ->
 				return users[0] # There should only be one user with a given email. Also, what happens if no such user is registered?
-			
+	
+	@logout = () ->
+		delete $rootScope.currentUser
+		sessionStorage.removeItem( 'userId' )
+		$location.path( '/login' )
 
 
 
@@ -61,13 +65,16 @@ window.app.service "currentUser", ( $rootScope, $location, firebase, firebaseURL
 	#
 	############################################################################
 
-
+	@cacheUser = ( user ) ->
+		currentUser = this
+		$rootScope.currentUser = user
+		$rootScope.logout = currentUser.logout
+		User.cache( user )
 
 	@authorized = ( email ) ->
 		currentUser = this
 		currentUser.getUserByEmail( email ).then ( user ) ->
-			$rootScope.currentUser = user
-			User.cache( user )
+			currentUser.cacheUser( user )
 
 	############################################################################
 	#
