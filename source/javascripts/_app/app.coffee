@@ -12,6 +12,7 @@ window.app = angular.module("sraAngularApp", [
 	"ngTouch"
 	"firebase"
 	"checklist-model"
+	"nix.api"
 ])
 
 window.app.config ( $routeProvider, $locationProvider ) ->
@@ -90,6 +91,9 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/areas/:areaId",
 		templateUrl: "htmls/areas/show.html"
 		controller: "ShowAreaController"
+	).when("/interview/nutrition",
+		templateUrl: "/interview/nutrition.html"
+		controller: "NutritionController"
 	).otherwise redirectTo: "/"
 
 	$locationProvider.html5Mode(true)

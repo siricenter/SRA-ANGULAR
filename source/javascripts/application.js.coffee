@@ -97,6 +97,7 @@
 #= require ./demo.js
 #= require ./init.js
 #= require checklist-model/checklist-model.js
+#= require angular-nutritionix-api/angular-nutritionix-api.min.js
 #= require_self
 
 window.Loaded = true

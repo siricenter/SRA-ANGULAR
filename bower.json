@@ -76,7 +76,8 @@
     "fullcalendar": "2.0.1",
     "growl": "1.1.8",
     "gmaps": "0.4.13",
-    "checklist-model": "~0.2.4"
+    "checklist-model": "~0.2.4",
+    "angular-nutritionix-api": "~1.0.1"
   },
   "appPath": "build",
   "devDependencies": {
