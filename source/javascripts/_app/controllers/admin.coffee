@@ -168,6 +168,9 @@ window.app.controller "AdminSecurityController", ($scope, $rootScope, $location,
   			$scope.currentPermissions.indexOf(val) == -1
   		for i in role_permissions
   			obj.child('permissions').child('permission'+ i).set(i)
+  			$scope.message = "Your changes have been sucesssfully"
+
+
 
   	
 
