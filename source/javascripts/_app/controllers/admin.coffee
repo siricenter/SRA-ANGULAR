@@ -144,21 +144,34 @@ window.app.controller "AdminSecurityController", ($scope, $rootScope, $location,
 		return
 	console.log($routeParams.title)
 	$scope.roleName = $routeParams.title
-	$scope.role = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles/#{$scope.roleName}")).$asObject()
-	$scope.role.$loaded().then (data)->	
-		$scope.role_permissions = data.permissions
+	$scope.role = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles/#{$scope.roleName}/permissions")).$asArray()
+	$scope.role_permissions = []
+	$scope.currentPermissions = []
+	$scope.role.$loaded().then (data)->
+		console.log(data)
+		for i in data
+			$scope.currentPermissions.push(i.$value)
+			$scope.role_permissions.push(i.$value)
+
 	permishref = new Firebase("https://testrbdc.firebaseio.com/permissions")
 	permishSync = $firebase(permishref).$asArray()
 	permishSync.$loaded().then (x) ->
 		$scope.permissions = x
 	$scope.rolePermissions = []
+	$scope.newRoles = []
 		
 
-	$scope.editRole = (permissionData)->
+	$scope.editRole = ->
+		console.log($scope.role_permissions)
 		obj = new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles/#{$scope.roleName}")
-		console.log(permissionData)
-		#for permission in permissions
-		#	obj.child('permissions').child(permission.$$hashKey).set(permission['permission code'])
+		role_permissions = $scope.role_permissions.filter (val) -> 
+  			$scope.currentPermissions.indexOf(val) == -1
+  		for i in role_permissions
+  			obj.child('permissions').child('permission'+ i).set(i)
+
+  	
+
+
 
 
 

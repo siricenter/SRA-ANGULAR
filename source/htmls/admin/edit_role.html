@@ -1,4 +1,4 @@
-<div class="container-fluid turbo-cols-static turbo-grid-wrap" ng-controller="EditUsersController">
+<div class="container-fluid turbo-cols-static turbo-grid-wrap">
 <div class="turbo-grid">
 	<!-- ngView:  -->
 	<div class="row ng-scope" rel="panels">
@@ -15,14 +15,12 @@
 							<div style="height: 186px;" class="text-center padded-top">
 								Current Permissions:
 								<ul><li ng-repeat="permission in role_permissions">{{permission}}</li></ul>
-
+               
 								Available Permissions:</br>
 								<label ng-repeat="permission in permissions">
-									<input type="checkbox"  checklist-model="role_permissions" checklist-value="permission">{{permission['permission code']}}({{permission['permission description']}})
+									<input type="checkbox" checklist-model="role_permissions" checklist-value="permission['permission code']">{{permission['permission code']}}({{permission['permission description']}})
 								</label></br>
-								<button type="button" class="btn btn-primary btn-xs" ng-click="editRole(role_permissions)">Assign</button>
-
-
+								<button type="button" class="btn btn-primary btn-xs" ng-click="editRole(newRoles)">Assign</button>
 							</div>
 						</div>
 						<div class="row">

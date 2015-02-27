@@ -42,6 +42,9 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/roles/new/permissions/:title",
 		templateUrl: "htmls/admin/add_permissions.html"
 		controller: "AdminSecurityController"
+	).when("/roles/edit/:title",
+		templateUrl: "htmls/admin/edit_role.html"
+		controller: "AdminSecurityController"
 	).when("/roles/:id",
 		templateUrl: "htmls/admin/user_roles.html"
 		controller: "EditUsersController"
