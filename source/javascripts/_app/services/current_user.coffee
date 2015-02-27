@@ -1,4 +1,4 @@
-window.app.service "currentUser", ($rootScope, $location, firebase, firebaseURL, orgBuilder, $q) ->
+window.app.service "currentUser", ($rootScope, $location, firebase, firebaseURL, $q, User) ->
 	@requireLogin = () ->
 		currentUser = this
 		return $q((resolve, reject) ->
@@ -20,26 +20,28 @@ window.app.service "currentUser", ($rootScope, $location, firebase, firebaseURL,
 		else if stored?
 			@getUser(stored) # return the promise from @getUser
 		else
-			return $q((resolve, reject) ->
-				reject(Error("No current user"))
+			return $q(( resolve, reject ) ->
+				reject( Error( "No current user" ))
 			) # Return the new promise
 	
-	@authenticate = (email, password) ->
-		authPromise = firebase.auth(email, password)
-		.then(@authed(email))
-		.catch (error) ->
-			# We really should do something better on failure, like post a
-			# notification on the login page.
-			console.error "Authentication Failed:", error
-			return # Void
+	@authenticate = ( email, password ) ->
+		currentUser = this
+		authPromise = firebase.auth( email, password )
+			.then () ->
+				currentUser.authorized( email )
+			.catch (error) ->
+				# We really should do something better on failure, like post a
+				# notification on the login page.
+				console.error "Authentication Failed:", error
+				return # Void
 		return authPromise
 	
 	# Retrieves the user information from the firebase instance
-	@getUser = (userName) ->
-		url = "#{firebaseURL}/users/#{userName}"
-		firebase.queryObject( url ).then((user) ->
-			$rootScope.currentUser = user
-		)
+	@getUser = ( email ) ->
+		User.findByEmail( email )
+			.then ( users ) ->
+				return users[0] # There should only be one user with a given email. Also, what happens if no such user is registered?
+			
 
 
 
@@ -52,25 +54,10 @@ window.app.service "currentUser", ($rootScope, $location, firebase, firebaseURL,
 
 
 
-	@authed = (email) ->
-		currentUser = this
-		getUser = @getUser
-		loginRedirect = @loginRedirect
-		() ->
-			userName = email.split("@").shift()
-			getUser(userName).then (userData) ->
-				orgBuilder.userCache(userData)
-				currentUser.currentUser()
-					.then(loginRedirect)
-	
-	@loginRedirect = ( user ) ->
-		try # If one of the required keys is missing, it"ll throw an error
-			$location.path "/dashboard"
-			return
-		catch error
-			console.log "Error thrown"
-			throw error
-
+	@authorized = ( email ) ->
+		@getUser( email ).then ( user ) ->
+			$rootScope.currentUser = user
+			User.cache( user )
 
 	############################################################################
 	#

@@ -1,3 +1,11 @@
+window.app.directive "memberPanel", () ->
+	return {
+		restrict: "E"
+		scope:
+			member: "="
+		templateUrl: "htmls/households/member_panel.html"
+	}
+
 window.app.directive "householdPanel", () ->
 	return {
 		restrict: "E"

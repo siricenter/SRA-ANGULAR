@@ -1,24 +1,32 @@
-window.app.service "User", ($firebase, $firebaseAuth, firebaseURL, Organization) ->
+window.app.service "User", (firebase, firebaseURL, Organization) ->
 	@all = () ->
-		ref = new Firebase("#{firebaseURL}/users")
-		users = $firebase(ref).$asArray()
-		return users.$loaded()
+		url = "#{ firebaseURL }/users"
+		onLoadPromise = firebase.queryArray( url )
+		return onLoadPromise
 
 	@find = ( id ) ->
 		url = "#{firebaseURL}/users/#{id}"
-		ref = new Firebase(url)
-		user = $firebase(ref).$asObject()
-		user.$loaded()
+		onLoadPromise = firebase.queryObject( url )
+		return onLoadPromise
+
+	@findByEmail = ( email ) ->
+		url = "#{firebaseURL}/users"
+		firebase.searchByChild( url, 'email', email )
 
 	@addOrg = ( user, orgID ) ->
 		Organization.find( orgID ).then ( org ) ->
 			Organization.addUser( org, user )
 
 	@create = ( userData ) ->
-		firebase.createUser($scope.user)
+		userName = email.split("@").shift()
+		User = this
+		firebase.createUser(userData)
 			.then (userRef) ->
-				this.find( userRef.key() )
+				User.find( userRef.key() )
 			.then ( user ) ->
 				# 'sra' can easily be switched to currentOrg when we have that
-				this.addOrg( user, 'sra' )
+				User.addOrg( user, 'sra' )
+	
+	@cache = ( user ) ->
+		sessionStorage.userId = user.$id
 	return

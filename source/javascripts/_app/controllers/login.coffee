@@ -9,7 +9,8 @@ window.app.controller "LoginController", ($scope, $location, $rootScope, current
 		email = $scope.user.email
 		password = $scope.user.password
 
-		currentUser.authenticate(email, password)
+		currentUser.authenticate(email, password).then () ->
+			$location.path('/admin/dashboard')
 
 	$scope.submit = loginFunction
 	return
