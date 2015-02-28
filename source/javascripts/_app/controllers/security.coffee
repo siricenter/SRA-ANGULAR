@@ -8,13 +8,11 @@ window.app.controller "AdminSecurityController", ($scope, $location, $firebase, 
 		return
 	$scope.roleName = $routeParams.title
 	Role.getPermissions($scope.roleName).then (data)->
-		console.log(data)
 		for i in data
 			$scope.currentPermissions.push(i.$value)
 			$scope.role_permissions.push(i.$value)
 	Permission.all().then (x) ->
 		$scope.permissions = x
-	
 	$scope.editRole = ->
 		console.log($scope.role_permissions)
 		obj = new Firebase("#{firebaseURL}/organizations/sra/roles/#{$scope.roleName}")
@@ -24,12 +22,9 @@ window.app.controller "AdminSecurityController", ($scope, $location, $firebase, 
   			obj.child('permissions').child('permission'+ i).set(i)
   			$scope.message = "Your changes have been sucesssfully"
 	$scope.addRole = (title) ->
-		console.log title
 		$location.path("/roles/new/permissions/#{title}")
 		return
 	$scope.createRole =  ->
-		console.log($scope.rolePermissions)
-
 		ref = new Firebase("#{firebaseURL}/organizations/sra/roles")
 		ref.child($scope.roleName).child("name").set($scope.roleName)
 		for permission in $scope.rolePermissions
