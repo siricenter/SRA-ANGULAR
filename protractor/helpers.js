@@ -3,6 +3,10 @@ module.exports = {
 		return 'http://localhost:3000' + path;
 	},
 
+	id: function(elementID) {
+		return element(by.id(elementID))
+	},
+
 	clearStorage: function () {
 		browser.executeScript('window.sessionStorage.clear();');
 		browser.executeScript('window.localStorage.clear();');

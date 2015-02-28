@@ -16,6 +16,7 @@ describe('Login', function() {
 		it('Lets me log in', function() {
 			login();
 			expect(browser.getCurrentUrl()).toEqual(path('/dashboard'));
+			expect(helper.id('username').getText()).toEqual('Evan Caldwell')
 		});
 	})
 

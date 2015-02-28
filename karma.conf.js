@@ -30,7 +30,7 @@ module.exports = function(config) {
 			'vendor/assets/bower_components/firebase/firebase.js',
 			'vendor/assets/bower_components/angularfire/dist/angularfire.js',
 			
-			'build/javascripts/app/**/*.js',
+			'build/javascripts/**/*.js',
 			
 			'vendor/assets/bower_components/angular-mocks/angular-mocks.js',
 			

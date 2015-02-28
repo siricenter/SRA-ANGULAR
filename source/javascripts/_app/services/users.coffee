@@ -29,4 +29,7 @@ window.app.service "User", (firebase, firebaseURL, Organization) ->
 	
 	@cache = ( user ) ->
 		sessionStorage.userId = user.$id
+	
+	@uncache = ( user ) ->
+		sessionSotrage.removeItem( 'userId' )
 	return

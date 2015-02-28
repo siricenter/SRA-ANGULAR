@@ -1,24 +1,30 @@
-window.app.service "currentUser", ($rootScope, $location, firebase, firebaseURL, $q, User) ->
+window.app.service "currentUser", ( $rootScope, $location, firebase, firebaseURL, $q, User ) ->
 	@requireLogin = () ->
 		currentUser = this
-		return $q((resolve, reject) ->
+		return $q(( resolve, reject ) ->
 			currentUser.currentUser()
 				.then ( user ) ->
-					$rootScope.currentUser = user
-					resolve(user)
+					resolve( user )
 				.catch () ->
 					$location.path "/login"
 		)
 
 	@currentUser = () ->
-		stored = sessionStorage.getItem("userId")
+		stored = sessionStorage.getItem( "userId" )
+		currentUser = this
 
 		if $rootScope.currentUser?
-			return $q((resolve, reject) ->
-				resolve($rootScope.currentUser)
+			return $q(( resolve, reject ) ->
+				resolve( $rootScope.currentUser )
 			) # Return the new promise
 		else if stored?
-			@getUser(stored) # return the promise from @getUser
+			return $q(( resolve, reject ) ->
+				promise = currentUser.getUser( stored )
+					.then ( user ) ->
+						currentUser.cacheUser( user )
+						return user
+				resolve( promise )
+			)
 		else
 			return $q(( resolve, reject ) ->
 				reject( Error( "No current user" ))
@@ -29,19 +35,26 @@ window.app.service "currentUser", ($rootScope, $location, firebase, firebaseURL,
 		authPromise = firebase.auth( email, password )
 			.then () ->
 				currentUser.authorized( email )
-			.catch (error) ->
+			.catch ( error ) ->
 				# We really should do something better on failure, like post a
 				# notification on the login page.
 				console.error "Authentication Failed:", error
 				return # Void
 		return authPromise
+
+	@getUser = ( id ) ->
+		User.find( id )
 	
 	# Retrieves the user information from the firebase instance
-	@getUser = ( email ) ->
+	@getUserByEmail = ( email ) ->
 		User.findByEmail( email )
 			.then ( users ) ->
 				return users[0] # There should only be one user with a given email. Also, what happens if no such user is registered?
-			
+	
+	@logout = () ->
+		delete $rootScope.currentUser
+		sessionStorage.removeItem( 'userId' )
+		$location.path( '/login' )
 
 
 
@@ -52,12 +65,16 @@ window.app.service "currentUser", ($rootScope, $location, firebase, firebaseURL,
 	#
 	############################################################################
 
-
+	@cacheUser = ( user ) ->
+		currentUser = this
+		$rootScope.currentUser = user
+		$rootScope.logout = currentUser.logout
+		User.cache( user )
 
 	@authorized = ( email ) ->
-		@getUser( email ).then ( user ) ->
-			$rootScope.currentUser = user
-			User.cache( user )
+		currentUser = this
+		currentUser.getUserByEmail( email ).then ( user ) ->
+			currentUser.cacheUser( user )
 
 	############################################################################
 	#
