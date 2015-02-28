@@ -136,22 +136,19 @@ window.app.controller "AdminHouseholdsController", ($scope, $rootScope, currentU
 			$scope.households = households
 	return
 
-window.app.controller "AdminSecurityController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, currentUser) ->
-	rolesref = new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles")
-	rolessync = $firebase(rolesref).$asArray()
-	rolessync.$loaded().then (data)->
+window.app.controller "AdminSecurityController", ($scope, $rootScope, $location, $firebase, $routeParams, firebaseURL, currentUser,Role) ->
+	Role.all().then (data)->
 		$scope.roles = data
 		return
-	console.log($routeParams.title)
 	$scope.roleName = $routeParams.title
-	$scope.role = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/roles/#{$scope.roleName}/permissions")).$asArray()
-	$scope.role_permissions = []
-	$scope.currentPermissions = []
-	$scope.role.$loaded().then (data)->
+	Role.getPermissions($scope.roleName).then (data)->
 		console.log(data)
 		for i in data
 			$scope.currentPermissions.push(i.$value)
 			$scope.role_permissions.push(i.$value)
+	$scope.role_permissions = []
+	$scope.currentPermissions = []
+	
 
 	permishref = new Firebase("https://testrbdc.firebaseio.com/permissions")
 	permishSync = $firebase(permishref).$asArray()
@@ -169,16 +166,6 @@ window.app.controller "AdminSecurityController", ($scope, $rootScope, $location,
   		for i in role_permissions
   			obj.child('permissions').child('permission'+ i).set(i)
   			$scope.message = "Your changes have been sucesssfully"
-
-
-
-  	
-
-
-
-
-
-
 	$scope.addRole = (title) ->
 		console.log title
 		$location.path("/roles/new/permissions/#{title}")

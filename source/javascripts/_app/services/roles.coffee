@@ -9,4 +9,6 @@ window.app.service "Role", ($firebase, firebaseURL) ->
 		ref = new Firebase(url)
 		role = $firebase(ref).$asObject()
 		role.$loaded()
+	@getPermissions = (role) ->
+		permissionsRef = $firebase(new Firebase("#{firebaseURL}/organizations/sra/roles/#{role}/permissions")).$asArray().$loaded()
 	return
