@@ -2,7 +2,7 @@
 <div class="turbo-grid">
 	<!-- ngView:  -->
 	<div class="row ng-scope" rel="panels">
-		<div class="col-md-4" ng-repeat="area in areas">
+		<div class="col-md-4">
 			<div class="turbo-card turbo-toggle">
 				<div class="panel panel-success">
 					<div class="panel-heading">
@@ -11,20 +11,25 @@
 						</div>
 					</div>
 					<div class="panel-body no-padding-top">
-
+					
 						<div class="vpadded">
 							<div style="height: 186px;" class="text-center padded-top">
-								<i class="icm icm-html52 icm-4x text-primary" style="font-size: 128px;"></i>
+								
+								<input type ="text" ng-model="food"></input>
+								<button type="button" class="btn btn-primary btn-xs" ng-click="search(food)">Search</button>
+							</div>
+							<div>
+								<ul>
+									<li ng-repeat="food in foods">{{food.fields.item_name}}-{{food.fields.brand_name}}</li>
+								</ul>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-4 text-center">
 								<div>
-									<i class="icm icm-heart7 text-danger"></i>
-								</div>
-								
+									
+								</div>								
 							</div>
-
 						</div>
 					</div>
 				</div>

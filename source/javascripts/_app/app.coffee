@@ -92,7 +92,7 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 		templateUrl: "htmls/areas/show.html"
 		controller: "ShowAreaController"
 	).when("/interview/nutrition",
-		templateUrl: "/interview/nutrition.html"
+		templateUrl: "htmls/interview/nutrition.html"
 		controller: "NutritionController"
 	).otherwise redirectTo: "/"
 
