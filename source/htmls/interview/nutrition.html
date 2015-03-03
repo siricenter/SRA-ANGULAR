@@ -10,18 +10,21 @@
 							Nutrition Data
 						</div>
 					</div>
+
 					<div class="panel-body no-padding-top">
 					
 						<div class="vpadded">
+
 							<div style="height: 186px;" class="text-center padded-top">
-								
+								<h3>Enter Food:</h3>
 								<input type ="text" ng-model="food"></input>
 								<button type="button" class="btn btn-primary btn-xs" ng-click="search(food)">Search</button>
 							</div>
 							<div>
 								<ul>
-									<li ng-repeat="food in foods">{{food.fields.item_name}}-{{food.fields.brand_name}}</li>
+									<li ng-repeat="food in foods"><button type="button" class="btn btn-primary btn-xs" ng-click="addFood(food.fields.item_id)">Add</button>{{food.fields.item_name}}-{{food.fields.brand_name}}</li>
 								</ul>
+								<button type="button" class="btn btn-primary btn-xs" ng-click="buildinterview()">Finish Interview</button>
 							</div>
 						</div>
 						<div class="row">
