@@ -2,7 +2,7 @@
 <div class="turbo-grid">
 	<!-- ngView:  -->
 	<div class="row ng-scope" rel="panels">
-		<div class="col-md-4">
+		<div class="col-md-8">
 			<div class="turbo-card turbo-toggle">
 				<div class="panel panel-success">
 					<div class="panel-heading">
@@ -24,7 +24,12 @@
 
 							<div>
 								<ul>
-									<li ng-repeat="food in foods"><button type="button" class="btn btn-primary btn-xs" ng-click="addFood(food.fields.item_id)">Add</button>{{food.fields.item_name}}-{{food.fields.brand_name}}</li>
+									<li ng-repeat="food in foods"><button type="button" class="btn btn-primary btn-xs" ng-click="addFood(food.fields.item_id)">Add</button>-{{food.fields.item_name}}-{{food.fields.brand_name}}</br><label>
+									<input type="radio" ng-model="frequency" value="Daily">Daily
+								</label></br><label>
+									<input type="radio" ng-model="frequency" value="Weekly">Weekly
+								</label></li>
+								{{frequency}}
 								</ul>
 								<button type="button" class="btn btn-primary btn-xs" ng-click="buildinterview()">Finish Interview</button>
 							</div>

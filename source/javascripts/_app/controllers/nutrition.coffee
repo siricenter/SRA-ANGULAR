@@ -1,6 +1,8 @@
 window.app.controller "NutritionController", ($scope, $location, firebase, $routeParams, firebaseURL, currentUser,$http) ->
 	$scope.responseSet = []
 	$scope.name = $routeParams.household
+	$scope.frequency;
+
 	
 	$scope.search = (food)->
 		req = {
