@@ -34,7 +34,7 @@ describe( 'Controller: NutritionController', function () {
 	});
 
 
-	it( 'collects the email and password and sends it for auth' , function () {
+	it( 'collects the query for nutritionix call' , function () {
 		// After the controller executes, its scope should have a function
 		// called submit. Here, we test that the submit function gives the email
 		// and password to the currentUser service.

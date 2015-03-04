@@ -2,41 +2,52 @@
 
 describe( 'Controller: QuestionsAdminController', function () {
 
-	 var setup, subject, scope, rootScope;
+	 var setup, subject, scope, email, password;
 
-	 beforeEach( function () {
-	 	module( 'sraAngularApp', function( $provide ) {
-	 		
+	
 
-	 		
-	 	});
-	 });
+	setup = function ( $controller, $rootScope ) {
+		scope = $rootScope.$new();
 
-	 setup = function ( $controller, $rootScope ) {
-	 	scope = $rootScope.$new();
+		// Apparently, this doesn't just create the controller - it runs it too,
+		// with the given scope. This means that in our tests, we can just test
+		// that the scope was changed appropriately.
+		subject = $controller( 'NutritionController', {
+			'$scope': scope
+		});
+	};
 
-	 	rootScope = $rootScope;
+	// Initialize the controller and a mock scope
+	beforeEach( inject( setup ) );
 
-	 	subject = $controller( 'QuestionsAdminController', {
-	 		'$scope': scope,
-	 	});
+	it( 'has the buildSurvey function', function () {
+		// After the controller executes, its scope should have a function
+		// called submit.
+		expect( scope.buildSurvey ).not.toBeUndefined();
+		expect( scope.buildSurvey ).not.toBeNull();
+	});
+	it( 'has the search function', function () {
+		// After the controller executes, its scope should have a function
+		// called submit.
+		expect( scope.search ).not.toBeUndefined();
+		expect( scope.search ).not.toBeNull();
+	});
 
-	 	scope.questionSet = {};
 
-	 	scope.questionSet.name = "Hydration";
-	 	scope.questionSet.questions = [];
-	 	scope.questionSet.type = "HOUSEHOLD";
-	 	
-	 };
+	it( 'collects the datapoint for the interview' , function () {
+		// After the controller executes, its scope should have a function
+		// called submit. Here, we test that the submit function gives the email
+		// and password to the currentUser service.
+		
+		// Setup the scope to reflect having a form submitted.
+		query = "pizza"
 
-	 beforeEach( inject( setup ) );
-
-	 it( 'has a an array of types', function() {
-	 	expect(scope.types).not.toBeUndefined();
-	 	expect(scope.questionTypes).not.toBeUndefined();
-	 	expect(scope.responseTypes).not.toBeUndefined();
-	 	
-	 });
+		// Call the login (submit) function
+		scope.buildSurvey(query);
+		
+		expect($scope.foods).not.toBeNull();
+		
+	});
 
 
 	

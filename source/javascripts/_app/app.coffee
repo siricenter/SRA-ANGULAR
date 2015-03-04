@@ -91,7 +91,7 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/areas/:areaId",
 		templateUrl: "htmls/areas/show.html"
 		controller: "ShowAreaController"
-	).when("/interview/nutrition",
+	).when("/interview/:household/nutrition",
 		templateUrl: "htmls/interview/nutrition.html"
 		controller: "NutritionController"
 	).otherwise redirectTo: "/"

@@ -1,5 +1,11 @@
 <panel title="household.name" href="'/households/' + household.$id">
+
 <ul>
 	<li ng-repeat = "member in household.members">{{ member.name }}</li>
 </ul>
+<a href = "interview/{{household.name}}/nutrition"><button type="button" class="btn btn-primary btn-xs">Nutrition</button></a>
+<a href = "interview/{{household.name}}/basic_informarion"><button type="button" class="btn btn-primary btn-xs">Basic Info</button></a>
+<a href = "interview/{{household.name}}/heath"><button type="button" class="btn btn-primary btn-xs">Health</button></a>
+<a href = "interview/{{household.name}}/other"><button type="button" class="btn btn-primary btn-xs">Other</button></a>
+
 </panel>
