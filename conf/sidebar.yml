@@ -68,14 +68,3 @@ securitys:
     data-placement: "right"
     data-content: |
       Security Management
-interviews:
-  text: Interviews
-  icon: "icm icm-pencil"
-  href: /interview/nutrition
-  attrs:
-    rel: "popover-sidebar"
-    data-container: "body"
-    data-placement: "right"
-    data-content: |
-      Interview
-
