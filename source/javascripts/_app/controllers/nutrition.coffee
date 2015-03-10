@@ -8,6 +8,7 @@ window.app.controller "NutritionController", ($scope, $location, firebase, $rout
 
 
 	$scope.name = $routeParams.household
+
 	$scope.servings = {
 		amount:1
 		frequency:null
@@ -24,6 +25,9 @@ window.app.controller "NutritionController", ($scope, $location, firebase, $rout
   				@carbs = carbs
   				@frequency = frequency
   				@servings = servings
+
+	$scope.frequency
+
 
 	
 	$scope.search = (food)->
