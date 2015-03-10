@@ -10,7 +10,22 @@
 							Nutrition Data for the {{name}} family
 						</div>
 					</div>
-
+					Selected Foods:
+								<ul ng-repeat="food in responseSet">
+								<li>{{food.name}}-{{food.brand}}-Servings:{{food.servings}}
+								<ul>
+									<li>Calories:{{food.calories}}</li>
+									<li>Protein:{{food.protein}}</li>
+									<li>Carbs:{{food.carbs}}</li>
+									<li>Sodium:{{food.sodium}}</li>
+								</ul>
+								</li>
+								</ul>
+								Totals
+								Calories:{{calTotal}}
+								Protein:{{proteinTotal}}
+								Carbs:{{carbTotal}}
+								Sodium:{{sodiumTotal}}
 					<div class="panel-body no-padding-top">
 					
 						<div class="vpadded">
@@ -22,21 +37,23 @@
 			
 							</div>
 
-							<div>
-								<ul>
-									<li ng-repeat="food in foods"><button type="button" class="btn btn-primary btn-xs" ng-click="addFood(food.fields.item_id)">Add</button>-{{food.fields.item_name}}-{{food.fields.brand_name}}</br><label>
-									<input type="radio" ng-model="frequency" value="Daily">Daily
-								</label></br><label>
-									<input type="radio" ng-model="frequency" value="Weekly">Weekly
-								</label></li>
+							<div><span ng-if="food" class="animate-if">
+  									Please choose a food from the list:
+								</span>
+								<ul ng-if="food" class="animate-if">
+									<li ng-repeat="food in foods">-{{food.fields.item_name}}-{{food.fields.brand_name}}--Servings:<input type="number" name="quantity" min="1" max="100" ng-model="servings.amount"></br>
+									<form>
+									<input type="radio" name="frequency" ng-model="servings.frequency" value="Daily" ng-value"selectedValue">Daily
+								</br>
+
+									<input type="radio" name="frequency" ng-model="servings.frequency" value="Weekly" ng-value="selectedValue">Weekly<br/>
+									<button type="button" class="btn btn-primary btn-xs" ng-click="addFood(food.fields.item_id)">Add</button>
+								</form></li>
 								{{frequency}}
 								</ul>
 								<button type="button" class="btn btn-primary btn-xs" ng-click="buildinterview()">Finish Interview</button>
 							</div>
-							Selected Foods:
-								<ul>
-								<li ng-repeat="food in responseSet">{{food}}</li>
-								</ul>
+							
 						</div>
 						<div class="row">
 							<div class="col-xs-4 text-center">
