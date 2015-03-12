@@ -94,6 +94,9 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/interview/:household/nutrition",
 		templateUrl: "htmls/interview/nutrition.html"
 		controller: "NutritionController"
+	).when("/interview/:household/:interview",
+		templateUrl: "htmls/interview/form.html"
+		controller: "ResponseSetController"
 	).otherwise redirectTo: "/"
 
 	$locationProvider.html5Mode(true)

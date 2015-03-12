@@ -1,0 +1,28 @@
+<div class="panel-body-collapse collapse in">
+      <div class="panel-body ">
+
+      
+          <h1>{{question.name}}
+          <form>
+          <divng-if="multiChoice" class="animate-if">
+          <div  ng-repeat="question in question.questions">
+          <h3>{{question.name}}</h3>
+            <label ng-repeat = "datapoint in question.dataPoints">
+                  <input type="checkbox" checklist-model="responses" checklist-value="datapoint">{{datapoint.label}}
+            </label>
+          </div>
+          </div>
+          <div ng-if="singleChoice" class ="animate-if">
+          <div  ng-repeat="question in question.questions">
+          <h3>{{question.name}}</h3>
+            <label ng-repeat = "datapoint in question.dataPoints">
+                  <input type="radio">{{datapoint.label}}
+            </label>
+          </div>
+          </div>
+          </form>
+
+
+
+      </div>
+  </div>

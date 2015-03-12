@@ -68,3 +68,13 @@ securitys:
     data-placement: "right"
     data-content: |
       Security Management
+questions:
+  text: Questions Admin
+  icon: "icm icm-checkmark2"
+  href: /questionsManager
+  attrs:
+    rel: "popover-sidebar"
+    data-container: "body"
+    data-placement: "right"
+    data-content: |
+      Questions Admin

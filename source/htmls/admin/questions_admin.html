@@ -17,11 +17,7 @@ function duplicateElement(){
 		element.innerHTML = "<input type='text' ng-model='points["+ count +"]'><select ng-model='quest.type' ng-options='k as v for (k , v) in responseTypes'><option value='{{v}}'></option></select>"
 	var destination = document.getElementById("placeholder");
 	destination.appendChild(element);
-
-
 };
-
-
 </script>
 
 Survey Title:<br/>
@@ -29,14 +25,14 @@ Survey Title:<br/>
 <input type="text" ng-model="surveyTitle"></input>
 Select Type:
 <select name="" id="" ng-model="survey_type" ng-options="k as v for (k , v) in types">
-  <option value="{{v}}">Choose a type</option>
+  <option value="{{v}}">Choose a type</option>
   
 </select><br/>
 Question Title:<br/>
   <input type="text" ng-model="questionTitle"></input>
 Select type:
 <select name="" id="" ng-model="question_type" ng-options="k as v for (k , v) in questionTypes">
-  <option value="{{v}}">Choose a type</option>  
+  <option value="{{v}}">Choose a type</option>  
 </select><br/>
 Create Questions:<br/>
 Data Point 1:
