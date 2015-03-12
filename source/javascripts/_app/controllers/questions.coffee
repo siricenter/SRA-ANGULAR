@@ -41,25 +41,6 @@ window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location
           datapoint.answers = [""]
           dataPointsArray.push(datapoint)
 
-
-      
-
-
-
-
-
-
-
-    #dataPoint = {
-    # label: $scope.points,
-    # singleAnswer:$scope.quest.type,
-    # type:$scope.types,
-    # answer:[]
-    #}
-
-    
-    
-
     questions = {
       name: $scope.questionTitle,
       multiUse:$scope.quest.type,
@@ -81,8 +62,7 @@ window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location
     console.log(questionSet)
     console.log(questions)
     
-    
-      #list.$indexFor(id); // returns location in the array
+   
 
     ref = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/question%20sets")).$asArray()
     console.log(ref)
