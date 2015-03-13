@@ -14,7 +14,7 @@ window.app.service "Household", ( firebase, firebaseURL ) ->
 		firebase.create( url, householdData )
 	
 	@find = ( orgId, householdId ) ->
-		url = "#{ firebaseURL }/organizations/#{ orgId }/resources/#{ householdId }"
+		url = "#{ firebaseURL }/organizations/#{ orgId }/resources/#{ householdId.toLowerCase() }"
 		firebase.queryObject( url )
 	
 	return
