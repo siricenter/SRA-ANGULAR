@@ -5,9 +5,9 @@
           <h1>{{question.name}}
           <form>
           <div  ng-repeat="question in question.questions">
-          <h3>{{question.name}}</h3>
+          <h2>{{question.name}}</h2>
             <div ng-repeat="datapoint in question.dataPoints">
-              <h4>{{datapoint.label}}</h4>
+              <h2>{{datapoint.label}}</h2>
               
               <div ng-if= "datapoint.type == 'Text'">
                 <input  type="text">{{option}}</input>

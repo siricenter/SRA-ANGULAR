@@ -4,7 +4,7 @@ window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location
   $scope.questionTypes = ["Single Use","Multi-Use"]
   
   $scope.question = []
-  $scope.questions = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/question sets")).$asArray()
+  $scope.questions = $firebase(new Firebase("#{firebaseURL}/organizations/sra/question sets")).$asArray()
   $scope.responseTypes = ["Date","Text","Number","Multi-Choice","Single-Choice"]
   $scope.points = []
 
@@ -64,12 +64,12 @@ window.app.controller "QuestionsAdminController", ($scope, $rootScope, $location
     
    
 
-    ref = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/question%20sets")).$asArray()
+    ref = $firebase(new Firebase("#{firebaseURL}/organizations/sra/question%20sets")).$asArray()
     console.log(ref)
     ref.$add(questionSet).then (ref) ->
       id = ref.key()
       console.log(id)
-      objref = $firebase(new Firebase("https://testrbdc.firebaseio.com/organizations/sra/question%20sets/#{id}"))
+      objref = $firebase(new Firebase("#{firebaseURL}/organizations/sra/question%20sets/#{id}"))
       objref.$set('qSetId', id).then (data) ->
           data.key()
           # foo

@@ -31,6 +31,6 @@ window.app.controller "AdminSecurityController", ($scope, $location, $firebase, 
 			console.log("hi")
 			role = new Firebase("#{firebaseURL}/organizations/sra/roles/#{$scope.roleName}")
 			role.child("permissions").child("#{permission.$id}").set(permission["permission code"])
-			$location.path("/admin/roles/security")
+			$location.path("/security")
 
 		return
