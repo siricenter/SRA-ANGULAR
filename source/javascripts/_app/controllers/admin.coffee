@@ -107,6 +107,7 @@ window.app.controller "AreasUsersController", ($scope) ->
 window.app.controller "NewUsersController", ($scope, $rootScope, User, currentUser) ->
 	$rootScope.title = "Create User"
 	currentUser.requireLogin()
+	$scope.user = {}
 
 	createUser = () ->
 		User.create($scope.user).then(() ->

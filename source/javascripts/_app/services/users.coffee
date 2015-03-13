@@ -18,7 +18,7 @@ window.app.service "User", (firebase, firebaseURL, Organization) ->
 			Organization.addUser( org, user )
 
 	@create = ( userData ) ->
-		userName = email.split("@").shift()
+		#userName = email.split("@").shift()
 		User = this
 		firebase.createUser(userData)
 			.then (userRef) ->
