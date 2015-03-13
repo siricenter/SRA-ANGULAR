@@ -21,7 +21,7 @@ window.app.directive "areaPanel", ( Household ) ->
 			area: "="
 		templateUrl: "htmls/areas/panel.html"
 		link: ( scope, element ) ->
-			Household.inArea( "sra", scope.area.$id )
+			Household.inArea( "sra", scope.area.name )
 				.then ( households ) ->
 					scope.households = households
 	}

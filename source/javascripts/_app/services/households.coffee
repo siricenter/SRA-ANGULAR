@@ -1,7 +1,7 @@
 window.app.service "Household", ( firebase, firebaseURL ) ->
-	@inArea = ( orgId, areaId ) ->
+	@inArea = ( orgId, areaName ) ->
 		url = "#{firebaseURL}/organizations/#{orgId}/resources/"
-		onLoadPromise = firebase.searchByChild( url, "area", areaId )
+		onLoadPromise = firebase.searchByChild( url, "area", areaName )
 		onLoadPromise
 
 	@all = ( orgId ) ->
