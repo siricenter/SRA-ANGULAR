@@ -4,22 +4,25 @@
       
           <h1>{{question.name}}
           <form>
-          <divng-if="multiChoice" class="animate-if">
           <div  ng-repeat="question in question.questions">
           <h3>{{question.name}}</h3>
-            <label ng-repeat = "datapoint in question.dataPoints">
-                  <input type="checkbox" checklist-model="responses" checklist-value="datapoint">{{datapoint.label}}
-            </label>
+            <div ng-repeat="datapoint in question.dataPoints">
+              <h4>{{datapoint.label}}</h4>
+              
+              <div ng-if= "datapoint.type == 'Text'">
+                <input  type="text">{{option}}</input>
+              </div>
+
+              <div ng-if="datapoint.type == 'List Single Answer'">
+                <div ng-repeat = "option in datapoint.options">
+                <input  type="radio" name ="options" value="{{option}}"> {{option}}
+              </div>
+
+            </div>
+
           </div>
           </div>
-          <div ng-if="singleChoice" class ="animate-if">
-          <div  ng-repeat="question in question.questions">
-          <h3>{{question.name}}</h3>
-            <label ng-repeat = "datapoint in question.dataPoints">
-                  <input type="radio">{{datapoint.label}}
-            </label>
-          </div>
-          </div>
+
           </form>
 
 

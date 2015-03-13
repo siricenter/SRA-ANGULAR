@@ -9,11 +9,8 @@ window.app.controller "ResponseSetController", ($scope, $rootScope, $location,$f
 		for question in data
 			if question.name == id
 				$scope.question = question
-				console.log question
-				if $scope.question.questions[0].dataPoints[0].singleAnswer == true
-					$scope.singleChoice == true
-				else
-					$scope.multiChoice == true
+				
+	
 
 			
 
