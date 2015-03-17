@@ -71,6 +71,7 @@ window.app.controller "NutritionController", ($scope, $location, firebase, $rout
     		$scope.sodiumTotal += item.sodium
     		$scope.carbTotal += item.carbs
     		$scope.proteinTotal += item.protein
+      return
 
 
     	 	
