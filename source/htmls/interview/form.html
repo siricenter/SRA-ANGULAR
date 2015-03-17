@@ -15,7 +15,7 @@
 
               <div ng-if="datapoint.type == 'List Single Answer'">
                 <div ng-repeat = "option in datapoint.options">
-                <input  type="radio" name ="options" value="{{option}}"> {{option}}
+                <input  type="radio" name ="{{datapoint.label}}" value="{{option}}"> {{option}}
               </div>
 
             </div>
