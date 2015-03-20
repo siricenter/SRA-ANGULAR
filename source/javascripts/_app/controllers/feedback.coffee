@@ -15,8 +15,8 @@ window.app.controller "FeedBackController", ($scope, $rootScope, $location,$fire
 			doing:$scope.attempt,
 			expect:$scope.expectation,
 			platform:$scope.platform,
-			time:new Date().toString(),
-			view: document.URL
+			time:2,
+			view: $scope.section
 		}
 		console.log(feedback)
 		$scope.ref.$add(feedback).then (id) ->
