@@ -78,3 +78,14 @@ questions:
     data-placement: "right"
     data-content: |
       Questions Admin
+
+feedback:
+  text: Feedback
+  icon: "icm icm-checkmark2"
+  href: /feedback
+  attrs:
+    rel: "popover-sidebar"
+    data-container: "body"
+    data-placement: "right"
+    data-content: |
+      Feedback

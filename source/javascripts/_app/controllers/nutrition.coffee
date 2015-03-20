@@ -6,7 +6,6 @@ window.app.controller "NutritionController", ($scope, $location, firebase, $rout
 	$scope.sodiumTotal = 0
 	$scope.carbTotal = 0
 
-
 	$scope.name = $routeParams.household
 
 	$scope.servings = {
@@ -27,8 +26,6 @@ window.app.controller "NutritionController", ($scope, $location, firebase, $rout
   				@servings = servings
 
 	$scope.frequency
-
-
 	
 	$scope.search = (food)->
 		req = {
@@ -72,6 +69,16 @@ window.app.controller "NutritionController", ($scope, $location, firebase, $rout
     		$scope.carbTotal += item.carbs
     		$scope.proteinTotal += item.protein
       return
+
+  $scope.save = ->
+    console.log('hi')
+    return
+
+   
+
+
+
+        
 
 
     	 	

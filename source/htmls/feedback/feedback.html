@@ -1,0 +1,19 @@
+<h1>Feedback Form</h1>
+<form role="form" data-ng-submit="submit()">
+<h2>What Platform Were You On?</h2>
+<input name="platform" type="radio" ng-model="platform" value="Web" >Web<br/>
+<input name="platform" type="radio" ng-model="platform" value="Mobile" >Mobile<br/>
+<h2>What section of the application were you on?</h2><br/>
+<input type="text"  size="35" ng-model="section">
+<h2>What were you trying to do</h2>
+<input type="text"  size="35" ng-model="attempt"><br/>
+<h2>What did you expect the system to do</h2><br/>
+<input type="text"  size="35" ng-model="expectation"><br/>
+<h2>What did it actually do</h2>
+<input type="text"  size="35" ng-model="result"><br/>
+<h2>What comments do you have</h2>
+<textarea rows="10" cols="50" ng-model="comments"></textarea><br/>
+<input type="submit" value="Submit Feedback">
+
+
+</form>

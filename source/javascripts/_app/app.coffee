@@ -52,6 +52,9 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/households",
 		templateUrl: "htmls/households/index.html"
 		controller: "HouseholdsIndexController"
+	).when("/:household/notes",
+		templateUrl: "htmls/households/notes.html"
+		controller: "NotesController"
 	).when("/households/new",
 		templateUrl: "htmls/households/new.html"
 		controller: "NewHouseholdController"
@@ -97,6 +100,9 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/interview/:household/:interview",
 		templateUrl: "htmls/interview/form.html"
 		controller: "ResponseSetController"
+	).when("/feedback",
+		templateUrl: "htmls/feedback/feedback.html"
+		controller: "FeedBackController"
 	).otherwise redirectTo: "/"
 
 	$locationProvider.html5Mode(true)
