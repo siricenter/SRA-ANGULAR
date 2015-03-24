@@ -103,6 +103,9 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/feedback",
 		templateUrl: "htmls/feedback/feedback.html"
 		controller: "FeedBackController"
+	).when("/bugs",
+		templateUrl: "htmls/bugs.html"
+		controller: "FeedBackController"
 	).otherwise redirectTo: "/"
 
 	$locationProvider.html5Mode(true)
