@@ -1,15 +1,15 @@
 window.app.controller "NutritionController", ($scope, $location, $firebase, $routeParams, firebaseURL, currentUser,$http) ->
   household = $firebase(new Firebase("#{firebaseURL}/organizations/sra/resources")).$asArray().$loaded()
+  $scope.name = $routeParams.household
   household.then (households) ->
     for household in households
       if $scope.name == household.name
         $scope.household = household
   $scope.finish = ->
-    answers = $scope.household.interviews[0].questionsets[0].questions[0].dataPoints[0].answers
     for answer in $scope.responseSet
-      answers.push(answer)
-    $firebase(new Firebase("#{firebaseURL}/organizations/sra/resources/#{$scope.household.$id}interviews/0/questionsets/0/questions/0/dataPoints/0/answers")).$asArray().$loaded().then (data)->
-      data.$add(answers)
+      $firebase(new Firebase("#{firebaseURL}/organizations/sra/resources/#{$scope.household.$id}/interviews/0/questionsets/0/questions/0/dataPoints/0/answers")).$asArray().$loaded().then (data)->
+        data.$add(answer)
+
   $scope.responseSet = []
 
   $scope.calTotal = 0
@@ -17,7 +17,7 @@ window.app.controller "NutritionController", ($scope, $location, $firebase, $rou
   $scope.sodiumTotal = 0
   $scope.carbTotal = 0
 
-  $scope.name = $routeParams.household
+  
 
   $scope.servings = {
     amount:1
