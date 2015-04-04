@@ -1,6 +1,7 @@
 window.app.controller "NotesController", ( $scope, currentUser, firebaseURL, $firebase,$routeParams ) ->
 	$scope.id = $routeParams.household
 	$scope.message = "This family has no notes taken"
+	$scope.notes = []
 	ref = new Firebase("#{firebaseURL}/organizations/sra/resources")
 	$firebase(ref).$asArray().$loaded().then (families)->
 		for family in families
@@ -13,7 +14,7 @@ window.app.controller "NotesController", ( $scope, currentUser, firebaseURL, $fi
 						if note.noteType == "Member"
 							console.log(note.householdID)
 							if note.householdID == $scope.householdID
-								#$scope.notes = note
-								#$scope.message = null
+								$scope.notes.push note
+								$scope.message = null
 								console.log(note)
 

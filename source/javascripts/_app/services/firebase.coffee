@@ -1,3 +1,4 @@
+
 window.app.service "firebase", ($firebase, $firebaseAuth, firebaseURL) ->
 	@searchByChild = ( url, key, value ) ->
 		ref = new Firebase( url ).orderByChild( key ).startAt( value ).endAt( value )

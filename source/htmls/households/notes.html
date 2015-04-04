@@ -1,11 +1,12 @@
-<div>{{message}}
+<div>{{message}}</div>
 <div ng-if = "notes">
-<div ng-repeat="note in notes">{{notes}}
-<div>Area:{{note.areaName}}</div>
-<div>Author:{{note.author}}
-<div>Date:{{note.dateCreated}}</div>
-<div>Title:{{note.noteTitle}}</div>
-<div>Contents:{{note.noteContents}}</div>
-<div>Type:{{note.noteType}}
+<div ng-repeat="note in notes">
+
+Area:{{note.areaName}}<br />
+Author:{{note.author}}<br />
+Date:{{note.dateCreated}}<br />
+Title:{{note.noteTitle}}<br />
+Contents:{{note.noteContents}}<br/>
+Type:{{note.noteType}}
 </div>
 </div>

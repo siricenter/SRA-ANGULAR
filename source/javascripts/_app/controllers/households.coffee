@@ -26,7 +26,7 @@ window.app.controller "NewHouseholdController", ( $scope, currentUser, $location
 						householdData =
 							country: area.country
 							region: area.region
-							area: area.$id
+							area: area.$id			
 							name: $scope.household.name
 							householdID: $scope.household.name.substring(0, 3).toUpperCase() + Date.now()
 						Household.create( "sra", householdData )
