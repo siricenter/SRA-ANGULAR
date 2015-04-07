@@ -31,8 +31,8 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/users/:name/destroy",
 		templateUrl: "htmls/admin/delete_user.html"
 		controller: "DeleteUsersController"
-	).when("/users/:id/edit",
-		templateUrl: "htmls/admin/edit_user.html"
+	).when("/users/edit/:email",
+		templateUrl: "htmls/users/edit.html"
 		controller: "EditUsersController"
 	).when("/users/new",
 		templateUrl: "htmls/users/new.html",

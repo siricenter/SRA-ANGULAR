@@ -37,38 +37,45 @@ window.app.controller "AdminUsersController", ($scope, $rootScope, currentUser, 
 
 	return
 
-window.app.controller "EditUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL, currentUser) ->
+window.app.controller "EditUsersController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL, currentUser,Area) ->
 	currentUser.requireLogin()
-	$scope.name = $routeParams.id
+	$scope.id = $routeParams.email
 	$scope.userRoles = []
-	userRef = new Firebase("#{firebaseURL}/users/#{$scope.name}/organizations/sra/roles")
+	userRef = new Firebase("#{firebaseURL}/users")
 	userSync = $firebase(userRef).$asArray()
-	userSync.$loaded().then (roles)->
-		for role in roles
-			$scope.userRoles.push(role.$value)
-
-			return
-
-	rolesref = new Firebase("#{firebaseURL}/organizations/sra/roles")
-	rolessync = $firebase(rolesref).$asArray()
-	rolessync.$loaded().then (data)->
-		$scope.roles = data
+	userSync.$loaded().then (users)->
+		for user in users
+			if user.email == $scope.id
+				$scope.user = user
+				console.log($scope.user.roles)
 		return
 
+	
+	$scope.AssignArea = () ->
+		ref = $firebase(new Firebase("#{ firebaseURL }/organizations/sra/areas")).$asArray().$loaded().then (areas)->
+			$scope.areas = areas
+
+	$scope.AssignRole = ()->
+		rolesref = new Firebase("#{firebaseURL}/organizations/sra/roles")
+		rolessync = $firebase(rolesref).$asArray()
+		rolessync.$loaded().then (data)->
+			$scope.roles = data
+			return
+
+	
 
 	$scope.updateUser = ->
-		console.log("hi")
-		fname = $scope.user.fname
-		lname = $scope.user.lname
-		ref = new Firebase("#{firebaseURL}organizations/sra/users/#{$scope.name}")
-		sync = $firebase(ref)
-		sync.$update({firstname: fname, lastname: lname}).then ->
-			xref = new Firebase("#{firebaseURL}/users/#{$scope.name}")
-			xsync = $firebase(xref)
-			xsync.$update({firstName: fname, lastName: lname}).then ->
-				$location.path('/admin/users')
-				return
-			return
+		ref = new Firebase("#{firebaseURL}/organizations/sra/users/#{$scope.user.$id}")
+		ref.child('firstName').set($scope.user.firstName)
+		ref.child('lastName').set($scope.user.lastName)
+		userref = new Firebase("#{firebaseURL}/users/#{$scope.user.$id}")
+		userref.child('firstName').set($scope.user.firstName)
+		userref.child('lastName').set($scope.user.lastName)
+		if $scope.user.roles != undefined
+			userref.child("roles").set($scope.user.roles)
+		if $scope.user.areas != undefined
+			userref.child('areas').set($scope.user.areas)
+		return
 
 	$scope.updateRole = ->
 		roles = $scope.userRoles
@@ -104,14 +111,15 @@ window.app.controller "DeleteUsersController", ($scope, $location, $firebase, $r
 window.app.controller "AreasUsersController", ($scope) ->
 	return
 
-window.app.controller "NewUsersController", ($scope, $rootScope, User, currentUser) ->
+window.app.controller "NewUsersController", ($scope, $rootScope, $location,User, currentUser) ->
 	$rootScope.title = "Create User"
 	currentUser.requireLogin()
 	$scope.user = {}
 
 	createUser = () ->
 		User.create($scope.user).then(() ->
-			$scope.user = {})
+			$location.path("/users/edit/#{$scope.user.email}"))
+
 
 		return
 

@@ -6,9 +6,12 @@ window.app.controller "NutritionController", ($scope, $location, $firebase, $rou
       if $scope.name == household.name
         $scope.household = household
   $scope.finish = ->
+    
     for answer in $scope.responseSet
-      $firebase(new Firebase("#{firebaseURL}/organizations/sra/resources/#{$scope.household.$id}/interviews/0/questionsets/0/questions/0/dataPoints/0/answers")).$asArray().$loaded().then (data)->
-        data.$add(answer)
+      delete answer['$$hashKey']
+      ref = new Firebase("#{firebaseURL}/organizations/sra/resources/#{$scope.household.$id}")
+      ref.child('nutrition').push(answer)
+        
 
   $scope.responseSet = []
 
@@ -16,8 +19,6 @@ window.app.controller "NutritionController", ($scope, $location, $firebase, $rou
   $scope.proteinTotal = 0
   $scope.sodiumTotal = 0
   $scope.carbTotal = 0
-
-  
 
   $scope.servings = {
     amount:1
@@ -58,10 +59,11 @@ window.app.controller "NutritionController", ($scope, $location, $firebase, $rou
        url = "https://api.nutritionix.com/v1_1/item?id=#{item_id}&appId=f67bfd42&appKey=c69bd76b98dd8d4e1fd629241b3bb199"
        $http.get(url).success (data,status, headers, config) ->
         amt = $scope.servings.amount
-        console.log(amt)
+        console.log(data)
+        id = data.item_id
         calories = data.nf_calories * amt
         carbs = data.nf_total_carbohydrate * amt
-        sodium = data.nf_sodium *amt
+        sodium = data.nf_sodium * amt
         name = data.item_name
         protein = data.nf_protein * amt
         brand = data.brand_name
@@ -70,16 +72,20 @@ window.app.controller "NutritionController", ($scope, $location, $firebase, $rou
         foodObject = new FoodItem(calories,sodium,protein,carbs,name,brand,frequency,servings)
         console.log(foodObject)
         $scope.responseSet.push(foodObject)
-      
-        calc()
+        calc($scope.responseSet)
 
-    calc = ->   
-      for item in $scope.responseSet
-        $scope.calTotal += item.calories
-        $scope.sodiumTotal += item.sodium
-        $scope.carbTotal += item.carbs
-        $scope.proteinTotal += item.protein
-      return
+    calc = (obj)->   
+          for item in obj
+            $scope.calTotal += item.calories
+            $scope.sodiumTotal += item.sodium
+            $scope.carbTotal += item.carbs
+            $scope.proteinTotal += item.protein
+            return
+          return
+      
+        
+
+    
 
   $scope.save = ->
     console.log('hi')

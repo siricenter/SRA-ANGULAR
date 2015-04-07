@@ -41,7 +41,7 @@
   									Please choose a food from the list:
 								</span>
 								<ul ng-if="food" class="animate-if">
-									<li ng-repeat="food in foods">-{{food.fields.item_name}}-{{food.fields.brand_name}}--Servings:<input type="number" name="quantity" min="1" max="100" ng-model="servings.amount"></br>
+									<li ng-repeat="food in foods track by food.fields.item_id">-{{food.fields.item_name}}-{{food.fields.brand_name}}--Servings:<input type="number" name="quantity" min="1" max="100" ng-model="servings.amount"></br>
 									<form>
 									<input type="radio" name="frequency" ng-model="servings.frequency" value="Daily" ng-value"selectedValue">Daily
 								</br>

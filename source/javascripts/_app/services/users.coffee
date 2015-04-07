@@ -24,8 +24,7 @@ window.app.service "User", (firebase, firebaseURL, Organization) ->
 			.then (userRef) ->
 				User.find( userRef.key() )
 			.then ( user ) ->
-				# 'sra' can easily be switched to currentOrg when we have that
-				User.addOrg( user, 'sra' )
+				console.log(user)
 	
 	@cache = ( user ) ->
 		sessionStorage.userId = user.$id

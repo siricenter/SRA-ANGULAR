@@ -1,20 +1,55 @@
 
- <h2>Username: {{username}}</h2>
-  <div class="row form-group">
-            New First Name: <br/>
-            <div class="col-sm-3">
-              <input type = "text" value ='{{name}}' ng-model="user.fname" />
-            </div>
-            </div>
-              New Last Name: <br/>
-            <div class="row form-group">
-            <div class="col-sm-3">
-              <input type = "text" value ='{{name}}' ng-model="user.lname" />
+<div class="container-fluid turbo-cols-static turbo-grid-wrap">
+<div class="turbo-grid">
+  <!-- ngView:  -->
+  <div class="row ng-scope" rel="panels">
+    <div class="col-md-4">
+      <div class="turbo-card turbo-toggle">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <div class="panel-title text-center">
+              Username: {{user.email}}
             </div>
           </div>
-           <div class="row">
-            <button class = "btn-success" ng-click = "UpdateUser()">Update User</button>
+     
+               
+            <div >
+            New First Name: <br/>
+              <input type = "text" value ='{{user.firstName}}' ng-model="user.firstName" />
             </div>
-    
            
+            
+            <div >
+              New Last Name: <br/>
+              <input type = "text" value ='{{user.lastName}}' ng-model="user.lastName"/>
+            </div>
+            <div ng-if="roles">
+            Roles:
+             <label ng-repeat="role in roles">
+                  <input type="checkbox"  checklist-model="user.roles" checklist-value="role.name">{{role.name}}
+                </label>
+            </div>
+            <div ng-if="areas">
+            Areas:
+              <labek ng-repeat="area in areas">
+                <input type="checkbox" checklist-model="user.areas" checklist-value="area.name">{{area.name}}
+              </label>
+            </div>
+{{user.roles}}
+{{user.areas}}
+            </div>
+            <button class = "btn-success" ng-click = "updateUser()">Update User</button>
+            <button class = "btn-success" ng-click = "AssignArea()">Assign Area</button>
+            <button class = "btn-success" ng-click = "AssignRole()">Assign Role</button>
+            </div>
+       
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
 </div>
