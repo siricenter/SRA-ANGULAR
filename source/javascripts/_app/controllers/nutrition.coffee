@@ -9,8 +9,8 @@ window.app.controller "NutritionController", ($scope, $location, $firebase, $rou
     
     for answer in $scope.responseSet
       delete answer['$$hashKey']
-      ref = new Firebase("#{firebaseURL}/organizations/sra/resources/#{$scope.household.$id}")
-      ref.child('nutrition').push(answer)
+    ref = new Firebase("#{firebaseURL}/organizations/sra/resources/#{$scope.household.$id}")
+    ref.child('nutrition').set($scope.responseSet)
         
 
   $scope.responseSet = []
@@ -28,23 +28,23 @@ window.app.controller "NutritionController", ($scope, $location, $firebase, $rou
 
   class FoodItem
         constructor: (calories,sodium,protein,carbs,name,brand,frequency,servings,cal_from_fat,total_fat,sat_fat,water_grams,trans_fat,cholest,sugar,vitamin_a,vitamin_c,calcium,iron) ->
-          @item_name = name
-          @brand_name = brand
-          @nf_calories = calories
-          @nf_calories_from_fat = cal_from_fat
-          @nf_total_fat = total_fat
-          @nf_saturated_fat = sat_fat
-          @nf_water_grams = water_grams
-          @nf_trans_fatty_acid = trans_fat
-          @nf_cholesterol = cholest
-          @nf_sugars = sugar
-          @nf_vitamin_a_dv = vitamin_a
-          @nf_vitamin_c_dv = vitamin_c
-          @nf_calcium_dv = calcium
-          @nf_iron_dv = iron
-          @nf_sodium = sodium
-          @nf_protein = protein
-          @nf_total_carbohydrate = carbs
+          @itemName = name
+          @brandName = brand
+          @nfCalories = calories
+          @nfCaloriesFromFat = cal_from_fat
+          @nfTotalFat = total_fat
+          @nfSaturatedFat = sat_fat
+          @nfWaterGrams = water_grams
+          @nfTransFattyAcid = trans_fat
+          @nfCholesterol = cholest
+          @nfSugars = sugar
+          @nfVitaminADv = vitamin_a
+          @nfVitaminCDv = vitamin_c
+          @nfCalciumDv = calcium
+          @nfIronDv = iron
+          @nfSodium = sodium
+          @nfProtein = protein
+          @nfTotalCarbohydrate = carbs
           @frequency = frequency
           @servings = servings
 
@@ -98,10 +98,10 @@ window.app.controller "NutritionController", ($scope, $location, $firebase, $rou
         calc(foodObject)
 
     calc = (item)->       
-      $scope.calTotal += item.nf_calories
-      $scope.sodiumTotal += item.nf_sodium
-      $scope.carbTotal += item.nf_total_carbohydrate
-      $scope.proteinTotal += item.nf_protein
+      $scope.calTotal += item.nfCalories
+      $scope.sodiumTotal += item.nfSodium
+      $scope.carbTotal += item.nfTotalCarbohydrate
+      $scope.proteinTotal += item.nfProtein
       return
       
         
