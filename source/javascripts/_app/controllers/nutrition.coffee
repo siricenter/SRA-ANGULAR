@@ -27,13 +27,24 @@ window.app.controller "NutritionController", ($scope, $location, $firebase, $rou
   $scope.selectedValue
 
   class FoodItem
-        constructor: (calories,sodium,protein,carbs,name,brand,frequency,servings) ->
-          @name = name
-          @brand = brand
-          @calories = calories
-          @sodium = sodium
-          @protein = protein
-          @carbs = carbs
+        constructor: (calories,sodium,protein,carbs,name,brand,frequency,servings,cal_from_fat,total_fat,sat_fat,water_grams,trans_fat,cholest,sugar,vitamin_a,vitamin_c,calcium,iron) ->
+          @item_name = name
+          @brand_name = brand
+          @nf_calories = calories
+          @nf_calories_from_fat = cal_from_fat
+          @nf_total_fat = total_fat
+          @nf_saturated_fat = sat_fat
+          @nf_water_grams = water_grams
+          @nf_trans_fatty_acid = trans_fat
+          @nf_cholesterol = cholest
+          @nf_sugars = sugar
+          @nf_vitamin_a_dv = vitamin_a
+          @nf_vitamin_c_dv = vitamin_c
+          @nf_calcium_dv = calcium
+          @nf_iron_dv = iron
+          @nf_sodium = sodium
+          @nf_protein = protein
+          @nf_total_carbohydrate = carbs
           @frequency = frequency
           @servings = servings
 
@@ -65,30 +76,34 @@ window.app.controller "NutritionController", ($scope, $location, $firebase, $rou
         carbs = data.nf_total_carbohydrate * amt
         sodium = data.nf_sodium * amt
         name = data.item_name
+        cal_from_fat = data.nf_calories_from_fat
+        total_fat = data.nf_total_fat
+        sat_fat = data.nf_saturated_fat
+        water_grams = data.nf_water_grams
+        trans_fat = data.nf_trans_fatty_acid
+        cholest = data.nf_cholesterol
+        sugar = data.nf_sugars
+        vitamin_a = data.nf_vitamin_a_dv
+        vitamin_c = data.nf_vitamin_c_dv
+        calcium = data.nf_calcium_dv
+        iron = data.nf_iron_dv
+        sodium = data.nf_sodium
         protein = data.nf_protein * amt
         brand = data.brand_name
         servings = amt
         frequency = $scope.servings.frequency * amt
-        foodObject = new FoodItem(calories,sodium,protein,carbs,name,brand,frequency,servings)
+        foodObject = new FoodItem(calories,sodium,protein,carbs,name,brand,frequency,servings,cal_from_fat,total_fat,sat_fat,water_grams,trans_fat,cholest,sugar,vitamin_a,vitamin_c,calcium,iron)
         console.log(foodObject)
         $scope.responseSet.push(foodObject)
-        calc($scope.responseSet)
+        calc(foodObject)
 
-    calc = (obj)->   
-          for item in obj
-            $scope.calTotal += item.calories
-            $scope.sodiumTotal += item.sodium
-            $scope.carbTotal += item.carbs
-            $scope.proteinTotal += item.protein
-            return
-          return
+    calc = (item)->       
+      $scope.calTotal += item.nf_calories
+      $scope.sodiumTotal += item.nf_sodium
+      $scope.carbTotal += item.nf_total_carbohydrate
+      $scope.proteinTotal += item.nf_protein
+      return
       
         
-
-    
-
-  $scope.save = ->
-    console.log('hi')
-    return
  
   return
