@@ -1,7 +1,7 @@
 <div class="panel-body-collapse collapse in">
       <div class="panel-body ">
 
-      
+      "Date","Text","Number","Multi-Choice","Single-Choice"
           <h1>{{question.name}}
           <form>
           <div  ng-repeat="question in question.questions">
@@ -15,11 +15,23 @@
 
               <div ng-if="datapoint.type == 'List Single Answer'">
                 <div ng-repeat = "option in datapoint.options">
-                <input  type="radio" name ="{{datapoint.label}}" value="{{option}}"> {{option}}
+                <input  type="radio" name ="{{datapoint.label}}" value="{{option}}" ng-model="response[datapoint.label]"> {{option}}-{{response}}
               </div>
 
+              <div ng-if="datapoint.type == 'Date'">
+                <div ng-repeat = "option in datapoint.options">
+                <input type="date" name="datapoint.label" >{{option}}
+                </div>
             </div>
-
+            <div ng-if="datapoint.type == 'List Multi Answer'">
+              <div ng-repeat = "option in datapoint.options">
+                <input type="checkbox" checklist-model="response[datapoint.label]" value="option">{{option}}
+                </div>
+            </div>
+            <div ng-if="datapoint.type == 'Number">
+              <div ng-repeat = "option in datapoint.options">
+              <input type = "number">{{option}}
+            </div>
           </div>
           </div>
 

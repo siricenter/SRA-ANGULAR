@@ -1,8 +1,14 @@
 window.app.service "Area", ( firebaseURL, firebase ) ->
-	@inRegion = ( orgId, regionId ) ->
-		url = "#{firebaseURL}/organizations/#{orgId}/areas/"
-		onLoadPromise = firebase.searchByChild( url, 'region', regionId )
-		onLoadPromise
+	@inRegion = ( regionName ) ->
+		areasInRegion = []
+		url = "#{firebaseURL}/organizations/sra/areas/"
+		onLoadPromise = firebase.queryArray(url)
+		onLoadPromise.then (areas) ->
+			for area in areas
+				if area.region == regionName
+					areasInRegion.push(area) 
+		areasInRegion
+
 
 	@find = ( orgId, areaId ) ->
 		url = "#{ firebaseURL }/organizations/#{ orgId }/areas/#{ areaId }"

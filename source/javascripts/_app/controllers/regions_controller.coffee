@@ -1,7 +1,10 @@
-window.app.controller "RegionsIndexController", ( $scope, Region, currentUser ) ->
+window.app.controller "RegionsIndexController", ( $scope, Region, currentUser, Area ) ->
 	currentUser.requireLogin().then () ->
 		Region.all( 'sra' ).then ( regions ) ->
 			$scope.regions = regions
+			for region in $scope.regions
+				region.areas = Area.inRegion(region.name)
+
 	
 
 window.app.controller "NewRegionController", ( $scope, Country, Region, currentUser, $location ) ->
