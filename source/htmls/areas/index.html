@@ -1,3 +1,43 @@
-<area-panel data-ng-repeat="area in areas" area="area">
-</area-panel>
-<a href = "areas/new"><button type="button" class="btn btn-primary btn-lg">New Area</button></a>
+<div class="container-fluid turbo-cols-static turbo-grid-wrap">
+<div class="turbo-grid">
+	<!-- ngView:  -->
+	<div class="row ng-scope" rel="panels">
+		<div class="col-md-4" ng-repeat="area in areas">
+			<div class="turbo-card turbo-toggle">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<div class="panel-title text-center">
+							{{area['name']}}
+						</div>
+					</div>
+					<div class="panel-body no-padding-top">
+						<div class="vpadded">
+							<span>Region: {{area.region}}</span><br/>
+							<span>Households:</span>
+							<ul ng-repeat="household in area.households">
+								<li>{{household.name}}</li>
+							</ul>
+							<br>
+							
+							<!-- Roles:
+		   <ul>
+		   <li ng-repeat = "role in user.organizations.sra.roles">{{role}}</li>
+		   </ul> -->
+
+		   </ul>
+							</br>
+
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href = "areas/new"><button type="button" class="btn btn-primary btn-lg">New Area</button></a>
+</div>

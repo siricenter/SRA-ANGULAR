@@ -3,7 +3,7 @@
 
       "Date","Text","Number","Multi-Choice","Single-Choice"
           <h1>{{question.name}}
-          <form>
+          <form role="form" data-ng-submit="submit()">
           <div  ng-repeat="question in question.questions">
           <h2>{{question.name}}</h2>
             <div ng-repeat="datapoint in question.dataPoints">
@@ -15,26 +15,28 @@
 
               <div ng-if="datapoint.type == 'List Single Answer'">
                 <div ng-repeat = "option in datapoint.options">
-                <input  type="radio" name ="{{datapoint.label}}" value="{{option}}" ng-model="response[datapoint.label]"> {{option}}-{{response}}
+                <input  type="radio" name ="{{datapoint.label}}" value="{{option}}" ng-model="responses[question.name][datapoint.label]"> {{option}}-{{response}}
               </div>
 
               <div ng-if="datapoint.type == 'Date'">
                 <div ng-repeat = "option in datapoint.options">
-                <input type="date" name="datapoint.label" >{{option}}
+                <input type="date" name="datapoint.label" ng-model="responses[datapoint.label]">{{option}}
                 </div>
             </div>
             <div ng-if="datapoint.type == 'List Multi Answer'">
               <div ng-repeat = "option in datapoint.options">
-                <input type="checkbox" checklist-model="response[datapoint.label]" value="option">{{option}}
+                <input type="checkbox" checklist-model="responses[datapoint.label]" value="option">{{option}}
                 </div>
             </div>
-            <div ng-if="datapoint.type == 'Number">
+            <div ng-if="datapoint.type == 'Number'">
               <div ng-repeat = "option in datapoint.options">
-              <input type = "number">{{option}}
+              <input type = "number" ng-model="responses[datapoint.label]">{{option}}
             </div>
           </div>
           </div>
-
+          </div>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg" ng-click="submit()">Submit Response</button>
           </form>
 
 

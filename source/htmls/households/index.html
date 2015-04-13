@@ -1,9 +1,54 @@
-<h1>
-Households 
-</h1>
+<div class="container-fluid turbo-cols-static turbo-grid-wrap">
+<div class="turbo-grid">
+	<!-- ngView:  -->
+	<div class="row ng-scope" rel="panels">
+		<div class="col-md-4" ng-repeat="household in households">
+			<div class="turbo-card turbo-toggle">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<div class="panel-title text-center">
+							{{household['name']}}
+						</div>
+					</div>
+					<div class="panel-body no-padding-top">
+						<div class="vpadded">
+							<span>Name: {{household.name}}</span><br/>
+							<span>Members:</span>
+							<ul ng-repeat="member in household.members">
+								<li>{{member.name}}</li>
+									<ul>
+										<li>Gender: {{member.gender}}</li>
+										<li>Relationship: {{member.relationship}}</li>
 
-<div class="padded">
-	<household-panel data-ng-repeat="household in households" household="household">
-	</household-panel>
-	<a href = "households/new"><button type="button" class="btn btn-primary btn-lg">New Household</button></a>
+
+							</ul>
+							
+							<br>
+							
+							<!-- Roles:
+		   <ul>
+		   <li ng-repeat = "role in user.organizations.sra.roles">{{role}}</li>
+		   </ul> -->
+
+		   </ul>
+							</br>
+							<a href = "{{household.name}}/notes"><button type="button" class="btn btn-primary btn-xs">Notes</button></a>
+							<a href = "interview/{{household.name}}/nutrition"><button type="button" class="btn btn-primary btn-xs">Nutrition</button></a>
+							<a href = "interview/{{household.name}}/Basic Information"><button type="button" class="btn btn-primary btn-xs">Basic Info</button><a>
+							<a href = "interview/{{household.name}}/Health"><button type="button" class="btn btn-primary btn-xs">Health</button></a>
+							<a href = "interview/{{household.name}}/other"><button type="button" class="btn btn-primary btn-xs">Other</button></a>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href = "householdss/new"><button type="button" class="btn btn-primary btn-lg">New Household</button></a>
 </div>
+

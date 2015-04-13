@@ -38,7 +38,7 @@ window.app.service "currentUser", ( $rootScope, $location, firebase, firebaseURL
 			.catch ( error ) ->
 				# We really should do something better on failure, like post a
 				# notification on the login page.
-				console.error "Authentication Failed:", error
+				window.alert("Authentication Failed:", error)
 				return # Void
 		return authPromise
 

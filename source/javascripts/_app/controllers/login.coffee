@@ -23,6 +23,7 @@ window.app.controller "DashboardController", ($scope, $location, $rootScope, cur
 		$scope.areas = user.areas
 		$scope.firstname = user.firstName
 		$scope.lastName = user.lastName
+		console.log($scope.user)
 
-	$location.path "/dashboard" if user.roles is "Admin"
+	#$location.path "/dashboard" if user.roles is "Admin"
 	return

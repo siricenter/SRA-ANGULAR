@@ -4,8 +4,13 @@ window.app.controller "AreasController", ($scope, $location, $firebase, $routePa
 	$scope.areas = $rootScope.currentUser.areas
 	return
 
-window.app.controller "AreasIndexController", ($scope, $location, $firebase, $rootScope, currentUser) ->
-	$scope.areas = currentUser.currentUser().areas
+window.app.controller "AreasIndexController", ($scope, $location, $firebase, $rootScope, currentUser,Area,Household) ->
+	Area.all('sra').then (data) ->
+		$scope.areas = data
+		for area in $scope.areas
+			area.households = Household.inArea('sra',area.name)
+	console.log($scope.areas)
+
 	return
 
 window.app.controller "AreasShowController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->

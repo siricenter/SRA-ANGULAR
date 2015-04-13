@@ -1,7 +1,10 @@
-window.app.controller "AreasIndexController", ( $scope, currentUser, Area ) ->
+window.app.controller "AreasIndexController", ( $scope, currentUser, Area, Household ) ->
 	currentUser.requireLogin().then () ->
-		Area.all( "sra" ).then ( areas ) ->
-			$scope.areas = areas
+		Area.all('sra').then (data) ->
+			$scope.areas = data
+			for area in $scope.areas
+				area.households = Household.inArea('sra',area.name)
+		console.log($scope.areas)
 
 
 window.app.controller "ShowAreaController", ( $scope, $routeParams, currentUser, Area, Household ) ->

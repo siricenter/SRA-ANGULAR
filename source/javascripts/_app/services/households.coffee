@@ -1,10 +1,20 @@
 window.app.service "Household", ( firebase, firebaseURL ) ->
 	@inArea = ( orgId, areaName ) ->
+		householdsInArea = []
 		url = "#{firebaseURL}/organizations/#{orgId}/resources/"
-		onLoadPromise = firebase.searchByChild( url, "area", areaName )
+		onLoadPromise = firebase.queryArray(url)
+		onLoadPromise.then (households) ->
+			for household in households
+				if areaName == household.area
+					householdsInArea.push household
+					console.log(household)
+		return householdsInArea
+	@all = (orgId) ->
+		url = "#{firebaseURL}/organizations/#{orgId}/resources/"
+		onLoadPromise = firebase.queryArray(url)
 		onLoadPromise
 
-	@all = ( orgId ) ->
+
 		url = "#{ firebaseURL }/organizations/#{ orgId }/resources"
 		onLoadPromise = firebase.queryArray(url)
 		return onLoadPromise
@@ -13,8 +23,14 @@ window.app.service "Household", ( firebase, firebaseURL ) ->
 		url = "#{ firebaseURL }/organizations/#{ orgId }/resources"
 		firebase.create( url, householdData )
 	
-	@find = ( orgId, householdId ) ->
-		url = "#{ firebaseURL }/organizations/#{ orgId }/resources/#{ householdId.toLowerCase() }"
-		firebase.queryObject( url )
+	@find = ( orgId, householdName ) ->
+		url = "#{ firebaseURL }/organizations/#{ orgId }/resources"
+		firebase.queryArray( url ).then (households)->
+			for household in households 
+				if household.name == householdName
+					result = household
+		
+		
+
 	
 	return
