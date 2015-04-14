@@ -1,35 +1,38 @@
 "use strict"
 window.app.controller "AreasController", ($scope, $location, $firebase, $routeParams, $rootScope, currentUser) ->
-	$scope.regions = currentUser.currentUser().regions
-	$scope.areas = $rootScope.currentUser.areas
-	return
+	currentUser.requireLogin().then () ->
+		$scope.regions = currentUser.currentUser().regions
+		$scope.areas = $rootScope.currentUser.areas
+		return
 
 window.app.controller "AreasIndexController", ($scope, $location, $firebase, $rootScope, currentUser,Area,Household) ->
-	Area.all('sra').then (data) ->
-		$scope.areas = data
-		for area in $scope.areas
-			area.households = Household.inArea('sra',area.name)
-	console.log($scope.areas)
+	currentUser.requireLogin().then () ->
+		Area.all('sra').then (data) ->
+			$scope.areas = data
+			for area in $scope.areas
+				area.households = Household.inArea('sra',area.name)
+	
 
 	return
 
 window.app.controller "AreasShowController", ($scope, $location, $firebase, $routeParams, $rootScope, firebaseURL) ->
-	name = $routeParams.name
-	ref = new Firebase("#{firebaseURL}/organizations/sra/regions/South%20Africa/areas/#{name}")
-	area = $firebase(ref).$asObject()
-	area.$loaded().then (area) ->
-		Household = (family, members) ->
-			@family = family
-			@members = members
-			return
-		names = Object.keys(area.resources)
-		$scope.households = []
+	currentUser.requireLogin().then () ->
+		name = $routeParams.name
+		ref = new Firebase("#{firebaseURL}/organizations/sra/regions/South%20Africa/areas/#{name}")
+		area = $firebase(ref).$asObject()
+		area.$loaded().then (area) ->
+			Household = (family, members) ->
+				@family = family
+				@members = members
+				return
+			names = Object.keys(area.resources)
+			$scope.households = []
 
 		# var list = []; // Defined, but never used.
-		for family of names
-			members = Object.keys(area.resources[names[family]].members)
-			$scope.households[family] = new Household(names[family], members)
-			return
+			for family of names
+				members = Object.keys(area.resources[names[family]].members)
+				$scope.households[family] = new Household(names[family], members)
+				return
 
 	return
 

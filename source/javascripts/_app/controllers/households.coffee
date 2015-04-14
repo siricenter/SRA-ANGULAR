@@ -1,15 +1,17 @@
 "use strict"
 window.app.controller "HouseholdsIndexController", ( $scope, currentUser, Household ) ->
-	currentUser.currentUser().then ( user ) ->
-		Household.all( 'sra' )
-			.then ( households ) ->
-				$scope.households = households
+	currentUser.requireLogin().then () ->
+		currentUser.currentUser().then ( user ) ->
+			Household.all( 'sra' )
+				.then ( households ) ->
+					$scope.households = households
 
 window.app.controller "ShowHouseholdController", ( $scope, currentUser, $routeParams, Household ) ->
-	currentUser.currentUser().then ( user ) ->
-		Household.find( 'sra', $routeParams.householdId )
-	.then ( household ) ->
-		$scope.household = household
+	currentUser.requireLogin().then () ->
+		currentUser.currentUser().then ( user ) ->
+			Household.find( 'sra', $routeParams.householdId )
+		.then ( household ) ->
+			$scope.household = household
 
 window.app.controller "NewHouseholdController", ( $scope, currentUser, $location, Household, Area, Country ) ->
 	$scope.household = {}
