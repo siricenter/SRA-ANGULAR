@@ -10,7 +10,7 @@
               <h2>{{datapoint.label}}</h2>
               
               <div ng-if= "datapoint.type == 'Text'">
-                <input  type="text">{{option}}</input>
+                <input  type="text" ng-model="responses[question.name][datapoint.label]">{{option}}</input>
               </div>
 
               <div ng-if="datapoint.type == 'List Single Answer'">
