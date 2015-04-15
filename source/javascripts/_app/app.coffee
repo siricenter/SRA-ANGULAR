@@ -94,6 +94,9 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/areas/:areaId",
 		templateUrl: "htmls/areas/show.html"
 		controller: "ShowAreaController"
+	).when("/interview/:household/other",
+		templateUrl: "htmls/interview/index.html"
+		controller: "ResponseSetController"
 	).when("/interview/:household/nutrition",
 		templateUrl: "htmls/interview/nutrition.html"
 		controller: "NutritionController"

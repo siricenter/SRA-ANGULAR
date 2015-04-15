@@ -1,0 +1,32 @@
+<div class="container-fluid turbo-cols-static turbo-grid-wrap">
+<div class="turbo-grid">
+	<!-- ngView:  -->
+	<div class="row ng-scope" rel="panels">
+		<div class="col-md-4" >
+			<div class="turbo-card turbo-toggle">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<div class="panel-title text-center">
+							Available Household Surveys
+						</div>
+					</div>
+					<div class="panel-body no-padding-top">
+						<div class="vpadded">
+							<ul ng-repeat="survey in surveys">
+								<li ng-if="survey.type=='HOUSEHOLD'"><a href = "/interview/{{familyName}}/{{survey.name}}"><button type="button" class="btn btn-primary btn-xs">{{survey.name}}</button></a></li>
+							
+
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

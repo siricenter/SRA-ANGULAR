@@ -1,6 +1,7 @@
-window.app.controller "ResponseSetController", ($scope, $rootScope, $location,$firebase, $routeParams, firebaseURL,currentUser,Household) ->
+window.app.controller "ResponseSetController", ($scope, $rootScope, $location,$firebase, $routeParams, firebaseURL,currentUser,Household,firebase) ->
 	currentUser.requireLogin()
-	id = $routeParams.interview
+	$scope.id = $routeParams.interview
+	$scope.familyName = $routeParams.household
 	Household.find('sra',$routeParams.household).then (data)->
 		for household in data
 			if household != undefined
@@ -10,9 +11,10 @@ window.app.controller "ResponseSetController", ($scope, $rootScope, $location,$f
 	$scope.question = null
 	$scope.multiChoice = null
 	$scope.singleChoice = null
-	$firebase(new Firebase("#{firebaseURL}/organizations/sra/question%20sets")).$asArray().$loaded().then (data) ->
+	ref = "#{firebaseURL}/organizations/sra/question%20sets"
+	firebase.queryArray(ref).then (data) ->
 		for question in data
-			if question.name == id
+			if question.name == $scope.id
 				$scope.question = question
 				
 	$scope.submit = ->
@@ -35,12 +37,12 @@ window.app.controller "ResponseSetController", ($scope, $rootScope, $location,$f
 		ref = new Firebase("#{firebaseURL}/organizations/sra/resources/#{$scope.household.$id}")
 		ref.child('responseSets').set(responseSet)
 
+	ref = "#{firebaseURL}/organizations/sra/question%20sets"
+	firebase.queryArray(ref).then (questions) ->
+		$scope.surveys = questions
+		console.log(questions)
 
-				
 	
-
-			
-
 
 
 
