@@ -97,7 +97,7 @@ window.app.config ( $routeProvider, $locationProvider ) ->
 	).when("/interview/:household/other",
 		templateUrl: "htmls/interview/index.html"
 		controller: "ResponseSetController"
-	).when("/interview/:household/nutrition",
+	).when("/interview/:household/Nutrition",
 		templateUrl: "htmls/interview/nutrition.html"
 		controller: "NutritionController"
 	).when("/interview/:household/:interview",

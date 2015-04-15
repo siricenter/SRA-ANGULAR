@@ -1,4 +1,46 @@
-<h1> Countries </h1>
-<country-panel data-ng-repeat="country in countries" country="country"> 
-</country-panel>
-<a href = "countries/new"><button type="button" class="btn btn-primary btn-lg">New Country</button></a>
+<div class="container-fluid turbo-cols-static turbo-grid-wrap">
+<div class="turbo-grid">
+	<!-- ngView:  -->
+	<a href = "countries/new"><button type="button" class="btn btn-primary btn-lg">New Country</button></a><br/>
+	<div class="row ng-scope" rel="panels">
+		<div class="col-md-4" ng-repeat="country in countries">
+			<div class="turbo-card turbo-toggle">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<div class="panel-title text-center">
+							{{country['name']}}
+						</div>
+					</div>
+					<div class="panel-body no-padding-top">
+						<div class="vpadded">
+							
+							<span>Regions:</span>
+							<ul ng-repeat="region in country.regions">
+								<li>{{region.name}}</li>
+							</ul>
+							<br>
+							
+							<!-- Roles:
+		   <ul>
+		   <li ng-repeat = "role in user.organizations.sra.roles">{{role}}</li>
+		   </ul> -->
+
+		   </ul>
+							</br>
+
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+

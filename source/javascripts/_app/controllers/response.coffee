@@ -11,11 +11,17 @@ window.app.controller "ResponseSetController", ($scope, $rootScope, $location,$f
 	$scope.question = null
 	$scope.multiChoice = null
 	$scope.singleChoice = null
+
 	ref = "#{firebaseURL}/organizations/sra/question%20sets"
 	firebase.queryArray(ref).then (data) ->
 		for question in data
 			if question.name == $scope.id
 				$scope.question = question
+				
+	ref = "#{firebaseURL}/organizations/sra/question%20sets"
+	firebase.queryArray(ref).then (questions) ->
+		$scope.surveys = questions
+		console.log(questions)
 				
 	$scope.submit = ->
 		console.log($scope.responses)
@@ -24,7 +30,6 @@ window.app.controller "ResponseSetController", ($scope, $rootScope, $location,$f
       			delete question['$$hashKey']
       			console.log($scope.responses)
 
-      		
 		survey = $scope.question
 		surveyTitle = survey.name
 		qsetId = survey.qsetId
@@ -37,10 +42,7 @@ window.app.controller "ResponseSetController", ($scope, $rootScope, $location,$f
 		ref = new Firebase("#{firebaseURL}/organizations/sra/resources/#{$scope.household.$id}")
 		ref.child('responseSets').set(responseSet)
 
-	ref = "#{firebaseURL}/organizations/sra/question%20sets"
-	firebase.queryArray(ref).then (questions) ->
-		$scope.surveys = questions
-		console.log(questions)
+	
 
 	
 
