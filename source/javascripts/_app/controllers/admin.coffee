@@ -90,7 +90,9 @@ window.app.controller "EditUsersController", ($scope, $location, $firebase, $rou
 			userref.child("roles").set($scope.user.roles)
 		if $scope.user.areas != undefined
 			userref.child('areas').set($scope.user.areas)
+		$location.path("/users")
 		return
+
 
 	$scope.updateRole = ->
 		roles = $scope.userRoles

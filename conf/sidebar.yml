@@ -39,7 +39,7 @@ regions:
     data-content: |
       Region Management
 areas:
-  text: Areas
+  text: Communities
   icon: "icm icm-office"
   href: /areas
   attrs:
@@ -47,7 +47,7 @@ areas:
     data-container: "body"
     data-placement: "right"
     data-content: |
-      Area Management
+      Community Management
 households:
   text: Households
   icon: "icm icm-home3"
