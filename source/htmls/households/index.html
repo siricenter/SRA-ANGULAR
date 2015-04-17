@@ -1,6 +1,7 @@
 <div class="container-fluid turbo-cols-static turbo-grid-wrap">
 <div class="turbo-grid">
 	<!-- ngView:  -->
+	<a href = "households/new"><button type="button" class="btn btn-primary btn-lg">New Household</button></a>
 	<div class="row ng-scope" rel="panels">
 		<div class="col-md-4" ng-repeat="household in households">
 			<div class="turbo-card turbo-toggle">
@@ -19,16 +20,9 @@
 									<ul>
 										<li>Gender: {{member.gender}}</li>
 										<li>Relationship: {{member.relationship}}</li>
-
-
 							</ul>
 							
 							<br>
-							
-							<!-- Roles:
-		   <ul>
-		   <li ng-repeat = "role in user.organizations.sra.roles">{{role}}</li>
-		   </ul> -->
 
 		   </ul>
 							</br>
@@ -49,6 +43,6 @@
 			</div>
 		</div>
 	</div>
-	<a href = "householdss/new"><button type="button" class="btn btn-primary btn-lg">New Household</button></a>
+	
 </div>
 

@@ -4,6 +4,8 @@
 # It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 # the compiled file.
 #
+# Bower installs will need to be added to the end of this file. May automatically add but needs to be checked.
+#
 #= require jquery
 #= require turbolinks.js/index
 #= require underscore

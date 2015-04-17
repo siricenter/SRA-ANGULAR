@@ -1,6 +1,6 @@
 "use strict"
 
-
+# Bower installs will also need to be added to this list
 window.app = angular.module("sraAngularApp", [
 	"ngAnimate"
 	"ngAria"
