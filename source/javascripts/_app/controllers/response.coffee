@@ -21,7 +21,7 @@ window.app.controller "ResponseSetController", ($scope, $rootScope, $location,$f
 	ref = "#{firebaseURL}/organizations/sra/question%20sets"
 	firebase.queryArray(ref).then (questions) ->
 		$scope.surveys = questions
-		console.log(questions)
+		
 				
 	$scope.submit = ->
 		console.log($scope.responses)

@@ -17,31 +17,31 @@
 									<tbody>
 										<tr>
 											<td>
-												<h5 class="base-header major">TRACKED</h5>
+												<h5 class="base-header major">HOUSEHOLDS</h5>
 											</td>
 											<td class="text-right">
 												<h3 class="base-header text-right">
-													986
+													{{households_amount}}
 												</h3>
 											</td>
 										</tr>
 										<tr>
 											<td>
-												<h5 class="base-header major">VISITS</h5>
+												<h5 class="base-header major">SURVEYS CONDUCTED</h5>
 											</td>
 											<td class="text-right">
 												<h3 class="base-header text-right">
-													693
+													{{questions_amount}}
 												</h3>
 											</td>
 										</tr>
 										<tr>
 											<td>
-												<h5 class="base-header major">CUSTOMERS</h5>
+												<h5 class="base-header major">COMMUNITIES</h5>
 											</td>
 											<td class="text-right">
 												<h3 class="base-header text-right">
-													529
+													{{area_amount}}
 												</h3>
 											</td>
 										</tr>
@@ -66,6 +66,7 @@
 						</div>
 					</div>
 
+
 					<div class="col-sm-7 pull-left-lg no-pull-xs">
 						<div class="panel-heading">
 							<a data-no-turbolink="true" href="#" class="turbo-toggle badge badge-success-lt badge-rounded badge-empty badge-grow"></a>
@@ -86,4 +87,62 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div class="panel panel-default gradient-diag1" id="rid690039f4aa0432318fd14c6e6bd1ea858">  <div class="panel-heading panel-handle panel-colorize">
+        <div class="panel-actions pull-right panel-actions-reveal">
+         <button type="button" class="btn btn-primary btn-xs">New User</button></a><br/>
+        </div>
+    <div class="panel-title">
+      <span class="panel-title-edtitable editable editable-click" data-type="text">
+        Employees<a href = "countries/new">
+      </span>
+    </div>
+  </div>
+  <div class="panel-body-collapse collapse in">
+      <div class="panel-body ">
+
+              <div class="table-responsive">
+          <table class="table">
+  <thead>
+  <tr class="row-mid">
+        <th>
+          <label>
+            
+          </label>
+        </th>
+
+    <th>Name</th>
+        <th>Email</th>
+    <th>Country</th>
+  </tr>
+  </thead>
+  <tbody>
+
+
+      <tr class="row-mid" ng-repeat="user in users">
+
+            <td style="width: 30px">
+              
+            </td>
+
+        <td>
+          {{user.firstName}} {{user.lastName}}
+        </td>
+
+            <td>{{user.email}}</td>
+
+        <td class="text-muted">{{user.country}}</td>
+
+      </tr>
+
+
+
+  </tbody>
+</table>
+
+        </div>
+
+
+      </div>
+  </div>
 </div>

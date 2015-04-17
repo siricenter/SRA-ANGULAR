@@ -21,10 +21,22 @@ window.app.controller "AdminAreasController", ($scope, $location, $firebase, $ro
 			i++
 	return
 
-window.app.controller "AdminDashboardController", ($scope, $rootScope, currentUser) ->
+window.app.controller "AdminDashboardController", ($scope, $rootScope, currentUser,Household, firebase,firebaseURL,Area,User) ->
 	$rootScope.title = "Dashboard"
 
 	currentUser.requireLogin()
+	url = "#{ firebaseURL }/organizations/sra/question%20sets"
+	firebase.queryArray( url ).then (questions)->
+		$scope.questions_amount = questions.length
+	Household.all('sra').then (households)->
+		console.log(households)
+		$scope.households_amount = households.length
+	Area.all('sra').then (areas)->
+		$scope.area_amount = areas.length
+	User.all().then (users)->
+		$scope.users = users
+		console.log(users)
+
 
 	return
 
@@ -34,6 +46,9 @@ window.app.controller "AdminUsersController", ($scope, $rootScope, currentUser, 
 
 	User.all().then (users) ->
 		$scope.users = users
+
+
+
 
 	return
 

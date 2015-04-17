@@ -20,11 +20,6 @@ window.app.controller "CountriesIndexController", ( $scope, Country, currentUser
 				for region in $scope.regions
 					if region.country == country.name
 						country.regions.push(region)
-
-			
-
-				
-
 				
 window.app.controller "ShowCountryController", ( $scope, Country, Region, currentUser, $routeParams ) ->
 	id = $routeParams.countryId
