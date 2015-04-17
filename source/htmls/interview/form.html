@@ -1,7 +1,6 @@
 <div class="panel-body-collapse collapse in">
       <div class="panel-body ">
 
-      "Date","Text","Number","Multi-Choice","Single-Choice"
           <h1>{{question.name}}
           <form role="form" data-ng-submit="submit()">
           <div  ng-repeat="question in question.questions">
@@ -10,7 +9,7 @@
               <h2>{{datapoint.label}}</h2>
               
               <div ng-if= "datapoint.type == 'Text'">
-                <input  type="text" ng-model="responses[question.name][datapoint.label]">{{option}}</input>
+                <input  type="text" ng-model="responses[question.name][datapoint.label][datapoint.type]">{{option}}</input>
               </div>
 
               <div ng-if="datapoint.type == 'List Single Answer'">

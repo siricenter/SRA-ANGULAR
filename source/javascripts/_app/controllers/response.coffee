@@ -24,23 +24,46 @@ window.app.controller "ResponseSetController", ($scope, $rootScope, $location,$f
 		
 				
 	$scope.submit = ->
-		console.log($scope.responses)
-		for answer in $scope.responses
-      		for question in answer.questions
-      			delete question['$$hashKey']
-      			console.log($scope.responses)
+		questionsets = {
+			name:$scope.question.name,
+			qSetId:$scope.question.qSetId,
+			type:$scope.question.type,
+			questions:[]
 
-		survey = $scope.question
-		surveyTitle = survey.name
-		qsetId = survey.qsetId
-		questions = survey.questions
-		responseSet = {
-			
-			answers:$scope.responses 
-		}
+			}
 
+		for key, value of $scope.responses
+			for i in $scope.question.questions
+				if key == i.name
+					data={
+						name:i.name,
+						multiUse:true,
+						dataPoints: []
+					}
+					questionsets.questions.push(data)
+					for k, v of value
+						for j in questionsets.questions
+							data = {
+								label: k,
+								type: Object.keys(v)[0]
+								answers:[]
+							}
+							data.answers.push(v[data.type])
+							j.dataPoints.push(data)
+		console.log(questionsets)
 		ref = new Firebase("#{firebaseURL}/organizations/sra/resources/#{$scope.household.$id}")
-		ref.child('responseSets').set(responseSet)
+		ref.child('interviews').child('0').child('dateCreated').set(Date.now())
+		ref.child('interviews').child('0').child('questionsets').set(questionsets)
+
+				
+						
+
+
+
+			
+      		
+
+		
 
 	
 
